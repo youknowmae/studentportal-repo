@@ -1,0 +1,66 @@
+.rectangle {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    background-color: #f7f7f7;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transition for hover effect */
+    cursor: pointer;
+}
+
+.rectangle:hover {
+    border-color: #31A463; /* Green border color on hover */
+}
+
+.rectangle img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.rectangle .details {
+    flex-grow: 1;
+}
+
+.rectangle .details h5 {
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.rectangle .details p {
+    margin: 0;
+    margin-bottom: 1px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .rectangle img {
+        width: 80px;
+        height: 80px;
+    }
+}
+.rectangle.expanded {
+    flex-direction: column;
+    align-items: center;
+}
+
+.rectangle.expanded img {
+    width: 100%;
+    height: 350px;
+    margin-bottom: 20px;
+}
+
+.rectangle.expanded .details {
+    text-align: left;
+}
+
+.rectangle.expanded .details h5 {
+    margin: 0;
+    margin-bottom: 10px;
+    text-align: center; /* Center the title */
+}

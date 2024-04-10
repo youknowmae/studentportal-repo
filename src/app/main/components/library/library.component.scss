@@ -1,0 +1,104 @@
+btn-icon {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #31A463; /* Green background color */
+    color: #fff; /* White text color for better contrast */
+    border: none; /* Remove default border */
+    margin-top: 20px
+}
+
+.btn-icon:hover {
+    background-color: #28a745; /* Slightly darker green on hover */
+}
+
+.btn-icon i {
+    margin-right: 5px;
+}
+
+.input-group-append .btn {
+    color: black;
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.input-group-append .btn:hover {
+    color: white;
+    background-color: #31A463;
+    border-color: #31A463;
+}
+.custom-mt-50 {
+    margin-top: 50px;
+}
+
+.form-control:focus {
+    border-color: #31A463; /* Change border color to match your design */
+    box-shadow: none; /* Remove the shadow */
+    outline: none; /* Remove the outline */
+}
+
+.square {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+    margin-top: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.square-image {
+    width: 100%;
+    height: 150px;
+}
+
+.square-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.square-text {
+    text-align: left;
+}
+
+.square-button {
+    background-color: #31A463; /* Green background */
+    color: #fff; /* White text */
+    border: none;
+}
+
+.square-button:hover {
+    background-color: #28a745; /* Slightly darker green on hover */
+}
+
+.square:hover {
+    border-color: #31A463; /* Change border color to green on hover */
+}
+.square-text h5, .square-text p {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+.square:hover .square-text h5,
+.square:hover .square-text p {
+    color: #31A463; /* Green text color on hover */
+}
+
+#title {
+    color: #808080; /* Change the color to #808080 */
+    font-size: 1.5em; /* Set the font size to 2.5em */
+    font-weight: 600; /* Set the font weight to 600 */
+    text-transform: uppercase; /* Transform the text to uppercase */
+    letter-spacing: 10px; /* Set the letter spacing to 10px */
+    margin-top: 20px;
+}
+
+
+#title::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #808080; /* You can change the color as needed */
+}
