@@ -7,6 +7,7 @@ import { LibraryComponent } from './components/library/library.component';
 import { HistoryComponent } from './components/history/history.component';
 // import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { ReservationformComponent } from './components/library/reservationform/reservationform.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     LibraryComponent,
     HistoryComponent,
     // DashboardComponent,
-    ProfileComponent
+    ProfileComponent,
+    ReservationformComponent
   ],
   imports: [
     CommonModule,

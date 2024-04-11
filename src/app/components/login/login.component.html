@@ -14,11 +14,11 @@
   <div class="login-container">
     <form action="#" method="post" class="login-form">
       <div class="form-group">
-        <input type="text" name="email" [(ngModel)]="email" required>
+        <input type="email" name="email" placeholder="Enter Domain Email" [(ngModel)]="email" required>
         <label for="email">Domain Email</label>
       </div>
       <div class="form-group">
-        <input [type]="changetype?'password':'text'" name="password" [(ngModel)]="password" required>
+        <input [type]="changetype?'password':'text'" name="password" placeholder="Enter password" [(ngModel)]="password" required>
         <span class="password-toggle-icon" (click)="viewpass()"><i [ngClass]="visible?'fa-regular fa-eye':'fa-regular fa-eye-slash'"></i></span>
         <label for="password">Password</label>
       </div>
