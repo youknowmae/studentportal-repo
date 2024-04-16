@@ -1,42 +1,37 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { AuthenticationService } from '../../authentication-service.service';
 import { Router } from '@angular/router';
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  email: string = '';
+  username: string = '';  // Change from email to username
   password: string = '';
   errorMessage: string = '';
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private authService: AuthenticationService, private router: Router) { }
 
-  
   login() {
-    const credentials = { username: this.email, password: this.password };
+    const credentials = { username: this.username, password: this.password };  // Update here
 
-    this.http.post<any>('http://127.0.0.1:8000/api/login/student', credentials)
-      .subscribe(
-        response => {
-          console.log('Login successful:', response);
-          console.log(response.token) //save nyo nlang yung token and department
-          console.log(response.department)
-          this.router.navigate(['/main']); // Redirect to /main upon successful login
-        },
-        error => {
-          console.error('Login error:', error);
-          this.errorMessage = error.error.message;
-        }
-      );
+    this.authService.login(credentials).subscribe(
+      response => {
+        console.log('Login successful:', response);
+        this.router.navigate(['/main']);
+      },
+      error => {
+        console.error('Login error:', error);
+        this.errorMessage = error.error.message;
+      }
+    );
   }
 
-  visible:boolean = true;
-  changetype:boolean = true;
+  visible: boolean = true;
+  changetype: boolean = true;
 
-  viewpass(){
+  viewpass() {
     this.visible = !this.visible;
     this.changetype = !this.changetype;
   }
