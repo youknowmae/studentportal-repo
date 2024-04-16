@@ -57,7 +57,6 @@
     padding: 15px;
     border: 1px solid #31A463;
     border-radius: 5px;
-    transition: border-color 0.3s ease;
 }
 .form-group input:focus {
     outline: none;
@@ -65,20 +64,13 @@
 }
 .form-group label {
     position: absolute;
-    top: 0;
+    bottom: 35px;
     left: 10px;
     padding: 5px;
     background-color: #fff;
     color: #555;
-    font-size: 14px;
+    font-size: 13px;
     pointer-events: none;
-    transition: top 0.3s ease, left 0.3s ease, font-size 0.3s ease;
-}
-.form-group input:focus ~ label,
-.form-group input:not(:placeholder-shown) ~ label {
-    top: -10px;
-    left: 5px;
-    font-size: 12px;
 }
 .form-group span {
     position: absolute;
@@ -88,9 +80,9 @@
 .form-group span i {
     position: absolute;
     right: 5px;
-    transition: 0.3s ease-in-out;
 }
 .btn {
+    cursor: pointer;
     width: 100%;
     border: none;
     padding: 15px;
@@ -120,4 +112,8 @@
     bottom: 65%;
     left: 45.5%;
     
+}
+
+span{
+    cursor: pointer;
 }
