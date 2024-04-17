@@ -1,0 +1,68 @@
+<!-- Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
+<div class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+    <div class="container mt-4">
+        <div class="row">
+
+            <!-- Display Articles -->
+            <div *ngFor="let article of articles" class="col-md-4">
+                <div class="square">
+                    <img [src]="article.image_url || 'https://via.placeholder.com/120'" alt="Image" class="square-image">
+                    <div class="square-content">
+                        <div class="square-text">
+                            <p>{{ article.title }}</p>
+                            <p>{{ article.author }}</p>
+                        </div>
+                        <button class="btn btn-success square-button">Review</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Display Books -->
+            <div *ngFor="let book of books" class="col-md-4">
+                <div class="square">
+                    <img [src]="book.image_url || 'https://via.placeholder.com/120'" alt="Image" class="square-image">
+                    <div class="square-content">
+                        <div class="square-text">
+                            <p>{{ book.title }}</p>
+                            <p>{{ book.author }}</p>
+                        </div>
+                        <button class="btn btn-success square-button">Review</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Display Periodicals -->
+            <div *ngFor="let periodical of periodicals" class="col-md-4">
+                <div class="square">
+                    <img [src]="periodical.image_url || 'https://via.placeholder.com/120'" alt="Image" class="square-image">
+                    <div class="square-content">
+                        <div class="square-text">
+                            <p>{{ periodical.title }}</p>
+                            <p>{{ periodical.author }}</p>
+                        </div>
+                        <button class="btn btn-success square-button">Review</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Display Projects -->
+            <div *ngFor="let project of projects" class="col-md-4">
+                <div class="square">
+                    <img [src]="project.image_url || 'https://via.placeholder.com/120'" alt="Image" class="square-image">
+                    <div class="square-content">
+                        <div class="square-text">
+                            <p>{{ project.title }}</p>
+                            <p>{{ project.author }}</p>
+                        </div>
+                        <button class="btn btn-success square-button">Review</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
