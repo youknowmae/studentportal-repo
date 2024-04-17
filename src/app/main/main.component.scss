@@ -43,6 +43,10 @@
     padding: 20px;
 }
 
+.router-link-active {
+    color: #31A463; // Change the color to indicate active state
+}
+
 $green-background: #31A463;
 $green-background-hover: #28a745;
 $border-color-hover: #31A463;
