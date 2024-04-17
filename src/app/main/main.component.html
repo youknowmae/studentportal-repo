@@ -3,6 +3,30 @@
 <!-- Font Awesome -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
 
+<!-- White Plain Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <div class="row">
+            <div>
+                <button class="btn btn-block btn-icon"><i class="fa fa-book"></i> Books</button>
+            </div>
+            <div>
+                <button class="btn btn-block btn-icon"><i class="fa fa-newspaper-o"></i> Article</button>
+            </div>
+            <div class="row custom-mt-50">
+                <div class="col-md-6 mx-auto">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-success" type="button"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
 <div class="connectside">
     <router-outlet></router-outlet>
 </div>
@@ -17,7 +41,7 @@
         <hr>
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="['dashboard']" routerLinkActive="router-link-active" >
+                <a class="nav-link active" [routerLink]="['dashboard']" routerLinkActive="router-link-active" >
                     <i class="fas fa-tachometer-alt"></i> Dashboard
                 </a>
             </li>
