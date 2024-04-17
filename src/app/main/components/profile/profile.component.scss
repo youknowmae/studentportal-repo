@@ -1,18 +1,29 @@
 * {
  font-family: 'Poppins', sans-serif;
 }
+
 .flex-container {
     display: flex;
     justify-content: flex-end;
     flex-wrap: wrap;
 }
 
+.container1{
+}
+
+.square-image1 {
+    width: 50%;
+    height: auto;
+    margin-top: 40px;
+    margin-left: 90px;
+}
+
+
 .one {
     margin-top: 30px;
-    margin-right: 30px;
-    width: 50%;
+    width: 100%; /* Adjusted to be responsive */
     border-collapse: collapse;
-    border-left: 5px solid #31A463 ;
+    border-left: 5px solid #31A463;
 }
 
 .one td {
@@ -21,19 +32,51 @@
     text-align: left;
 }
 
-.one tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
 .square {
-    border: 1px solid #ccc;
+    border-bottom: 4px solid #31A463;
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
     padding: 15px;
-    margin-bottom: 20px;
     text-align: center;
     margin-top: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
+
+.option-button {
+    cursor: pointer;
+    color: #333;
+    position: relative; /* Ensure the pseudo-element is positioned relative to this element */
+    transition: color 0.3s ease;
+    padding-bottom: 10px;
+}
+
+.option-button::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px; /* Height of the border */
+    background-color: #31A463; /* Green color */
+    transition: width 0.3s ease;
+}
+
+.option-button:hover {
+    color: #31A463; /* Green color on hover */
+}
+
+.option-button:hover::after {
+    width: 100%; /* Full width of the text on hover */
+}
+
+.option-button.active {
+    color: #31A463; /* Green color when active */
+    border-bottom: 2px solid #31A463; /* Green border bottom when active */
+}
+
 
 .square-image {
     width: 100%;
@@ -52,129 +95,64 @@
 }
 
 .square-button {
-    background-color: #31A463; /* Green background */
-    color: #fff; /* White text */
+    background-color: #31A463;
+    color: #fff;
     border: none;
 }
 
 .square-button:hover {
-    background-color: #28a745; /* Slightly darker green on hover */
+    background-color: #28a745;
 }
 
 .square:hover {
-    border-color: #31A463; /* Change border color to green on hover */
+    border-color: #31A463;
 }
 
 .square-text h5, .square-text p {
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
+    margin: 0;
+    padding: 0;
 }
 
 .square:hover .square-text h5,
 .square:hover .square-text p {
-    color: #31A463; /* Green text color on hover */
+    color: #31A463;
 }
 
-#title {
-    color: #808080; /* Change the color to #808080 */
-    font-size: 1.5em; /* Set the font size to 2.5em */
-    font-weight: 600; /* Set the font weight to 600 */
-    text-transform: uppercase; /* Transform the text to uppercase */
-    letter-spacing: 10px; /* Set the letter spacing to 10px */
-    margin-top: 20px;
+.title{
+    color: #31A463;
 }
-
-#title::after {
-    content: "";
-    display: block;
+table {
     width: 100%;
-    height: 2px;
-    background-color: #808080; /* You can change the color as needed */
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-size: 14px;
+    table-layout: fixed;
 }
 
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-bottom: 20px;
-        font-size: 14px;
-        table-layout: fixed; /* Fixed table layout */
-    }
+th, td {
+    width: 20%;
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
 
-    th, td {
-        width: 20%; /* Example width for each column */
-        border: 1px solid #e0e0e0;
-        padding: 10px;
-        text-align: left;
-        overflow: hidden; /* Hide overflowing content */
-        white-space: nowrap; /* Prevent text from wrapping */
-        text-overflow: ellipsis; /* Use ellipsis for overflowing text */
-    }
+th {
+    background-color: #f5f5f5;
+    color: #333;
+    font-weight: 500;
+}
 
-    th {
-        background-color: #f5f5f5;
-        color: #333;
-        font-weight: 500;
-    }
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
 
-    tr:nth-child(even) {
-        background-color: #f9f9f9;
-    }
+tr:hover {
+    background-color: #f0f0f0;
+}
 
-    tr:hover {
-        background-color: #f0f0f0;
-    }
-
-    .table-responsive {
-        overflow-x: auto;
-    }
-
-    .title {
-        text-align: left;
-        margin-bottom: 30px;
-        padding-left: 50px;
-    }
-
-    .title h1 {
-        color: #808080;
-        font-size: 2.5em;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 10px;
-    }
-
-    @media (max-width: 768px) {
-        table, thead, tbody, th, td, tr {
-            display: block;
-        }
-        thead tr {
-            position: absolute;
-            top: -9999px;
-            left: -9999px;
-        }
-        tr {
-            margin-bottom: 1rem;
-        }
-        td {
-            border: none;
-            border-bottom: 1px solid #eee;
-            position: relative;
-            padding-left: 50%;
-        }
-        td:before {
-            position: absolute;
-            top: 6px;
-            left: 6px;
-            width: 45%;
-            padding-right: 10px;
-            white-space: nowrap;
-        }
-        td:nth-of-type(1):before { content: "Type"; }
-        td:nth-of-type(2):before { content: "Title"; }
-        td:nth-of-type(3):before { content: "Borrowed Date"; }
-        td:nth-of-type(4):before { content: "Date Returning"; }
-        td:nth-of-type(5):before { content: "Fined"; }
-        table img {
-            max-width: 100%;
-            height: auto;
-        }
-    }
+.table-responsive {
+    overflow-x: auto;
+}

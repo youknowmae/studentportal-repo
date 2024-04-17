@@ -37,7 +37,10 @@ btn-icon {
 }
 
 .square {
-    border: 1px solid #ccc;
+    border-bottom: 4px solid #31A463;
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
     padding: 15px;
     margin-bottom: 20px;
     text-align: center;

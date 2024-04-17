@@ -35,8 +35,13 @@
     }
 }
 
+.router-link-active {
+    color: #31A463;
+}
+
 .navbar-custom {
-    height: 1000px; /* Adjust the height as needed */
+    height: 50x;
+    background-color: #31A463;
 }
 
 .container {
@@ -44,7 +49,7 @@
 }
 
 .router-link-active {
-    color: #31A463; // Change the color to indicate active state
+    color: #31A463;
 }
 
 $green-background: #31A463;
