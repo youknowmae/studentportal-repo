@@ -4,12 +4,13 @@ import { CommonModule } from '@angular/common';
 import { LibraryRoutingModule } from './library-routing.module';
 import { LibraryComponent } from './library.component';
 import { InsidebookComponent } from './components/insidebook/insidebook.component';
+import { BooksComponent } from './components/books/books.component';
 
 
 @NgModule({
   declarations: [
-    LibraryComponent,
-    InsidebookComponent
+    InsidebookComponent,
+    BooksComponent
   ],
   imports: [
     CommonModule,

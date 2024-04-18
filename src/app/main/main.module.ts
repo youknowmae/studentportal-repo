@@ -6,6 +6,7 @@ import { AnnouncementComponent } from './components/announcement/announcement.co
 import { LibraryComponent } from './components/library/library.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { LibraryModule } from './components/library/library.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ProfileComponent } from './components/profile/profile.component';
   ],
   imports: [
     CommonModule,
-    MainRoutingModule
+    MainRoutingModule,
+    LibraryModule
   ]
 })
 export class MainModule { }
