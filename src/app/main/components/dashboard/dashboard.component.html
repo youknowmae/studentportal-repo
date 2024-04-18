@@ -1,76 +1,112 @@
-<!-- Bootstrap CSS -->
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-<!-- Font Awesome -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
-<!-- White Plain Navbar -->
-<div class="input-group">
-    <input type="text" class="form-control" placeholder="Search">
-    <div class="input-group-append">
-        <button class="btn btn-outline-success" type="button"><i class="fa fa-search"></i></button>
-    </div>
-</div>
-
-<div class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-    <div class="container mt-4">
-        <div class="row">
-
-            <!-- Display Articles -->
-            <div *ngFor="let article of articles" class="col-md-4">
-                <div class="square">
-                    <img [src]="article.image_url || 'https://via.placeholder.com/120'" alt="Image" class="square-image">
-                    <div class="square-content">
-                        <div class="square-text">
-                            <p>{{ article.title }}</p>
-                            <p>{{ article.author }}</p>
-                        </div>
-                        <button class="btn btn-success square-button">Review</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Display Books -->
-            <div *ngFor="let book of books" class="col-md-4">
-                <div class="square">
-                    <img [src]="book.image_url || 'https://via.placeholder.com/120'" alt="Image" class="square-image">
-                    <div class="square-content">
-                        <div class="square-text">
-                            <p>{{ book.title }}</p>
-                            <p>{{ book.author }}</p>
-                        </div>
-                        <button class="btn btn-success square-button">Review</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Display Periodicals -->
-            <div *ngFor="let periodical of periodicals" class="col-md-4">
-                <div class="square">
-                    <img [src]="periodical.image_url || 'https://via.placeholder.com/120'" alt="Image" class="square-image">
-                    <div class="square-content">
-                        <div class="square-text">
-                            <p>{{ periodical.title }}</p>
-                            <p>{{ periodical.author }}</p>
-                        </div>
-                        <button class="btn btn-success square-button">Review</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Display Projects -->
-            <div *ngFor="let project of projects" class="col-md-4">
-                <div class="square">
-                    <img [src]="project.image_url || 'https://via.placeholder.com/120'" alt="Image" class="square-image">
-                    <div class="square-content">
-                        <div class="square-text">
-                            <p>{{ project.title }}</p>
-                            <p>{{ project.author }}</p>
-                        </div>
-                        <button class="btn btn-success square-button">Review</button>
-                    </div>
-                </div>
-            </div>
-
+<div class="container">
+<!-- Search bar with icon on the right -->
+<div class="row custom-mt-50">
+<div class="col-md-6 mx-auto">
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search">
+        <div class="input-group-append">
+            <button class="btn btn-outline-success" type="button"><i class="fa fa-search"></i></button>
         </div>
     </div>
 </div>
+</div>
+
+<div class="container">
+<div class="row">
+    <div class="title col-md-12">
+        <br><br>
+        <h4><i class="fa fa-book"></i> Capstone</h4>
+        <hr>
+    </div>
+    <!-- Square 1 -->
+    <div class="col-md-4">
+        <div class="square">
+            <img src="assets/images/example5.png" alt="Image" class="square-image">
+            <div class="square-content">
+                <div class="square-text">
+                    <p>Title 1</p>
+                    <p>Author 1</p>
+                </div>
+                <button class="btn btn-success square-button"> Review</button>
+            </div>
+        </div>
+    </div>
+    <!-- Square 2 -->
+    <div class="col-md-4">
+        <div class="square">
+            <img src="assets/images/example6.png" alt="Image" class="square-image">
+            <div class="square-content">
+                <div class="square-text">
+                    <p>Title 2</p>
+                    <p>Author 2</p>
+                </div>
+                <button class="btn btn-success square-button"> Review</button>
+            </div>
+        </div>
+    </div>
+    <!-- Square 3 -->
+    <div class="col-md-4">
+        <div class="square">
+            <img src="assets/images/example7.png" alt="Image" class="square-image">
+            <div class="square-content">
+                <div class="square-text">
+                    <p>Title 3</p>
+                    <p>Author 3</p>
+                </div>
+                <button class="btn btn-success square-button"> Review</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="title col-md-12">
+        <br><br>
+        <h4><i class="fa fa-book"></i> Thesis</h4>
+        <hr>
+    </div>
+
+    <!-- Square 4 -->
+    <div class="col-md-4">
+        <div class="square">
+            <img src="assets/images/example8.png" alt="Image" class="square-image">
+            <div class="square-content">
+                <div class="square-text">
+                    <p>Title 4</p>
+                    <p>Author 4</p>
+                </div>
+                <button class="btn btn-success square-button"> Review</button>
+            </div>
+        </div>
+    </div>
+    <!-- Square 5 -->
+    <div class="col-md-4">
+        <div class="square">
+            <img src="assets/images/example9.png" alt="Image" class="square-image">
+            <div class="square-content">
+                <div class="square-text">
+                    <p>Title 5</p>
+                    <p>Author 5</p>
+                </div>
+                <button class="btn btn-success square-button"> Review</button>
+            </div>
+        </div>
+    </div>
+    <!-- Square 6 -->
+    <div class="col-md-4">
+        <div class="square">
+            <img src="assets/images/example5.png" alt="Image" class="square-image">
+            <div class="square-content">
+                <div class="square-text">
+                    <p>Title 6</p>
+                    <p>Author 6</p>
+                </div>
+                <button class="btn btn-success square-button"> Review</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<br><br>
