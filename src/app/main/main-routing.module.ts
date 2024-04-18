@@ -10,8 +10,16 @@ const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'announcement', component: AnnouncementComponent },
-  { path: 'library', component: LibraryComponent },
-  { path: 'profile', component: ProfileComponent }];
+  { path: 'profile', component: ProfileComponent },
+  { 
+    path: 'library', 
+    component: LibraryComponent,
+    children: [{
+      path: '',
+      loadChildren: ()=>import('./components/library/library.module').then((m)=>m.LibraryModule)
+    }]
+  }];
+  
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
