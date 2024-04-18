@@ -7,6 +7,7 @@ import { LibraryComponent } from './components/library/library.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ReservationformComponent } from './components/library/reservationform/reservationform.component';
+import { InsidebookComponent } from './components/library/insidebook/insidebook.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ReservationformComponent } from './components/library/reservationform/r
     LibraryComponent,
     ProfileComponent,
     ReservationformComponent,
-    DashboardComponent
+    DashboardComponent,
+    InsidebookComponent
   ],
   imports: [
     CommonModule,
