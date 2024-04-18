@@ -1,3 +1,11 @@
+.container1{
+    border: 1px solid #ccc;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
 btn-icon {
     padding: 10px 20px;
     font-size: 18px;
@@ -31,7 +39,7 @@ btn-icon {
     border-color: #31A463;
 }
 .custom-mt-50 {
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 .form-control:focus {
@@ -41,16 +49,14 @@ btn-icon {
 }
 
 .square {
-    border-bottom: 4px solid #31A463;
-    border-top: 1px solid #ccc;
-    border-right: 1px solid #ccc;
-    border-left: 1px solid #ccc;
+    border: 1px solid #ccc;
     padding: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     text-align: center;
     margin-top: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
 
 .square-image {

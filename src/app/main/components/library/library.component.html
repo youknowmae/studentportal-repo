@@ -4,25 +4,26 @@
 <div class="container">
     <!-- Rectangle buttons with icons -->
     <div class="row">
-        <div class="col-md-4">
-            <button class="btn btn-block btn-icon" [routerLink]="['books']" routerLinkActive="router-link-active"  ><i class="fa fa-book"></i> Books</button>
+        <div class="col-md-5">
+            <div class="row buttons">
+                <div class="col-md-4">
+                    <button class="btn btn-block btn-icon" [routerLink]="['books']" routerLinkActive="router-link-active"> Books</button>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-block btn-icon" [routerLink]="['articles']" routerLinkActive="router-link-active"> Article</button>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-block btn-icon" [routerLink]="['periodicals']" routerLinkActive="router-link-active"> Periodical</button>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4">
-            <button class="btn btn-block btn-icon" [routerLink]="['articles']" routerLinkActive="router-link-active" ><i class="fa fa-newspaper-o"></i> Article</button>
-        </div>
-        <div class="col-md-4">
-            <button class="btn btn-block btn-icon" [routerLink]="['periodicals']" routerLinkActive="router-link-active" ><i class="fa fa-file-text-o"></i> Periodical</button>
-        </div>
-    </div>
-</div>
-
-<!-- Search bar with icon on the right -->
-<div class="row custom-mt-50">
-    <div class="col-md-6 mx-auto">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search">
-            <div class="input-group-append">
-                <button class="btn btn-outline-success" type="button"><i class="fa fa-search"></i></button>
+        <div class="col-md-7">
+            <!-- Search bar with icon on the right -->
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-success" type="button"><i class="fa fa-search"></i></button>
+                </div>
             </div>
         </div>
     </div>
