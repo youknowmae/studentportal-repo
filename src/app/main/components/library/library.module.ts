@@ -5,12 +5,16 @@ import { LibraryRoutingModule } from './library-routing.module';
 import { LibraryComponent } from './library.component';
 import { InsidebookComponent } from './components/insidebook/insidebook.component';
 import { BooksComponent } from './components/books/books.component';
+import { ArticlesComponent } from './components/articles/articles.component';
+import { PeriodicalsComponent } from './components/periodicals/periodicals.component';
 
 
 @NgModule({
   declarations: [
     InsidebookComponent,
-    BooksComponent
+    BooksComponent,
+    ArticlesComponent,
+    PeriodicalsComponent
   ],
   imports: [
     CommonModule,
