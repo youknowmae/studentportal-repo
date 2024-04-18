@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './library.component.scss'
 })
 export class LibraryComponent {
-
+  review() {
+    
+  }
 }
