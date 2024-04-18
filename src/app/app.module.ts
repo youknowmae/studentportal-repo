@@ -7,7 +7,6 @@ import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './main/main.component';
 import { MainModule } from './main/main.module';
 import { FormsModule } from '@angular/forms';
-import { HistoryComponent } from './history/history.component';
 
 
 @NgModule({
@@ -15,7 +14,6 @@ import { HistoryComponent } from './history/history.component';
     AppComponent,
     LoginComponent,
     MainComponent,
-    HistoryComponent
   ],
   imports: [
     BrowserModule,
