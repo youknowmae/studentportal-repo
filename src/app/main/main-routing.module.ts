@@ -10,7 +10,14 @@ const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'announcement', component: AnnouncementComponent },
-  { path: 'profile', component: ProfileComponent },
+  { 
+    path: 'profile', 
+    component: ProfileComponent,
+    children: [{
+      path: '',
+      loadChildren: ()=>import('./components/profile/profile.module').then((m)=>m.ProfileModule)
+    }]
+  },
   { 
     path: 'library', 
     component: LibraryComponent,

@@ -7,6 +7,7 @@ import { LibraryComponent } from './components/library/library.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { LibraryModule } from './components/library/library.module';
+import { ProfileModule } from './components/profile/profile.module';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { LibraryModule } from './components/library/library.module';
   imports: [
     CommonModule,
     MainRoutingModule,
-    LibraryModule
+    LibraryModule,
+    ProfileModule
   ]
 })
 export class MainModule { }
