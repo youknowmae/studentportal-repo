@@ -1,15 +1,13 @@
 .container {
     position: relative;
     left: 0;
-    top: 45px;
+    top: 20px;
+    bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 1200px;
+    width: 1000px;
     height: 590px;
-}
-.box{
-    margin-bottom: 70px;
 }
 .back-icon {
     position: absolute;
@@ -54,8 +52,8 @@
 }
 .info {
     position: absolute;
-    right: 510px;
-    top: 13%;
+    right: 360px;
+    top: 15%;
 }
 .info p {
     padding: 2px 0 2px 0;
