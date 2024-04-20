@@ -1,151 +1,85 @@
-* {
-    font-family: 'Poppins', sans-serif;
+.container{
+    padding: 40px;
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-.flex-container {
+.reminder{
+  font-size: 13px;
+  cursor: pointer;
+}
+.square:hover .reminder p{
+  color: #faba32;
+}
+.square {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.square-image {
+    width: 100%;
+    height: 150px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.square-content {
     display: flex;
-    justify-content: flex-end;
-    flex-wrap: wrap;
-}   
-.square-image1 {
-    width: 50%;
-    height: auto;
-    margin-top: 40px;
-    margin-left: 90px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
 }
-   .one {
-       margin-top: 30px;
-       width: 100%; /* Adjusted to be responsive */
-       border-collapse: collapse;
-       border-left: 5px solid #31A463;
-   }
-   
-   .one td {
-       border: 1px solid #ddd;
-       padding: 8px;
-       text-align: left;
-   }
-   
-   .square {
-       border-bottom: 4px solid #31A463;
-       border-top: 1px solid #ccc;
-       border-right: 1px solid #ccc;
-       border-left: 1px solid #ccc;
-       padding: 15px;
-       text-align: center;
-       margin-top: 30px;
-       border-radius: 10px;
-       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-       cursor: pointer;
-   }
-   
-   .option-button {
-       cursor: pointer;
-       color: #333;
-       position: relative; /* Ensure the pseudo-element is positioned relative to this element */
-       transition: color 0.3s ease;
-       padding-bottom: 10px;
-   }
-   
-   .option-button::after {
-       content: "";
-       position: absolute;
-       bottom: 0;
-       left: 0;
-       width: 0;
-       height: 2px; /* Height of the border */
-       background-color: #31A463; /* Green color */
-       transition: width 0.3s ease;
-   }
-   
-   .option-button:hover {
-       color: #31A463; /* Green color on hover */
-   }
-   
-   .option-button:hover::after {
-       width: 100%; /* Full width of the text on hover */
-   }
-   
-   .option-button.active {
-       color: #31A463; /* Green color when active */
-       border-bottom: 2px solid #31A463; /* Green border bottom when active */
-   }
-   
-   
-   .square-image {
-       width: 100%;
-       height: 150px;
-   }
-   
-   .square-content {
-       display: flex;
-       justify-content: space-between;
-       align-items: center;
-       margin-top: 10px;
-   }
-   
-   .square-text {
-       text-align: left;
-   }
-   
-   .square-button {
-       background-color: #31A463;
-       color: #fff;
-       border: none;
-   }
-   
-   .square-button:hover {
-       background-color: #28a745;
-   }
-   
-   .square:hover {
-       border-color: #31A463;
-   }
-   
-   .square-text h5, .square-text p {
-       margin: 0;
-       padding: 0;
-   }
-   
-   .square:hover .square-text h5,
-   .square:hover .square-text p {
-       color: #31A463;
-   }
-   
-   .title{
-       color: #31A463;
-   }
-   table {
-       width: 100%;
-       border-collapse: collapse;
-       margin-bottom: 20px;
-       font-size: 14px;
-       table-layout: fixed;
-   }
-   
-   th, td {
-       width: 20%;
-       border: 1px solid #e0e0e0;
-       padding: 10px;
-       text-align: left;
-       overflow: hidden;
-       white-space: nowrap;
-       text-overflow: ellipsis;
-   }
-   
-   th {
-       background-color: #f5f5f5;
-       color: #333;
-       font-weight: 500;
-   }
-   
-   tr:nth-child(even) {
-       background-color: #f9f9f9;
-   }
-   
-   tr:hover {
-       background-color: #f0f0f0;
-   }
-   
-   .table-responsive {
-       overflow-x: auto;
-   }
+.square-text {
+    text-align: left;
+}
+.square:hover {
+    border-color: #31A463;
+}
+.square-text h5, .square-text p {
+    margin: 0;
+    padding: 0;
+}
+.square:hover .square-text h5,
+.square:hover .square-text p{
+    color: #31A463;
+}
+.button-52 {
+  font-size: 12px;
+  font-weight: 100;
+  letter-spacing: 1px;
+  padding: 5px 5px 5px;
+  outline: 0;
+  border: 1px solid black;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.button-52:after {
+  content: "";
+  background-color: #31A463;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+  transition: 0.2s;
+}
+.button-52:hover:after {
+  top: 0px;
+  left: 0px;
+}
+@media (min-width: 768px) {
+  .button-52 {
+    padding: 6px 15px 6px;
+  }
+}
+

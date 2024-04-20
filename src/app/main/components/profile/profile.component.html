@@ -37,15 +37,23 @@
                 </table>
             </div>
         </div>
-        <br><br><br>
+
+<br><br><br><hr><br>
         
-<div class="container-button">
-    <div class="row">
-        <button class="borrowed" [routerLink]="['borrowed']" routerLinkActive="router-link-active" >Borrowed</button>
-        <button class="reserved" [routerLink]="['reserved']" routerLinkActive="router-link-active" >Reserved</button>
-        <button class="history" [routerLink]="['history']" routerLinkActive="router-link-active" >History</button>
-    </div>
-</div>
+        <div class="option d-flex justify-content-center">
+            <div class="row">
+                <div class="col-md-4">
+                    <button class="btn btn-block btn-icon" [routerLink]="['borrowed']" routerLinkActive="router-link-active"> Borrowed</button>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-block btn-icon" [routerLink]="['reserved']" routerLinkActive="router-link-active"> Reserved</button>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-block btn-icon" [routerLink]="['history']" routerLinkActive="router-link-active"> History</button>
+                </div>
+            </div>
+        </div>
+        
 
 <div class="connection">
     <router-outlet></router-outlet>
