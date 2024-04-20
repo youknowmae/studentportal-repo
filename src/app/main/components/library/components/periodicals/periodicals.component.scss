@@ -7,41 +7,41 @@
   margin-bottom: 20px;
 }
 .square {
-  display: flex; /* Make the square a flex container */
+  display: flex;
   border: 1px solid #ccc;
-  margin-bottom: 20px;
   text-align: center;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
 .square-image {
-  width: 150px; /* Adjust the width as needed */
+  width: 150px;
   height: 200px;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
-  margin-right: 15px; /* Add some space between the image and the text */
+  margin-right: 15px;
 }
 .square-content {
   display: flex;
-  flex-direction: column; /* Stack the text and button vertically */
+  flex-direction: column;
   justify-content: space-between;
-  align-items: flex-start; /* Align items to the start of the container */
-  width: 100%; /* Take up the remaining space */
+  align-items: flex-start;
+  width: 100%;
 }
 .square-text {
   text-align: left;
   padding-top: 15px;
 }
 .square:hover {
-    border-color: #31A463; /* Change border color to green on hover */
+    border-color: #31A463;
 }
 .square-text h5, .square-text p {
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
+    margin: 0;
+    padding: 0;
 }
 .square:hover .square-text h5,
 .square:hover .square-text p {
-    color: #31A463; /* Green text color on hover */
+    color: #31A463;
 }
 .button-52 {
   font-size: 12px;
