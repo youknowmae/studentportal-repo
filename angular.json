@@ -103,12 +103,10 @@
               "src/assets"
             ],
             "styles": [
-              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss",
               "node_module/cropperjs/dist/cropper.css"
             ],
             "scripts": [
-              "node_module/cropperjs/dist/cropper.js"
             ]
           }
         }

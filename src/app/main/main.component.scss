@@ -130,12 +130,12 @@ $white-text: #fff;
     border: none;
     padding: 5px 20px;
     font-size: 12px;
-    margin-right: 10px; // Add space between buttons
-    margin-left: 18px; // Add space between buttons
+    margin-right: 10px;
+    margin-left: 18px;
     padding-left: 90;
 
     &:hover {
-        background-color: $green-background-hover; // Slightly darker green on hover
+        background-color: $green-background-hover;
     }
 
     i {
