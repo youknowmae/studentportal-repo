@@ -34,4 +34,8 @@ export class ApiService {
   getProjects() {
     return this.http.get<any[]>(`${this.apiUrl}/projects`, { headers: this.getHeaders() });
   }
+
+  getBookById(id: number) {
+    return this.http.get<any>(`${this.apiUrl}/books/${id}`, { headers: this.getHeaders() });
+  }
 }
