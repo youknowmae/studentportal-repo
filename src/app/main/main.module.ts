@@ -21,7 +21,7 @@ import { ProfileModule } from './components/profile/profile.module';
     CommonModule,
     MainRoutingModule,
     LibraryModule,
-    ProfileModule
+    ProfileModule,
   ]
 })
 export class MainModule { }
