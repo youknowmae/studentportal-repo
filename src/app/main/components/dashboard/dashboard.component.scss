@@ -1,69 +1,33 @@
-.container1{
-    border: 1px solid #ccc;
+.container{
     padding: 40px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
 }
-.input-group-append .btn {
-    color: black;
-    background-color: #28a745;
-    border-color: #28a745;
-}
-
-.input-group-append .btn:hover {
-    color: white;
-    background-color: #31A463;
-    border-color: #31A463;
-}
-.custom-mt-50 {
-    margin-top: 30px;
-}
-
-.form-control:focus {
-    border-color: #31A463;
-    box-shadow: none;
-    outline: none;
-}
-
 .square {
     border: 1px solid #ccc;
     padding: 15px;
-    margin-bottom: 20px;
     text-align: center;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
+    margin-bottom: 20px
 }
-
 .square-image {
     width: 100%;
     height: 150px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
-
 .square-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 10px;
 }
-
 .square-text {
     text-align: left;
 }
-
-.square-button {
-    background-color: #31A463;
-    color: #fff;
-    border: none;
-}
-
-.square-button:hover {
-    background-color: #28a745;
-}
-
 .square:hover {
     border-color: #31A463;
 }
@@ -71,12 +35,10 @@
     margin: 0;
     padding: 0;
 }
-
 .square:hover .square-text h5,
 .square:hover .square-text p {
     color: #31A463;
 }
-
 .button-52 {
   font-size: 12px;
   font-weight: 100;
@@ -110,4 +72,43 @@
   .button-52 {
     padding: 6px 15px 6px;
   }
+}
+.btn-icon {
+    padding: 7px 10px 10px 10px;
+    font-size: 12px;
+    background-color: transparent;
+    color: #000;
+    text-decoration: none;
+    border: 2px solid #31A463;
+    transition: background-color 0.3s ease;
+    margin-right: 50px;
+}
+.btn-icon:active, .btn-icon:focus {
+    background-color: #31A463;
+    border-color: #31A463;
+    color: #fff;
+}
+.btn-icon i {
+    margin-right: 5px;
+}
+.input-group-append .btn {
+    color: black;
+    background-color: #28a745;
+    border-color: #28a745;
+}
+.input-group-append .btn:hover {
+    color: white;
+    background-color: #31A463;
+    border-color: #31A463;
+}
+.custom-mt-50 {
+    margin-top: 50px;
+}
+.form-control:focus {
+    border-color: #31A463;
+    box-shadow: none;
+    outline: none;
+}
+option{
+    padding-top: 20px;
 }
