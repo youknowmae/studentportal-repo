@@ -14,6 +14,8 @@ const routes: Routes = [
   { path: 'profile', loadChildren: () => import('./main/components/profile/profile.module').then(m => m.ProfileModule) },
   { path: 'periodicals', loadChildren: () => import('./main/components/library/components/periodicals/periodicals.module').then(m => m.PeriodicalsModule) },
   { path: 'articles', loadChildren: () => import('./main/components/library/components/articles/articles.module').then(m => m.ArticlesModule) },
+  { path: 'main', loadChildren: () => import('./main/main.module').then(m => m.MainModule) },
+  { path: 'dashboard', loadChildren: () => import('./main/components/dashboard/dashboard.module').then(m => m.DashboardModule) },
 ];
 
 @NgModule({
