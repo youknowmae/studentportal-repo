@@ -8,6 +8,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { LibraryModule } from './components/library/library.module';
 import { ProfileModule } from './components/profile/profile.module';
+import { DashboardModule } from './components/dashboard/dashboard.module';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { ProfileModule } from './components/profile/profile.module';
     MainRoutingModule,
     LibraryModule,
     ProfileModule,
+    DashboardModule
   ]
 })
 export class MainModule { }

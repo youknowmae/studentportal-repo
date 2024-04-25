@@ -8,8 +8,15 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-  { path: 'dashboard', component: DashboardComponent },
   { path: 'announcement', component: AnnouncementComponent },
+  { 
+    path: 'dashboard', 
+    component: DashboardComponent,
+    children: [{
+      path: '',
+      loadChildren: ()=>import('./components/dashboard/dashboard.module').then((m)=>m.DashboardModule)
+    }]
+  },
   { 
     path: 'profile', 
     component: ProfileComponent,
