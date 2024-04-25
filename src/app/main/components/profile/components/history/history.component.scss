@@ -1,7 +1,11 @@
 * {
     font-family: 'Poppins', sans-serif;
    }
-   
+
+   .content{
+    padding: 40px 40px 0 60px;
+    border-top: 3px solid #ccc;
+}
    table {
        width: 100%;
        border-collapse: collapse;
@@ -38,12 +42,3 @@
    .table-responsive {
        overflow-x: auto;
    }
-
-   .container{
-    padding: 40px;
-    border: 1px solid #ccc;
-    margin-top: 20px;
-    margin-bottom: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
