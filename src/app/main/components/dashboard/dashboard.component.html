@@ -2,26 +2,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
 <div class="container">
-<<<<<<< HEAD
-    <!-- Search bar -->
-    <div class="row custom-mt-50">
-        <div class="col-md-6 mx-auto">
-=======
     <!-- button -->
     <div class="row">
         <div class="col-md-5">
             <div class="row buttons">
                 <div class="col-md-4">
-                    <select class="btn btn-block btn-icon">
-                    <option value="1"> Thesis</option>
-                    <option value="2"> Capstone</option>  
-                    </select>
+                    <button class="btn btn-block btn-icon" [routerLink]="['books']" routerLinkActive="router-link-active"> Books</button>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-block btn-icon" [routerLink]="['articles']" routerLinkActive="router-link-active"> Article</button>
                 </div>
             </div>
         </div>
         <div class="col-md-7">
             <!-- Search bar-->
->>>>>>> 6208950883e809de19f8c7e2a9878817c079145b
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Search">
                 <div class="input-group-append">
@@ -30,37 +24,7 @@
             </div>
         </div>
     </div>
-<<<<<<< HEAD
-=======
 </div>
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-4">
-            <div class="square">
-                <img src="assets/images/example5.png" alt="Image" class="square-image">
-                <div class="square-content">
-                    <div class="square-text">
-                        <p>Title 1</p>
-                        <p>Author 1</p>
-                    </div>
-                    <button class="button-52" role="button" > Review</button>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="square">
-                <img src="assets/images/example6.png" alt="Image" class="square-image">
-                <div class="square-content">
-                    <div class="square-text">
-                        <p>Title 2</p>
-                        <p>Author 2</p>
-                    </div>
-                    <button class="button-52" role="button"> Review</button>
-                </div>
-            </div>
-        </div>
->>>>>>> 6208950883e809de19f8c7e2a9878817c079145b
 
     <!-- Display filtered projects -->
     <div class="container1">
@@ -82,5 +46,89 @@
             </div>
         </div>
     </div>
-</div>
+
+    
+<div class="container">
+    <div class="row">
+        <!-- Square 1 -->
+        <div class="col-md-4">
+            <div class="square">
+                <img src="assets/images/example5.png" alt="Image" class="square-image">
+                <div class="square-content">
+                    <div class="square-text">
+                        <p>Title 1</p>
+                        <p>Author 1</p>
+                    </div>
+                    <button class="button-52" role="button" [routerLink]="['../insidebook']" routerLinkActive="router-link-active" > Review</button>
+                </div>
+            </div>
+        </div>
+        <!-- Square 2 -->
+        <div class="col-md-4">
+            <div class="square">
+                <img src="assets/images/example6.png" alt="Image" class="square-image">
+                <div class="square-content">
+                    <div class="square-text">
+                        <p>Title 2</p>
+                        <p>Author 2</p>
+                    </div>
+                    <button class="button-52" role="button"> Review</button>
+                </div>
+            </div>
+        </div>
+        <!-- Square 3 -->
+        <div class="col-md-4">
+            <div class="square">
+                <img src="assets/images/example7.png" alt="Image" class="square-image">
+                <div class="square-content">
+                    <div class="square-text">
+                        <p>Title 3</p>
+                        <p>Author 3</p>
+                    </div>
+                    <button class="button-52" role="button"> Review</button>
+                </div>
+            </div>
+        </div>
+        <!-- Square 2 -->
+        <div class="col-md-4">
+            <div class="square">
+                <img src="assets/images/example8.png" alt="Image" class="square-image">
+                <div class="square-content">
+                    <div class="square-text">
+                        <p>Title 4</p>
+                        <p>Author 4</p>
+                    </div>
+                    <button class="button-52" role="button"> Review</button>
+                </div>
+            </div>
+        </div>
+        <!-- Square 2 -->
+        <div class="col-md-4">
+            <div class="square">
+                <img src="assets/images/example9.png" alt="Image" class="square-image">
+                <div class="square-content">
+                    <div class="square-text">
+                        <p>Title 5</p>
+                        <p>Author 5</p>
+                    </div>
+                    <button class="button-52" role="button"> Review</button>
+                </div>
+            </div>
+        </div>
+        <!-- Square 2 -->
+        <div class="col-md-4">
+            <div class="square">
+                <img src="assets/images/example5.png" alt="Image" class="square-image">
+                <div class="square-content">
+                    <div class="square-text">
+                        <p>Title 6</p>
+                        <p>Author 6</p>
+                    </div>
+                    <button class="button-52" role="button"> Review</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
 <br><br>
