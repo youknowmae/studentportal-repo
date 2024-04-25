@@ -15,7 +15,7 @@ import { InsidebookComponent } from './components/insidebook/insidebook.componen
     BooksComponent,
     ArticlesComponent,
     PeriodicalsComponent,
-    InsidebookComponent
+    InsidebookComponent,
   ],
   imports: [
     CommonModule,
