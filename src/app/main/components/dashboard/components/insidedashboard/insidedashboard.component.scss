@@ -1,0 +1,51 @@
+.icon span {
+    position: absolute;
+    left: 22.5%;
+    padding-top: 10px;
+}
+h2 {
+    text-align: center;
+    align-items: center;
+    padding: 30px;
+}
+.documents {
+    position: absolute;
+    left: 26%;
+    border: 1px solid black;
+    height: 70%;
+    width: 450px;
+}
+.abstract {
+    position: absolute;
+    left: 58%;
+    border: 1px solid black;
+    width: 450px;
+    height: 60%;
+}
+.head {
+    position: relative;
+    display: flex;
+    align-items: center; /* Optional: Align items vertically center */
+    padding: 5px 0 0 5px; /* Optional: Add padding for better spacing */
+}
+.abstract-icon {
+    position: relative;
+    top: 3.5px;
+    padding-right: 3px;
+}
+.abstract p {
+    padding: 7px 5px 0 5px;
+}
+.keywords {
+    position: absolute;
+    left: 58%;
+    top: 100%;
+    height: 58px;
+    width: 450px;
+    border: 1px solid black;
+}
+.keywords p {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}

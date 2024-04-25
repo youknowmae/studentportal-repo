@@ -29,27 +29,6 @@
     </div>
 </div>
 
-    <!-- Display filtered projects -->
-    <div class="container1">
-        <div class="row">
-            <!-- Loop through filteredProjects array to display projects -->
-            <div class="col-md-4" *ngFor="let project of filteredProjects">
-                <div class="square">
-                    <!-- Replace with dynamic image source from project -->
-                    <img [src]="project.image_location" alt="Image" class="square-image">
-                    <div class="square-content">
-                        <div class="square-text">
-                            <!-- Replace with dynamic title and author from project -->
-                            <p>{{ project.title }}</p>
-                            <p>{{ project.author }}</p>
-                        </div>
-                        <button class="button-52" role="button"> Review</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
 <div class="connection">
     <router-outlet></router-outlet>
 </div>
