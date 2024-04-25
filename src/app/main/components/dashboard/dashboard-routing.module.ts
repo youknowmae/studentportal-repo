@@ -2,9 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ThesisComponent } from './components/thesis/thesis.component';
 import { CapstoneComponent } from './components/capstone/capstone.component';
+import { AllComponent } from './components/all/all.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'thesis', pathMatch: 'full' },
+  { path: '', redirectTo: 'all', pathMatch: 'full' },
+  { path: 'all', component: AllComponent },
   { path: 'thesis', component: ThesisComponent },
   { path: 'capstone', component: CapstoneComponent }];
 
