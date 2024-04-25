@@ -7,13 +7,15 @@ import { ArticlesComponent } from './components/articles/articles.component';
 import { PeriodicalsComponent } from './components/periodicals/periodicals.component';
 import { PeriodicalsModule } from './components/periodicals/periodicals.module';
 import { ArticlesModule } from './components/articles/articles.module';
+import { InsidebookComponent } from './components/insidebook/insidebook.component';
 
 
 @NgModule({
   declarations: [
     BooksComponent,
     ArticlesComponent,
-    PeriodicalsComponent
+    PeriodicalsComponent,
+    InsidebookComponent
   ],
   imports: [
     CommonModule,
