@@ -9,6 +9,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { LibraryModule } from './components/library/library.module';
 import { ProfileModule } from './components/profile/profile.module';
 import { DashboardModule } from './components/dashboard/dashboard.module';
+import { ModalComponent } from './components/modal/modal.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { DashboardModule } from './components/dashboard/dashboard.module';
     AnnouncementComponent,
     LibraryComponent,
     ProfileComponent,
-    DashboardComponent
+    DashboardComponent,
+    ModalComponent
   ],
   imports: [
     CommonModule,
