@@ -3,12 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { JournalsComponent } from './components/journals/journals.component';
 import { NewspapersComponent } from './components/newspapers/newspapers.component';
 import { MagazinesComponent } from './components/magazines/magazines.component';
+import { InsideperiodicalComponent } from './components/insideperiodical/insideperiodical.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'journals', pathMatch: 'full' },
   { path: 'journals', component: JournalsComponent },
   { path: 'newspapers', component: NewspapersComponent },
-  { path: 'magazines', component: MagazinesComponent }];
+  { path: 'magazines', component: MagazinesComponent },
+  { path: 'insideperiodical', component: InsideperiodicalComponent}];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

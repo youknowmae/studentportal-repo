@@ -5,13 +5,15 @@ import { ArticlesRoutingModule } from './articles-routing.module';
 import { JournalsComponent } from './components/journals/journals.component';
 import { NewspapersComponent } from './components/newspapers/newspapers.component';
 import { MagazinesComponent } from './components/magazines/magazines.component';
+import { InsidearticleComponent } from './components/insidearticle/insidearticle.component';
 
 
 @NgModule({
   declarations: [
     JournalsComponent,
     NewspapersComponent,
-    MagazinesComponent
+    MagazinesComponent,
+    InsidearticleComponent
   ],
   imports: [
     CommonModule,
