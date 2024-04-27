@@ -7,7 +7,7 @@ import { ArticlesComponent } from './components/articles/articles.component';
 import { PeriodicalsComponent } from './components/periodicals/periodicals.component';
 import { PeriodicalsModule } from './components/periodicals/periodicals.module';
 import { ArticlesModule } from './components/articles/articles.module';
-import { InsidebookComponent } from './components/insidebook/insidebook.component';
+import { BooksModule } from './components/books/books.module';
 
 
 @NgModule({
@@ -15,13 +15,13 @@ import { InsidebookComponent } from './components/insidebook/insidebook.componen
     BooksComponent,
     ArticlesComponent,
     PeriodicalsComponent,
-    InsidebookComponent,
   ],
   imports: [
     CommonModule,
     LibraryRoutingModule,
     PeriodicalsModule,
-    ArticlesModule
+    ArticlesModule,
+    BooksModule
   ]
 })
 export class LibraryModule { }

@@ -3,12 +3,19 @@ import { RouterModule, Routes } from '@angular/router';
 import { BooksComponent } from './components/books/books.component';
 import { ArticlesComponent } from './components/articles/articles.component';
 import { PeriodicalsComponent } from './components/periodicals/periodicals.component';
-import { InsidebookComponent } from './components/insidebook/insidebook.component';
+import { InsidebookComponent } from './components/books/components/insidebook/insidebook.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'books', pathMatch: 'full' },
-  { path: 'books', component: BooksComponent },
   { path: 'insidebook', component: InsidebookComponent},
+  { 
+    path: 'books', 
+    component: BooksComponent,
+    children: [{
+      path: '',
+      loadChildren: ()=>import('./components/books/books.module').then((m)=>m.BooksModule)
+    }]
+  },
   { 
     path: 'articles', 
     component: ArticlesComponent,
