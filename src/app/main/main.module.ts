@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { MainRoutingModule } from './main-routing.module';
 import { AnnouncementComponent } from './components/announcement/announcement.component';
 import { LibraryComponent } from './components/library/library.component';
