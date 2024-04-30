@@ -8,6 +8,7 @@ import { MainComponent } from './main/main.component';
 import { MainModule } from './main/main.module';
 import { FormsModule } from '@angular/forms';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     AppRoutingModule,
     HttpClientModule,
     MainModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule,
   ],
   providers: [
     provideClientHydration(),

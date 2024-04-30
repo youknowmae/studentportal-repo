@@ -55,6 +55,9 @@
   font-size: small;
   margin-bottom: 50px;
 }
+.profile {
+  font-size: 1.2rem; /* Example of using rem for font size */
+ }
 .profile-btn {
   font-size: 12px;
   background-color: #31A463;
@@ -106,6 +109,10 @@
 .col2 .cont1, .col2 .cont2 {
   flex: 1;
   text-align: left;
+}
+.btn-icon:hover{
+  background-color: #31A463;
+  color: #fff;
 }
 
 .btn-icon {

@@ -46,9 +46,12 @@
     margin-top: 20px;
 }
 .square {
+    border: solid 2px var(--border-color);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
     text-align: center;
     border-radius: 10px;
     margin-bottom: 30px;
+    padding: 20px;
 }
 .square-image {
     width: 100%;
@@ -80,3 +83,16 @@
 .square-text p{
     font-size: 12px;
 }
+.profile-btn {
+    font-size: 12px;
+    background-color: #31A463;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 110px;
+    border-radius: 2rem;
+}
+.profile-btn:hover {
+    background-color: #013718;
+    color: white;
+} 
