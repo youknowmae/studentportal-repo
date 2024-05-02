@@ -15,11 +15,9 @@
 .rectangle {
     display: flex;
     align-items: center;
-    padding: 10px;
     border: solid 2px var(--border-color);
     background-color: #f7f7f7;
     margin-bottom: 20px;
-    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.5);
     cursor: pointer;
 }
@@ -49,7 +47,6 @@
     border: solid 2px var(--border-color);
     box-shadow: 0 4px 8px rgba(0,0,0,0.5);
     text-align: center;
-    border-radius: 10px;
     margin-bottom: 30px;
     padding: 20px;
 }
