@@ -51,22 +51,20 @@
     </div>
 </div>
 
-<div class="container">
-        <div class=" d-flex justify-content-center">
-            <div class="row">
-                <div class="col-md-4">
-                    <button class="btn btn-block btn-icon" [routerLink]="['borrowed']" routerLinkActive="router-link-active"> Borrowed</button>
-                </div>
-                <div class="col-md-4">
-                    <button class="btn btn-block btn-icon" [routerLink]="['reserved']" routerLinkActive="router-link-active"> Reserved</button>
-                </div>
-                <div class="col-md-4">
-                    <button class="btn btn-block btn-icon" [routerLink]="['history']" routerLinkActive="router-link-active"> History</button>
-                </div>
+    <div class="container">
+        <!-- Buttons -->
+        <div class="row buttons">
+            <div class="col-md-4">
+                <button class="btn btn-block btn-icon" [routerLink]="['borrowed']" routerLinkActive="router-link-active"> Borrowed</button>
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-block btn-icon" [routerLink]="['reserved']" routerLinkActive="router-link-active"> Reserved</button>
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-block btn-icon" [routerLink]="['history']" routerLinkActive="router-link-active"> History</button>
             </div>
         </div>
     </div>
-        
 
 <div class="connection">
     <router-outlet></router-outlet>

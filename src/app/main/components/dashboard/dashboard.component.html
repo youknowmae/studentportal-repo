@@ -2,23 +2,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
 <div class="container">
-    <!-- button -->
+    <!-- Search bar -->
     <div class="row">
-        <div class="col-md-5">
-            <div class="row buttons">
-                <div class="col-sm-4">
-                    <button class="btn btn-block btn-icon" [routerLink]="['all']" routerLinkActive="router-link-active" [routerLinkActiveOptions]="{ exact : true}"> All</button>
-                </div>
-                <div class="col-sm-4">
-                    <button class="btn btn-block btn-icon" [routerLink]="['thesis']" routerLinkActive="router-link-active"> Thesis</button>
-                </div>
-                <div class="col-sm-4">
-                    <button class="btn btn-block btn-icon" [routerLink]="['capstone']" routerLinkActive="router-link-active"> Capstone</button>
-                </div>
-            </div>
-        </div>
         <div class="col-md-7">
-            <!-- Search bar-->
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Search">
                 <div class="input-group-append">
@@ -27,7 +13,22 @@
             </div>
         </div>
     </div>
+
+    <!-- Buttons -->
+    <div class="row buttons">
+        <div class="col-md-4">
+            <button class="btn btn-block btn-icon" [routerLink]="['all']" routerLinkActive="router-link-active" [routerLinkActiveOptions]="{ exact : true}"> All</button>
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-block btn-icon" [routerLink]="['thesis']" routerLinkActive="router-link-active"> Thesis</button>
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-block btn-icon" [routerLink]="['capstone']" routerLinkActive="router-link-active"> Capstone</button>
+        </div>
+    </div>
 </div>
+
+
 
 <div class="connection">
     <router-outlet></router-outlet>
