@@ -1,20 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ProfilePopupComponent } from './components/popup/profile-popup/profile-popup.component';
+import { AuthenticationService } from '../../../authentication-service.service';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrl: './profile.component.scss'
+  styleUrls: ['./profile.component.scss']
 })
-export class ProfileComponent implements OnInit{
-  constructor(private dialogRef : MatDialog) { }
+export class ProfileComponent implements OnInit {
+  user: any;
 
-  ngOnInit(): void { }
+  constructor(private dialogRef: MatDialog, private authService: AuthenticationService) { }
 
-  onAddNewBtnClick(){
-    // this.router.navigate(['/adduser']);
+
+  ngOnInit(): void {
+    // Subscribe to user$ observable from AuthenticationService
+    this.authService.user$.subscribe((user: any) => {
+      this.user = user;
+    });
+  }
+
+  onAddNewBtnClick() {
     this.dialogRef.open(ProfilePopupComponent, {});
   }
- 
 }

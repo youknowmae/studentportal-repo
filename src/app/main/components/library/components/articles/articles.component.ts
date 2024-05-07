@@ -1,10 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../../../../api-service.service';
 
 @Component({
   selector: 'app-articles',
   templateUrl: './articles.component.html',
-  styleUrl: './articles.component.scss'
+  styleUrls: ['./articles.component.scss']
 })
-export class ArticlesComponent {
+export class ArticlesComponent implements OnInit {
+  articles: any[] = [];
 
+  constructor(private apiService: ApiService) { }
+
+  ngOnInit(): void {
+    this.fetchArticles();
+  }
+
+  fetchArticles(): void {
+    this.apiService.getArticles().subscribe(
+      (data: any[]) => {
+        this.articles = data;
+      },
+      (error) => {
+        console.error('Error fetching articles:', error);
+      }
+    );
+  }
 }

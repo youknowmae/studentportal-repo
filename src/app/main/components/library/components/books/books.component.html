@@ -1,9 +1,26 @@
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
-<div class="content">
+ <div class="content">
     <div class="row">
-        <!-- Square 1 -->
+        <div class="col-md-4" *ngFor="let book of books">
+          <div class="square">
+            <img [src]="book.image_url" alt="Image" class="square-image">
+            <div class="square-content">
+                <div class="square-text">
+                    <h5>{{ book.title }}</h5>
+                    <p>Author: {{ book.author }}</p>
+                    <p>ISBN: {{ book.isbn }}</p>
+                </div>
+                <button class="view-button" role="button" [routerLink]="['../book/id/', book.id]" routerLinkActive="router-link-active">View</button>
+            </div>
+          </div>
+        </div>
+    </div> 
+
+      
+  <div class="row">
+     
         <div class="col-md-4">
             <div class="square">
                 <img src="assets/images/logo.png" alt="Image" class="square-image">
@@ -17,7 +34,7 @@
                 </div>
             </div>
         </div>
-        <!-- Square 2 -->
+        
         <div class="col-md-4">
             <div class="square">
                 <img src="assets/images/logo.png" alt="Image" class="square-image">
@@ -31,7 +48,7 @@
                 </div>
             </div>
         </div>
-        <!-- Square 3 -->
+       
         <div class="col-md-4">
             <div class="square">
                 <img src="assets/images/logo.png" alt="Image" class="square-image">
@@ -45,7 +62,7 @@
                 </div>
             </div>
         </div>
-        <!-- Square 4 -->
+       
         <div class="col-md-4">
             <div class="square">
                 <img src="assets/images/logo.png" alt="Image" class="square-image">
@@ -59,7 +76,7 @@
                 </div>
             </div>
         </div>
-        <!-- Square 5 -->
+        
         <div class="col-md-4">
             <div class="square">
                 <img src="assets/images/logo.png" alt="Image" class="square-image">
@@ -73,7 +90,7 @@
                 </div>
             </div>
         </div>
-        <!-- Square 6 -->
+        
         <div class="col-md-4">
             <div class="square">
                 <img src="assets/images/logo.png" alt="Image" class="square-image">
@@ -86,5 +103,5 @@
                     <button class="view-button" role="button" [routerLink]="['../insidebook']" routerLinkActive="router-link-active"> View</button>
                 </div>
             </div>
-        </div>
+        </div> 
 </div>

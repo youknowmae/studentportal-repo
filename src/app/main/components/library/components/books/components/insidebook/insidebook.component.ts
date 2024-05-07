@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../../../../../../../api-service.service';
 import { ActivatedRoute } from '@angular/router';
+import { ApiService } from '../../../../../../../api-service.service';
+import { AuthenticationService } from '../../../../../../../authentication-service.service'; // Update path
 
 @Component({
   selector: 'app-insidebook',
@@ -8,24 +9,38 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./insidebook.component.scss']
 })
 export class InsidebookComponent implements OnInit {
-  book: any = {}; // Declare an empty object for book
-  bookId: number | null = null; // Declare a variable to store book ID
+  book: any = {};
+  bookId: number | null = null;
 
-  constructor(private apiService: ApiService, private route: ActivatedRoute) { }
+  constructor(
+    private apiService: ApiService,
+    private route: ActivatedRoute,
+    private authService: AuthenticationService
+  ) {}
 
   ngOnInit(): void {
-    // Get the book ID from the route parameters
-    this.bookId = +this.route.snapshot.paramMap.get('id')!; // Convert string to number
-
-    if (this.bookId) {
+    this.bookId = +this.route.snapshot.paramMap.get('id')!; // Use optional chaining or null check
+  
+    if (this.bookId !== null) { // Check if bookId is not null
       this.fetchBookDetails(this.bookId);
     }
   }
 
   fetchBookDetails(bookId: number): void {
-    this.apiService.getBookById(bookId) // Assume you have a method to get book by ID
-      .subscribe(data => {
-        this.book = data;
-      });
+    const authToken = this.authService.getToken(); 
+    if (authToken) {
+      const headers = { Authorization: `Bearer ${authToken}` }; 
+      this.apiService.getBookById(bookId, headers) // Pass headers correctly
+        .subscribe(
+          (data) => {
+            this.book = data;
+          },
+          (error) => {
+            console.error('Error fetching book details:', error);
+          }
+        );
+    } else {
+      console.error('Authentication token not found.');
+    }
   }
 }

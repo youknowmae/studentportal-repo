@@ -9,6 +9,8 @@ import { LibraryModule } from './components/library/library.module';
 import { ProfileModule } from './components/profile/profile.module';
 import { DashboardModule } from './components/dashboard/dashboard.module';
 import { ModalComponent } from './components/modal/modal.component';
+import { BooksModule } from './components/library/components/books/books.module';
+
 
 
 @NgModule({
@@ -24,7 +26,8 @@ import { ModalComponent } from './components/modal/modal.component';
     MainRoutingModule,
     LibraryModule,
     ProfileModule,
-    DashboardModule
+    DashboardModule,
+    BooksModule
   ]
 })
 export class MainModule { }

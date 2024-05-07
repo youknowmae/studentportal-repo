@@ -1,4 +1,4 @@
-<div class="content">
+<!-- <div class="content">
     <div class="row">
     <div class="rectangle" id="example1" [routerLink]="['../insidearticle']" routerLinkActive="router-link-active"  data-toggle>
         <div class="details">
@@ -34,4 +34,16 @@
     </div>
     </div>
     </div>
-<br><br>    
+<br><br>     -->
+<div class="content">
+    <div class="row">
+      <div class="rectangle" *ngFor="let article of articles; let i = index" [routerLink]="['../insidearticle', i + 1]" routerLinkActive="router-link-active" data-toggle>
+        <div class="details">
+          <p>Date: {{ article.date }}</p>
+          <h5>Article</h5>
+          <p>Author: {{ article.author }}</p>
+          <p>Description: {{ article.remarks }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
