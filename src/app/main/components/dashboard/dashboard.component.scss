@@ -1,31 +1,43 @@
-.container{
-    padding: 20px;
+.container {
+    padding-top: 20px 20px 0 20px;
 }
-.row .buttons{
+.row.buttons {
+    margin-top: 40px;
     justify-content: center;
+    border-bottom: 3px solid #31A463;
 }
 .btn-icon {
-    padding: 7px 10px 10px 10px;
-    font-size: 12px;
+    padding: 10px 10px 10px 10px;
+    font-size: 14px;
     background-color: transparent;
     color: #000;
     text-decoration: none;
-    border: 2px solid #31A463;
     transition: background-color 0.3s ease;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-top: 3px solid #31A463;
+    border-left: 3px solid #31A463;
+    border-right: 3px solid #31A463;
+    
 }
-.btn-icon:hover{
+.btn-icon:hover,
+.btn-icon:active,
+.btn-icon:focus {
     background-color: #31A463;
     color: #fff;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
 }
-.btn-icon:active, .btn-icon:focus {
-    background-color: #31A463;
-    border-color: #31A463;
-    color: #fff;
+.buttons .col-md-4{
+    padding: 0;
+}
+.input-group{
+    margin-left: 520px;
 }
 .input-group-append .btn {
     color: black;
-    background-color: #28a745;
-    border-color: #28a745;
+    background-color: #31A463;
+    border-color: #31A463;
 }
 .input-group-append .btn:hover {
     color: white;
