@@ -1,5 +1,8 @@
+*{
+    font-family: 'Montserrat';
+  }
 .content{
-    padding: 40px 40px 0 70px;
+    padding: 40px 40px 0 60px;
   }
 .rectangle {
     display: flex;
@@ -8,12 +11,12 @@
     border: solid 2px var(--border-color);
     background-color: #f7f7f7;
     margin-bottom: 20px;
+    margin-left: 40px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.5);
     transition: all .2s ease-in;
     cursor: pointer;
-    max-width: 100%;
-    max-height: 100%;
+    width: 92%;
 }
 .rectangle:hover {
     transform: scale(1.02);
@@ -29,8 +32,9 @@
 .details .date{
     float: right;
 }
-.rectangle .details h4 {
+.rectangle .details h5 {
     margin: 0;
+    font-weight: bolder;
 }
 .rectangle .details p {
     margin: 0;

@@ -1,3 +1,6 @@
+*{
+  font-family: 'Montserrat';
+}
 .content{
     padding: 40px 40px 0 60px;
   }
@@ -10,6 +13,7 @@
     margin-bottom: 20px;
     transform: scale(1);
     transition: all .2s ease-in;
+    width: 380px;
   }
   
   .square:hover{
@@ -34,8 +38,9 @@
   .square-text {
     text-align: left;
   }
-  .square-text h2{
+  .square-text h5{
     font-size: medium;
+    font-weight: bold;
   }
   .square-text p{
     font-size: 12px;
@@ -52,7 +57,6 @@
     padding: 3px 15px;
     text-transform:none;
     font-size: small;
-    font-family: "Poppins";
     cursor: pointer;
   }
   .view-button:hover {

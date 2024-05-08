@@ -2,9 +2,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
 <div class="container">
-    <!-- Search bar -->
+    <!-- Buttons and Search Bar in the same row -->
     <div class="row">
-        <div class="col-md-7">
+        <!-- Buttons -->
+        <div class="col-md-2">
+            <button class="btn btn-block btn-icon" [routerLink]="['books']" routerLinkActive="router-link-active"> Books</button>
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-block btn-icon" [routerLink]="['articles']" routerLinkActive="router-link-active"> Article</button>
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-block btn-icon" [routerLink]="['periodicals']" routerLinkActive="router-link-active"> Periodical</button>
+        </div>
+        <!-- Search bar -->
+        <div class="col-md-6">
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Search">
                 <div class="input-group-append">
@@ -13,20 +24,8 @@
             </div>
         </div>
     </div>
-
-    <!-- Buttons -->
-    <div class="row buttons">
-        <div class="col-md-4">
-            <button class="btn btn-block btn-icon" [routerLink]="['books']" routerLinkActive="active"> Books</button>
-        </div>
-        <div class="col-md-4">
-            <button class="btn btn-block btn-icon" [routerLink]="['articles']" routerLinkActive="router-link-active"> Article</button>
-        </div>
-        <div class="col-md-4">
-            <button class="btn btn-block btn-icon" [routerLink]="['periodicals']" routerLinkActive="router-link-active"> Periodical</button>
-        </div>
-    </div>
 </div>
+
 
 
 

@@ -1,1 +1,12 @@
-<p>modal works!</p>
+<!-- project-modal.component.html -->
+<div class="modal-overlay" *ngIf="isVisible">
+    <div class="modal-content">
+      <span class="close-button" (click)="closeModal()">&times;</span>
+      <h2>Project Details</h2>
+      <p>Project ID: {{ selectedProject.id }}</p>
+      <p>Category: {{ selectedProject.category }}</p>
+      <p>Title: {{ selectedProject.title }}</p>
+      <p>Author: {{ selectedProject.author }}</p>
+      <p>Abstract: {{selectedProject.abstract}}</p>
+    </div>
+  </div>

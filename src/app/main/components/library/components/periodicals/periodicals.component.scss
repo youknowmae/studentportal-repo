@@ -1,3 +1,6 @@
+*{
+  font-family: 'Montserrat';
+}
 .content{
   padding: 40px 40px 0 60px;
 }
@@ -38,6 +41,7 @@
 }
 .square-text h2{
   font-size: medium;
+  font-weight: bold;
 }
 .square-text p{
   font-size: 12px;
@@ -55,7 +59,6 @@
   padding: 3px 15px;
   text-transform:none;
   font-size: small;
-  font-family: "Poppins";
   cursor: pointer;
   margin-bottom: 20px;
 }
