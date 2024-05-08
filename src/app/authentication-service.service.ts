@@ -65,8 +65,8 @@ export class AuthenticationService {
     return this.loggedInUserId;
   }
 
-  getDepartment(): string | null {
-    const userDetails = this.userSubject.getValue();
-    return userDetails ? userDetails.department : '';
+ getDepartment(): string | null {
+    return localStorage.getItem('department');
   }
+ 
 }

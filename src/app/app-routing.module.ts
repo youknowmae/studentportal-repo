@@ -3,12 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 
 // LOGIN COMPONENT
 import { LoginComponent } from './components/login/login.component';
+import { TestingComponent } from './testing/testing.component';
+
 
 import { MainComponent } from './main/main.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
+  { path: 'test', component: TestingComponent },
   { path: 'main', component: MainComponent,children:[
   { path: '', loadChildren: ()=>import('./main/main.module').then((m)=>m.MainModule)}]},
   { path: 'profile', loadChildren: () => import('./main/components/profile/profile.module').then(m => m.ProfileModule) },

@@ -6,14 +6,18 @@ import { InsidebookComponent } from './components/insidebook/insidebook.componen
 import { ModalComponent } from './components/modal/modal.component';
 
 
+
+
+
 @NgModule({
   declarations: [
     InsidebookComponent,
-    ModalComponent
+    ModalComponent,
   ],
   imports: [
     CommonModule,
-    BooksRoutingModule
+    BooksRoutingModule,
+    
   ]
 })
 export class BooksModule { }
