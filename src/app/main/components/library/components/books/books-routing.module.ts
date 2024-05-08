@@ -5,7 +5,7 @@ import { ModalComponent } from './components/modal/modal.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'books', pathMatch: 'full' },
-  { path: 'book/id/:id', component: InsidebookComponent },
+  { path: 'book/:id', component: InsidebookComponent },
   { path: 'modal', component: ModalComponent}];
 
 @NgModule({
