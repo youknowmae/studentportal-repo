@@ -3,6 +3,7 @@
 <!-- Font Awesome -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 
 <div class="flex-container">
     <div class="container">
@@ -15,7 +16,7 @@
                     <p class="num">{{ user?.id }}</p>
                 </div>
                 <p class="email">{{ user?.domain_account }}</p>
-                <button class="profile-btn" type="button" (click)="onAddNewBtnClick()">Edit Profile</button>
+                <button class="profile-btn" type="button">Borrower's Card</button>
             </div>
             <div class="col2 col-md-7">
                 <div class="title">
@@ -24,7 +25,7 @@
                 <div class="info-container">
                     <div class="cont1">
                         <p>Student number:</p>
-                        <p>Domain Account:</p>
+                        <p>Domain Email Address:</p>
                         <p>Main Address:</p>
                         <p>Course / Department:</p>
                     </div>
@@ -59,9 +60,6 @@
             </div>
             <div class="col-md-2">
                 <button class="btn btn-block btn-icon" [routerLink]="['reserved']" routerLinkActive="router-link-active"> Reserved</button>
-            </div>
-            <div class="col-md-2">
-                <button class="btn btn-block btn-icon" [routerLink]="['history']" routerLinkActive="router-link-active"> History</button>
             </div>
         </div>
 </div>

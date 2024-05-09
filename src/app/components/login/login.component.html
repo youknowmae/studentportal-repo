@@ -22,9 +22,8 @@
         <span class="password-toggle-icon" (click)="viewpass()"><i [ngClass]="visible?'fa-regular fa-eye':'fa-regular fa-eye-slash'"></i></span>
         <label for="password">Password</label>
       </div>
-      <!-- try nyo ngSubmit -->
       <button type="submit" class="btn" (click)="login()">Login</button> 
-      <div class="">  <!-- lagay nyo class ng error -->
+      <div class="">
         {{ errorMessage }}
       </div>
       <div class="version">

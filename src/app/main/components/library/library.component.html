@@ -1,5 +1,6 @@
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 
 <div class="container">
     <!-- Buttons and Search Bar in the same row -->
@@ -18,8 +19,13 @@
                 <option *ngFor="let periodical of periodicalList"> {{periodical}} </option>
             </select>
         </div>
+        <div class="col-md-2">
+            <select class="btn btn-block btn-icon dropdown" [routerLink]="['periodicals']" routerLinkActive="router-link-active">
+                <option *ngFor="let periodical of periodicalList"> {{periodical}} </option>
+            </select>
+        </div>
         <!-- Search bar -->
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Search">
                 <div class="input-group-append">

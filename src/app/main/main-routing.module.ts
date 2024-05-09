@@ -7,7 +7,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: 'profile', pathMatch: 'full' },
   { path: 'announcement', component: AnnouncementComponent },
   { 
     path: 'dashboard', 

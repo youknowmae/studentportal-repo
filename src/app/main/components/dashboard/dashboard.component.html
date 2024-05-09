@@ -1,11 +1,12 @@
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 
 <div class="container">
   <div class="row">
     <!-- Buttons Container -->
     <div class="buttons-container d-flex">
-        <ng-container class="category" *ngFor="let category of projectCategories">
+        <ng-container *ngFor="let category of projectCategories">
             <button *ngIf="visibleButtons[category]" 
                     (click)="handleButtonClick(category)" 
                     class="btn btn-icon col-md-3" [class.router-link-active]="selectedCategory === category">{{ category }}</button>
@@ -24,8 +25,8 @@
   
     <!-- Selected Category Projects -->
     <div *ngIf="selectedCategory" class="row">
-      <div class="col-md-12">
-        <h3>Projects Category: {{ selectedCategory }}</h3>
+      <div class="project col-md-12">
+        <h3 class="category">Projects Category: {{ selectedCategory }}</h3>
         <div *ngIf="projects.length > 0" class="row">
           <div class="col-md-4" *ngFor="let project of projects">
             <div class="square">

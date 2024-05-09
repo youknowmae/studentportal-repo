@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ProfilePopupComponent } from './components/popup/profile-popup/profile-popup.component';
 import { AuthenticationService } from '../../../authentication-service.service';
 
 @Component({
@@ -21,7 +20,4 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  onAddNewBtnClick() {
-    this.dialogRef.open(ProfilePopupComponent, {});
-  }
 }

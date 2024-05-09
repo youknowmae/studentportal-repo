@@ -11,16 +11,43 @@
   transform: scale(1);
   transition: all .2s ease-in;
 }
-
 .square:hover{
 transform: scale(1.05);
 transition: all .2s ease-in;
 }
-
 .square p{
   font-size: 12px;
 }
-
+.square .unimportant{
+  background-color: rgba(49, 164, 99, 0.4);
+  padding: 5px;
+  color: #31A463;
+  border-radius: 5px;
+  border: 2px solid #31A463;
+  width: 140px;
+  font-size: 10px;
+  font-weight: bolder;
+}
+.square .important{
+  background-color: rgba(255, 0, 0, 0.4);
+  padding: 5px;
+  color: red;
+  border-radius: 5px;
+  border: 2px solid red;
+  width: 140px;
+  font-size: 10px;
+  font-weight: bolder;
+}
+.square .mid{
+  background-color: rgba(255, 215, 0, 0.4);
+  padding: 5px;
+  color: rgb(109, 109, 1);
+  border-radius: 5px;
+  border: 2px solid rgb(109, 109, 1);
+  width: 140px;
+  font-size: 10px;
+  font-weight: bolder;
+}
 .square-image {
   width: 100%;
   height: 150px;
