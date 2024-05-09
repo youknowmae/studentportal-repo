@@ -10,6 +10,7 @@ import { ProfileModule } from './components/profile/profile.module';
 import { DashboardModule } from './components/dashboard/dashboard.module';
 import { ModalComponent } from './components/modal/modal.component';
 import { BooksModule } from './components/library/components/books/books.module';
+import { ProfilemodalComponent } from './components/profilemodal/profilemodal.component';
 
 
 
@@ -19,7 +20,8 @@ import { BooksModule } from './components/library/components/books/books.module'
     LibraryComponent,
     ProfileComponent,
     DashboardComponent,
-    ModalComponent
+    ModalComponent,
+    ProfilemodalComponent
   ],
   imports: [
     CommonModule,

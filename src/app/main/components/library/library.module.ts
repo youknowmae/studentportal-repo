@@ -8,6 +8,7 @@ import { PeriodicalsComponent } from './components/periodicals/periodicals.compo
 import { PeriodicalsModule } from './components/periodicals/periodicals.module';
 import { ArticlesModule } from './components/articles/articles.module';
 import { BooksModule } from './components/books/books.module';
+import { AcademicComponent } from './components/academic/academic.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { BooksModule } from './components/books/books.module';
     BooksComponent,
     ArticlesComponent,
     PeriodicalsComponent,
+    AcademicComponent,
   ],
   imports: [
     CommonModule,
