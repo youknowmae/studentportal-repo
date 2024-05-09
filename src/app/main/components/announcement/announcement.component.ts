@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './announcement.component.scss'
 })
 export class AnnouncementComponent {
+  expanded: boolean = false;
 
+  toggleExpansion() {
+    this.expanded = !this.expanded;
+  }
 }
