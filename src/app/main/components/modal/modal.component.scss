@@ -1,27 +1,63 @@
-/* project-modal.component.css */
+*{
+  font-family: 'Montserrat';
+}
 .modal-overlay {
-    position: fixed; /* Fixed position to overlay the content */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    z-index: 1000; /* Ensure it appears above other content */
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
-  
   .modal-content {
+    width: 800px;
+    height: 350px;
     background-color: #fff;
-    padding: 20px;
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    overflow: auto; /* Allow scrolling */
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: #ccc transparent; /* Custom scrollbar color */
+}
+.modal-content::-webkit-scrollbar { /* For Chrome, Safari, and Opera */
+    width: 10px;
+}
+.modal-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+.modal-content::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 3px;
+}
+.modal-content span{
+  font-weight: bolder;
+}
+  .title{
+    font-size: 12px;
+    text-transform: uppercase;
+    padding: 10px 0 5px 20px;
+    color: #fff;
+    background-color: #31a463;
+    margin-bottom: 40px;
   }
-  
+  .modal-content p{
+    padding-left: 20px;
+    padding-right: 20px;
+  }
   .close-button {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 5px;
+    right: 20px;
     cursor: pointer;
+    color: #fff;
+    font-weight: bolder;
+    font-size: 25px;
+  }
+  .close-button:hover{
+    color: #ccc;
   }

@@ -5,7 +5,7 @@
   <div class="row">
     <!-- Buttons Container -->
     <div class="buttons-container d-flex">
-        <ng-container *ngFor="let category of projectCategories">
+        <ng-container class="category" *ngFor="let category of projectCategories">
             <button *ngIf="visibleButtons[category]" 
                     (click)="handleButtonClick(category)" 
                     class="btn btn-icon col-md-3" [class.router-link-active]="selectedCategory === category">{{ category }}</button>

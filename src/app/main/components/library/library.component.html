@@ -9,10 +9,14 @@
             <button class="btn btn-block btn-icon" [routerLink]="['books']" routerLinkActive="router-link-active"> Books</button>
         </div>
         <div class="col-md-2">
-            <button class="btn btn-block btn-icon" [routerLink]="['articles']" routerLinkActive="router-link-active"> Article</button>
+            <select class="btn btn-block btn-icon dropdown" [routerLink]="['articles']" routerLinkActive="router-link-active">
+                <option *ngFor="let article of articleList"> {{article}} </option>
+            </select>
         </div>
         <div class="col-md-2">
-            <button class="btn btn-block btn-icon" [routerLink]="['periodicals']" routerLinkActive="router-link-active"> Periodical</button>
+            <select class="btn btn-block btn-icon dropdown" [routerLink]="['periodicals']" routerLinkActive="router-link-active">
+                <option *ngFor="let periodical of periodicalList"> {{periodical}} </option>
+            </select>
         </div>
         <!-- Search bar -->
         <div class="col-md-6">
@@ -25,7 +29,6 @@
         </div>
     </div>
 </div>
-
 
 
 

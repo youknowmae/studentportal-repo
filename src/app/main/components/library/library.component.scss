@@ -5,7 +5,7 @@
     padding-top: 40px 20px 0 20px;
 }
 .btn-icon {
-    padding: 8px 5px 8px 5px;
+    padding: 7px 8px 8px 5px;
     font-size: 14px;
     font-weight: bold;
     background-color: transparent;
@@ -19,6 +19,9 @@
 .btn-icon:focus {
     background-color: #31A463;
     color: #fff;
+}
+.dropdown{
+    padding: 9px;
 }
 .input-group-append .btn {
     color: black;
