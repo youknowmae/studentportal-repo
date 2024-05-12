@@ -16,6 +16,9 @@ export class MainComponent implements OnInit {
   books: any[] = [];
   periodicals: any[] = [];
   projects: any[] = [];
+  isVisible: boolean | undefined;
+  selectedProject: any;
+project: any;
 
   constructor(
     private apiService: ApiService,
@@ -53,4 +56,14 @@ export class MainComponent implements OnInit {
     this.authService.logout();
     this.router.navigate(['/login']);  // Navigate to the login page
   }
+
+    // Method to open the modal and pass the selected project data
+    openProjectModal(project: any): void {
+      this.selectedProject = project;
+      this.isVisible = true;
+    }
+    
+    closeModal(): void {
+      this.isVisible = false;
+    }
 }
