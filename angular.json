@@ -37,7 +37,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "@angular/material/prebuilt-themes/indigo-pink.css"
             ],
             "scripts": [],
             "server": "src/main.server.ts",
@@ -103,6 +104,7 @@
             ],
             "styles": [
               "src/styles.scss",
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "node_module/cropperjs/dist/cropper.css"
             ],
             "scripts": [
