@@ -20,4 +20,7 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  onAddNewBtnClick() {
+    this.dialogRef.open(ProfileComponent, {});
+  }
 }

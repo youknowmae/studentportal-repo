@@ -11,6 +11,7 @@ import { DashboardModule } from './components/dashboard/dashboard.module';
 import { ModalComponent } from './components/modal/modal.component';
 import { BooksModule } from './components/library/components/books/books.module';
 import { ProfilemodalComponent } from './components/profilemodal/profilemodal.component';
+import { LogoutmodalComponent } from './components/logoutmodal/logoutmodal.component';
 
 
 
@@ -21,7 +22,8 @@ import { ProfilemodalComponent } from './components/profilemodal/profilemodal.co
     ProfileComponent,
     DashboardComponent,
     ModalComponent,
-    ProfilemodalComponent
+    ProfilemodalComponent,
+    LogoutmodalComponent
   ],
   imports: [
     CommonModule,
