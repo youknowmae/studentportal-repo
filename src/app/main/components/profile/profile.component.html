@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row container1">
             <div class="col1 col-md-4">
-                <img [src]="user?.profile_picture || 'assets/images/logo.png'" alt="Profile" class="img-fluid">
+                <img [src]="user?.profile_picture || 'assets/images/lib.png'" alt="Profile" class="img-fluid">
                 <p class="profile">My Profile</p>
                 <div class="name-phone" *ngIf="user">
                     <p class="name">{{ user.first_name }} {{ user.last_name }}</p>
@@ -24,7 +24,7 @@
                 <div class="info-container">
                     <div class="cont1">
                         <p>Student number:</p>
-                        <p>Domain Account:</p>
+                        <p>Domain Email Address:</p>
                         <p>Main Address:</p>
                         <p>Course / Department:</p>
                     </div>
