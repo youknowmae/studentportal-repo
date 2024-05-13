@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../../../../../../api-service.service';
 import { AuthenticationService } from '../../../../../../../authentication-service.service'; // Update path
+import { MatDialog } from '@angular/material/dialog';
+import { ReservemodalComponent } from '../../../../../modal/reservemodal/reservemodal.component';
 
 @Component({
   selector: 'app-insidebook',
@@ -15,7 +17,8 @@ export class InsidebookComponent implements OnInit {
   constructor(
     private apiService: ApiService,
     private route: ActivatedRoute,
-    private authService: AuthenticationService
+    private authService: AuthenticationService,
+    private dialogRef: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -42,5 +45,9 @@ export class InsidebookComponent implements OnInit {
     } else {
       console.error('Authentication token not found.');
     }
+  }
+
+  openmodal () {
+    this.dialogRef.open(ReservemodalComponent, {})
   }
 }

@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { ApiService } from '.././api-service.service'; // Assuming ApiService is the correct service name
 import { AuthenticationService } from '.././authentication-service.service'; // Assuming AuthenticationService is the correct service name
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { LogoutmodalComponent } from './components/modal/logoutmodal/logoutmodal.component';
 
 @Component({
   selector: 'app-main',
@@ -23,7 +25,8 @@ project: any;
   constructor(
     private apiService: ApiService,
     private authService: AuthenticationService,
-    private router: Router
+    private router: Router,
+    private dialogRef: MatDialog 
   ) { }
 
   ngOnInit(): void {
@@ -65,5 +68,9 @@ project: any;
     
     closeModal(): void {
       this.isVisible = false;
+    }
+
+    openmodal () {
+      this.dialogRef.open(LogoutmodalComponent, {})
     }
 }

@@ -10,14 +10,12 @@ import { MainComponent } from './main/main.component';
 import { MainModule } from './main/main.module';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { TestingComponent } from './testing/testing.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     MainComponent,
-    TestingComponent,
   ],
   imports: [
     BrowserModule,

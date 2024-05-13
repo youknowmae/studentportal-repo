@@ -1,0 +1,51 @@
+* {
+    font-family: 'Montserrat';
+}
+
+.container {
+  padding: 20px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column; /* Aligns children vertically */
+  align-items: flex-start; /* Aligns children to the start (left) */
+}
+
+.content h2 {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.button {
+  display: flex;
+  justify-content: flex-end; /* Aligns buttons to the end (right) */
+  margin-top: auto; /* Pushes the button group to the bottom */
+  margin-left: 80px;
+}
+
+.exit,
+.cancel {
+  padding: 5px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.exit {
+  background-color: rgb(221, 34, 34);
+  color: #fff;
+  margin-right: 10px;
+}
+.exit:hover{
+    background-color: rgb(133, 25, 25) ;
+}
+.cancel {
+  background-color: #e8e9ec;
+  color: #000;
+}
+
+.cancel:hover {
+  background-color: gray;
+  color: #fff;
+}

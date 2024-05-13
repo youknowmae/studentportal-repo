@@ -8,10 +8,11 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { LibraryModule } from './components/library/library.module';
 import { ProfileModule } from './components/profile/profile.module';
 import { DashboardModule } from './components/dashboard/dashboard.module';
-import { ModalComponent } from './components/modal/modal.component';
 import { BooksModule } from './components/library/components/books/books.module';
-import { ProfilemodalComponent } from './components/profilemodal/profilemodal.component';
-import { LogoutmodalComponent } from './components/logoutmodal/logoutmodal.component';
+import { ProfilemodalComponent } from './components/modal/profilemodal/profilemodal.component';
+import { LogoutmodalComponent } from './components/modal/logoutmodal/logoutmodal.component';
+import { ReservemodalComponent } from './components/modal/reservemodal/reservemodal.component';
+import { QrmodalComponent } from './components/modal/qrmodal/qrmodal.component';
 
 
 
@@ -21,9 +22,10 @@ import { LogoutmodalComponent } from './components/logoutmodal/logoutmodal.compo
     LibraryComponent,
     ProfileComponent,
     DashboardComponent,
-    ModalComponent,
     ProfilemodalComponent,
-    LogoutmodalComponent
+    LogoutmodalComponent,
+    ReservemodalComponent,
+    QrmodalComponent,
   ],
   imports: [
     CommonModule,

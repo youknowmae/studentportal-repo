@@ -1,0 +1,121 @@
+*{
+    font-family: 'Montserrat';
+  } 
+.container{
+    height: 650px;
+    max-height: 800px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.container::-webkit-scrollbar {
+    width: 3px;
+}
+.container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+.container::-webkit-scrollbar-thumb {
+    background: #888;
+}
+.container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+.header {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px 20px 10px 20px;
+    width: 850px;
+    background-color: #f3f3f3;
+    margin-bottom: 10px;
+}
+.header img {
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+}
+.center{
+    text-align: center;
+    margin-top: 15px;
+}
+.center h4, h5{
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    font-weight: bolder;
+    letter-spacing: 6px;
+    margin-top: 0;
+}
+.center h4 {
+    font-size: 18px;
+}
+.center h5{
+    font-size: 14px;
+    color: #666;
+}
+.information{
+    padding: 20px;
+}
+span{
+    font-weight: lighter;
+}
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.info-row p {
+    margin: 0;
+    font-weight: bolder;
+}
+.col2 p{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.col2 span{
+    font-weight: bolder;
+}
+.col2 .title{
+    text-align: left;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #ccc;
+    font-weight: bold;
+    color: #31A463;
+}
+.col2 .cont1{
+    text-align: left;
+}
+.info-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    margin-top: 20px;
+}
+.col2 .cont1, .col2 .cont2 {
+    flex: 1;
+    text-align: left;
+}
+.whole{
+    margin: 20px 20px 20px 20px;
+    width: 800px;
+}
+.book-return-table {
+    border-collapse: collapse;
+    padding: 0 20px 0 20px;
+}
+.book-return-table th,.book-return-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+.book-return-table th {
+    background-color: #f2f2f2;
+    font-weight: 500;
+}
+.book-return-table tr:first-child th {
+    background-color: #31A463;
+    color: #fff;
+}
+.book-return-table tr:hover{
+    background-color: #ccc;
+}
+

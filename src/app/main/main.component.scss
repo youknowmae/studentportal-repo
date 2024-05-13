@@ -7,6 +7,9 @@
     margin-bottom: 20px;
     border-radius: 50%;
 }
+.text-center h3, p{
+    font-weight: bold;
+}
 .sidebar {
     position: fixed;
     z-index: 100; 
@@ -25,6 +28,8 @@
 .nav-link {
     color: #333;
     border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    font-weight: bold;
 }
 .nav-link.active,
 .nav-link:hover {
@@ -33,6 +38,7 @@
 .router-link-active {
     color: #31A463;
     border-right: 5px solid #31A463;
+    background-color: #e8e9ec;
 }
 .nav-link{
     padding-left: 20px;

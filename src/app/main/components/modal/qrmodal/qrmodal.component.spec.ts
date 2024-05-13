@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TestingComponent } from './testing.component';
+import { QrmodalComponent } from './qrmodal.component';
 
-describe('TestingComponent', () => {
-  let component: TestingComponent;
-  let fixture: ComponentFixture<TestingComponent>;
+describe('QrmodalComponent', () => {
+  let component: QrmodalComponent;
+  let fixture: ComponentFixture<QrmodalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [TestingComponent]
+      declarations: [QrmodalComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(TestingComponent);
+    fixture = TestBed.createComponent(QrmodalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

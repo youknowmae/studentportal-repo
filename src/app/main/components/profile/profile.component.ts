@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { AuthenticationService } from '../../../authentication-service.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ProfilemodalComponent } from '../modal/profilemodal/profilemodal.component';
+import { QrmodalComponent } from '../modal/qrmodal/qrmodal.component';
 
 @Component({
   selector: 'app-profile',
@@ -10,7 +12,10 @@ import { AuthenticationService } from '../../../authentication-service.service';
 export class ProfileComponent implements OnInit {
   user: any;
 
-  constructor(private dialogRef: MatDialog, private authService: AuthenticationService) { }
+  constructor(
+    private dialogRef: MatDialog, 
+    private authService: AuthenticationService
+  ) { }
 
 
   ngOnInit(): void {
@@ -22,5 +27,13 @@ export class ProfileComponent implements OnInit {
 
   onAddNewBtnClick() {
     this.dialogRef.open(ProfileComponent, {});
+  }
+
+  openmodal () {
+    this.dialogRef.open(ProfilemodalComponent, {})
+  }
+
+  openqrmodal (){
+    this.dialogRef.open(QrmodalComponent, {})
   }
 }
