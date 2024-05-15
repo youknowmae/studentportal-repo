@@ -4,7 +4,7 @@ import { ApiService } from '.././api-service.service'; // Assuming ApiService is
 import { AuthenticationService } from '.././authentication-service.service'; // Assuming AuthenticationService is the correct service name
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { LogoutmodalComponent } from './components/modal/logoutmodal/logoutmodal.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-main',
@@ -58,23 +58,30 @@ export class MainComponent implements OnInit {
         this.projects = data;
       });
   }
-
-  logout(): void {
-    this.authService.logout();
-    this.router.navigate(['/login']);  // Navigate to the login page
-  }
-
-    // Method to open the modal and pass the selected project data
     openProjectModal(project: any): void {
       this.selectedProject = project;
       this.isVisible = true;
     }
-    
-    closeModal(): void {
-      this.isVisible = false;
-    }
 
-    openmodal () {
-      this.dialogRef.open(LogoutmodalComponent, {})
+
+    logout(): void {
+      Swal.fire({
+        title: 'Are you sure?',
+        text: 'You will be logged out!',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#31A463',
+        confirmButtonText: 'Yes'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Redirect to login page if logout is confirmed
+          this.router.navigate(['/login']);
+        } else {
+          // Stay on the dashboard if logout is not confirmed
+          console.log('User canceled logout');
+        }
+      });
     }
+  
 }

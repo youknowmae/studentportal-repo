@@ -2,6 +2,29 @@
 *{
     font-family: 'Montserrat';
 }
+
+.logoutbtn .logout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    padding: 10px 10px 10px 10px;
+    color: white;
+  }
+  
+  .logoutbtn .logout:hover {
+    color: var(--main-green);
+  }
+  
+  .logoutbtn {
+    position: fixed;
+    bottom: 25px;
+    left: 0;
+    width: 220px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+  }
+  
 .text-center img{
     margin-top: 20px;
     margin-bottom: 20px;

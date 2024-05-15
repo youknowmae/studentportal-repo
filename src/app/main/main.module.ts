@@ -8,7 +8,6 @@ import { LibraryModule } from './components/library/library.module';
 import { ProfileModule } from './components/profile/profile.module';
 import { BooksModule } from './components/library/components/books/books.module';
 import { ProfilemodalComponent } from './components/modal/profilemodal/profilemodal.component';
-import { LogoutmodalComponent } from './components/modal/logoutmodal/logoutmodal.component';
 import { ReservemodalComponent } from './components/modal/reservemodal/reservemodal.component';
 import { QrmodalComponent } from './components/modal/qrmodal/qrmodal.component';
 
@@ -20,7 +19,6 @@ import { QrmodalComponent } from './components/modal/qrmodal/qrmodal.component';
     LibraryComponent,
     ProfileComponent,
     ProfilemodalComponent,
-    LogoutmodalComponent,
     ReservemodalComponent,
     QrmodalComponent,
   ],

@@ -48,3 +48,20 @@
         height: 80px;
     }
 }
+.filter select{
+    padding: 10px 20px 10px 20px;
+    color: green;
+    border: 2px solid #31a463;
+    margin-left: 33px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.filter select:hover{
+    background-color: #31a463;
+    color: #fff;
+}
+
+.filter option{
+    padding: 10px 20px 10px 20px;
+}

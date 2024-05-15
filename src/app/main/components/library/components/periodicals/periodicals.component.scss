@@ -50,7 +50,6 @@
   margin: 0;
   padding: 0;
 }
-
 .view-button {
   background-color: #31A463;
   border: 2px solid; /* Solid border */
@@ -70,5 +69,20 @@
   cursor: pointer;
   text-decoration: none;
   height: 12%;
+}
+.filter select{
+  padding: 10px 20px 10px 20px;
+  color: green;
+  border: 2px solid #31a463;
+  margin-left: 33px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.filter select:hover{
+  background-color: #31a463;
+  color: #fff;
+}
+.filter option{
+  padding: 10px 20px 10px 20px;
 }
   

@@ -23,9 +23,6 @@
     background-color: #31A463;
     border-color: #31A463;
   }
-  projectCategory{
-    color: #31a463;
-  }
   .input-group-append .btn:hover {
     color: white;
     background-color: #31A463;
@@ -99,5 +96,14 @@
   .project h3{
     color: #31a463;
     margin: 20px 0 20px 0;
+  }
+  .dropdown-container select{
+    border: 2px solid #31a463;
+    color: #31a463;
+    width: 200px;
+  }
+  .dropdown-container select:hover{
+    background-color: #31a463;
+    color: #fff;
   }
   
