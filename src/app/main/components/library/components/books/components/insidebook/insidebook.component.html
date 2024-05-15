@@ -3,7 +3,7 @@
 
 <div class="content">
   <div class="container">
-      <span class="back-icon" routerLinkActive="router-link-active" ><i class="fa-solid fa-angle-left"></i></span>
+      <span class="back-icon" [routerLink]="['/main/library']" routerLinkActive="router-link-active" ><i class="fa-solid fa-angle-left"></i></span>
       <button class="btn" (click)="openmodal()">Reserve</button>
       <div class="image">
           <img [src]="book['image_location']" alt="Image" class="square-image">
