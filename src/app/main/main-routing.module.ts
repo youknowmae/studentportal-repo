@@ -4,19 +4,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { AnnouncementComponent } from './components/announcement/announcement.component';
 import { LibraryComponent } from './components/library/library.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'profile', pathMatch: 'full' },
   { path: 'announcement', component: AnnouncementComponent },
-  { 
-    path: 'dashboard', 
-    component: DashboardComponent,
-    children: [{
-      path: '',
-      loadChildren: ()=>import('./components/dashboard/dashboard.module').then((m)=>m.DashboardModule)
-    }]
-  },
   { 
     path: 'profile', 
     component: ProfileComponent,

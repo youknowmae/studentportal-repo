@@ -5,20 +5,15 @@
 <!-- Sidebar-->
 <div class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
     <div class="sidebar-sticky">
-        <div class="text-center">
-            <img src="assets/images/lib.png" alt="Image" style="margin-bottom: 15px;" height="140px" width="140px">
-            <h3>Ryan Joshua E. Bueno</h3>
-            <p style="margin-bottom: 20px;">CCS / BSIT</p>
+        <div class="text-center" >
+            <img [src]="user?.profile_picture || 'assets/images/lib.png'" alt="Image" style="margin-bottom: 15px;" height="140px" width="140px">
+            <p class="name">{{ user.first_name }} {{ user.last_name }}</p>
+            <p style="margin-bottom: 20px;">{{ user.department }}</p>
         </div>
         <ul class="nav flex-column">
             <li class="nav-item">
                 <a class="nav-link" [routerLink]="['profile']" routerLinkActive="router-link-active" > 
                     <i class="fas fa-user"></i> PROFILE
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="['dashboard']" routerLinkActive="router-link-active" >
-                    <i class="fas fa-tachometer-alt"></i>DASHBOARD
                 </a>
             </li>
             <li class="nav-item">

@@ -1,3 +1,39 @@
 *{
     font-family: 'Montserrat';
 }
+.modal-title {
+    position: relative;
+    left: 25px;
+    color: #31A463;
+    font-size: 25px;
+    font-weight: 500;
+}
+.btn-close {
+    position: relative;
+    right: 25px;
+}
+form {
+    margin: 0 25px 0 25px;
+}
+.form-group {
+    display: flex;
+}
+.row {
+    padding-bottom: 10px;
+}
+form .form-row {
+    padding: 10px;
+}
+form .form-control {
+    border: 2px solid #31A463;
+    border-radius: 2rem;
+}
+.modal-footer .btn-submit {
+    position: relative;
+    right: 25px;
+    background-color: #31A463;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    width: 20%;
+}

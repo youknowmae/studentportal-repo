@@ -20,7 +20,8 @@ export class MainComponent implements OnInit {
   projects: any[] = [];
   isVisible: boolean | undefined;
   selectedProject: any;
-project: any;
+  project: any;
+  user: any;
 
   constructor(
     private apiService: ApiService,
@@ -31,6 +32,9 @@ project: any;
 
   ngOnInit(): void {
     this.fetchData();
+    this.authService.user$.subscribe((user: any) => {
+      this.user = user;
+    });
   }
 
   fetchData(): void {

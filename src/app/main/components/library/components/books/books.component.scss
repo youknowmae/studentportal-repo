@@ -37,6 +37,11 @@
   }
   .square-text {
     text-align: left;
+
+    .authors {
+      display: flex;
+      flex-direction: column;
+    }
   }
   .square-text h5{
     font-size: medium;
