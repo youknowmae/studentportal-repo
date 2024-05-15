@@ -17,6 +17,19 @@ span{
     margin: 0;
     font-weight: bolder;
 }
+.title{
+    display: flex;
+}
+.title .header{
+    margin-right:370px;
+}
+.title .back{
+    cursor: pointer;
+    color: #31A463;
+}
+.title .back:hover{
+    color: #000;
+}
 .col2 p{
     padding-left: 20px;
     padding-right: 20px;

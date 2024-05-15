@@ -4,7 +4,8 @@ import { ApiService } from '../../../../../api-service.service';
 @Component({
   selector: 'app-books',
   templateUrl: './books.component.html',
-  styleUrls: ['./books.component.scss']
+  styleUrls: ['./books.component.scss'],
+  standalone: true,
 })
 export class BooksComponent implements OnInit {
   books: any[] = [];

@@ -4,9 +4,6 @@ import { BooksRoutingModule } from './books-routing.module';
 import { InsidebookComponent } from './components/insidebook/insidebook.component';
 
 
-
-
-
 @NgModule({
   declarations: [
     InsidebookComponent,
@@ -14,7 +11,6 @@ import { InsidebookComponent } from './components/insidebook/insidebook.componen
   imports: [
     CommonModule,
     BooksRoutingModule,
-    
   ]
 })
 export class BooksModule { }
