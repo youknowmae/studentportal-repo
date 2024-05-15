@@ -9,15 +9,12 @@
             <button class="btn btn-block btn-icon" [routerLink]="['books']" routerLinkActive="router-link-active"> Books</button>
         </div>
         <div class="col-md-2">
-            <select class="btn btn-block btn-icon dropdown" [routerLink]="['articles']" routerLinkActive="router-link-active">
-                <option *ngFor="let article of articleList"> {{article}} </option>
-            </select>
+            <button class="btn btn-block btn-icon" [routerLink]="['articles']" routerLinkActive="router-link-active">Articles</button>
         </div>
         <div class="col-md-2">
-            <select class="btn btn-block btn-icon dropdown" [routerLink]="['periodicals']" routerLinkActive="router-link-active">
-                <option *ngFor="let periodical of periodicalList"> {{periodical}} </option>
-            </select>
+            <button class="btn btn-block btn-icon" [routerLink]="['periodicals']" routerLinkActive="router-link-active">Periodicals</button>
         </div>
+        
         <div class="col-md-2">
             <button class="btn btn-block btn-icon" [routerLink]="['academic']" routerLinkActive="router-link-active">Academic</button>
         </div>

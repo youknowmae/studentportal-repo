@@ -8,6 +8,7 @@ import { ApiService } from '../../../../../api-service.service';
 })
 export class ArticlesComponent implements OnInit {
   articles: any[] = [];
+  selectedMaterialType: string = '';
 
   constructor(private apiService: ApiService) { }
 
@@ -16,13 +17,29 @@ export class ArticlesComponent implements OnInit {
   }
 
   fetchArticles(): void {
-    this.apiService.getArticles().subscribe(
-      (data: any[]) => {
-        this.articles = data;
-      },
-      (error) => {
-        console.error('Error fetching articles:', error);
-      }
-    );
+    if (this.selectedMaterialType) {
+      this.apiService.getArticlesByMaterialType(this.selectedMaterialType).subscribe(
+        (data: any[]) => {
+          this.articles = data;
+        },
+        (error) => {
+          console.error('Error fetching articles by material type:', error);
+        }
+      );
+    } else {
+      this.apiService.getArticles().subscribe(
+        (data: any[]) => {
+          this.articles = data;
+        },
+        (error) => {
+          console.error('Error fetching articles:', error);
+        }
+      );
+    }
+  }
+
+  onMaterialTypeChange(event: any): void {
+    this.selectedMaterialType = event.target.value;
+    this.fetchArticles();
   }
 }

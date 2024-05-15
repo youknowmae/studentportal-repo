@@ -1,132 +1,30 @@
 <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 
 <div class="content">
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <select class="form-select" (change)="onMaterialTypeChange($event)">
+                <option value="">Select Material Type</option>
+                <option value="journal">Journal</option>
+                <option value="magazine">Magazine</option>
+                <option value="newspaper">Newspaper</option>
+                <!-- Add other material types as needed -->
+            </select>
+        </div>
+    </div>
     <div class="row">
-        <!-- Square 1 -->
-        <div class="col-md-4">
+        <div class="col-md-4" *ngFor="let periodical of periodicals; let i = index">
             <div class="square">
                 <img src="assets/images/logo.png" alt="Image" class="square-image">
                 <div class="square-content">
                     <div class="square-text">
-                        <p>Wkd823910238</p>
-                        <h2>Periodical</h2>
-                        <p>Author 1</p>
+                        <p>{{ periodical.id }}</p>
+                        <h2>{{ periodical.material_type }}</h2>
+                        <p>{{ periodical.author }}</p>
                     </div>
-                    <button class="view-button" role="button" [routerLink]="['../insideperiodical']" routerLinkActive="router-link-active" > View</button>
+                    <button class="view-button" [routerLink]="['../insideperiodical', i + 1]" routerLinkActive="router-link-active" role="button"> View</button>
                 </div>
             </div>
         </div>
-        <!-- Square 2 -->
-        <div class="col-md-4">
-            <div class="square">
-                <img src="assets/images/logo.png" alt="Image" class="square-image">
-                <div class="square-content">
-                    <div class="square-text">
-                        <p>Wkd823910238</p>
-                        <h2>Periodical</h2>
-                        <p>Author 2</p>
-                    </div>
-                    <button class="view-button" role="button"> View</button>
-                </div>
-            </div>
-        </div>
-        <!-- Square 3 -->
-        <div class="col-md-4">
-            <div class="square">
-                <img src="assets/images/logo.png" alt="Image" class="square-image">
-                <div class="square-content">
-                    <div class="square-text">
-                        <p>Wkd823910238</p>
-                        <h2>Periodical</h2>
-                        <p>Author 3</p>
-                    </div>
-                    <button class="view-button" role="button"> View</button>
-                </div>
-            </div>
-        </div>
-        <!-- Square 4 -->
-        <div class="col-md-4">
-            <div class="square">
-                <img src="assets/images/logo.png" alt="Image" class="square-image">
-                <div class="square-content">
-                    <div class="square-text">
-                        <p>Wkd823910238</p>
-                        <h2>Periodical</h2>
-                        <p>Author 1</p>
-                    </div>
-                    <button class="view-button" role="button"> View</button>
-                </div>
-            </div>
-        </div>
-        <!-- Square 5 -->
-        <div class="col-md-4">
-            <div class="square">
-                <img src="assets/images/logo.png" alt="Image" class="square-image">
-                <div class="square-content">
-                    <div class="square-text">
-                        <p>Wkd823910238</p>
-                        <h2>Periodical</h2>
-                        <p>Author 1</p>
-                    </div>
-                    <button class="view-button" role="button"> View</button>
-                </div>
-            </div>
-        </div>
-        <!-- Square 6 -->
-        <div class="col-md-4">
-            <div class="square">
-                <img src="assets/images/logo.png" alt="Image" class="square-image">
-                <div class="square-content">
-                    <div class="square-text">
-                        <p>Wkd823910238</p>
-                        <h2>Periodical</h2>
-                        <p>Author 1</p>
-                    </div>
-                    <button class="view-button" role="button"> View</button>
-                </div>
-            </div>
-        </div>
-                <!-- Square 3 -->
-        <div class="col-md-4">
-            <div class="square">
-                <img src="assets/images/logo.png" alt="Image" class="square-image">
-                <div class="square-content">
-                    <div class="square-text">
-                        <p>Wkd823910238</p>
-                        <h2>Periodical</h2>
-                        <p>Author 3</p>
-                    </div>
-                    <button class="view-button" role="button"> View</button>
-                </div>
-            </div>
-        </div>
-        <!-- Square 4 -->
-        <div class="col-md-4">
-            <div class="square">
-                <img src="assets/images/logo.png" alt="Image" class="square-image">
-                <div class="square-content">
-                    <div class="square-text">
-                        <p>Wkd823910238</p>
-                        <h2>Periodical</h2>
-                        <p>Author 1</p>
-                    </div>
-                    <button class="view-button" role="button"> View</button>
-                </div>
-            </div>
-        </div>
-        <!-- Square 5 -->
-        <div class="col-md-4">
-            <div class="square">
-                <img src="assets/images/logo.png" alt="Image" class="square-image">
-                <div class="square-content">
-                    <div class="square-text">
-                        <p>Wkd823910238</p>
-                        <h2>Periodical</h2>
-                        <p>Author 1</p>
-                    </div>
-                    <button class="view-button" role="button"> View</button>
-                </div>
-            </div>
-        </div>
+    </div>
 </div>
-    

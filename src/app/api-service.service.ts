@@ -7,7 +7,6 @@ import { AuthenticationService } from './authentication-service.service';
   providedIn: 'root'
 })
 export class ApiService {
-
   apiUrl = 'http://localhost:8000/api';
 
   constructor(private http: HttpClient, private authService: AuthenticationService) { }
@@ -20,33 +19,48 @@ export class ApiService {
     });
   }
 
-  getArticles() {
+  getArticles(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/articles`, { headers: this.getHeaders() });
   }
 
-  getBooks() {
+  getArticlesByMaterialType(materialType: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/articles/${materialType}`, { headers: this.getHeaders() });
+  }
+
+  getArticleById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/articles/${id}`, { headers: this.getHeaders() });
+  }
+
+  getBooks(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/books`, { headers: this.getHeaders() });
   }
-  getBookById(bookId: number, headers?: { [key: string]: string }) {
+
+  getBookById(bookId: number, headers?: { [key: string]: string }): Observable<any> {
     let options = {};
     if (headers) {
       options = { headers };
     }
     return this.http.get<any>(`${this.apiUrl}/book/id/${bookId}`, options);
   }
-  getPeriodicals() {
-    return this.http.get<any[]>(`${this.apiUrl}/periodicals`, { headers: this.getHeaders() });
-  }
 
-  getProjects() {
+
+  getProjects(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/projects`, { headers: this.getHeaders() });
   }
+
   getProjectsByDepartment(department: string): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/projects/categories/${department}`, { headers: this.getHeaders() });
   }
+
+    // Periodicals
+    getPeriodicals(): Observable<any[]> {
+      return this.http.get<any[]>(`${this.apiUrl}/periodicals`, { headers: this.getHeaders() });
+    }
   
+    getPeriodicalsByMaterialType(materialType: string): Observable<any[]> {
+      return this.http.get<any[]>(`${this.apiUrl}/periodicals/${materialType}`, { headers: this.getHeaders() });
+    }
   getDepartment(): string | null {
     return localStorage.getItem('department');
   }
-
 }

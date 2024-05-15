@@ -7,7 +7,6 @@ import { Component } from '@angular/core';
 })
 export class LibraryComponent {
 
-  articleList: string[] = ['Article', 'Journal', 'Magazine', 'Newspaper']
   periodicalList: string[] = ['Periodical', 'Journal', 'Magazine', 'Newspaper']
 selectedOption: any;
 }

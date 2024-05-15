@@ -38,7 +38,7 @@ export class AcademicComponent implements OnInit {
     this.apiService.getProjectsByDepartment(department).subscribe(
       (data) => {
         console.log('Projects Data:', data); // Log the projects data
-  
+
         // Reset visibility flags
         this.visibleButtons = {
           CBAR: false,
@@ -48,10 +48,10 @@ export class AcademicComponent implements OnInit {
           DISSERTATION: false,
           'FEASIBILITY STUDY': false
         };
-  
+
         // Assign data to departmentProjects
         this.departmentProjects = data;
-  
+
         // Iterate through projects and update visibility flags
         data.forEach(project => {
           const category = project.category.toUpperCase();
@@ -60,11 +60,34 @@ export class AcademicComponent implements OnInit {
           }
         });
         console.log('Visible Buttons:', this.visibleButtons); // Log the visibility flags
+
+        // Set the default category to the first available category
+        const defaultCategory = this.projectCategories.find(category => this.visibleButtons[category]);
+        if (defaultCategory) {
+          this.selectedCategory = defaultCategory;
+          // Fetch projects for the default category
+          this.fetchProjectsByCategory(defaultCategory);
+        } else {
+          console.warn('No projects available for the department.');
+          // You can handle this case as per your application's logic
+        }
       },
       (error) => {
         console.error('Error fetching projects:', error);
       }
     );
+  }
+
+  // Fetch projects by category
+  fetchProjectsByCategory(category: string): void {
+    const selectedCategoryData = this.departmentProjects.find(projectData => projectData.category.trim().toUpperCase() === category);
+    if (selectedCategoryData) {
+      const selectedProjects = selectedCategoryData.projects;
+      this.projects = selectedProjects;
+      console.log('Selected Projects:', this.projects);
+    } else {
+      console.error('No projects found for category:', category);
+    }
   }
 
   // Handle dropdown selection
@@ -75,21 +98,8 @@ export class AcademicComponent implements OnInit {
     if (category) {
       this.selectedCategory = category;
 
-      // Trim and convert category to uppercase for comparison
-      const formattedCategory = category.trim().toUpperCase();
-
-      // Find the projects for the selected category
-      const selectedCategoryData = this.departmentProjects.find(projectData => projectData.category.trim().toUpperCase() === formattedCategory);
-
-      if (selectedCategoryData) {
-        const selectedProjects = selectedCategoryData.projects;
-
-        // Update the projects array with the selected projects
-        this.projects = selectedProjects;
-        console.log('Selected Projects:', this.projects);
-      } else {
-        console.error('No projects found for category:', category);
-      }
+      // Fetch projects for the selected category
+      this.fetchProjectsByCategory(category);
     }
   }
 

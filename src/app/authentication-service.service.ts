@@ -15,10 +15,10 @@ export class AuthenticationService {
   private userSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null); // Add this line
   public user$ = this.userSubject.asObservable(); // Add this line
 
-  constructor(private http: HttpClient, private router: Router) {
-    this.authToken = localStorage.getItem('authToken');
-    this.loggedInUserId = localStorage.getItem('loggedInUserId');
-  }
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+  ) {}
 
   login(credentials: { username: string, password: string }) {
     return this.http.post<any>(`${this.apiUrl}/login/student`, credentials)
@@ -58,15 +58,14 @@ export class AuthenticationService {
   }
 
   getToken(): string | null {
-    return this.authToken;
+    return localStorage.getItem('authToken');
   }
 
   getLoggedInUserId(): string | null {
-    return this.loggedInUserId;
+    return localStorage.getItem('loggedInUserId');
   }
 
- getDepartment(): string | null {
+  getDepartment(): string | null {
     return localStorage.getItem('department');
   }
- 
 }

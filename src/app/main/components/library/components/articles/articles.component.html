@@ -1,14 +1,24 @@
 <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 
 <div class="content">
-    <div class="row">
-      <div class="rectangle" *ngFor="let article of articles; let i = index" [routerLink]="['../insidearticle', i + 1]" routerLinkActive="router-link-active" data-toggle>
-        <div class="details">
-          <p>Date: {{ article.date }}</p>
-          <h5>Article</h5>
-          <p>Author: {{ article.author }}</p>
-          <p>Description: {{ article.remarks }}</p>
-        </div>
+  <div class="filter">
+    <select (change)="onMaterialTypeChange($event)">
+      <option value="/">Select Material Type</option>
+      <option value="journal">Journal</option>
+      <option value="magazine">Magazines</option>
+      <option value="newspaper">News papers</option>
+    </select>
+  </div>
+  </div>
+  <div class="content">
+  <div class="row">
+    <div class="rectangle" *ngFor="let article of articles; let i = index" [routerLink]="['../insidearticle', i + 1]" routerLinkActive="router-link-active" data-toggle>
+      <div class="details">
+        <p>Date: {{ article.date }}</p>
+        <h5>Article</h5>
+        <p>Author: {{ article.author }}</p>
+        <p>Description: {{ article.remarks }}</p>
       </div>
     </div>
   </div>
+</div>

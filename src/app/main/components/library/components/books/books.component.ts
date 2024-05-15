@@ -5,7 +5,6 @@ import { ApiService } from '../../../../../api-service.service';
   selector: 'app-books',
   templateUrl: './books.component.html',
   styleUrls: ['./books.component.scss'],
-  standalone: true,
 })
 export class BooksComponent implements OnInit {
   books: any[] = [];
