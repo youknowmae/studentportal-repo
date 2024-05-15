@@ -7,7 +7,7 @@
     background: white;
     border-radius: 5px;
     box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.322);
-    max-height: 600px;
+    max-height: 800px;
     overflow: scroll;
   }
   
@@ -24,15 +24,14 @@
   // POPUP HEADER SCSS
   .detailsheader {
     display: flex;
-    padding: 20px 30px 30px;
-    position: fixed;
+    padding: 20px 10px 10px 20px;
+    position: absolute;
     width: 900px;
     background-color: var(--main-green);
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     z-index: 1;
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.192);
-    padding-bottom: 15px;
     overflow: hidden;
   }
   
@@ -83,7 +82,7 @@
       background-color: #AB0E0E;
       color: white;
       float: right;
-      margin-top: 50px;
+      margin-top: 20px;
       
     }
     
@@ -94,27 +93,13 @@
         background-color: #31A463;
         color: white;
         float: right;
-        margin-top: 50px;
+        margin-top: 20px;
         
       }
-      
+
       .cancel-btn2:hover {
         background-color: #0ca64f;
       }
-    
-    .update-btn {
-     
-      background-color: #179733;
-      color: white;
-      float: right;
-      margin-top: 50px;
-    
-    }
-    
-    .update-btn:hover {
-      background-color: gray;
-    }
-    
 
     .txt_field1 .inputtxt2{
       width: 100%;
@@ -141,10 +126,10 @@
       background-color: #F6F6F6;
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;
-      height: 80px;
+      height: 60px;
       width: 370px;
       display: inline-grid;
-      margin: 30px 10px 30px 10px;
+      margin: 10px 10px 30px 10px;
       }
     
     .txt_field1 .labelline1{
@@ -170,7 +155,7 @@
     form .txt_field{
       position: relative;
       border-bottom: 2px solid #777777;
-      margin: 30px 10px 30px 10px;
+      margin: 15px 10px 15px 10px;
       width: 240px;
       display: inline-block;
     }
@@ -178,7 +163,7 @@
     .txt_field .inputtxt{
       width: 100%;
       display: block;
-      padding-top: 19px;
+      padding-top: 12px;
       padding-left: 10px;
       padding-right: 10px;
       height: 60px;
