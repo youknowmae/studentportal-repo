@@ -56,6 +56,10 @@ export class ApiService {
     getPeriodicals(): Observable<any[]> {
       return this.http.get<any[]>(`${this.apiUrl}/periodicals`, { headers: this.getHeaders() });
     }
+    
+    getPeriodicalById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/periodical/${id}`, { headers: this.getHeaders() });
+  }
   
     getPeriodicalsByMaterialType(materialType: string): Observable<any[]> {
       return this.http.get<any[]>(`${this.apiUrl}/periodicals/${materialType}`, { headers: this.getHeaders() });
