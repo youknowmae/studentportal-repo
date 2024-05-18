@@ -69,6 +69,9 @@ export class ApiService {
     const userId = parseInt(this.authService.getLoggedInUserId() || '0'); // Get the logged-in user ID
     return this.getReservationsByUserId(userId); // Call the existing method with the logged-in user ID
   }
+  createReservation(reservationData: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/reservations`, reservationData, { headers: this.getHeaders() });
+  }
 
    
   getDepartment(): string | null {

@@ -1,156 +1,72 @@
-<!-- <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-
-      <div class="details-content">
-        <div class="detailsbody">
-          <div class="detailsheader">
-            <h4>Reservation Form</h4>
-          </div>
-          <div class="details">
-            <form>
-              <div class="txt_field">
-                <input class="inputtxt" type="text" required>
-                <span></span>
-                <div class="labelline">Full Name</div>
-              </div>
-              <div class="txt_field">
-                <input class="inputtxt" type="text" required>
-                <span></span>
-                <div class="labelline">Student Number</div>
-              </div>
-              <br>
-              <div class="txt_field">
-                <input class="inputtxt" type="text" required>
-                <span></span>
-                <div class="labelline">Department</div>
-              </div>
-              <div class="txt_field">
-                <input class="inputtxt" type="text" required>
-                <span></span>
-                <div class="labelline">Patron Type</div>
-              </div>
-              <br>
-              <div class="txt_field3">
-                <input class="inputtxt" type="text" required>
-                <span></span>
-                <div class="labelline">Title</div>
-              </div>
-              <br>
-              <div class="txt_field">
-                <input class="inputtxt" type="text" required>
-                <span></span>
-                <div class="labelline">Author</div>
-              </div>
-              <div class="txt_field">
-                <input class="inputtxt" type="text" required>
-                <span></span>
-                <div class="labelline">Location</div>
-              </div>
-              <br>
-              <div class="txt_field">
-                <input class="inputtxt" type="text" required>
-                <span></span>
-                <div class="labelline">Number of Books</div>
-              </div>
-              <div class="txt_field">
-                <input class="inputtxt" type="text" required>
-                <span></span>
-                <div class="labelline">Fines</div>
-              </div>
-              <br>
-              <div class="txt_field1">
-                <div class="labelline1">Date Request</div>
-                <span></span>                              
-                <input type="date" class="date">
-              </div>
-              <div class="txt_field1">
-                <div class="labelline1">Date of Expiration</div>
-                <span></span>                              
-                <input type="date" class="date">
-              </div>  
-            </form>
-            <div class="button-container">
-              <button class="cancel-btn2">Reserve</button>
-              <button class="cancel-btn">Cancel</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-       -->
-
-       <div class="details-content">
-        <div class="detailsbody">
-          <div class="detailsheader">
-            <h4>Reservation Form</h4>
-          </div>
-          <div class="details">
-            <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
-              <div class="txt_field">
-                <input class="inputtxt" type="text" formControlName="fullName" required>
-                <span></span>
-                <div class="labelline">Full Name</div>
-              </div>
-              <div class="txt_field">
-                <input class="inputtxt" type="text" formControlName="id" required>
-                <span></span>
-                <div class="labelline">Student Number</div>
-              </div>
-              <br>
-              <div class="txt_field">
-                <input class="inputtxt" type="text" formControlName="department" required>
-                <span></span>
-                <div class="labelline">Department</div>
-              </div>
-              <div class="txt_field">
-                <input class="inputtxt" type="text" formControlName="patronType" required>
-                <span></span>
-                <div class="labelline">Patron Type</div>
-              </div>
-              <br>
-              <div class="txt_field3">
-                <input class="inputtxt" type="text" formControlName="title" required>
-                <span></span>
-                <div class="labelline">Title</div>
-              </div>
-              <br>
-              <div class="txt_field">
-                <input class="inputtxt" type="text" formControlName="author" required>
-                <span></span>
-                <div class="labelline">Author</div>
-              </div>
-              <div class="txt_field">
-                <input class="inputtxt" type="text" formControlName="language" required>
-                <span></span>
-                <div class="labelline">Location</div>
-              </div>
-              <br>
-              <div class="txt_field">
-                <input class="inputtxt" type="text" formControlName="numberOfBooks" required>
-                <span></span>
-                <div class="labelline">Number of Books</div>
-              </div>
-              <div class="txt_field">
-                <input class="inputtxt" type="text" formControlName="fines" required>
-                <span></span>
-                <div class="labelline">Fines</div>
-              </div>
-              <br>
-              <div class="txt_field1">
-                <div class="labelline1">Date Request</div>
-                <span></span>                              
-                <input type="date" class="date" formControlName="dateRequest">
-              </div>
-              <div class="txt_field1">
-                <div class="labelline1">Date of Expiration</div>
-                <span></span>                              
-                <input type="date" class="date" formControlName="dateOfExpiration">
-              </div>  
-              <div class="button-container">
-                <button type="submit" class="cancel-btn2">Reserve</button>
-                <button type="button" class="cancel-btn">Cancel</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
+<form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
+  <div class="txt_field">
+    <input class="inputtxt" type="text" formControlName="fullName" readonly>
+    <span></span>
+    <div class="labelline">Full Name</div>
+  </div>
+  <div class="txt_field">
+    <input class="inputtxt" type="text" formControlName="id" readonly>
+    <span></span>
+    <div class="labelline">Student Number</div>
+  </div>
+  <br>
+  <div class="txt_field">
+    <input class="inputtxt" type="text" formControlName="department" readonly>
+    <span></span>
+    <div class="labelline">Department</div>
+  </div>
+  <div class="txt_field">
+    <input class="inputtxt" type="text" formControlName="patronType" readonly>
+    <span></span>
+    <div class="labelline">Patron Type</div>
+  </div>
+  <br>
+  <div class="txt_field3">
+    <input class="inputtxt" type="text" formControlName="title" readonly>
+    <span></span>
+    <div class="labelline">Title</div>
+  </div>
+  <br>
+  <div class="txt_field">
+    <input class="inputtxt" type="text" formControlName="author" readonly>
+    <span></span>
+    <div class="labelline">Author</div>
+  </div>
+  <div class="txt_field">
+    <input class="inputtxt" type="text" formControlName="language" readonly>
+    <span></span>
+    <div class="labelline">Language</div>
+  </div>
+  <br>
+  <div class="txt_field">
+    <input class="inputtxt" type="text" formControlName="numberOfBooks" required>
+    <span></span>
+    <div class="labelline">Number of Books</div>
+  </div>
+  <div class="txt_field">
+    <input class="inputtxt" type="text" formControlName="fines" readonly>
+    <span></span>
+    <div class="labelline">Fines</div>
+  </div>
+  <br>
+  <div class="txt_field1">
+    <div class="labelline1">Date Request</div>
+    <span></span>
+    <input type="date" class="date" formControlName="dateRequest">
+  </div>
+  <div class="txt_field1">
+    <div class="labelline1">Date of Expiration</div>
+    <span></span>
+    <input type="date" class="date" formControlName="dateOfExpiration">
+  </div>
+  <div class="button-container">
+    <button type="submit" class="cancel-btn2">Reserve</button>
+  </div>
+  <div *ngIf="successMessage" class="success-message">
+    {{ successMessage }}
+  </div>
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+  
+</form>

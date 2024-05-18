@@ -18,7 +18,7 @@ export class InsidebookComponent implements OnInit {
     private apiService: ApiService,
     private route: ActivatedRoute,
     private authService: AuthenticationService,
-    private dialogRef: MatDialog
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -47,7 +47,13 @@ export class InsidebookComponent implements OnInit {
     }
   }
 
-  openmodal () {
-    this.dialogRef.open(ReservemodalComponent, {})
+  openModal(): void {
+    const dialogRef = this.dialog.open(ReservemodalComponent, {
+      data: { bookId: this.bookId } // Pass bookId to the modal component
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 }
