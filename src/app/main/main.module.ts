@@ -10,6 +10,7 @@ import { BooksModule } from './components/library/components/books/books.module'
 import { ProfilemodalComponent } from './components/modal/profilemodal/profilemodal.component';
 import { ReservemodalComponent } from './components/modal/reservemodal/reservemodal.component';
 import { QrmodalComponent } from './components/modal/qrmodal/qrmodal.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -27,7 +28,9 @@ import { QrmodalComponent } from './components/modal/qrmodal/qrmodal.component';
     MainRoutingModule,
     LibraryModule,
     ProfileModule,
-    BooksModule
+    BooksModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class MainModule { }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../../../../api-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-articles',
@@ -10,7 +11,7 @@ export class ArticlesComponent implements OnInit {
   articles: any[] = [];
   selectedMaterialType: string = '';
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService, private router: Router) { }
 
   ngOnInit(): void {
     this.fetchArticles();
@@ -41,5 +42,9 @@ export class ArticlesComponent implements OnInit {
   onMaterialTypeChange(event: any): void {
     this.selectedMaterialType = event.target.value;
     this.fetchArticles();
+  }
+
+  navigateToArticle(id: number): void {
+    this.router.navigate(['/insidearticle', id]);
   }
 }

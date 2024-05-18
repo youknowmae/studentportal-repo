@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { LibraryRoutingModule } from './library-routing.module';
 import { BooksComponent } from './components/books/books.component';
@@ -23,7 +24,8 @@ import { AcademicComponent } from './components/academic/academic.component';
     LibraryRoutingModule,
     PeriodicalsModule,
     ArticlesModule,
-    BooksModule
+    BooksModule,
+    FormsModule
   ]
 })
 export class LibraryModule { }

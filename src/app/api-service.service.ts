@@ -28,7 +28,7 @@ export class ApiService {
   }
 
   getArticleById(id: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/articles/${id}`, { headers: this.getHeaders() });
+    return this.http.get<any>(`${this.apiUrl}/article/id/${id}`, { headers: this.getHeaders() });
   }
 
   getBooks(): Observable<any[]> {
@@ -60,15 +60,17 @@ export class ApiService {
     getPeriodicalsByMaterialType(materialType: string): Observable<any[]> {
       return this.http.get<any[]>(`${this.apiUrl}/periodicals/${materialType}`, { headers: this.getHeaders() });
     }
-    getReservationsByUserId(userId: number): Observable<any[]> {
-      return this.http.get<any[]>(`${this.apiUrl}/reservations/${userId}`, { headers: this.getHeaders() });
-    }
-  
-    getReservationsByLoggedInUser(): Observable<any[]> {
-      const userId = parseInt(this.authService.getLoggedInUserId() || '0'); // Get the logged-in user ID
-      return this.getReservationsByUserId(userId); // Call the existing method with the logged-in user ID
-    }
-    
+
+   getReservationsByUserId(userId: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/reservations/${userId}`, { headers: this.getHeaders() });
+  }
+
+  getReservationsByLoggedInUser(): Observable<any[]> {
+    const userId = parseInt(this.authService.getLoggedInUserId() || '0'); // Get the logged-in user ID
+    return this.getReservationsByUserId(userId); // Call the existing method with the logged-in user ID
+  }
+
+   
   getDepartment(): string | null {
     return localStorage.getItem('department');
   }

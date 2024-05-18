@@ -21,7 +21,7 @@
         <div class="col-md-4" *ngFor="let project of projects">
           <div class="square">
             <!-- Assuming you have a logo property in your project object -->
-            <img [src]="project.logo" alt="Image" class="square-image">
+            <img [src]="project.image_location" alt="Image" class="square-image">
             <div class="square-content">
               <div class="square-text">
                 <p>{{ project.id }}</p>
