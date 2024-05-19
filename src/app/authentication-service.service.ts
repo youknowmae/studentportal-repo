@@ -9,7 +9,8 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class AuthenticationService {
 
-  apiUrl = 'http://localhost:8000/api';
+  // apiUrl = 'http://localhost:8000/api';
+  apiUrl = 'http://192.168.68.124:8000/api';
   authToken: string | null = null;
   loggedInUserId: string | null = null;
   private userSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null); // Add this line

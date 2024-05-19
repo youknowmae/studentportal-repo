@@ -4,11 +4,11 @@
 <div class="container">
   <span class="back-icon" [routerLink]="['/main/library/articles']" routerLinkActive="router-link-active"><i class="fa-solid fa-angle-left"></i></span>
   <h2 class="article-title">{{ article?.title || 'Article Title' }}</h2>
-  <p class="article-info">{{ article?.author || 'Author Name' }} / {{ article?.date_published || 'Publication Date' }} / {{ article?.publisher || 'Publisher Name' }}</p>
+  <p class="article-info">{{ article.authors || 'Author Name' }} / {{ article?.date_published || 'Publication Date' }} / {{ article?.publisher || 'Publisher Name' }}</p>
   <div class="content">
-    <p class="abstract">Abstract: {{ article?.abstract || 'Abstract content goes here...' }}</p>
+    <p class="abstract">{{ article?.abstract || 'Abstract content goes here...' }}</p>
   </div>
   <div class="page">
-    <p>Page: {{ article?.pages || 'Page information' }}</p>
+    <p>{{ article?.pages || 'Page information' }}</p>
   </div>
 </div>

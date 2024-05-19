@@ -7,9 +7,9 @@
                 <img src="assets/images/logo.png" alt="Image" class="square-image">
                 <div class="square-content">
                     <div class="square-text">
-                        <p>{{ reservation.title }}</p>
-                        <h2>{{ reservation.status }}</h2>
-                        <p>{{ reservation.author }}</p>
+                        <p>{{ reservation.book.title }}</p>
+                        <h2>{{ reservation.status == 1 ? 'Pending' : 'Approved' }}</h2>
+                        <p>{{ reservation.book.authors }}</p>
                     </div>
                     <button class="view-button" (click)="viewReservationDetails(reservation)">View</button>
                 </div>

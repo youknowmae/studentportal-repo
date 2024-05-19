@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../../../../api-service.service';
+import { response } from 'express';
 
 @Component({
   selector: 'app-books',
@@ -19,6 +20,7 @@ export class BooksComponent implements OnInit {
     this.apiService.getBooks()  // Call getBooks() from ApiService
       .subscribe(data => {
         this.books = data;
+        console.log(this.books)
       });
   }
 }

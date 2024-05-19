@@ -29,8 +29,8 @@ export class ReservemodalComponent implements OnInit {
       department: ['', Validators.required],
       patronType: ['', Validators.required],
       title: ['', Validators.required],
-      author: ['', Validators.required],
-      language: ['', Validators.required],
+      authors: ['', Validators.required],
+      location: ['', Validators.required],
       numberOfBooks: ['', [Validators.required, Validators.min(1)]],
       fines: [0, [Validators.required, Validators.min(0)]],
       dateRequest: ['', Validators.required],
@@ -72,8 +72,8 @@ export class ReservemodalComponent implements OnInit {
       if (data) {
         const selectedBook = {
           title: data.title,
-          author: data.author,
-          language: data.language
+          authors: data.authors,
+          location: data.location
         };
         this.fillBookInfo(selectedBook);
       } else {
@@ -100,8 +100,8 @@ export class ReservemodalComponent implements OnInit {
   fillBookInfo(selectedBook: any): void {
     this.reservationForm.patchValue({
       title: selectedBook.title,
-      author: selectedBook.author,
-      language: selectedBook.language
+      authors: selectedBook.authors,
+      location: selectedBook.location
     });
   }
 
@@ -112,8 +112,8 @@ export class ReservemodalComponent implements OnInit {
         user_id: reservationData.id,
         book_id: this.selectedBookId,
         title: reservationData.title,
-        author: reservationData.author,
-        location: reservationData.language,
+        authors: reservationData.authors,
+        location: reservationData.location,
         date_requested: reservationData.dateRequest,
         number_of_books: reservationData.numberOfBooks,
         date_of_expiration: reservationData.dateOfExpiration,

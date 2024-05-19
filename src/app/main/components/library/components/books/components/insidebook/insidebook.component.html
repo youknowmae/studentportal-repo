@@ -6,21 +6,19 @@
       <span class="back-icon" [routerLink]="['/main/library']" routerLinkActive="router-link-active" ><i class="fa-solid fa-angle-left"></i></span>
       <button class="btn" (click)="openModal()">Reserve</button>
       <div class="image">
-          <img [src]="book['image_location']" alt="Image" class="square-image">
+        <img [src]="book.image_url == null ? 'assets/images/lib.png' : book.image_url" alt="Image" class="square-image">
       </div>
       <h2>{{ book['title'] }}</h2>
       <div class="info">
           <p>Status: {{ book['available'] ? 'Available' : 'Not Available' }}</p>
           <p>Accesion: {{ book['id'] }}</p>
           <p>Call Number: {{ book['call_number'] }}</p>
-          <p>Copyright: {{ book['copyright'] }}</p>
-          <p>Author: {{ book['author'] }}</p>
-          <p>Publication Date: {{ book['date_published'] }}</p>
+          <p>Copyright: {{ book['copyright'] }}</p> 
+          <p>Author: {{ book['authors'] }}</p>
           <p>Volume: {{ book['volume'] }}</p>
           <p>Pages: {{ book['pages'] }}</p>
           <p>Edition: {{ book['edition'] }}</p>
-          <p>Remark: {{ book['remarks'] }}</p>
-          <p>Date Purchased/Donated: {{ book['purchase_date'] }}</p>
+          <p>Remark: {{ book['remarks'] != null ? book['remarks'] : 'N/A' }}</p>
       </div>
   </div>
 </div>

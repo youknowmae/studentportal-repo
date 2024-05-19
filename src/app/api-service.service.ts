@@ -7,7 +7,8 @@ import { AuthenticationService } from './authentication-service.service';
   providedIn: 'root'
 })
 export class ApiService {
-  apiUrl = 'http://localhost:8000/api';
+  // apiUrl = 'http://localhost:8000/api';
+  apiUrl = 'http://192.168.68.124:8000/api';
 
   constructor(private http: HttpClient, private authService: AuthenticationService) { }
 
@@ -20,19 +21,19 @@ export class ApiService {
   }
 
   getArticles(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/articles`, { headers: this.getHeaders() });
+    return this.http.get<any[]>(`${this.apiUrl}/student/articles`, { headers: this.getHeaders() });
   }
 
-  getArticlesByMaterialType(materialType: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/articles/${materialType}`, { headers: this.getHeaders() });
+  getArticlesByMaterialType(type: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/student/articles/type/${type}`, { headers: this.getHeaders() });
   }
 
   getArticleById(id: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/article/id/${id}`, { headers: this.getHeaders() });
+    return this.http.get<any>(`${this.apiUrl}/student/article/id/${id}`, { headers: this.getHeaders() });
   }
 
   getBooks(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/books`, { headers: this.getHeaders() });
+    return this.http.get<any[]>(`${this.apiUrl}/student/books`, { headers: this.getHeaders() });
   }
 
   getBookById(bookId: number, headers?: { [key: string]: string }): Observable<any> {
@@ -40,7 +41,7 @@ export class ApiService {
     if (headers) {
       options = { headers };
     }
-    return this.http.get<any>(`${this.apiUrl}/book/id/${bookId}`, options);
+    return this.http.get<any>(`${this.apiUrl}/student/book/id/${bookId}`, options);
   }
 
 
@@ -58,15 +59,15 @@ export class ApiService {
     }
     
     getPeriodicalById(id: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/periodical/${id}`, { headers: this.getHeaders() });
+    return this.http.get<any>(`${this.apiUrl}/student/periodical/${id}`, { headers: this.getHeaders() });
   }
   
     getPeriodicalsByMaterialType(materialType: string): Observable<any[]> {
-      return this.http.get<any[]>(`${this.apiUrl}/periodicals/${materialType}`, { headers: this.getHeaders() });
+      return this.http.get<any[]>(`${this.apiUrl}/student/periodicals/${materialType}`, { headers: this.getHeaders() });
     }
 
-   getReservationsByUserId(userId: number): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/reservations/${userId}`, { headers: this.getHeaders() });
+   getReservationsByUserId(id: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/reservations/${id}`, { headers: this.getHeaders() });
   }
 
   getReservationsByLoggedInUser(): Observable<any[]> {
@@ -74,15 +75,13 @@ export class ApiService {
     return this.getReservationsByUserId(userId); // Call the existing method with the logged-in user ID
   }
   createReservation(reservationData: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/reservations`, reservationData, { headers: this.getHeaders() });
+    return this.http.post<any>(`${this.apiUrl}/reserve/book`, reservationData, { headers: this.getHeaders() });
   }
 
    
   getDepartment(): string | null {
     return localStorage.getItem('department');
   }
-  getPeriodicalsById(id: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/periodical/id/${id}`, { headers: this.getHeaders() });
-  }
+  
   
 }

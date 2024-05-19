@@ -43,8 +43,4 @@ export class ArticlesComponent implements OnInit {
     this.selectedMaterialType = event.target.value;
     this.fetchArticles();
   }
-
-  navigateToArticle(id: number): void {
-    this.router.navigate(['/insidearticle', id]);
-  }
 }
