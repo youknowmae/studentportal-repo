@@ -81,4 +81,8 @@ export class ApiService {
   getDepartment(): string | null {
     return localStorage.getItem('department');
   }
+  getPeriodicalsById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/periodical/id/${id}`, { headers: this.getHeaders() });
+  }
+  
 }

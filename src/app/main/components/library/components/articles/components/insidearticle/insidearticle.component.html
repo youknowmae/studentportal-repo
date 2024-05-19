@@ -2,7 +2,7 @@
 <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 
 <div class="container">
-  <span class="back-icon" [routerLink]="['/main/library']" routerLinkActive="router-link-active"><i class="fa-solid fa-angle-left"></i></span>
+  <span class="back-icon" [routerLink]="['/main/library/articles']" routerLinkActive="router-link-active"><i class="fa-solid fa-angle-left"></i></span>
   <h2 class="article-title">{{ article?.title || 'Article Title' }}</h2>
   <p class="article-info">{{ article?.author || 'Author Name' }} / {{ article?.date_published || 'Publication Date' }} / {{ article?.publisher || 'Publisher Name' }}</p>
   <div class="content">

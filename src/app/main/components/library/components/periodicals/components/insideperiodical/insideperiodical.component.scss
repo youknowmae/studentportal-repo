@@ -9,7 +9,6 @@
 .container {
     position: relative;
     left: 0;
-    top: 5px;
     bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -54,9 +53,10 @@
     object-fit: cover;
 }
 .container h2 {
-    position: absolute;
-    right: 13%;
-    top: 10%;
+    display: flex;
+    float: right;
+    margin-right: 15%;
+    margin-top: 5%;
 }
 .info {
     position: absolute;
