@@ -4,6 +4,8 @@ import { ApiService } from '../../../../api-service.service';
 import { AuthenticationService } from '../../../../authentication-service.service';
 import Swal from 'sweetalert2';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-reservemodal',
@@ -20,6 +22,7 @@ export class ReservemodalComponent implements OnInit {
     private fb: FormBuilder,
     private apiService: ApiService,
     private authService: AuthenticationService,
+    private http: HttpClient,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.selectedBookId = data.bookId;
@@ -30,12 +33,13 @@ export class ReservemodalComponent implements OnInit {
       patronType: ['', Validators.required],
       title: ['', Validators.required],
       authors: ['', Validators.required],
-      location: ['', Validators.required],
+      // location: ['', Validators.required],
       numberOfBooks: ['', [Validators.required, Validators.min(1)]],
       fines: [0, [Validators.required, Validators.min(0)]],
       dateRequest: ['', Validators.required],
       dateOfExpiration: ['', Validators.required]
     });
+    console.log(this.selectedBookId)
   }
 
   ngOnInit(): void {
@@ -73,7 +77,7 @@ export class ReservemodalComponent implements OnInit {
         const selectedBook = {
           title: data.title,
           authors: data.authors,
-          location: data.location
+          // location: data.location
         };
         this.fillBookInfo(selectedBook);
       } else {
@@ -87,7 +91,7 @@ export class ReservemodalComponent implements OnInit {
       }
     });
   }
-
+  
   fillUserInfo(userInfo: any): void {
     this.reservationForm.patchValue({
       fullName: userInfo.fullName,
@@ -101,7 +105,7 @@ export class ReservemodalComponent implements OnInit {
     this.reservationForm.patchValue({
       title: selectedBook.title,
       authors: selectedBook.authors,
-      location: selectedBook.location
+      // location: selectedBook.location
     });
   }
 
@@ -111,34 +115,70 @@ export class ReservemodalComponent implements OnInit {
       const requestData = {
         user_id: reservationData.id,
         book_id: this.selectedBookId,
-        title: reservationData.title,
-        authors: reservationData.authors,
-        location: reservationData.location,
-        date_requested: reservationData.dateRequest,
-        number_of_books: reservationData.numberOfBooks,
-        date_of_expiration: reservationData.dateOfExpiration,
+        start_date: reservationData.dateRequest,
+        end_date: reservationData.dateOfExpiration,
         fine: reservationData.fines,
-        status: true
+        status: true // Assuming always true for new reservations
       };
-
-      this.apiService.createReservation(requestData).subscribe(response => {
-        Swal.fire({
-          icon: 'success',
-          title: 'Success',
-          text: 'Reservation created successfully',
-        });
-        this.reservationForm.reset();
-      }, error => {
-        Swal.fire({
-          icon: 'error',
-          title: 'Error',
-          text: 'Failed to create reservation',
-        });
-      });
+  
+      this.apiService.createReservation(requestData).subscribe(
+        response => {
+          Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: 'Reservation created successfully',
+          });
+          this.reservationForm.reset();
+        },
+        error => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Failed to create reservation',
+          });
+        }
+      );
     } else {
       console.error('Form is invalid or no book selected');
     }
   }
+  
+
+// onSubmit(): void {
+//   console.log('Form Valid:', this.reservationForm.valid);
+//   console.log('Selected Book ID:', this.selectedBookId);
+//   console.log('Form Values:', this.reservationForm.value);
+
+//   if (this.reservationForm.valid && this.selectedBookId !== null) {
+//     const reservationData = this.reservationForm.value;
+//     const requestData = {
+//       user_id: reservationData.id,
+//       book_id: this.selectedBookId,
+//       start_date: reservationData.dateRequest,
+//       end_date: reservationData.dateOfExpiration,
+//       fine: reservationData.fines,
+//       status: true // Assuming always true for new reservations
+//     };
+
+//     this.http.post<any>('http://localhost:8000/api/reservations', requestData)
+//       .subscribe(response => {
+//         Swal.fire({
+//           icon: 'success',
+//           title: 'Success',
+//           text: 'Reservation created successfully',
+//         });
+//         this.reservationForm.reset();
+//       }, error => {
+//         Swal.fire({
+//           icon: 'error',
+//           title: 'Error',
+//           text: 'Failed to create reservation',
+//         });
+//       });
+//   } else {
+//     console.error('Form is invalid or no book selected');
+//   }
+// }
 
   logFormState(): void {
     Object.keys(this.reservationForm.controls).forEach(key => {

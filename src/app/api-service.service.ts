@@ -7,8 +7,8 @@ import { AuthenticationService } from './authentication-service.service';
   providedIn: 'root'
 })
 export class ApiService {
-  // apiUrl = 'http://localhost:8000/api';
-  apiUrl = 'http://192.168.68.124:8000/api';
+  apiUrl = 'http://localhost:8000/api';
+  // apiUrl = 'http://172.20.10.3:8000/api';
 
   constructor(private http: HttpClient, private authService: AuthenticationService) { }
 
@@ -36,26 +36,26 @@ export class ApiService {
     return this.http.get<any[]>(`${this.apiUrl}/student/books`, { headers: this.getHeaders() });
   }
 
-  getBookById(bookId: number, headers?: { [key: string]: string }): Observable<any> {
+  getBookById(id: number, headers?: { [key: string]: string }): Observable<any> {
     let options = {};
     if (headers) {
       options = { headers };
     }
-    return this.http.get<any>(`${this.apiUrl}/student/book/id/${bookId}`, options);
+    return this.http.get<any>(`${this.apiUrl}/student/book/id/${id}`, options);
   }
 
 
   getProjects(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/projects`, { headers: this.getHeaders() });
+    return this.http.get<any[]>(`${this.apiUrl}/student/projects`, { headers: this.getHeaders() });
   }
 
   getProjectsByDepartment(department: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/projects/categories/${department}`, { headers: this.getHeaders() });
+    return this.http.get<any[]>(`${this.apiUrl}/student/projects/department/${department}`, { headers: this.getHeaders() });
   }
 
     // Periodicals
     getPeriodicals(): Observable<any[]> {
-      return this.http.get<any[]>(`${this.apiUrl}/periodicals`, { headers: this.getHeaders() });
+      return this.http.get<any[]>(`${this.apiUrl}/student/periodicals`, { headers: this.getHeaders() });
     }
     
     getPeriodicalById(id: number): Observable<any> {
@@ -75,7 +75,7 @@ export class ApiService {
     return this.getReservationsByUserId(userId); // Call the existing method with the logged-in user ID
   }
   createReservation(reservationData: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/reserve/book`, reservationData, { headers: this.getHeaders() });
+    return this.http.post<any>(`${this.apiUrl}/reservations`, reservationData, { headers: this.getHeaders() });
   }
 
    
