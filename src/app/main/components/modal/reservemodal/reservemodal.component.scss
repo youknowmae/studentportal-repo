@@ -1,516 +1,329 @@
-*{
-    font-family: 'Montserrat';
-} 
-  .details-content {
-    width: 640px;
-    position: relative;
-    background: white;
-    border-radius: 5px;
-    box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.322);
-    max-height: 800px;
-    height: 600px;
-    overflow: scroll;
-  }
-  
-  .detailsbody {
-    height: auto; /* Adjust the height as needed */
-    justify-content: center; 
-  }
-  
-  .details {
-    padding: 100px 50px 30px 50px;
-    padding-bottom: 10px;
-  }
-  
-  // POPUP HEADER SCSS
-  .detailsheader {
-    display: flex;
-    padding: 20px 10px 10px 20px;
-    position: absolute;
-    width: 640px;
-    background-color: var(--main-green);
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    z-index: 1;
-    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.192);
-    overflow: hidden;
-  }
-  
-  /* EXIT BUTTON */
-  .exit-button {
-    position: relative;
-    top: 0;
-    right: 0;
-    background-color: transparent;
-    border: none;
-    font-size: 40px;
-    cursor: pointer;
-    color: var(--primary-color);
-  }
-  
-  .exit-button:hover {
-    color: var(--secondary-color);
-  }
-  
-  h4 {
-    color: #31A463;
-    padding-top: 5px;
-    width: 880px;
-    font-weight: 700;
-    text-align: left;
-  }
-    
-    .button-container{
-      display: flex;
-      justify-content: right;
-      margin-right: 0;
-    }
-    
-    button {
-      padding: 10px 20px;
-      margin: 0 10px;
-      cursor: pointer;
-      border: none;
-      border-radius: 5px;
-      font-weight: 400;
-      width: 100px;
-      letter-spacing: 1.5px;
-      margin: 10px;
-    }
-    
-    .cancel-btn {
-      background-color: #AB0E0E;
-      color: white;
-      float: right;
-      margin-top: 20px;
-      
-    }
-    
-    .cancel-btn:hover {
-      background-color: gray;
-    }
-    .cancel-btn2 {
-        background-color: #31A463;
-        color: white;
-        float: right;
-        margin-top: 20px;
-        
-      }
+* {
+  font-family: 'Montserrat';
+}
+.header{
+  background-color: #31A463;
+  padding: 20px 0 10px 20px;
+}
+.header h5{
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: bolder;
+}
+.button-container {
+  display: flex;
+  justify-content: right;
+  margin-right: 0;
+}
+button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  font-weight: 400;
+  width: 100px;
+  letter-spacing: 1.5px;
+  margin: 10px;
+}
+.cancel-btn2 {
+  background-color: #31A463;
+  color: white;
+  float: right;
+  margin-top: 20px;
+}
+.cancel-btn2:hover {
+  background-color: #0ca64f;
+}
+.txt_field1 .inputtxt2 {
+  width: 100%;
+  padding: 15px 5px 40px 0;
+  font-size: 15px;
+  border: none;
+  background-color: #F6F6F6;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  outline: none;
+  border-bottom: 2px solid #777777;
+}
+.txt_field1 .labelline2 {
+  margin-left: 10px;
+  left: 10px;
+  color: #777777;
+  font-size: 12px;
+}
+form .txt_field1 {
+  padding-top: 10px;
+  border-bottom: 2px solid #777777;
+  padding-bottom: 10px;
+  background-color: #F6F6F6;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  height: 60px;
+  width: 240px;
+  display: inline-grid;
+  margin: 10px 10px 30px 10px;
+}
+.txt_field1 .labelline1 {
+  margin-left: 10px;
+  left: 14px;
+  color: #777777;
+  font-size: 12px;
+}
+.txt_field1 .inputtxt1 {
+  width: 100%;
+  padding-top: 50px;
+  padding-left: 14px;
+  padding-right: 10px;
+  height: 60px;
+  font-size: 15px;
+  border: none;
+  background-color: #F6F6F6;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  outline: none;
+}
+.date {
+  border: none;
+  width: 97%;
+  font-size: 15px;
+  margin-left: 1px;
+  background-color: #F6F6F6;
+  border-radius: 5px;
+  outline: none;
+  color: #31A463;
+}
+input[type=file] {
 
-      .cancel-btn2:hover {
-        background-color: #0ca64f;
-      }
+  background-color: #F6F6F6;
+  border: none;
+  width: 100%;
+}
+input[type="file"]::file-selector-button {
+  letter-spacing: 0.5px;
+  font-size: 14px;
+  border-top-left-radius: 1px;
+  font-family: 'Poppins';
+  color: #ffffff;
+  width: 150px;
+  height: 50px;
+  cursor: pointer;
+  background-color: #31A463;
+  border: none;
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05);
+  transition: background-color 200ms;
+  left: 10px;
+}
+.txt_field {
+  display: inline-block;
+  width: calc(50% - 20px);
+  margin-right: 20px;
+}
+.txt_field:nth-child(even) {
+  margin-right: 0;
+}
+.txt_field .uploadlabel {
+  position: absolute;
+  top: 0;
+  margin-top: -20px;
+  font-size: 8px;
+  letter-spacing: 0.5px;
+  color: #777777;
+  position: absolute;
+  left: 10px;
+}
 
-    .txt_field1 .inputtxt2{
-      width: 100%;
-      padding: 15px 5px 40px 0;
-      font-size: 15px;
-      border: none;
-      background-color: #F6F6F6;
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
-      outline: none;
-      border-bottom: 2px solid #777777;
-    }
-    .txt_field1 .labelline2{
-      margin-left: 10px;
-      left: 10px;
-      color: #777777;
-      font-size: 12px;
-    
-    }
-    form .title{
-      width: 120px;
-    }
-    form .txt_field1{
-      padding-top: 10px;
-      border-bottom: 2px solid #777777;
-      padding-bottom: 10px;
-      background-color: #F6F6F6;
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
-      height: 60px;
-      width: 240px;
-      display: inline-grid;
-      margin: 10px 10px 30px 10px;
-      }
-    
-    .txt_field1 .labelline1{
-      margin-left: 10px;
-      left: 14px;
-      color: #777777;
-      font-size: 12px;
-    
-    }
-    .txt_field1 .inputtxt1{
-      width: 100%;
-      padding-top: 50px;
-      padding-left: 14px;
-      padding-right: 10px;
-      height: 60px;
-      font-size: 15px;
-      border: none;
-      background-color: #F6F6F6;
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
-      outline: none;
-    }
-    form .txt_field{
-      position: relative;
-      border-bottom: 2px solid #777777;
-      margin: 15px 10px 15px 10px;
-      width: 240px;
-      display: inline-block;
-    }
-    
-    .txt_field .inputtxt{
-      width: 100%;
-      display: block;
-      padding-top: 12px;
-      padding-left: 10px;
-      padding-right: 10px;
-      height: 60px;
-      font-size: 15px;
-      border: none;
-      background-color: #F6F6F6;
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
-      outline: none;
-    }
-    .title{
-      width: 300px;
-    }
-    
-    .txt_field .labelline{
-      position: absolute;
-      top: 50%;
-      left: 10px;
-      color: #777777;
-      transform: translateY(-50%);
-      font-size: 15px;
-      pointer-events: none;
-      transition: .3s;
-    }
-    .txt_field .labelline1{
-      position: absolute;
-      left: 10px;
-      top: 9px;
-      font-size: 12px;
-      color: #31A463;
-      letter-spacing: 0.5px;
-    }
-    
-    .txt_field span::before{
-      content: '';
-      position: absolute;
-      top: 60px;
-      left: 0;
-      width: 0%;
-      height: 2px;
-      background: #31A463;
-      transition: .3s;
-    }
-    
-    .inputtxt:not(:focus) + span::before {
-      background: #777777;
-    }
-    
-    .txt_field .inputtxt:hover{
-      background-color: #ececec;
-    }
-    
-    .txt_field .inputtxt:valid ~ .labelline {
-      top: 17px;
-      font-size: 12px;
-      letter-spacing: 0.5px;
-      color: #777777;
-    }
-    
-    .txt_field .inputtxt:focus ~ .labelline {
-      top: 17px;
-      font-size: 12px;
-      color: #31A463;
-      letter-spacing: 0.5px;
-    }
-    
-    .title{
-      width: 40px;
-    }
+// SCROLLBAR 
+.details-content::-webkit-scrollbar {
+  width: 7px;
+}
+.details-content::-webkit-scrollbar-thumb {
+  background-color: var(--table-border);
+  border-radius: 5px;
+}
+.details-content::-webkit-scrollbar-track {
+  background-color: var(--primary-color);
+  margin-top: 90px;
+  margin-bottom: 10px;
+}
+.details-content::-webkit-scrollbar-thumb:hover {
+  background-color: var(--table-border2);
+}
 
-    .txt_field .inputtxt:focus ~ span::before,
-    .txt_field .inputtxt:valid ~ span::before{
-      width: 100%;
-    }
-    
-    .date {
-      border: none; /* Blue border with increased thickness */
-      width: 97%;
-      font-size: 15px;
-      margin-left: 1px;
-      background-color: #F6F6F6;
-      border-radius: 5px; /* Rounded border */
-      outline: none; /* Remove default outline */
-      color: #31A463;
-    
-    }
-    
-    input[type=file]{
-      
-      background-color:#F6F6F6;
-      border: none;
-      width: 100%;
-    }
-    
-    input[type="file"]::file-selector-button {
-      letter-spacing: 0.5px;
-      font-size: 14px;
-      border-top-left-radius: 1px;
-      font-family: 'Poppins';
-      color: #ffffff;
-      width: 150px;
-      height: 50px;
-      cursor: pointer;
-      background-color: #31A463;
-      border: none;
-      box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05);
-      transition: background-color 200ms;
-      left: 10px;
-    }
-
-    .txt_field {
-      display: inline-block;
-      width: calc(50% - 20px); /* Adjust the width as needed */
-      margin-right: 20px; /* Space between input fields */
-    }
-
-    .txt_field:nth-child(even) {
-      margin-right: 0; /* Remove right margin for even-numbered fields */
-    }
-    
-    
-    .txt_field .uploadlabel {
-      position: absolute;
-      top: 0;
-      margin-top: -20px;
-      font-size: 8px;
-      letter-spacing: 0.5px;
-      color: #777777;
-      position: absolute;
-      left: 10px;
-    }
-      
-  // SCROLLBAR 
-  .details-content::-webkit-scrollbar {
-    width: 7px;
-  }
-  
-  .details-content::-webkit-scrollbar-thumb {
-    background-color: var(--table-border);
-    border-radius: 5px;
-  }
-  
-  .details-content::-webkit-scrollbar-track {
-    background-color: var(--primary-color); 
-    margin-top: 90px;
-    margin-bottom: 10px;
-  }
-  
-  .details-content::-webkit-scrollbar-thumb:hover {
-    background-color: var(--table-border2);
-  }
-  // SCROLLBAR
-
-  
-  form .txt_field3{
-    position: relative;
-    border-bottom: 2px solid #777777;
-    margin: 15px 10px 15px 10px;
-    width: 500px;
-    display: inline-block;
-  }
-  
-  .txt_field3 .inputtxt{
-    width: 100%;
-    display: block;
-    padding-top: 12px;
-    padding-left: 10px;
-    padding-right: 10px;
-    height: 60px;
-    font-size: 15px;
-    border: none;
-    background-color: #F6F6F6;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    outline: none;
-  }
-  .title{
-    width: 300px;
-  }
-  
-  .txt_field3 .labelline{
-    position: absolute;
-    top: 50%;
-    left: 10px;
-    color: #777777;
-    transform: translateY(-50%);
-    font-size: 15px;
-    pointer-events: none;
-    transition: .3s;
-  }
-  .txt_field3 span::before{
-    content: '';
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background: #31A463;
-    transition: .3s;
-  }
-  
-  .inputtxt:not(:focus) + span::before {
-    background: #777777;
-  }
-  
-  .txt_field3 .inputtxt:hover{
-    background-color: #ececec;
-  }
-  
-  .txt_field3 .inputtxt:valid ~ .labelline {
-    top: 17px;
-    font-size: 12px;
-    letter-spacing: 0.5px;
-    color: #777777;
-  }
-  
-  .txt_field3 .inputtxt:focus ~ .labelline {
-    top: 17px;
-    font-size: 12px;
-    color: #31A463;
-    letter-spacing: 0.5px;
-  }
-  .labelline{
-    margin-bottom: 10px;
-  }
-
-
-
-  form .txt_field1{
-    padding-top: 10px;
-    border-bottom: 2px solid #777777;
-    padding-bottom: 10px;
-    background-color: #F6F6F6;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    height: 60px;
-    width: 240px;
-    display: inline-grid;
-    margin: 10px 10px 30px 10px;
-    }
-  
-  .txt_field1 .labelline1{
-    margin-left: 10px;
-    left: 14px;
-    color: #777777;
-    font-size: 12px;
-  
-  }
-  .txt_field1 .inputtxt1{
-    width: 100%;
-    padding-top: 50px;
-    padding-left: 14px;
-    padding-right: 10px;
-    height: 60px;
-    font-size: 15px;
-    border: none;
-    background-color: #F6F6F6;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    outline: none;
-  }
-  form .txt_field{
-    position: relative;
-    border-bottom: 2px solid #777777;
-    margin: 15px 10px 15px 10px;
-    width: 240px;
-    display: inline-block;
-  }
-  
-  .txt_field .inputtxt{
-    width: 100%;
-    display: block;
-    padding-top: 12px;
-    padding-left: 10px;
-    padding-right: 10px;
-    height: 60px;
-    font-size: 15px;
-    border: none;
-    background-color: #F6F6F6;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    outline: none;
-  }
-  .title{
-    width: 300px;
-  }
-  
-  .txt_field .labelline{
-    position: absolute;
-    top: 50%;
-    left: 10px;
-    color: #777777;
-    transform: translateY(-50%);
-    font-size: 15px;
-    pointer-events: none;
-    transition: .3s;
-  }
-  .txt_field .labelline1{
-    position: absolute;
-    left: 10px;
-    top: 9px;
-    font-size: 12px;
-    color: #31A463;
-    letter-spacing: 0.5px;
-  }
-  
-  .txt_field span::before{
-    content: '';
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background: #31A463;
-    transition: .3s;
-  }
-  
-  .inputtxt:not(:focus) + span::before {
-    background: #777777;
-  }
-  
-  .txt_field .inputtxt:hover{
-    background-color: #ececec;
-  }
-  
-  .txt_field .inputtxt:valid ~ .labelline {
-    top: 17px;
-    font-size: 12px;
-    letter-spacing: 0.5px;
-    color: #777777;
-  }
-  
-  .txt_field .inputtxt:focus ~ .labelline {
-    top: 17px;
-    font-size: 12px;
-    color: #31A463;
-    letter-spacing: 0.5px;
-  }
-  
-  .title{
-    width: 40px;
-  }
-
-  .txt_field .inputtxt:focus ~ span::before,
-  .txt_field .inputtxt:valid ~ span::before{
-    width: 100%;
-  }
+// SCROLLBAR
+.labelline {
+  margin-bottom: 10px;
+}
+form .txt_field1 {
+  padding-top: 10px;
+  border-bottom: 2px solid #777777;
+  padding-bottom: 10px;
+  background-color: #F6F6F6;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  height: 60px;
+  width: 240px;
+  display: inline-grid;
+  margin: 10px 10px 30px 10px;
+}
+.txt_field1 .labelline1 {
+  margin-left: 10px;
+  left: 14px;
+  color: #777777;
+  font-size: 12px;
+}
+.txt_field1 .inputtxt1 {
+  width: 100%;
+  padding-top: 50px;
+  padding-left: 14px;
+  padding-right: 10px;
+  height: 60px;
+  font-size: 15px;
+  border: none;
+  background-color: #F6F6F6;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  outline: none;
+}
+form .txt_field4 {
+  position: relative;
+  border-bottom: 2px solid #777777;
+  margin: 15px 10px 15px 10px;
+  width: 240px;
+  display: inline-block;
+}
+.txt_field4 .inputtxt4 {
+  width: 100%;
+  display: block;
+  padding-top: 12px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 60px;
+  font-size: 15px;
+  border: none;
+  background-color: #F6F6F6;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  outline: none;
+}
+.txt_field4 .labelline4 {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  color: #777777;
+  transform: translateY(-50%);
+  font-size: 15px;
+  pointer-events: none;
+  transition: .3s;
+}
+.txt_field4 .labelline4 {
+  position: absolute;
+  left: 10px;
+  top: 9px;
+  font-size: 12px;
+  color: #31A463;
+  letter-spacing: 0.5px;
+}
+.txt_field4 span::before {
+  content: '';
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #31A463;
+  transition: .3s;
+}
+.inputtxt4:not(:focus)+span::before {
+  background: #777777;
+}
+.txt_field4 .inputtxt4:hover {
+  background-color: #ececec;
+}
+.txt_field4 .inputtxt4:valid~.labelline4 {
+  top: 17px;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  color: #777777;
+}
+.txt_field4 .inputtxt4:focus~.labelline4 {
+  top: 17px;
+  font-size: 12px;
+  color: #31A463;
+  letter-spacing: 0.5px;
+}
+.txt_field4 .inputtxt4:focus~span::before,
+.txt_field4 .inputtxt4:valid~span::before {
+  width: 100%;
+}
+form .txt_field5 {
+  position: relative;
+  border-bottom: 2px solid #777777;
+  margin: 15px 10px 15px 10px;
+  width: 500px;
+  display: inline-block;
+}
+.txt_field5 .inputtxt5 {
+  width: 100%;
+  display: block;
+  padding-top: 12px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 60px;
+  font-size: 15px;
+  border: none;
+  background-color: #F6F6F6;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  outline: none;
+}
+.txt_field5 .labelline5 {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  color: #777777;
+  transform: translateY(-50%);
+  font-size: 15px;
+  pointer-events: none;
+  transition: .3s;
+}
+.txt_field5 .labelline5 {
+  position: absolute;
+  left: 10px;
+  top: 9px;
+  font-size: 12px;
+  color: #31A463;
+  letter-spacing: 0.5px;
+}
+.txt_field5 span::before {
+  content: '';
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #31A463;
+  transition: .3s;
+}
+.inputtxt5:not(:focus)+span::before {
+  background: #777777;
+}
+.txt_field5 .inputtxt5:hover {
+  background-color: #ececec;
+}
+.txt_field5 .inputtxt5:valid~.labelline4 {
+  top: 17px;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  color: #777777;
+}
+.txt_field5 .inputtxt5focus~.labelline5 {
+  top: 17px;
+  font-size: 12px;
+  color: #31A463;
+  letter-spacing: 0.5px;
+}
+.txt_field5 .inputtxt5:focus~span::before,
+.txt_field5 .inputtxt5:valid~span::before {
+  width: 100%;
+}

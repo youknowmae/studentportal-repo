@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 @Component({
   selector: 'app-qrmodal',
   templateUrl: './qrmodal.component.html',
@@ -7,6 +6,7 @@ import { Component } from '@angular/core';
 })
 export class QrmodalComponent {
   showModal = true;
+
 
   closeModal(): void {
     this.showModal = false;

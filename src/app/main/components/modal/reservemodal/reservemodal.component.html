@@ -1,52 +1,50 @@
+<div class="header">
+  <h5>Reservation Form</h5>
+</div>
 <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
-  <div class="txt_field">
-    <input class="inputtxt" type="text" formControlName="fullName" readonly>
+  <div class="txt_field4">
+    <input class="inputtxt4" type="text" formControlName="fullName" readonly>
     <span></span>
-    <div class="labelline">Full Name</div>
+    <div class="labelline4">Full Name</div>
   </div>
-  <div class="txt_field">
-    <input class="inputtxt" type="text" formControlName="id" readonly>
+  <div class="txt_field4">
+    <input class="inputtxt4" type="text" formControlName="id" readonly>
     <span></span>
-    <div class="labelline">Student Number</div>
-  </div>
-  <br>
-  <div class="txt_field">
-    <input class="inputtxt" type="text" formControlName="department" readonly>
-    <span></span>
-    <div class="labelline">Department</div>
-  </div>
-  <div class="txt_field">
-    <input class="inputtxt" type="text" formControlName="patronType" readonly>
-    <span></span>
-    <div class="labelline">Patron Type</div>
+    <div class="labelline4">Student Number</div>
   </div>
   <br>
-  <div class="txt_field3">
-    <input class="inputtxt" type="text" formControlName="title" readonly>
+  <div class="txt_field4">
+    <input class="inputtxt4" type="text" formControlName="department" readonly>
     <span></span>
-    <div class="labelline">Title</div>
+    <div class="labelline4">Department</div>
+  </div>
+  <div class="txt_field4">
+    <input class="inputtxt4" type="text" formControlName="patronType" readonly>
+    <span></span>
+    <div class="labelline4">Patron Type</div>
   </div>
   <br>
-  <div class="txt_field">
-    <input class="inputtxt" type="text" formControlName="authors" readonly>
+  <div class="txt_field5">
+    <input class="inputtxt5" type="text" formControlName="title" readonly>
     <span></span>
-    <div class="labelline">Author</div>
+    <div class="labelline5">Title</div>
   </div>
-  <!-- <div class="txt_field">
-    <input class="inputtxt" type="text" formControlName="location" readonly>
-    <span></span>
-    <div class="labelline">Location</div>
-  </div> -->
   <br>
-  <div class="txt_field">
-    <input class="inputtxt" type="text" formControlName="numberOfBooks" required>
+  <div class="txt_field5">
+    <input class="inputtxt5" type="text" formControlName="authors" readonly>
     <span></span>
-    <div class="labelline">Number of Books</div>
+    <div class="labelline5">Author</div>
   </div>
-  <div class="txt_field">
-    <input class="inputtxt" type="text" formControlName="fines" readonly>
+  <br>
+  <div class="txt_field4">
+    <input class="inputtxt4" type="text" formControlName="numberOfBooks">
     <span></span>
-    <div class="labelline">Fines</div>
+    <div class="labelline4">Number of Books</div>
+  </div>
+  <div class="txt_field4">
+    <input class="inputtxt4" type="text" formControlName="fines" readonly>
+    <span></span>
+    <div class="labelline4">Fines</div>
   </div>
   <br>
   <div class="txt_field1">
@@ -68,5 +66,4 @@
   <div *ngIf="errorMessage" class="error-message">
     {{ errorMessage }}
   </div>
-  
 </form>
