@@ -8,7 +8,7 @@ import { AuthenticationService } from './authentication-service.service';
 })
 export class ApiService {
   apiUrl = 'http://localhost:8000/api';
-  // apiUrl = 'http://192.168.10.122:8000/api';
+  // apiUrl = 'http://172.20.10.3:8000/api';
 
   constructor(private http: HttpClient, private authService: AuthenticationService) { }
 

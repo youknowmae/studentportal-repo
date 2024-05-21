@@ -8,7 +8,7 @@
         <div class="text-center" >
             <img [src]="user?.profile_picture || 'assets/images/lib.png'" alt="Image" style="margin-bottom: 15px;" height="140px" width="140px">
             <p class="name">{{ user.first_name }} {{ user.last_name }}</p>
-            <p style="margin-bottom: 20px;">{{ user.department }}</p>
+            <p style="margin-bottom: 20px;">{{ user.department.department }}</p>
         </div>
         <ul class="nav flex-column">
             <li class="nav-item">
