@@ -1,4 +1,4 @@
-<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+<!-- <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 <div class="container">
     <div class="header">
         <img src="assets/images/lib.png" alt="Image">
@@ -7,7 +7,7 @@
             <h5>Olongapo City</h5>
             <h4>Borrower's Card</h4>
         </div>
-        <!-- Make this profile of student -->
+         Make this profile of student 
         <img src="assets/images/lib.png" alt="Image">
     </div>
 
@@ -195,4 +195,63 @@
             </tr>
         </tbody>
     </table>
+</div>
+
+ -->
+
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+<div class="container">
+    <div class="header">
+        <img src="assets/images/lib.png" alt="Image">
+        <div class="center">
+            <h4>Gordon College</h4>
+            <h5>Olongapo City</h5>
+            <h4>Borrower's Card</h4>
+        </div>
+        <!-- Make this profile of student -->
+        <img src="assets/images/lib.png" alt="Image">
+    </div>
+
+    <div class="col2">
+        <div class="title">
+            <p>Student Information</p>
+        </div>
+        <div class="info-container">
+            <div class="cont1">
+                <!-- Student information content -->
+            </div>
+            <div class="cont2">
+                <!-- Student information content -->
+            </div>
+        </div>
+    </div>
+
+    <table class="whole book-return-table">
+        <thead>
+            <tr>
+                <th>Borrowed Date</th>
+                <th>Time</th>
+                <th>Book Title</th>
+                <th>Returned To</th>
+                <th>Returned Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Iterate over only 10 rows based on pagination -->
+            <tr *ngFor="let book of displayedBooks">
+                <td>{{ book.borrowedDate }}</td>
+                <td>{{ book.time }}</td>
+                <td>{{ book.bookTitle }}</td>
+                <td>{{ book.returnedTo }}</td>
+                <td>{{ book.returnedDate }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Pagination controls -->
+    <div class="pagination">
+        <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+        <span>{{ currentPage }}</span>
+        <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+    </div>
 </div>

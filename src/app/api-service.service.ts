@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError  } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { AuthenticationService } from './authentication-service.service';
 
 @Injectable({
@@ -77,7 +78,20 @@ export class ApiService {
   createReservation(reservationData: any): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/reservations`, reservationData, { headers: this.getHeaders() });
   }
-
+  getBorrowedByUserId(userId: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/borrow/user/${userId}`, { headers: this.getHeaders() })
+      .pipe(
+        catchError((error: HttpErrorResponse) => {
+          if (error.status === 404) {
+            // No borrow records found for the user
+            return throwError('No borrow records found for the user');
+          } else {
+            // Handle other errors (e.g., network error)
+            return throwError('An error occurred while fetching borrow records');
+          }
+        })
+      );
+  }
    
   getDepartment(): string | null {
     return localStorage.getItem('department');

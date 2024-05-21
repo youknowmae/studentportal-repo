@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { JournalsComponent } from './components/journals/journals.component';
 import { NewspapersComponent } from './components/newspapers/newspapers.component';
 import { MagazinesComponent } from './components/magazines/magazines.component';
-import { InsidearticleComponent } from './components/insidearticle/insidearticle.component';
+import { InsidearticleComponent } from '../../../inside/insidearticle/insidearticle.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'journals', pathMatch: 'full' },

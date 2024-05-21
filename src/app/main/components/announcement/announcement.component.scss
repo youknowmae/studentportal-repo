@@ -1,29 +1,35 @@
-*{
+* {
     font-family: 'Montserrat';
-  }
-.container{
+}
+
+.container {
     padding-bottom: 20px;
     margin-top: 30px;
 }
-.title h2{
+
+.title h2 {
     color: #31A463;
 }
-.title h5{
+
+.title h5 {
     color: gray;
     font-size: 14px;
 }
-.title p{
+
+.title p {
     font-weight: bolder;
 }
+
 .rectangle {
     display: flex;
     align-items: center;
     border: solid 2px var(--border-color);
     background-color: #f7f7f7;
     margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     cursor: pointer;
 }
+
 .rectangle img {
     background-color: #f3f3f3;
     width: 400px;
@@ -31,58 +37,70 @@
     object-fit: cover;
     margin-right: 20px;
 }
+
 .rectangle .details {
     flex-grow: 1;
 }
+
 .rectangle .details h4 {
     margin: 0;
     margin-bottom: 10px;
 }
+
 .rectangle .details p {
     margin: 0;
     margin-bottom: 1px;
 }
-.content{
+
+.content {
     padding: 40px 40px 0 60px;
     margin-top: 20px;
 }
+
 .square {
     border: solid 2px var(--border-color);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     text-align: center;
     margin-bottom: 30px;
     padding: 20px;
 }
+
 .square-image {
     width: 100%;
     height: 150px;
     background-color: #f3f3f3;
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
     object-fit: contain;
 }
-.square-image-big{
+
+.square-image-big {
     width: 100%;
     height: 200px;
     background-color: #f3f3f3;
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
     object-fit: contain;
 }
+
 .square-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 10px;
 }
+
 .square-text {
     text-align: left;
 }
-.square-text h2{
+
+.square-text h2 {
     font-size: medium;
     font-weight: bold;
 }
-.square-text p{
+
+.square-text p {
     font-size: 12px;
 }
+
 .profile-btn {
     font-size: 12px;
     background-color: #31A463;
@@ -92,7 +110,8 @@
     width: 110px;
     border-radius: 2rem;
 }
+
 .profile-btn:hover {
     background-color: #013718;
     color: white;
-} 
+}

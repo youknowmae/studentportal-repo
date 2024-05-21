@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ApiService } from '../../../../../../../api-service.service';
-import { AuthenticationService } from '../../../../../../../authentication-service.service'; // Update path
+import { ApiService } from '../../../../api-service.service';
+import { AuthenticationService } from '../../../../authentication-service.service'; // Update path
 import { MatDialog } from '@angular/material/dialog';
-import { ReservemodalComponent } from '../../../../../modal/reservemodal/reservemodal.component';
+import { ReservemodalComponent } from '../../modal/reservemodal/reservemodal.component';
 
 @Component({
   selector: 'app-insidebook',

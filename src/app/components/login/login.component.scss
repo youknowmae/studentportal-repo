@@ -1,70 +1,85 @@
-*{
+* {
     font-family: 'Montserrat';
-  }
+}
+
 .bg {
     min-height: 100vh;
     position: relative;
     overflow: hidden;
 }
+
 .bg .gc {
     position: absolute;
     top: 125px;
     width: 100%;
 }
+
 .bg .clipart {
     position: absolute;
     bottom: 90px;
     left: 0;
 }
+
 .bg .student {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     left: 70px;
 }
+
 .right-container {
     position: absolute;
     top: 20px;
     right: 130px;
     text-align: center;
 }
+
 .right-container .logo {
     padding-bottom: 5px;
     pointer-events: none;
     user-select: none;
 }
+
 .right-container h3 {
     font-size: 20px;
     padding-bottom: 5px;
 }
+
 .right-container h1 {
     padding-bottom: 10px;
 }
+
 .login-container {
     width: 450px;
     margin: auto;
-    padding-bottom: 20px; /* Adjust as necessary */
+    padding-bottom: 20px;
+    /* Adjust as necessary */
 }
+
 .login-form {
     background-color: #fff;
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 .form-group {
     position: relative;
     margin: 35px 0;
 }
+
 .form-group input {
     width: 100%;
     padding: 15px;
     border: 1px solid #31A463;
     border-radius: 5px;
 }
+
 .form-group input:focus {
     outline: none;
     border-color: #0B4026;
 }
+
 .form-group label {
     position: absolute;
     bottom: 35px;
@@ -75,15 +90,18 @@
     font-size: 13px;
     pointer-events: none;
 }
+
 .form-group span {
     position: absolute;
     bottom: 30px;
     right: 10px;
 }
+
 .form-group span i {
     position: absolute;
     right: 5px;
 }
+
 .btn {
     cursor: pointer;
     width: 100%;
@@ -93,30 +111,35 @@
     background-color: #31A463;
     color: #ffffff;
 }
+
 .btn:hover {
     background-color: #0B4026;
 }
+
 .version {
     text-align: center;
     color: #0B4026;
     padding: 20px;
 }
+
 .left-logo {
     pointer-events: none;
     user-select: none;
 }
+
 .left-logo .first-logo {
     position: absolute;
     bottom: 80%;
     left: 48%;
 }
+
 .left-logo .second-logo {
     position: absolute;
     bottom: 65%;
     left: 45.5%;
-    
+
 }
 
-span{
+span {
     cursor: pointer;
 }

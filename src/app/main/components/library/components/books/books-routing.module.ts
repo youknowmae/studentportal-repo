@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { InsidebookComponent } from './components/insidebook/insidebook.component';
+import { InsidebookComponent } from '../../../inside/insidebook/insidebook.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'books', pathMatch: 'full' },

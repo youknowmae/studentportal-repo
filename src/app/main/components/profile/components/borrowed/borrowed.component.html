@@ -2,96 +2,28 @@
 
 <div class="content">
     <div class="row">
-        <!-- Square 1 -->
-        <div class="col-md-4">
+        <!-- Use *ngFor directive to loop through each borrowed item -->
+        <div class="col-md-4" *ngFor="let item of borrowedItems">
             <div class="square">
-                <p class="important">Return in 2 days</p>
-                <img src="assets/images/logo.png" alt="Image" class="square-image">
+                <!-- Use item.borrow_expiration to display borrow expiration date -->
+                <p class="important">Return by: {{ item.borrow_expiration }}</p>
+                <!-- Placeholder image -->
+                <img src="assets/images/default-book-image.jpg" alt="Book Cover" class="square-image">
                 <div class="square-content">
                     <div class="square-text">
-                        <p>Wkd823910238</p>
-                        <h2>Borrowed</h2>
-                        <p>Author 1</p>
+                        <!-- Use item.book.title to display book title -->
+                        <h2>{{ item.book.title }}</h2>
+                        <!-- Use item.book.author to display book author -->
+                        <p>By: {{ item.book.author }}</p>
+                        <!-- Use item.book.ISBN (if available) to display book ISBN -->
+                        <p>ISBN: {{ item.book.ISBN }}</p>
                     </div>
-                    <button class="view-button" role="button" [routerLink]="['/main/library/book']" routerLinkActive="router-link-active" > View</button>
+                    <!-- Use item.book.id to construct dynamic route -->
+                    <button class="view-button" role="button" [routerLink]="['/main/library/book', item.book.id]" routerLinkActive="router-link-active"> View</button>
                 </div>
             </div>
         </div>
-        <!-- Square 2 -->
-        <div class="col-md-4">
-            <div class="square">
-                <p class="unimportant">Return in 5 days</p>
-                <img src="assets/images/logo.png" alt="Image" class="square-image">
-                <div class="square-content">
-                    <div class="square-text">
-                        <p>Wkd823910238</p>
-                        <h2>Borrowed</h2>
-                        <p>Author 2</p>
-                    </div>
-                    <button class="view-button" role="button"> View</button>
-                </div>
-            </div>
-        </div>
-        <!-- Square 3 -->
-        <div class="col-md-4">
-            <div class="square">
-                <p class="important">Return in 1 days</p>
-                <img src="assets/images/logo.png" alt="Image" class="square-image">
-                <div class="square-content">
-                    <div class="square-text">
-                        <p>Wkd823910238</p>
-                        <h2>Borrowed</h2>
-                        <p>Author 3</p>
-                    </div>
-                    <button class="view-button" role="button"> View</button>
-                </div>
-            </div>
-        </div>
-        <!-- Square 4 -->
-        <div class="col-md-4">
-            <div class="square">
-                <p class="unimportant">Return in 4 days</p>
-                <img src="assets/images/logo.png" alt="Image" class="square-image">
-                <div class="square-content">
-                    <div class="square-text">
-                        <p>Wkd823910238</p>
-                        <h2>Borrowed</h2>
-                        <p>Author 1</p>
-                    </div>
-                    <button class="view-button" role="button"> View</button>
-                </div>
-            </div>
-        </div>
-        <!-- Square 5 -->
-        <div class="col-md-4">
-            <div class="square">
-                <p class="mid">Return in 3 days</p>
-                <img src="assets/images/logo.png" alt="Image" class="square-image">
-                <div class="square-content">
-                    <div class="square-text">
-                        <p>Wkd823910238</p>
-                        <h2>Borrowed</h2>
-                        <p>Author 1</p>
-                    </div>
-                    <button class="view-button" role="button"> View</button>
-                </div>
-            </div>
-        </div>
-        <!-- Square 6 -->
-        <div class="col-md-4">
-            <div class="square">
-                <p class="unimportant">Return in 5 days</p>
-                <img src="assets/images/logo.png" alt="Image" class="square-image">
-                <div class="square-content">
-                    <div class="square-text">
-                        <p>Wkd823910238</p>
-                        <h2>Borrowed</h2>
-                        <p>Author 1</p>
-                    </div>
-                    <button class="view-button" role="button"> View</button>
-                </div>
-            </div>
-        </div>
+    </div>
 </div>
-    
+
     
