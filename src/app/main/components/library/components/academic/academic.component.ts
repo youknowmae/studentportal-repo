@@ -5,8 +5,9 @@ import { AuthenticationService } from '../../../../../authentication-service.ser
 @Component({
   selector: 'app-academic',
   templateUrl: './academic.component.html',
-  styleUrls: ['./academic.component.scss']
+  styleUrl: './academic.component.scss'
 })
+
 export class AcademicComponent implements OnInit {
   isVisible: boolean = false;
   selectedProject: any;
@@ -34,8 +35,8 @@ export class AcademicComponent implements OnInit {
   }
 
   // Fetch projects based on department
-  fetchProjects(department: string): void {
-    this.apiService.getProjectsByDepartment(department).subscribe(
+  fetchProjects(type: string): void {
+    this.apiService.getProjectsByDepartment(type).subscribe(
       (data) => {
         console.log('Projects Data:', data); // Log the projects data
 

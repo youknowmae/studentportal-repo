@@ -10,6 +10,7 @@ import { PeriodicalsModule } from './components/periodicals/periodicals.module';
 import { ArticlesModule } from './components/articles/articles.module';
 import { BooksModule } from './components/books/books.module';
 import { AcademicComponent } from './components/academic/academic.component';
+import { AcademicModule } from './components/academic/academic.module';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { AcademicComponent } from './components/academic/academic.component';
     PeriodicalsModule,
     ArticlesModule,
     BooksModule,
-    FormsModule
+    FormsModule,
+    AcademicModule
   ]
 })
 export class LibraryModule { }

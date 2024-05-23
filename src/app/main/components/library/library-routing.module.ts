@@ -9,7 +9,14 @@ import { AcademicComponent } from './components/academic/academic.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'books', pathMatch: 'full' },
-  { path: 'academic', component: AcademicComponent},
+  { 
+    path: 'academic', 
+    component: AcademicComponent,
+    children: [{
+      path: '',
+      loadChildren: ()=>import('./components/academic/academic.module').then((m)=>m.AcademicModule)
+    }]
+  },
   { 
     path: 'books', 
     component: BooksComponent,

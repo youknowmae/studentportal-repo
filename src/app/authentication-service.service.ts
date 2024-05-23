@@ -9,8 +9,8 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class AuthenticationService {
 
-  // apiUrl = 'http://localhost:8000/api';
-  apiUrl = 'http://192.168.18.185:8000/api';
+  apiUrl = 'http://localhost:8000/api';
+  // apiUrl = 'http://192.168.18.185:8000/api';
 
   authToken: string | null = null;
   loggedInUserId: string | null = null;
@@ -31,7 +31,7 @@ export class AuthenticationService {
           if (response && response.token) {
             this.authToken = response.token;
             this.loggedInUserId = response.id.toString();
-            const department = response.department;
+            const department = response.department.department;
   
             if (this.authToken) {
               localStorage.setItem('authToken', this.authToken);

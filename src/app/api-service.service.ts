@@ -8,8 +8,8 @@ import { AuthenticationService } from './authentication-service.service';
   providedIn: 'root'
 })
 export class ApiService {
-  // apiUrl = 'http://localhost:8000/api';
-  apiUrl = 'http://192.168.18.185:8000/api';
+  apiUrl = 'http://localhost:8000/api';
+  // apiUrl = 'http://192.168.18.185:8000/api';
 
   constructor(private http: HttpClient, private authService: AuthenticationService) { }
 
@@ -47,8 +47,8 @@ export class ApiService {
 
 
   getProjects(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/student/projects`, { headers: this.getHeaders() });
-  }
+      return this.http.get<any[]>(`${this.apiUrl}/student/project`, { headers: this.getHeaders() });
+    }
 
   getProjectsByDepartment(department: string): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/student/projects/department/${department}`, { headers: this.getHeaders() });
