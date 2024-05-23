@@ -8,8 +8,8 @@ import { AuthenticationService } from './authentication-service.service';
   providedIn: 'root'
 })
 export class ApiService {
-  apiUrl = 'http://localhost:8000/api';
-  // apiUrl = 'http://172.20.10.3:8000/api';
+  // apiUrl = 'http://localhost:8000/api';
+  apiUrl = 'http://192.168.18.185:8000/api';
 
   constructor(private http: HttpClient, private authService: AuthenticationService) { }
 
@@ -17,7 +17,7 @@ export class ApiService {
     const authToken = this.authService.getToken();
     return new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${authToken}`
+      'Authorization': `Bearer ${authToken}` 
     });
   }
 
@@ -63,8 +63,8 @@ export class ApiService {
     return this.http.get<any>(`${this.apiUrl}/student/periodical/${id}`, { headers: this.getHeaders() });
   }
   
-    getPeriodicalsByMaterialType(materialType: string): Observable<any[]> {
-      return this.http.get<any[]>(`${this.apiUrl}/student/periodicals/${materialType}`, { headers: this.getHeaders() });
+    getPeriodicalsByMaterialType(type: string): Observable<any[]> {
+      return this.http.get<any[]>(`${this.apiUrl}student/periodicals/type/${type}`, { headers: this.getHeaders() });
     }
 
    getReservationsByUserId(id: number): Observable<any[]> {
@@ -83,14 +83,17 @@ export class ApiService {
       .pipe(
         catchError((error: HttpErrorResponse) => {
           if (error.status === 404) {
-            // No borrow records found for the user
             return throwError('No borrow records found for the user');
           } else {
-            // Handle other errors (e.g., network error)
             return throwError('An error occurred while fetching borrow records');
           }
         })
       );
+  }
+
+  getBorrowedByLoggedInUser(): Observable<any[]> {
+    const userId = parseInt(this.authService.getLoggedInUserId() || '0');
+    return this.getBorrowedByUserId(userId);
   }
    
   getDepartment(): string | null {

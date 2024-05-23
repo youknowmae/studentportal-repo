@@ -1,18 +1,45 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../../../api-service.service';
+import { AuthenticationService } from '../../../../authentication-service.service';
 
 @Component({
   selector: 'app-profilemodal',
   templateUrl: './profilemodal.component.html',
   styleUrls: ['./profilemodal.component.scss']
 })
-export class ProfilemodalComponent {
-  // Sample book data for demonstration
-  books = [
-    // Your book data here...
-  ];
-
+export class ProfilemodalComponent implements OnInit {
+  books: any[] = [];
+  student: any = {};
   currentPage = 1;
   itemsPerPage = 10;
+
+  constructor(
+    private apiService: ApiService,
+    private authService: AuthenticationService
+  ) { }
+
+  ngOnInit(): void {
+    this.fetchBorrowedBooks();
+    this.loadStudentProfile();
+  }
+
+  fetchBorrowedBooks(): void {
+    const userId = parseInt(this.authService.getLoggedInUserId() || '0');
+    this.apiService.getBorrowedByUserId(userId).subscribe(
+      data => {
+        this.books = data;
+      },
+      error => {
+        console.error('Error fetching borrowed books:', error);
+      }
+    );
+  }
+
+  loadStudentProfile(): void {
+    this.authService.user$.subscribe(user => {
+      this.student = user;
+    });
+  }
 
   get totalPages(): number {
     return Math.ceil(this.books.length / this.itemsPerPage);

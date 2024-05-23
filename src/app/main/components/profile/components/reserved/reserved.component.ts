@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../../../../api-service.service'; // Update the path to your ApiService
+import { AuthenticationService } from '../../../../../authentication-service.service';
+
 
 @Component({
   selector: 'app-reserved',
@@ -7,12 +9,38 @@ import { ApiService } from '../../../../../api-service.service'; // Update the p
   styleUrls: ['./reserved.component.scss']
 })
 export class ReservedComponent implements OnInit {
+  book: any = {};
+  bookId: number | null = null;
   reservations: any[] = [];
+  route: any;
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService, private authService: AuthenticationService) { }
 
   ngOnInit(): void {
     this.loadReservations();
+    this.bookId = +this.route.snapshot.paramMap.get('id')!; // Use optional chaining or null check
+  
+    if (this.bookId !== null) { // Check if bookId is not null
+      this.fetchBookDetails(this.bookId);
+    }
+  }
+
+  fetchBookDetails(bookId: number): void {
+    const authToken = this.authService.getToken(); 
+    if (authToken) {
+      const headers = { Authorization: `Bearer ${authToken}` }; 
+      this.apiService.getBookById(bookId, headers) // Pass headers correctly
+        .subscribe(
+          (data) => {
+            this.book = data;
+          },
+          (error) => {
+            console.error('Error fetching book details:', error);
+          }
+        );
+    } else {
+      console.error('Authentication token not found.');
+    }
   }
 
   loadReservations(): void {

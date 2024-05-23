@@ -11,6 +11,8 @@ import { ProfilemodalComponent } from './components/modal/profilemodal/profilemo
 import { ReservemodalComponent } from './components/modal/reservemodal/reservemodal.component';
 import { QrmodalComponent } from './components/modal/qrmodal/qrmodal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InsidearticleComponent } from './components/inside/insidearticle/insidearticle.component';
+import { InsidebookComponent } from './components/inside/insidebook/insidebook.component';
 
 
 

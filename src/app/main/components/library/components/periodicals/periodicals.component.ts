@@ -15,9 +15,9 @@ export class PeriodicalsComponent implements OnInit {
     this.fetchPeriodicals();
   }
 
-  fetchPeriodicals(materialType: string = ''): void {
-    if (materialType) {
-      this.apiService.getPeriodicalsByMaterialType(materialType).subscribe(
+  fetchPeriodicals(type: string = ''): void {
+    if (type) {
+      this.apiService.getPeriodicalsByMaterialType(type).subscribe(
         (data: any[]) => {
           this.periodicals = data;
         },
@@ -38,7 +38,7 @@ export class PeriodicalsComponent implements OnInit {
   }
 
   onMaterialTypeChange(event: Event): void {
-    const materialType = (event.target as HTMLSelectElement)?.value || '';
-    this.fetchPeriodicals(materialType);
+    const type = (event.target as HTMLSelectElement)?.value || '';
+    this.fetchPeriodicals(type);
   }
 }

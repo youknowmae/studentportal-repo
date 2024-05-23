@@ -18,8 +18,8 @@
                 <div class="square-content">
                     <div class="square-text">
                         <p>{{ periodical.id }}</p>
-                        <h2>{{ periodical.material_type }}</h2>
-                        <p>{{ periodical.author }}</p>
+                        <h2>{{ periodical.title }}</h2>
+                        <p>{{ periodical.authors }}</p>
                     </div>
                     <button class="view-button" [routerLink]="['../insideperiodical', i + 1]" routerLinkActive="router-link-active" role="button"> View</button>
                 </div>

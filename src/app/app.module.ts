@@ -10,6 +10,8 @@ import { MainComponent } from './main/main.component';
 import { MainModule } from './main/main.module';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxSpinner, NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     MainModule,
     FormsModule,
     MatDialogModule,
+    BrowserAnimationsModule,
+    NgxSpinnerModule
   ],
   providers: [
     provideClientHydration(),

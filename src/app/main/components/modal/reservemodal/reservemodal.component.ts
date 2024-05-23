@@ -35,11 +35,14 @@ export class ReservemodalComponent implements OnInit {
       authors: ['', Validators.required],
       // location: ['', Validators.required],
       numberOfBooks: ['', [Validators.required, Validators.min(1)]],
-      fines: [0, [Validators.required, Validators.min(0)]],
-      dateRequest: ['', Validators.required],
-      dateOfExpiration: ['', Validators.required]
+      fine: [0, [Validators.required, Validators.min(0)]],
+      start_date: ['', Validators.required],
+      end_date: ['', Validators.required],
+      status:[0,[Validators.required]],
+      type: ['online',[Validators.required]],
+    
     });
-    console.log(this.selectedBookId)
+    
   }
 
   ngOnInit(): void {
@@ -115,13 +118,16 @@ export class ReservemodalComponent implements OnInit {
       const requestData = {
         user_id: reservationData.id,
         book_id: this.selectedBookId,
-        start_date: reservationData.dateRequest,
-        end_date: reservationData.dateOfExpiration,
-        fine: reservationData.fines,
-        status: true // Assuming always true for new reservations
+        start_date: reservationData.start_date,
+        end_date: reservationData.end_date,
+        fine: reservationData.fine,
+        status: reservationData.status,
+        type: reservationData.type
       };
+            
   
       this.apiService.createReservation(requestData).subscribe(
+        
         response => {
           Swal.fire({
             icon: 'success',
@@ -129,6 +135,7 @@ export class ReservemodalComponent implements OnInit {
             text: 'Reservation created successfully',
           });
           this.reservationForm.reset();
+          
         },
         error => {
           Swal.fire({
