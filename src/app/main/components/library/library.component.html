@@ -6,7 +6,7 @@
     <div class="row">
         <!-- Buttons -->
         <div class="col-md-2">
-            <button class="btn btn-block btn-icon" [routerLink]="['books']" routerLinkActive="router-link-active"> Books</button>
+            <button class="btn btn-block btn-icon" [routerLink]="['books']" routerLinkActive="router-link-active">Books</button>
         </div>
         <div class="col-md-2">
             <button class="btn btn-block btn-icon" [routerLink]="['articles']" routerLinkActive="router-link-active">Articles</button>
@@ -21,19 +21,15 @@
         <!-- Search bar -->
         <div class="col-md-4">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search">
+                <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchQuery">
                 <div class="input-group-append">
-                    <button class="btn btn-outline-success" type="button"><i class="fa fa-search"></i></button>
+                    <button class="btn btn-outline-success" type="button" (click)="handleSearch()"><i class="fa fa-search"></i></button>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="connection">
+        <router-outlet></router-outlet>
+    </div>
 </div>
-
-
-
-<div class="connection">
-    <router-outlet></router-outlet>
-</div>
-
-

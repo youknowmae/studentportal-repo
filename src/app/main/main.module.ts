@@ -12,8 +12,6 @@ import { ReservemodalComponent } from './components/modal/reservemodal/reservemo
 import { QrmodalComponent } from './components/modal/qrmodal/qrmodal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InsidearticleComponent } from './components/inside/insidearticle/insidearticle.component';
-import { InsidebookComponent } from './components/inside/insidebook/insidebook.component';
-import { InsideacademicComponent } from './components/inside/insideacademic/insideacademic.component';
 
 
 
@@ -25,7 +23,6 @@ import { InsideacademicComponent } from './components/inside/insideacademic/insi
     ProfilemodalComponent,
     ReservemodalComponent,
     QrmodalComponent,
-    InsideacademicComponent,
   ],
   imports: [
     CommonModule,

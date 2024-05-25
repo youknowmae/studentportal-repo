@@ -1,13 +1,10 @@
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-
-<div class="container">
+<!-- <div class="container">
     <div class="title">
         <h2>News and Events</h2>
         <h5>Get the latest News and Updates</h5>
         <p>Latest News</p>
     </div>
-    <div class="rectangle" (click)="toggleExpansion()">
+    <div class="rectangle" (click)="toggleExpansion(0)">
         <img src="assets/images/lib.png" alt="Image">
         <div class="details">
             <h5>Trump maintains lead over Biden</h5>
@@ -18,171 +15,77 @@
                 • Two Ukrainian servicemen stabbed to death in Germany, Russian national arrested <br>
                 • Forbes journalist placed under house arrest for allegedly spreading fake news about Russian army <br>
             </p>
-            <p *ngIf="expanded">• Opinion Biden needs to get real with Ukraine and Israel <br>
+            <p *ngIf="expanded[0]">• Opinion Biden needs to get real with Ukraine and Israel <br>
                 • Opinion US small-town water systems are global cyber targets. Is your city next?</p>
         </div>
     </div>
 </div>
-
 
 <div class="content">
     <div class="title">
         <p>Other News</p>
     </div>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6" *ngFor="let newsItem of newsItems; let i = index">
             <div class="square">
                 <img src="assets/images/lib.png" alt="Image" class="square-image-big">
                 <div class="square-content">
                     <div class="square-text">
-                        <h2>US university says it will pause gifts and grants from Boeing amid campus protests</h2>
-                        <p>• Retired general on what needs to happen next for Ukraine to move forward in its war with
-                            Russia 1:40 <br>
-                            • Two Ukrainian servicemen stabbed to death in Germany, Russian national arrested <br>
-                            • Forbes journalist placed under house arrest for allegedly spreading fake news about
-                            Russian army
-                        </p>
-                        <p *ngIf="expanded">
-                            • Opinion Biden needs to get real with Ukraine and Israel <br>
-                            • Opinion US small-town water systems are global cyber targets. Is your city next?
-                        </p>
+                        <h2>{{newsItem.title}}</h2>
+                        <p>{{newsItem.content}}</p>
+                        <p *ngIf="expanded[i]">{{newsItem.expandedContent}}</p>
                     </div>
                 </div>
-                <button class="profile-btn" type="button" (click)="toggleExpansion()">{{ expanded ? 'Read Less' : 'Read
-                    More' }}</button>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="square">
-                <img src="assets/images/lib.png" alt="Image" class="square-image-big">
-                <div class="square-content">
-                    <div class="square-text">
-                        <h2>US university says it will pause gifts and grants from Boeing amid campus protests</h2>
-                        <p>• Retired general on what needs to happen next for Ukraine to move forward in its war with
-                            Russia 1:40 <br>
-                            • Two Ukrainian servicemen stabbed to death in Germany, Russian national arrested <br>
-                            • Forbes journalist placed under house arrest for allegedly spreading fake news about
-                            Russian army <br>
-                        </p>
-                        <p *ngIf="expanded">
-                            • Opinion Biden needs to get real with Ukraine and Israel <br>
-                            • Opinion US small-town water systems are global cyber targets. Is your city next?
-                        </p>
-                    </div>
-                </div>
-                <button class="profile-btn" type="button" (click)="toggleExpansion()">{{ expanded ? 'Read Less' : 'Read
-                    More' }}</button>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="square">
-                <img src="assets/images/lib.png" alt="Image" class="square-image">
-                <div class="square-content">
-                    <div class="square-text">
-                        <h2>US university says it will pause gifts and grants from Boeing amid campus protests</h2>
-                        <p>• Sanders voices support for pro-Palestinian protests as he condemns ‘all forms of
-                            bigotry’<br>
-                            • Trump and DeSantis meet for first conversation since Florida governor dropped out of GOP
-                            primary <br>
-                        </p>
-                        <p *ngIf="expanded">
-                            • Forbes journalist placed under house arrest for allegedly spreading fake news about
-                            Russian army <br>
-                            • Opinion Biden needs to get real
-                        </p>
-                    </div>
-                </div>
-                <button class="profile-btn" type="button" (click)="toggleExpansion()">{{ expanded ? 'Read Less' : 'Read
-                    More' }}</button>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="square">
-                <img src="assets/images/lib.png" alt="Image" class="square-image">
-                <div class="square-content">
-                    <div class="square-text">
-                        <h2>US university says it will pause gifts and grants from Boeing amid campus protests</h2>
-                        <p>• Sanders voices support for pro-Palestinian protests as he condemns ‘all forms of
-                            bigotry’<br>
-                            • Trump and DeSantis meet for first conversation since Florida governor dropped out of GOP
-                            primary <br>
-                        </p>
-                        <p *ngIf="expanded">
-                            • Forbes journalist placed under house arrest for allegedly spreading fake news about
-                            Russian army <br>
-                            • Opinion Biden needs to get real
-                        </p>
-                    </div>
-                </div>
-                <button class="profile-btn" type="button" (click)="toggleExpansion()">{{ expanded ? 'Read Less' : 'Read
-                    More' }}</button>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="square">
-                <img src="assets/images/lib.png" alt="Image" class="square-image">
-                <div class="square-content">
-                    <div class="square-text">
-                        <h2>US university says it will pause gifts and grants from Boeing amid campus protests</h2>
-                        <p>• Sanders voices support for pro-Palestinian protests as he condemns ‘all forms of
-                            bigotry’<br>
-                            • Trump and DeSantis meet for first conversation since Florida governor dropped out of GOP
-                            primary <br>
-                        </p>
-                        <p *ngIf="expanded">
-                            • Forbes journalist placed under house arrest for allegedly spreading fake news about
-                            Russian army <br>
-                            • Opinion Biden needs to get real
-                        </p>
-                    </div>
-                </div>
-                <button class="profile-btn" type="button" (click)="toggleExpansion()">{{ expanded ? 'Read Less' : 'Read
-                    More' }}</button>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="square">
-                <img src="assets/images/lib.png" alt="Image" class="square-image-big">
-                <div class="square-content">
-                    <div class="square-text">
-                        <h2>US university says it will pause gifts and grants from Boeing amid campus protests</h2>
-                        <p>• Retired general on what needs to happen next for Ukraine to move forward in its war with
-                            Russia 1:40 <br>
-                            • Two Ukrainian servicemen stabbed to death in Germany, Russian national arrested <br>
-                        </p>
-                        <p *ngIf="expanded">
-                            • Forbes journalist placed under house arrest for allegedly spreading fake news about
-                            Russian army <br>
-                            • Opinion Biden needs to get real with Ukraine and Israel <br>
-                            • Opinion US small-town water systems are global cyber targets. Is your city next?
-                        </p>
-                    </div>
-                </div>
-                <button class="profile-btn" type="button" (click)="toggleExpansion()">{{ expanded ? 'Read Less' : 'Read
-                    More' }}</button>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="square">
-                <img src="assets/images/lib.png" alt="Image" class="square-image-big">
-                <div class="square-content">
-                    <div class="square-text">
-                        <h2>US university says it will pause gifts and grants from Boeing amid campus protests</h2>
-                        <p>• Retired general on what needs to happen next for Ukraine to move forward in its war with
-                            Russia 1:40 <br>
-                            • Two Ukrainian servicemen stabbed to death in Germany, Russian national arrested <br>
-                        </p>
-                        <p *ngIf="expanded">
-                            • Forbes journalist placed under house arrest for allegedly spreading fake news about
-                            Russian army <br>
-                            • Opinion Biden needs to get real with Ukraine and Israel <br>
-                            • Opinion US small-town water systems are global cyber targets. Is your city next?
-                        </p>
-                    </div>
-                </div>
-                <button class="profile-btn" type="button" (click)="toggleExpansion()">{{ expanded ? 'Read Less' : 'Read
-                    More' }}</button>
+                <button class="profile-btn" type="button" (click)="toggleExpansion(i)">{{ expanded[i] ? 'Read Less' : 'Read More' }}</button>
             </div>
         </div>
     </div>
-</div>
+</div> -->
+<div class="container" *ngIf="!loading; else loadingTemplate">
+    <div class="title">
+      <h2>News and Events</h2>
+      <h5>Get the latest News and Updates</h5>
+      <p>Latest News</p>
+    </div>
+    <div class="rectangle">
+      <img src="assets/images/lib.png" alt="Image">
+      <div class="details">
+        <h5>{{ announcements[0]?.title }}</h5>
+        <p>{{ announcements[0]?.created_at | date }}</p>
+        <p>{{ announcements[0]?.author_id }}</p>
+        <p>{{ announcements[0]?.text }}</p>
+        <p *ngIf="announcements[0]?.expandedText">{{ announcements[0]?.expandedText }}</p>
+      </div>
+    </div>
+  
+    <div class="content">
+      <div class="title">
+        <p>Other News</p>
+      </div>
+      <div class="row">
+        <div class="col-md-6" *ngFor="let announcement of announcements.slice(1); let i = index">
+          <div class="square">
+            <img src="assets/images/lib.png" alt="Image" class="square-image-big">
+            <div class="square-content">
+              <div class="square-text">
+                <h2>{{ announcement.title }}</h2>
+                <p>{{ announcement.text }}</p>
+                <p *ngIf="announcement.expandedText">{{ announcement.expandedText }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <ng-template #loadingTemplate>
+    <!-- Loading indicator -->
+    <div class="loading-spinner">
+      <!-- You can replace this with your preferred loading animation or spinner -->
+      <div class="spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+  </ng-template>
+  

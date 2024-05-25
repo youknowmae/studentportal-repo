@@ -1,5 +1,7 @@
 <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+
 <div class="content">
   <div class="filter">
     <select (change)="onMaterialTypeChange($event)">
@@ -9,16 +11,29 @@
       <option value="newspaper">Newspaper</option>
     </select>
   </div>
-</div>
-<div class="content">
-  <div class="row">
-    <div class="rectangle" *ngFor="let article of articles; let i = index" [routerLink]="['../insidearticle', i + 1]">
+
+  <!-- Loading indicator -->
+  <div *ngIf="loading" class="loading-spinner">
+    <div class="spinner-border text-green" role="status" style="width: 5rem; height: 5rem;">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="!loading">
+    <div class="rectangle" *ngFor="let article of paginatedArticles; let i = index" [routerLink]="['../insidearticle', i + 1]">
       <div class="details">
         <p>Date Published: {{ article.date_published }}</p>
-        <h5>Material Type: {{article.material_type}}</h5>
+        <h5>Material Type: {{ article.material_type }}</h5>
         <p>Author: {{ article.authors }}</p>
         <p>Description: {{ article.remark }}</p>
       </div>
     </div>
   </div>
 </div>
+
+<div class="pagination">
+  <button (click)="previousPage()" [disabled]="currentPage === 1">Back</button>
+  <button *ngFor="let page of pages" (click)="goToPage(page)" [class.active]="page === currentPage">{{ page }}</button>
+  <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+</div>
+

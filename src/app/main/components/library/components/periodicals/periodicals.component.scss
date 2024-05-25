@@ -2,28 +2,31 @@
   font-family: 'Montserrat';
 }
 .content{
-  padding: 40px 40px 0 60px;
+  padding: 20px 20px 0 18px;
 }
 .square {
   display: flex;
   border: 1px solid #ccc;
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   border: solid 2px var(--border-color);
-  border-radius: 10px;
+  border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.5);
   transform: scale(1);
   transition: all .2s ease-in;
+  width: 350px;
+  height: 140px;
+  margin-left: -2px;
 }
 .square:hover{
   transform: scale(1.05);
   transition: all .2s ease-in;
 }
 .square-image {
-  width: 200px;
-  height: 200px;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+  width: 140px;
+  height: 140px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
   margin-right: 15px;
   background-color: #f3f3f3;
   object-fit: contain;
@@ -38,13 +41,33 @@
 .square-text {
   margin-top: 20px;
   text-align: left;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
+/* Custom Scrollbar Styling */
+.square-text::-webkit-scrollbar {
+  width: 0;
+}
+
+.square-text::-webkit-scrollbar-track {
+  background: #fff 
+}
+
+.square-text::-webkit-scrollbar-thumb {
+  background: #fff; 
+  border-radius: 10px;
+}
+
+.square-text::-webkit-scrollbar-thumb:hover {
+  background: #fff; 
+}
+
 .square-text h2{
-  font-size: medium;
+  font-size: small;
   font-weight: bold;
 }
 .square-text p{
-  font-size: 12px;
+  font-size: 10px;
 }
 .square-text h2, .square-text p {
   margin: 0;
@@ -59,7 +82,7 @@
   text-transform:none;
   font-size: small;
   cursor: pointer;
-  margin-bottom: 20px;
+  margin: 10px 0 10px 0;
 }
 .view-button:hover {
   box-shadow: 0px 8px 15px -10px rgb(61, 61, 61);
@@ -68,15 +91,23 @@
   color: #31A463;
   cursor: pointer;
   text-decoration: none;
-  height: 12%;
+  height: 16%;
+  width: 30%;
+  margin: 0;
+  margin-bottom: 5px;
+  text-align: center;
+  line-height: 100%;
+  padding-right: 45px;
 }
 .filter select{
   padding: 10px 20px 10px 20px;
   color: green;
   border: 2px solid #31a463;
-  margin-left: 33px;
+  margin-bottom: 10px;
   cursor: pointer;
   border-radius: 3px;
+  margin-left: -3px;
+  margin-right: 50px;
 }
 .filter select:hover{
   background-color: #31a463;
@@ -85,4 +116,39 @@
 .filter option{
   padding: 10px 20px 10px 20px;
 }
-  
+.pagination {
+  display: flex;
+  justify-content: left;
+  margin-left: -3px;
+}
+
+.pagination button {
+  background-color: #31a463;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.pagination button[disabled] {
+  background-color: #d3d3d3;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  margin: 0 10px;
+  font-size: 14px;
+  background-color: #285a43;
+  padding: 10px 15px;
+  border-radius: 5px;
+  color: #fff;
+}
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #31A463;
+  height: 300px;
+  padding: 220px 500px 260px 500px; 
+}

@@ -5,11 +5,8 @@ import { InsideacademicComponent } from '../../../inside/insideacademic/insideac
 
 const routes: Routes = [
   { path: '', component: AcademicComponent },
-  { path: 'academic/:id', component: InsideacademicComponent }
-
+  { path: 'insideacademic/:id', component: InsideacademicComponent }
 ];
-
-
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

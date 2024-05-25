@@ -9,7 +9,7 @@ import { AuthenticationService } from './authentication-service.service';
 })
 export class ApiService {
   apiUrl = 'http://localhost:8000/api';
-  // apiUrl = 'http://192.168.18.185:8000/api';
+  // apiUrl = 'http://192.168.68.124:8000/api';
 
   constructor(private http: HttpClient, private authService: AuthenticationService) { }
 
@@ -19,6 +19,9 @@ export class ApiService {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${authToken}` 
     });
+  }
+  getAnnouncements(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/announcement`, { headers: this.getHeaders() });
   }
 
   getArticles(): Observable<any[]> {
@@ -60,11 +63,11 @@ export class ApiService {
     }
     
     getPeriodicalById(id: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/student/periodical/${id}`, { headers: this.getHeaders() });
+    return this.http.get<any>(`${this.apiUrl}/student/periodicals/id/${id}`, { headers: this.getHeaders() });
   }
   
-    getPeriodicalsByMaterialType(type: string): Observable<any[]> {
-      return this.http.get<any[]>(`${this.apiUrl}student/periodicals/type/${type}`, { headers: this.getHeaders() });
+    getPeriodicalsByMaterialType(materialType: string): Observable<any[]> {
+      return this.http.get<any[]>(`${this.apiUrl}/student/periodicals/materialtype/${materialType}`, { headers: this.getHeaders() });
     }
 
    getReservationsByUserId(id: number): Observable<any[]> {
@@ -95,10 +98,36 @@ export class ApiService {
     const userId = parseInt(this.authService.getLoggedInUserId() || '0');
     return this.getBorrowedByUserId(userId);
   }
+
+
+  getProjectById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/student/project/id/${id}`, { headers: this.getHeaders() })
+      .pipe(
+        catchError((error: HttpErrorResponse) => {
+          console.error('Error fetching project:', error);
+          return throwError(error);
+        })
+      );
+  }
    
   getDepartment(): string | null {
     return localStorage.getItem('department');
   }
-  
-  
+  // Add search methods
+  searchBooks(query: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/search/books?query=${query}`, { headers: this.getHeaders() });
+  }
+
+  searchArticles(query: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/search/articles?query=${query}`, { headers: this.getHeaders() });
+  }
+
+  searchPeriodicals(query: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/search/periodicals?query=${query}`, { headers: this.getHeaders() });
+  }
+
+  searchProjects(query: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/search/project?query=${query}`, { headers: this.getHeaders() });
+  }
+
 }

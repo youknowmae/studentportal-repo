@@ -1,9 +1,6 @@
 *{
     font-family: 'Montserrat';
 }
-.container {
-    padding-top: 40px 20px 0 20px;
-}
 .btn-icon {
     padding: 7px 8px 8px 5px;
     font-size: 14px;
@@ -13,6 +10,7 @@
     text-decoration: none;
     transition: background-color 0.3s ease;
     border: 2px solid #31A463;
+    border-radius: 3px;
 }
 .btn-icon:hover,
 .btn-icon:active,
@@ -37,4 +35,8 @@
     border-color: #31A463;
     box-shadow: none;
     outline: none;
+}
+
+.connectside {
+    padding: 2% 0 0 15%;
 }

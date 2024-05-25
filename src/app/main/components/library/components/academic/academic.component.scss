@@ -18,30 +18,33 @@
     background-color: #31A463;
     color: #fff;
   }
-  .input-group-append .btn {
-    color: black;
-    background-color: #31A463;
-    border-color: #31A463;
-  }
-  .input-group-append .btn:hover {
-    color: white;
-    background-color: #31A463;
-    border-color: #31A463;
-  }
-  .form-control:focus {
-    border-color: #31A463;
-    box-shadow: none;
-    outline: none;
-  }
+  // .input-group-append .btn {
+  //   position: fixed;
+  //   color: black;
+  //   background-color: #31A463;
+  //   border-color: #31A463;
+  // }
+  // .input-group-append .btn:hover {
+  //   color: white;
+  //   background-color: #31A463;
+  //   border-color: #31A463;
+  // }
+  // .form-control:focus {
+  //   border-color: #31A463;
+  //   box-shadow: none;
+  //   outline: none;
+  // }
   .square {
     border: solid 2px var(--border-color);
     padding: 20px;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     transform: scale(1);
-    transition: all 0.2s ease-in;
+    transition: all .2s ease-in;
+    height: 240px;
+    overflow: hidden;
   }
   .square:hover {
     transform: scale(1.05);
@@ -63,16 +66,32 @@
   }  
   .square-text {
     text-align: left;
-  }     
-  .square h2 {
-    font-size: medium;
-    margin: 0;
-    padding: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+  /* Custom Scrollbar Styling */
+  .square-text::-webkit-scrollbar {
+    width: 0;
+  }
+  
+  .square-text::-webkit-scrollbar-track {
+    background: #fff 
+  }
+  
+  .square-text::-webkit-scrollbar-thumb {
+    background: #fff; 
+    border-radius: 10px;
+  }
+  
+  .square-text::-webkit-scrollbar-thumb:hover {
+    background: #fff; 
+  }
+  .square h5 {
+    font-size: small;
+    font-weight: bold;
   }
   .square p {
-    font-size: 12px;
-    margin: 0;
-    padding: 0;
+    font-size: 10px;
   }
   .view-button {
     background-color: #31a463;
@@ -106,4 +125,50 @@
     background-color: #31a463;
     color: #fff;
   }
+  .pagination {
+    display: flex;
+    justify-content: left;
+    margin-top: 5px;
+    margin-left: -5px;
+  }
   
+  .pagination button {
+    background-color: #31a463;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .pagination button.active {
+    background-color: #285a43;
+  }
+  
+  .pagination button:disabled {
+    background-color: #d3d3d3;
+  }
+  .loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #31A463;
+    height: 300px;
+    padding: 258px 500px;
+  }
+  .input-group{
+    width: 300px;
+    border-radius: 3px;
+  }
+  .input-group input{
+    border: 2px solid #31a463;
+    padding-top: 7px ;
+    padding-bottom: 7px ;
+    border-radius: 3px;
+  }
+  .form-control:focus {
+    border-color: #31A463;
+    box-shadow: none;
+    outline: none;
+  }

@@ -21,13 +21,15 @@ import { AcademicModule } from './components/academic/academic.module';
     AcademicComponent,
   ],
   imports: [
+    
     CommonModule,
     LibraryRoutingModule,
     PeriodicalsModule,
     ArticlesModule,
     BooksModule,
     FormsModule,
-    AcademicModule
+    AcademicModule,
+     
   ]
 })
 export class LibraryModule { }

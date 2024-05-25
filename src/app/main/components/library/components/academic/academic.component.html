@@ -1,11 +1,10 @@
-<!-- <p>academic works!</p>
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+
 <br>
 
 <div class="container">
   <div class="row">
-    Dropdown Container
     <div class="dropdown-container col-md-3">
       <select class="form-control" (change)="handleDropdownChange($event)">
         <ng-container *ngFor="let category of projectCategories">
@@ -14,27 +13,40 @@
       </select>
     </div>
   </div>
+  
+  <!-- Loading spinner -->
+  <div *ngIf="loading" class="loading-spinner">
+    <div class="spinner-border text-green" role="status" style="width: 5rem; height: 5rem;">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
 
- Selected Category Projects 
-  <div *ngIf="selectedCategory" class="row mt-3">
+  <div *ngIf="selectedCategory && !loading" class="row mt-3">
     <div class="project col-md-12">
-      <div *ngIf="projects.length > 0" class="row">
-        <div class="col-md-4" *ngFor="let project of projects">
+      <div *ngIf="paginatedProjects.length > 0" class="row">
+        <div class="col-md-4" *ngFor="let project of paginatedProjects">
+          <!-- Project card -->
           <div class="square">
             <img [src]="project.image_location" alt="Image" class="square-image">
             <div class="square-content">
               <div class="square-text">
                 <p>{{ project.id }}</p>
-                <h2>Category: {{ selectedCategory }}</h2>
-                <p>Author/s: {{ project.authors.join(', ') }}</p>
+                <h5>Category: {{ selectedCategory }}</h5>
+                <h5>Title: {{ project.title }}</h5>
+                <p>Author/s: {{ project.authors }}</p>
               </div>
-             View button to open modal
-              <button class="view-button" [routerLink]="['../academic/', project.id]" routerLinkActive="router-link-active">View</button>
+              <button class="view-button" [routerLink]="['../insideacademic', project.id]" routerLinkActive="router-link-active">View</button>
             </div>
           </div>
         </div>
       </div>
-      <div *ngIf="projects.length === 0">No projects available for this category.</div>
+      <div *ngIf="paginatedProjects.length === 0">No projects available for this category.</div>
     </div>
   </div>
-</div> -->
+  
+  <div class="pagination mt-3">
+    <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+    <button *ngFor="let page of visiblePages" (click)="goToPage(page)" [class.active]="page === currentPage">{{ page }}</button>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+  </div>
+  

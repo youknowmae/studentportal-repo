@@ -23,8 +23,8 @@ import { NgxSpinner, NgxSpinnerModule } from 'ngx-spinner';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    MainModule,
     FormsModule,
+    // MainModule,
     MatDialogModule,
     BrowserAnimationsModule,
     NgxSpinnerModule

@@ -1,0 +1,87 @@
+.container {
+    display: flex;
+    margin-left: 11%;
+
+    .inside {
+        margin-top: 20px;
+        width: 90%;
+        display: block;
+        padding: 20px 40px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 7px;
+        border
+    
+        .icon {
+            padding-bottom: 10px;
+            font-size: 30px;
+
+            &:hover .back-icon {
+                color: #013718;
+            }
+        }
+
+        h1 {
+
+            text-align: center;
+            padding-bottom: 15px;
+        }
+
+        .content {
+            display: flex;
+        }
+
+        .project-cover,
+        .inside-content {
+            width: 50%;
+        }
+
+        .project-cover {
+            border: 2px solid black;
+        }
+        
+        .inside-content {
+            padding-left: 20px;
+
+            .abstract {
+                margin-bottom: 20px;
+                border: 2px solid black;
+
+                .head {
+                    display: flex;
+                    padding: 10px 0 10px 5px;
+
+                    p {
+                        padding-left: 5px;
+                        font-weight: 600;
+                    }
+                }
+            }
+
+            .abstract-content {
+                overflow: auto;
+
+                p {
+                    padding-left: 10px;
+                }
+            }
+
+            .inside-keywords {
+                border: 2px solid black;
+
+                .key {
+                    padding: 5px 0 5px 5px;
+                    font-weight: 600;
+                }
+
+                .keywords-content {
+                    padding: 5px 0 5px 15px;
+
+                    p {
+                        padding-bottom: 5px;
+                    }
+                }
+            } 
+        }
+        
+    }
+}

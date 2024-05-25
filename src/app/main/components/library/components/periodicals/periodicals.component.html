@@ -1,29 +1,49 @@
 <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 
 <div class="content">
-    <div class="row mb-3">
-        <div class="filter col-md-12">
-            <select class="form-select" (change)="onMaterialTypeChange($event)">
-                <option value="">Select Material Type</option>
-                <option value="journal">Journal</option>
-                <option value="magazine">Magazine</option>
-                <option value="newspaper">Newspaper</option>
-            </select>
-        </div>
+  <!-- Filter -->
+  <div class="row mb-3">
+    <div class="filter col-md-12">
+      <select class="form-select" (change)="onMaterialTypeChange($event)">
+        <option value="">Select Material Type</option>
+        <option value="journal">Journal</option>
+        <option value="magazine">Magazine</option>
+        <option value="newspaper">Newspaper</option>
+      </select>
+            <!-- <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search">
+    </div> -->
     </div>
-    <div class="row">
-        <div class="col-md-4" *ngFor="let periodical of periodicals; let i = index">
-            <div class="square">
-                <img src="assets/images/logo.png" alt="Image" class="square-image">
-                <div class="square-content">
-                    <div class="square-text">
-                        <p>{{ periodical.id }}</p>
-                        <h2>{{ periodical.title }}</h2>
-                        <p>{{ periodical.authors }}</p>
-                    </div>
-                    <button class="view-button" [routerLink]="['../insideperiodical', i + 1]" routerLinkActive="router-link-active" role="button"> View</button>
-                </div>
-            </div>
-        </div>
+  </div>
+
+  <!-- Loading spinner -->
+  <div *ngIf="loading" class="loading-spinner">
+    <div class="spinner-border text-green" role="status" style="width: 5rem; height: 5rem;">
+      <span class="sr-only">Loading...</span>
     </div>
+  </div>
+
+  <!-- Periodicals -->
+  <div class="row" *ngIf="!loading">
+    <div class="col-md-4" *ngFor="let periodical of paginatedPeriodicals">
+      <div class="square">
+        <img src="assets/images/logo.png" alt="Image" class="square-image">
+        <div class="square-content">
+          <div class="square-text">
+            <p>{{ periodical.id }}</p>
+            <h2>{{ periodical.title }}</h2>
+            <p>{{ periodical.authors }}</p>
+          </div>
+          <button class="view-button" [routerLink]="['../insideperiodical', periodical.id]" routerLinkActive="router-link-active" role="button"> View</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pagination -->
+  <div class="pagination">
+    <button (click)="previousPage()" [disabled]="currentPage === 1">Back</button>
+    <span>{{ currentPage }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+  </div>
 </div>
