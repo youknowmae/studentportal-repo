@@ -17,10 +17,10 @@ export class AcademicComponent implements OnInit {
   projects: any[] = [];
   searchQuery: string = '';
   filteredProjects: any[] = [];
-  loading: boolean = false; // Loading indicator
-  currentPage: number = 1; // Current page for pagination
-  projectsPerPage: number = 6; // Number of projects per page
-  isDropdownOpen: boolean = false; // Dropdown open/close state
+  loading: boolean = false;
+  currentPage: number = 1;
+  projectsPerPage: number = 6;
+  isDropdownOpen: boolean = false;
 
   constructor(
     private apiService: ApiService,
@@ -46,16 +46,15 @@ export class AcademicComponent implements OnInit {
         this.departmentProjects = data;
         this.updateVisibleButtons();
         this.setDefaultCategory();
-        this.loading = false; // Set loading to false after data is fetched
+        this.loading = false;
       },
       (error) => {
         console.error('Error fetching projects:', error);
-        this.loading = false; // Set loading to false in case of error
+        this.loading = false;
       }
     );
   }
 
-  // Update visible buttons based on available projects
   updateVisibleButtons(): void {
     this.visibleButtons = {
       CBAR: false,

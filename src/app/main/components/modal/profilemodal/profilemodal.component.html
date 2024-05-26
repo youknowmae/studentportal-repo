@@ -38,7 +38,6 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Iterate over only 10 rows based on pagination -->
             <tr *ngFor="let book of displayedBooks">
                 <td>{{ book.borrowedDate }}</td>
                 <td>{{ book.time }}</td>
@@ -49,7 +48,6 @@
         </tbody>
     </table>
 
-    <!-- Pagination controls -->
     <div class="pagination">
         <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
         <span>{{ currentPage }}</span>

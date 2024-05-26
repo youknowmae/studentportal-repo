@@ -2,23 +2,16 @@
 
 <div class="content">
     <div class="row">
-        <!-- Use *ngFor directive to loop through each borrowed item -->
         <div class="col-md-4" *ngFor="let item of borrowedItems">
             <div class="square">
-                <!-- Use item.borrow_expiration to display borrow expiration date -->
                 <p class="important">Return by: {{ item.borrow_expiration }}</p>
-                <!-- Placeholder image -->
                 <img src="assets/images/default-book-image.jpg" alt="Book Cover" class="square-image">
                 <div class="square-content">
                     <div class="square-text">
-                        <!-- Use item.book.title to display book title -->
                         <h2>{{ item.book.title }}</h2>
-                        <!-- Use item.book.author to display book author -->
                         <p>By: {{ item.book.author }}</p>
-                        <!-- Use item.book.ISBN (if available) to display book ISBN -->
                         <p>ISBN: {{ item.book.ISBN }}</p>
                     </div>
-                    <!-- Use item.book.id to construct dynamic route -->
                     <button class="view-button" role="button" [routerLink]="['/main/library/book', item.book.id]" routerLinkActive="router-link-active"> View</button>
                 </div>
             </div>

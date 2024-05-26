@@ -8,7 +8,7 @@ import { ApiService } from '../../../api-service.service';
 })
 export class AnnouncementComponent implements OnInit {
   announcements: any[] = [];
-  loading: boolean = true; // Add loading flag and initialize as true
+  loading: boolean = true;
 
   constructor(private apiService: ApiService) {}
 
@@ -20,7 +20,7 @@ export class AnnouncementComponent implements OnInit {
     this.apiService.getAnnouncements().subscribe(
       (announcements: any[]) => {
         this.announcements = announcements;
-        this.loading = false; // Set loading to false when data is fetched
+        this.loading = false;
       },
       error => {
         console.error('Error fetching announcements:', error);
