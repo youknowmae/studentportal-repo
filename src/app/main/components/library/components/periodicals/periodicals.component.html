@@ -3,17 +3,24 @@
 <div class="content">
   <!-- Filter -->
   <div class="row mb-3">
-    <div class="filter col-md-12">
-      <select class="form-select" (change)="onMaterialTypeChange($event)">
-        <option value="">Select Material Type</option>
-        <option value="journal">Journal</option>
-        <option value="magazine">Magazine</option>
-        <option value="newspaper">Newspaper</option>
-      </select>
-            <!-- <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search">
-    </div> -->
+    <div class="filter col-md-4">
+      <div class="dropdown">
+        <button class="btn btn-green dropdown-toggle fixed-width" type="button" id="dropdownMenuButton" style="color: #fff;" aria-expanded="false">
+          {{ selectedMaterialTypeLabel }}
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <li><a class="dropdown-item" href="#" (click)="onMaterialTypeChange($event, '')">All</a></li>
+          <li><a class="dropdown-item" href="#" (click)="onMaterialTypeChange($event, 'journal')">Journal</a></li>
+          <li><a class="dropdown-item" href="#" (click)="onMaterialTypeChange($event, 'magazine')">Magazine</a></li>
+          <li><a class="dropdown-item" href="#" (click)="onMaterialTypeChange($event, 'newspaper')">Newspaper</a></li>
+        </ul>
+      </div>
     </div>
+    <div class="col-md-4">
+      <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search">
+      </div>
+  </div> 
   </div>
 
   <!-- Loading spinner -->

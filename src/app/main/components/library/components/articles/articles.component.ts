@@ -12,7 +12,8 @@ export class ArticlesComponent implements OnInit {
   currentPage: number = 1;
   articlesPerPage: number = 4;
   selectedMaterialType: string = '';
-  loading: boolean = false; // Add loading variable
+  selectedMaterialTypeLabel: string = 'Select Material Type'; // Default label
+  loading: boolean = false;
 
   constructor(private apiService: ApiService) { }
 
@@ -55,9 +56,28 @@ export class ArticlesComponent implements OnInit {
     this.paginatedArticles = this.articles.slice(startIndex, endIndex);
   }
 
-  onMaterialTypeChange(event: any): void {
-    this.selectedMaterialType = event.target.value;
+  onMaterialTypeChange(event: Event, type: string): void {
+    event.preventDefault(); // Prevent default anchor behavior
+    this.selectedMaterialType = type;
     this.fetchArticles();
+    this.updateMaterialTypeLabel(type); // Update the button label
+  }
+
+  updateMaterialTypeLabel(type: string): void {
+    switch (type) {
+      case 'journal':
+        this.selectedMaterialTypeLabel = 'Journal';
+        break;
+      case 'magazine':
+        this.selectedMaterialTypeLabel = 'Magazine';
+        break;
+      case 'newspaper':
+        this.selectedMaterialTypeLabel = 'Newspaper';
+        break;
+      default:
+        this.selectedMaterialTypeLabel = 'All';
+        break;
+    }
   }
 
   goToPage(page: number): void {
@@ -83,8 +103,5 @@ export class ArticlesComponent implements OnInit {
 
   get totalPages(): number {
     return Math.ceil(this.articles.length / this.articlesPerPage);
-  }
-  get pages(): number[] {
-    return [this.currentPage];
   }
 }

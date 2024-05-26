@@ -12,6 +12,7 @@
         </div>
       </div>
     </div>
+    
     <ng-template #bookList>
       <div class="row">
         <div class="col-md-4" *ngFor="let book of paginatedBooks">
@@ -30,6 +31,7 @@
         </div>
       </div>
     </ng-template>
+
       <div class="pagination">
         <button (click)="previousPage()" [disabled]="currentPage === 1">Back</button>
         <button *ngFor="let page of pages" (click)="goToPage(page)" [class.active]="page === currentPage">{{ page }}</button>

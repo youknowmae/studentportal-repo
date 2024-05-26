@@ -10,8 +10,9 @@ export class PeriodicalsComponent implements OnInit {
   periodicals: any[] = [];
   paginatedPeriodicals: any[] = [];
   currentPage: number = 1;
-  periodicalsPerPage: number = 9; // Display 4 periodicals per page
+  periodicalsPerPage: number = 9; // Display 9 periodicals per page
   loading: boolean = true; // Add loading flag and initialize as true
+  selectedMaterialTypeLabel: string = 'Select Material Type'; // Label for the dropdown button
 
   constructor(private apiService: ApiService) { }
 
@@ -55,10 +56,28 @@ export class PeriodicalsComponent implements OnInit {
     this.paginatedPeriodicals = this.periodicals.slice(startIndex, endIndex);
   }
 
-  onMaterialTypeChange(event: Event): void {
-    const type = (event.target as HTMLSelectElement)?.value || '';
+  onMaterialTypeChange(event: Event, type: string): void {
+    event.preventDefault(); // Prevent the default anchor behavior
     this.currentPage = 1; // Reset to first page on filter change
     this.fetchPeriodicals(type);
+    this.updateMaterialTypeLabel(type); // Update the button label
+  }
+
+  updateMaterialTypeLabel(type: string): void {
+    switch (type) {
+      case 'journal':
+        this.selectedMaterialTypeLabel = 'Journal';
+        break;
+      case 'magazine':
+        this.selectedMaterialTypeLabel = 'Magazine';
+        break;
+      case 'newspaper':
+        this.selectedMaterialTypeLabel = 'Newspaper';
+        break;
+      default:
+        this.selectedMaterialTypeLabel = 'All';
+        break;
+    }
   }
 
   nextPage(): void {

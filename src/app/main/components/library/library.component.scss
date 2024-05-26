@@ -1,6 +1,9 @@
 *{
     font-family: 'Montserrat';
 }
+.row{
+    justify-content: center;
+}
 .btn-icon {
     padding: 7px 8px 8px 5px;
     font-size: 14px;
@@ -17,24 +20,6 @@
 .btn-icon:focus {
     background-color: #31A463;
     color: #fff;
-}
-.dropdown{
-    padding: 9px;
-}
-.input-group-append .btn {
-    color: black;
-    background-color: #31A463;
-    border-color: #31A463;
-}
-.input-group-append .btn:hover {
-    color: white;
-    background-color: #31A463;
-    border-color: #31A463;
-}
-.form-control:focus {
-    border-color: #31A463;
-    box-shadow: none;
-    outline: none;
 }
 
 .connectside {

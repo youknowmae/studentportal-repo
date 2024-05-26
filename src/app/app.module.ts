@@ -11,7 +11,6 @@ import { MainModule } from './main/main.module';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgxSpinner, NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -27,7 +26,6 @@ import { NgxSpinner, NgxSpinnerModule } from 'ngx-spinner';
     // MainModule,
     MatDialogModule,
     BrowserAnimationsModule,
-    NgxSpinnerModule
   ],
   providers: [
     provideClientHydration(),

@@ -5,28 +5,27 @@
     <!-- Buttons and Search Bar in the same row -->
     <div class="row">
         <!-- Buttons -->
-        <div class="col-md-2">
+        <div class="col-md-3">
             <button class="btn btn-block btn-icon" [routerLink]="['books']" routerLinkActive="router-link-active">Books</button>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-3">
             <button class="btn btn-block btn-icon" [routerLink]="['articles']" routerLinkActive="router-link-active">Articles</button>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-3">
             <button class="btn btn-block btn-icon" [routerLink]="['periodicals']" routerLinkActive="router-link-active">Periodicals</button>
         </div>
         
-        <div class="col-md-2">
+        <div class="col-md-3">
             <button class="btn btn-block btn-icon" [routerLink]="['academic']" routerLinkActive="router-link-active">Academic</button>
         </div>
-        <!-- Search bar -->
-        <div class="col-md-4">
+        <!-- <div class="col-md-4">
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchQuery">
                 <div class="input-group-append">
                     <button class="btn btn-outline-success" type="button" (click)="handleSearch()"><i class="fa fa-search"></i></button>
                 </div>
             </div>
-        </div>
+        </div>  -->
     </div>
 
     <div class="connection">

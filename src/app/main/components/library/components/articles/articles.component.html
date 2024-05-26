@@ -1,24 +1,36 @@
 <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 
-<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-
 <div class="content">
-  <div class="filter">
-    <select (change)="onMaterialTypeChange($event)">
-      <option value="">Select Material Type</option>
-      <option value="journal">Journal</option>
-      <option value="magazine">Magazine</option>
-      <option value="newspaper">Newspaper</option>
-    </select>
+  <!-- Filter -->
+  <div class="row mb-3">
+    <div class="filter col-md-4">
+      <div class="dropdown">
+        <button class="btn btn-green dropdown-toggle fixed-width" type="button" id="dropdownMenuButton" style="color: #fff;" aria-expanded="false">
+          {{ selectedMaterialTypeLabel }}
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <li><a class="dropdown-item" href="#" (click)="onMaterialTypeChange($event, '')">All</a></li>
+          <li><a class="dropdown-item" href="#" (click)="onMaterialTypeChange($event, 'journal')">Journal</a></li>
+          <li><a class="dropdown-item" href="#" (click)="onMaterialTypeChange($event, 'magazine')">Magazine</a></li>
+          <li><a class="dropdown-item" href="#" (click)="onMaterialTypeChange($event, 'newspaper')">Newspaper</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search">
+      </div>
+  </div> 
   </div>
 
-  <!-- Loading indicator -->
+  <!-- Loading spinner -->
   <div *ngIf="loading" class="loading-spinner">
     <div class="spinner-border text-green" role="status" style="width: 5rem; height: 5rem;">
       <span class="sr-only">Loading...</span>
     </div>
   </div>
 
+  <!-- Articles -->
   <div class="row" *ngIf="!loading">
     <div class="rectangle" *ngFor="let article of paginatedArticles; let i = index" [routerLink]="['../insidearticle', i + 1]">
       <div class="details">
@@ -29,11 +41,11 @@
       </div>
     </div>
   </div>
-</div>
 
-<div class="pagination">
-  <button (click)="previousPage()" [disabled]="currentPage === 1">Back</button>
-  <button *ngFor="let page of pages" (click)="goToPage(page)" [class.active]="page === currentPage">{{ page }}</button>
-  <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+  <!-- Pagination -->
+  <div class="pagination">
+    <button (click)="previousPage()" [disabled]="currentPage === 1">Back</button>
+    <span>{{ currentPage }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+  </div>
 </div>
-

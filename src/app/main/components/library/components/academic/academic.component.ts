@@ -20,6 +20,7 @@ export class AcademicComponent implements OnInit {
   loading: boolean = false; // Loading indicator
   currentPage: number = 1; // Current page for pagination
   projectsPerPage: number = 6; // Number of projects per page
+  isDropdownOpen: boolean = false; // Dropdown open/close state
 
   constructor(
     private apiService: ApiService,
@@ -36,6 +37,7 @@ export class AcademicComponent implements OnInit {
     console.log('Initialized with projects:', this.projects);
   }
 
+  // Fetch projects by department
   fetchProjects(type: string): void {
     this.loading = true; // Set loading to true before making API call
     
@@ -53,6 +55,7 @@ export class AcademicComponent implements OnInit {
     );
   }
 
+  // Update visible buttons based on available projects
   updateVisibleButtons(): void {
     this.visibleButtons = {
       CBAR: false,
@@ -71,6 +74,7 @@ export class AcademicComponent implements OnInit {
     console.log('Visible Buttons:', this.visibleButtons);
   }
 
+  // Set default category based on available projects
   setDefaultCategory(): void {
     const defaultCategory = this.projectCategories.find(category => this.visibleButtons[category]);
     if (defaultCategory) {
@@ -81,6 +85,7 @@ export class AcademicComponent implements OnInit {
     }
   }
 
+  // Fetch projects by selected category
   fetchProjectsByCategory(category: string): void {
     const selectedCategoryData = this.departmentProjects.find(projectData => projectData.category.trim().toUpperCase() === category);
     if (selectedCategoryData) {
@@ -92,6 +97,7 @@ export class AcademicComponent implements OnInit {
     }
   }
 
+  // Handle dropdown change event
   handleDropdownChange(event: Event): void {
     const selectElement = event.target as HTMLSelectElement;
     const category = selectElement.value;
@@ -102,15 +108,23 @@ export class AcademicComponent implements OnInit {
     }
   }
 
+  // Toggle dropdown open/close state
+  toggleDropdown(open: boolean): void {
+    this.isDropdownOpen = open;
+  }
+
+  // Open project modal
   openProjectModal(project: any): void {
     this.selectedProject = project;
     this.isVisible = true;
   }
 
+  // Close modal
   closeModal(): void {
     this.isVisible = false;
   }
 
+  // Filter projects based on search query
   filterProjects(): void {
     if (!this.searchQuery) {
       this.filteredProjects = this.projects;
@@ -144,16 +158,19 @@ export class AcademicComponent implements OnInit {
     }
   }
 
+  // Calculate total pages for pagination
   get totalPages(): number {
     return Math.ceil(this.filteredProjects.length / this.projectsPerPage);
   }
 
+  // Get paginated projects based on current page
   get paginatedProjects(): any[] {
     const startIndex = (this.currentPage - 1) * this.projectsPerPage;
     const endIndex = startIndex + this.projectsPerPage;
     return this.filteredProjects.slice(startIndex, endIndex);
   }
 
+  // Get visible page numbers for pagination
   get visiblePages(): number[] {
     // Calculate the range of visible page numbers
     const start = Math.max(1, this.currentPage - 2);
@@ -161,5 +178,12 @@ export class AcademicComponent implements OnInit {
 
     // Generate array of visible page numbers for pagination buttons
     return Array.from({ length: end - start + 1 }, (_, i) => start + i);
+  }
+
+  // Set number of projects per page
+  setProjectsPerPage(count: number): void {
+    this.projectsPerPage = count;
+    this.currentPage = 1; // Reset to first page
+    this.filterProjects(); // Reapply filtering based on new page size
   }
 }

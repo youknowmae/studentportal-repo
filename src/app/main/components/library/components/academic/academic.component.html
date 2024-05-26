@@ -1,17 +1,22 @@
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 
-<br>
-
 <div class="container">
   <div class="row">
-    <div class="dropdown-container col-md-3">
+    <div class="dropdown-container" (mouseover)="toggleDropdown(true)" (mouseleave)="toggleDropdown(false)">
+      <div class="selected-category" *ngIf="isDropdownOpen">{{ selectedCategory }}</div>
       <select class="form-control" (change)="handleDropdownChange($event)">
+        <option class="option" value="" selected disabled>Select category Type</option>
         <ng-container *ngFor="let category of projectCategories">
           <option *ngIf="visibleButtons[category]" [value]="category" [selected]="selectedCategory === category">{{ category }}</option>
         </ng-container>
       </select>
     </div>
+    <div class="">
+      <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search">
+      </div>
+  </div> 
   </div>
   
   <!-- Loading spinner -->
@@ -43,10 +48,9 @@
       <div *ngIf="paginatedProjects.length === 0">No projects available for this category.</div>
     </div>
   </div>
-  
-  <div class="pagination mt-3">
-    <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+  <div class="pagination">
+    <button (click)="previousPage()" [disabled]="currentPage === 1">Back</button>
     <button *ngFor="let page of visiblePages" (click)="goToPage(page)" [class.active]="page === currentPage">{{ page }}</button>
     <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
   </div>
-  
+</div>

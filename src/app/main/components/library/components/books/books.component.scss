@@ -1,11 +1,9 @@
 * {
   font-family: 'Montserrat';
 }
-
-.content {
-  padding: 20px 0 0 18px;
+.content{
+  margin-top: 20px;
 }
-
 .square {
   border: solid 2px var(--border-color);
   padding: 20px;
@@ -99,15 +97,16 @@
   padding: 10px 15px;
   margin: 0 5px;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
 .pagination button.active {
   background-color: #285a43;
 }
 
-.pagination button:disabled {
+.pagination button[disabled] {
   background-color: #d3d3d3;
+  cursor: not-allowed;
 }
 .loading-spinner {
   display: flex;
