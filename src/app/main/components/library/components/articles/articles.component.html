@@ -34,11 +34,15 @@
   <div class="row" *ngIf="!loading">
     <div class="rectangle" *ngFor="let article of paginatedArticles; " [routerLink]="['../insidearticle/', article.id]">
       <div class="details">
-        <h5>Title: {{ article.title }}</h5>
-        <p>Date Published: {{ article.date_published }}</p>
-        <h5>Material Type: {{ article.material_type }}</h5>
-        <p>Author: {{ article.authors }}</p>
-        <p>Description: {{ article.remarks }}</p>
+        <div class="left">
+          <h5>Material Type: {{ article.material_type }}</h5>
+          <h5>Title: {{ article.title }}</h5>
+          <p>Date Published: {{ article.date_published }}</p>
+        </div>
+        <div class="right">
+          <p>Author: {{ article.authors }}</p>
+          <p>Description: {{ article.remarks }}</p>
+        </div>
       </div>
     </div>
   </div>
