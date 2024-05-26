@@ -149,6 +149,44 @@
 span {
     cursor: pointer;
 }
+@media (max-width: 768px) {
+    .bg .student,
+    .bg .gc,
+    .left-logo {
+        display: none;
+    }
+
+    .right-container {
+        right: 50%;
+        transform: translateX(50%);
+    }
+
+    .login-container {
+        width: 450px;
+    }
+}
+
+@media (max-width: 576px) {
+    .bg .gc {
+        display: none; /* Hide background greenery on even smaller screens */
+    }
+
+    .login-container {
+        width: 450px;
+    }
+
+    .form-group input {
+        font-size: 14px; /* Adjust input font size for smaller screens */
+    }
+
+    .form-group label {
+        font-size: 12px; /* Adjust label font size for smaller screens */
+    }
+
+    .form-group span i {
+        font-size: 12px; /* Adjust icon font size for smaller screens */
+    }
+}
 
 
 
