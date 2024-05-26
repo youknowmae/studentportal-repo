@@ -4,9 +4,8 @@
 <div class="container">
   <div class="row">
     <div class="dropdown-container" (mouseover)="toggleDropdown(true)" (mouseleave)="toggleDropdown(false)">
-      <div class="selected-category" *ngIf="isDropdownOpen">{{ selectedCategory }}</div>
       <select class="form-control" (change)="handleDropdownChange($event)">
-        <option class="option" value="" selected disabled>Select category Type</option>
+        <option class="option" value="" selected disabled></option>
         <ng-container *ngFor="let category of projectCategories">
           <option *ngIf="visibleButtons[category]" [value]="category" [selected]="selectedCategory === category">{{ category }}</option>
         </ng-container>
@@ -14,9 +13,9 @@
     </div>
     <div class="">
       <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search">
+          <input type="text" class="form-control" placeholder="Search" (input)="filterProjects()">
       </div>
-  </div> 
+    </div> 
   </div>
   
   <!-- Loading spinner -->
@@ -50,7 +49,7 @@
   </div>
   <div class="pagination">
     <button (click)="previousPage()" [disabled]="currentPage === 1">Back</button>
-    <button *ngFor="let page of visiblePages" (click)="goToPage(page)" [class.active]="page === currentPage">{{ page }}</button>
+    <span>{{ currentPage }}</span>
     <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
   </div>
 </div>

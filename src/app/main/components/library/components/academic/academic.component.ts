@@ -171,11 +171,10 @@ export class AcademicComponent implements OnInit {
 
   // Get visible page numbers for pagination
   get visiblePages(): number[] {
-    // Calculate the range of visible page numbers
-    const start = Math.max(1, this.currentPage - 2);
-    const end = Math.min(start + 4, this.totalPages);
+    const totalVisiblePages = 5; // Number of visible pages around the current page
+    const start = Math.max(1, this.currentPage - Math.floor(totalVisiblePages / 2));
+    const end = Math.min(this.totalPages, start + totalVisiblePages - 1);
 
-    // Generate array of visible page numbers for pagination buttons
     return Array.from({ length: end - start + 1 }, (_, i) => start + i);
   }
 

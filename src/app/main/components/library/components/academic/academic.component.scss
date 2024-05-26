@@ -1,4 +1,3 @@
-
 * {
   font-family: 'Montserrat';
 }
@@ -25,11 +24,12 @@
   text-align: center;
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-  margin-bottom: 10px;
   transform: scale(1);
   transition: all .2s ease-in;
-  height: 240px;
+  height: 230px;
   overflow: hidden;
+  margin-left: -14px;
+  margin-bottom: 20px;
 }
 .square:hover {
   transform: scale(1.05);
@@ -37,7 +37,7 @@
 }  
 .square-image {
   width: 10%;
-  height: 150px;
+  height: 110px;
   background-color: #f3f3f3;
   border-radius: 5px;
   margin-bottom: 10px;
@@ -73,9 +73,11 @@
 .square h5 {
   font-size: small;
   font-weight: bold;
+  margin-top: -10px;
 }
 .square p {
   font-size: 10px;
+  margin-top: -10px;
 }
 .view-button {
   background-color: #31a463;
@@ -120,7 +122,18 @@
   display: flex;
   justify-content: left;
   align-items: center;
-  margin-top: 20px;
+  margin-left: -16px;
+  margin-top: 10px;
+}
+
+.pagination span {
+  font-size: 14px;
+  background-color: #285a43;
+  padding: 10px 15px;
+  border-radius: 3px;
+  color: #fff;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .pagination button {
@@ -128,7 +141,6 @@
   border: none;
   color: white;
   padding: 10px 15px;
-  margin: 0 5px;
   cursor: pointer;
   border-radius: 3px;
 }
