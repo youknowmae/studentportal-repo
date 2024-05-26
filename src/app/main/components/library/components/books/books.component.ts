@@ -12,6 +12,7 @@ export class BooksComponent implements OnInit {
   currentPage: number = 1;
   booksPerPage: number = 6;
   loading: boolean = true; // Add loading flag and initialize as true
+  searchQuery: string = '';
 
   constructor(private apiService: ApiService) { }
 
@@ -20,12 +21,36 @@ export class BooksComponent implements OnInit {
   }
 
   fetchBooks(): void {
-    this.loading = true; // Set loading to true when fetching data
-    this.apiService.getBooks().subscribe(data => {
-      this.books = data;
-      this.updatePaginatedBooks();
-      this.loading = false; // Set loading to false when data is fetched
-    });
+    this.loading = true;
+    if (this.searchQuery) {
+      this.apiService.searchBooks(this.searchQuery).subscribe(
+        (data: any[]) => {
+          this.books = data;
+          this.updatePaginatedBooks();
+          this.loading = false;
+        },
+        (error) => {
+          console.error('Error fetching books:', error);
+          this.loading = false;
+        }
+      );
+    } else {
+      this.apiService.getBooks().subscribe(
+        (data: any[]) => {
+          this.books = data;
+          this.updatePaginatedBooks();
+          this.loading = false;
+        },
+        (error) => {
+          console.error('Error fetching books:', error);
+          this.loading = false;
+        }
+      );
+    }
+  }
+  onSearchChange(event: Event): void {
+    this.currentPage = 1;
+    this.fetchBooks();
   }
 
   updatePaginatedBooks(): void {

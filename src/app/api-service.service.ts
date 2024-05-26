@@ -115,7 +115,7 @@ export class ApiService {
   }
   // Add search methods
   searchBooks(query: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/search/books?query=${query}`, { headers: this.getHeaders() });
+    return this.http.get<any[]>(`${this.apiUrl}/student/books/search?query=${query}`, { headers: this.getHeaders() });
   }
 
   searchArticles(query: string): Observable<any[]> {
