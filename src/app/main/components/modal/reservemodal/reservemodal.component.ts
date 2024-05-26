@@ -30,7 +30,7 @@ export class ReservemodalComponent implements OnInit {
       fullName: ['', Validators.required],
       id: ['', Validators.required],
       department: ['', Validators.required],
-      patronType: ['', Validators.required],
+      // patronType: ['', Validators.required],
       title: ['', Validators.required],
       authors: ['', Validators.required],
       // location: ['', Validators.required],
@@ -38,7 +38,7 @@ export class ReservemodalComponent implements OnInit {
       fine: [0, [Validators.required, Validators.min(0)]],
       start_date: ['', Validators.required],
       end_date: ['', Validators.required],
-      status:[0,[Validators.required]],
+      status:[1,[Validators.required]],
       type: ['online',[Validators.required]],
     
     });
@@ -59,7 +59,7 @@ export class ReservemodalComponent implements OnInit {
           fullName: `${user.first_name} ${user.middle_name} ${user.last_name} `,
           id: user.id,
           department: this.authService.getDepartment(),
-          patronType: user.role
+          // patronType: user.role
         };
         this.fillUserInfo(userInfo);
       } else {
@@ -100,7 +100,7 @@ export class ReservemodalComponent implements OnInit {
       fullName: userInfo.fullName,
       id: userInfo.id,
       department: userInfo.department,
-      patronType: userInfo.patronType
+      // patronType: userInfo.patronType
     });
   }
 

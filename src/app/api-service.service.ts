@@ -71,7 +71,7 @@ export class ApiService {
     }
 
    getReservationsByUserId(id: number): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/reservations/${id}`, { headers: this.getHeaders() });
+    return this.http.get<any[]>(`${this.apiUrl}/student/queue-pos/${id}`, { headers: this.getHeaders() });
   }
 
   getReservationsByLoggedInUser(): Observable<any[]> {
@@ -82,7 +82,7 @@ export class ApiService {
     return this.http.post<any>(`${this.apiUrl}/reservations`, reservationData, { headers: this.getHeaders() });
   }
   getBorrowedByUserId(userId: number): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/  /user/${userId}`, { headers: this.getHeaders() })
+    return this.http.get<any[]>(`${this.apiUrl}/student/user/${userId}`, { headers: this.getHeaders() })
       .pipe(
         catchError((error: HttpErrorResponse) => {
           if (error.status === 404) {
@@ -128,6 +128,18 @@ export class ApiService {
 
   searchProjects(query: string): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/search/project?query=${query}`, { headers: this.getHeaders() });
+  }
+
+  getQueuePosition(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/queue-position`, { headers: this.getHeaders() })
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  private handleError(error: HttpErrorResponse): Observable<never> {
+    console.error('An error occurred:', error.error.message);
+    return throwError('Something bad happened; please try again later.');
   }
 
 }

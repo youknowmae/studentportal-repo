@@ -12,6 +12,7 @@ export class ReservedComponent implements OnInit {
   book: any = {};
   bookId: number | null = null;
   reservations: any[] = [];
+  queuePositions: any = {};
   route: any;
 
   constructor(private apiService: ApiService, private authService: AuthenticationService) { }
@@ -23,6 +24,8 @@ export class ReservedComponent implements OnInit {
     if (this.bookId !== null) { // Check if bookId is not null
       this.fetchBookDetails(this.bookId);
     }
+
+    this.loadQueuePositions();
   }
 
   fetchBookDetails(bookId: number): void {
@@ -50,6 +53,17 @@ export class ReservedComponent implements OnInit {
       },
       (error) => {
         console.error('Error fetching reservations:', error);
+      }
+    );
+  }
+
+  loadQueuePositions(): void {
+    this.apiService.getQueuePosition().subscribe(
+      (positions) => {
+        this.queuePositions = positions;
+      },
+      (error) => {
+        console.error('Error fetching queue positions:', error);
       }
     );
   }

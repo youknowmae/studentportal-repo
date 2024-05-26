@@ -32,8 +32,7 @@
 
   <!-- Articles -->
   <div class="row" *ngIf="!loading">
-    <div class="rectangle" *ngFor="let article of paginatedArticles; " [routerLink]="['../insidearticle/', article.id]">
-      <div class="details">
+    <div class="rectangle" *ngFor="let article of paginatedArticles; let i = index" [routerLink]="['../insidearticle', i + 1]">      <div class="details">
         <div class="left">
           <h5>Material Type: {{ article.material_type }}</h5>
           <h5>Title: {{ article.title }}</h5>
