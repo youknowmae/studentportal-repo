@@ -13,7 +13,8 @@ import Swal from 'sweetalert2';
 })
 export class MainComponent implements OnInit {
   
-  apiUrl: string = "http://localhost:8000/api"; // Make sure your API URL is complete
+  apiUrl: string = "http://192.168.68.124:8000/api"; // Make sure your API URL is complete
+  // apiUrl: string = "http://localhost:8000/api";
   articles: any[] = [];
   books: any[] = [];
   periodicals: any[] = [];
