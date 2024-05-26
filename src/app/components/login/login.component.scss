@@ -65,7 +65,7 @@
 .login-form {
     background-color: #fff;
     padding: 2rem;
-    border-radius: 8px;
+    border-radius: 3px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -78,7 +78,7 @@
     width: 100%;
     padding: 15px;
     border: 1px solid #31A463;
-    border-radius: 5px;
+    border-radius: 3px;
 }
 
 .form-group input:focus {
@@ -114,6 +114,7 @@
     border: none;
     padding: 15px;
     margin-bottom: 10px;
+    border-radius: 3px;
     background-color: #31A463;
     color: #ffffff;
 }
