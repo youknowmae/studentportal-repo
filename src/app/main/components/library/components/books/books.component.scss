@@ -13,7 +13,7 @@
   margin-bottom: 20px;
   transform: scale(1);
   transition: all .2s ease-in;
-  height: 260px;
+  height: 230px;
   overflow: hidden;
 }
 
@@ -24,7 +24,7 @@
 
 .square-image {
   width: 100%;
-  height: 130px;
+  height: 110px;
   background-color: #f3f3f3;
   border-radius: 5px;
   margin-bottom: 10px;
@@ -40,11 +40,30 @@
 
 .square-text {
   text-align: left;
+  overflow-x: hidden;
+  overflow-y: scroll;
 
   .authors {
     display: flex;
     flex-direction: column;
+    margin-top: -10px;
   }
+}
+.square-text::-webkit-scrollbar {
+  width: 0;
+}
+
+.square-text::-webkit-scrollbar-track {
+  background: #fff 
+}
+
+.square-text::-webkit-scrollbar-thumb {
+  background: #fff; 
+  border-radius: 10px;
+}
+
+.square-text::-webkit-scrollbar-thumb:hover {
+  background: #fff; 
 }
 
 .square-text h5 {
@@ -114,5 +133,14 @@
   align-items: center;
   color: #31A463;
   height: 300px;
-  padding: 280px 500px;
+  padding: 215px 500px 285px 500px;
+}
+
+.input-group{
+  margin-top: 20px;
+  border: 2px solid #31A463;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  margin-left: 745px;
+  width: 350px;
 }

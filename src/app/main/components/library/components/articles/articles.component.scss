@@ -10,11 +10,13 @@
   padding: 10px;
   border: solid 2px var(--border-color);
   background-color: #f7f7f7;
-  border-radius: 5px;
+  border-radius: 3px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   transition: all .2s ease-in;
   cursor: pointer;
-  width: 100%;
+  width: 97%;
+  margin-bottom: 20px;
+  margin-left: 16px;
 }
 
 .rectangle:hover {
@@ -47,6 +49,7 @@
 .pagination {
   display: flex;
   justify-content: left;
+  margin-top: 18px;
 }
 .pagination span {
   font-size: 14px;
@@ -81,7 +84,7 @@
   align-items: center;
   color: #31A463;
   height: 300px;
-  padding: 220px 500px 290px 500px;
+  padding: 220px 500px 272px 500px; 
 }
 
 .dropdown {
