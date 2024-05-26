@@ -13,6 +13,7 @@ export class PeriodicalsComponent implements OnInit {
   periodicalsPerPage: number = 9; // Display 9 periodicals per page
   loading: boolean = true; // Add loading flag and initialize as true
   selectedMaterialTypeLabel: string = 'Select Material Type'; // Label for the dropdown button
+  searchQuery: string = ''; // Add this property
 
   constructor(private apiService: ApiService) { }
 
@@ -23,7 +24,19 @@ export class PeriodicalsComponent implements OnInit {
   fetchPeriodicals(type: string = ''): void {
     this.loading = true; // Set loading to true when fetching data
 
-    if (type) {
+    if (this.searchQuery) {
+      this.apiService.searchPeriodicals(this.searchQuery).subscribe(
+        (data: any[]) => {
+          this.periodicals = data;
+          this.updatePaginatedPeriodicals();
+          this.loading = false; // Set loading to false when data is fetched
+        },
+        (error) => {
+          console.error('Error fetching periodicals by search query:', error);
+          this.loading = false; // Set loading to false in case of error
+        }
+      );
+    } else if (type) {
       this.apiService.getPeriodicalsByMaterialType(type).subscribe(
         (data: any[]) => {
           this.periodicals = data;
@@ -78,6 +91,11 @@ export class PeriodicalsComponent implements OnInit {
         this.selectedMaterialTypeLabel = 'All';
         break;
     }
+  }
+
+  onSearchChange(event: Event): void {
+    this.currentPage = 1; // Reset to first page
+    this.fetchPeriodicals();
   }
 
   nextPage(): void {

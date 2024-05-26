@@ -18,9 +18,9 @@
     </div>
     <div class="col-md-4">
       <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search">
+        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchQuery" (input)="onSearchChange($event)">
       </div>
-  </div> 
+    </div>    
   </div>
 
   <!-- Loading spinner -->

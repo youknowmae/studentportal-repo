@@ -8,8 +8,8 @@ import { AuthenticationService } from './authentication-service.service';
   providedIn: 'root'
 })
 export class ApiService {
-  // apiUrl = 'http://localhost:8000/api';
-  apiUrl = 'http://192.168.68.124:8000/api';
+  apiUrl = 'http://localhost:8000/api';
+  // apiUrl = 'http://192.168.68.124:8000/api';
 
   constructor(private http: HttpClient, private authService: AuthenticationService) { }
 
@@ -82,7 +82,7 @@ export class ApiService {
     return this.http.post<any>(`${this.apiUrl}/reservations`, reservationData, { headers: this.getHeaders() });
   }
   getBorrowedByUserId(userId: number): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/borrow/user/${userId}`, { headers: this.getHeaders() })
+    return this.http.get<any[]>(`${this.apiUrl}/  /user/${userId}`, { headers: this.getHeaders() })
       .pipe(
         catchError((error: HttpErrorResponse) => {
           if (error.status === 404) {
@@ -119,11 +119,11 @@ export class ApiService {
   }
 
   searchArticles(query: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/search/articles?query=${query}`, { headers: this.getHeaders() });
+    return this.http.get<any[]>(`${this.apiUrl}/student/articles/search?query=${query}`, { headers: this.getHeaders() });
   }
 
   searchPeriodicals(query: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/search/periodicals?query=${query}`, { headers: this.getHeaders() });
+    return this.http.get<any[]>(`${this.apiUrl}/student/periodicals/search?query=${query}`, { headers: this.getHeaders() });
   }
 
   searchProjects(query: string): Observable<any[]> {

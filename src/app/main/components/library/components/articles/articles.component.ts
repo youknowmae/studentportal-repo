@@ -14,6 +14,7 @@ export class ArticlesComponent implements OnInit {
   selectedMaterialType: string = '';
   selectedMaterialTypeLabel: string = 'Select Material Type'; // Default label
   loading: boolean = false;
+  searchQuery: string = ''; // Add this property
 
   constructor(private apiService: ApiService) { }
 
@@ -23,7 +24,19 @@ export class ArticlesComponent implements OnInit {
 
   fetchArticles(): void {
     this.loading = true; // Set loading to true when fetching articles
-    if (this.selectedMaterialType) {
+    if (this.searchQuery) {
+      this.apiService.searchArticles(this.searchQuery).subscribe(
+        (data: any[]) => {
+          this.articles = data;
+          this.updatePaginatedArticles();
+          this.loading = false; // Set loading to false when articles are fetched
+        },
+        (error) => {
+          console.error('Error fetching articles by search query:', error);
+          this.loading = false; // Set loading to false in case of error
+        }
+      );
+    } else if (this.selectedMaterialType) {
       this.apiService.getArticlesByMaterialType(this.selectedMaterialType).subscribe(
         (data: any[]) => {
           this.articles = data;
@@ -78,6 +91,11 @@ export class ArticlesComponent implements OnInit {
         this.selectedMaterialTypeLabel = 'All';
         break;
     }
+  }
+
+  onSearchChange(event: Event): void {
+    this.currentPage = 1; // Reset to first page
+    this.fetchArticles();
   }
 
   goToPage(page: number): void {
