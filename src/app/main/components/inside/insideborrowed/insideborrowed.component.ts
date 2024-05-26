@@ -49,7 +49,7 @@ export class InsideborrowedComponent implements OnInit{
   
     openModal(): void {
       const dialogRef = this.dialog.open(ReservemodalComponent, {
-        data: { bookId: this.bookId } // Pass bookId to the modal component
+        data: { bookId: this.bookId }
       });
   
       dialogRef.afterClosed().subscribe(result => {
