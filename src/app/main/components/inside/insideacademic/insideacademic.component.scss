@@ -14,9 +14,6 @@
             padding-bottom: 10px;
             font-size: 30px;
 
-            &:hover .back-icon {
-                color: #31a463;
-            }
         }
 
         h1 {
@@ -83,4 +80,14 @@
         }
 
     }
+}
+.back-icon {
+    position: absolute;
+    top: 17px;
+    left: 20px;
+    font-size: 25px;
+    cursor: pointer;
+}
+.back-icon:hover{
+    color: #31A463;
 }
