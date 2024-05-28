@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../../../../../api-service.service'; // Update the path to your ApiService
+import { ActivatedRoute } from '@angular/router';
+import { ApiService } from '../../../../../api-service.service';
 import { AuthenticationService } from '../../../../../authentication-service.service';
-
 
 @Component({
   selector: 'app-reserved',
@@ -13,15 +13,17 @@ export class ReservedComponent implements OnInit {
   bookId: number | null = null;
   reservations: any[] = [];
   queuePositions: any = {};
-  route: any;
 
-  constructor(private apiService: ApiService, private authService: AuthenticationService) { }
+  constructor(
+    private apiService: ApiService,
+    private authService: AuthenticationService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
     this.loadReservations();
-    this.bookId = +this.route.snapshot.paramMap.get('id')!; // Use optional chaining or null check
-  
-    if (this.bookId !== null) { // Check if bookId is not null
+    
+    if (this.bookId !== null) {
       this.fetchBookDetails(this.bookId);
     }
 
@@ -29,10 +31,10 @@ export class ReservedComponent implements OnInit {
   }
 
   fetchBookDetails(bookId: number): void {
-    const authToken = this.authService.getToken(); 
+    const authToken = this.authService.getToken();
     if (authToken) {
-      const headers = { Authorization: `Bearer ${authToken}` }; 
-      this.apiService.getBookById(bookId, headers) // Pass headers correctly
+      const headers = { Authorization: `Bearer ${authToken}` };
+      this.apiService.getBookById(bookId, headers)
         .subscribe(
           (data) => {
             this.book = data;
@@ -47,15 +49,27 @@ export class ReservedComponent implements OnInit {
   }
 
   loadReservations(): void {
-    this.apiService.getReservationsByLoggedInUser().subscribe(
+    // Use the new method to get reservations by user ID
+    const userId = parseInt(this.authService.getLoggedInUserId() || '0');
+    this.apiService.getUserById(userId).subscribe(
       (reservations: any[]) => {
-        this.reservations = reservations;
+        // Ensure the response is an array
+        if (Array.isArray(reservations)) {
+          this.reservations = reservations.map(reservation => {
+              // Ensure authors are formatted properly
+              reservation.book.authors = JSON.parse(reservation.book.authors).join(', ');
+              return reservation;
+          });;
+        } else {
+          console.error('Reservations response is not an array:', reservations);
+        }
       },
       (error) => {
         console.error('Error fetching reservations:', error);
       }
     );
   }
+
 
   loadQueuePositions(): void {
     this.apiService.getQueuePosition().subscribe(
@@ -69,7 +83,6 @@ export class ReservedComponent implements OnInit {
   }
 
   viewReservationDetails(reservation: any): void {
-    // Implement logic to view reservation details
     console.log('Viewing reservation:', reservation);
   }
 }

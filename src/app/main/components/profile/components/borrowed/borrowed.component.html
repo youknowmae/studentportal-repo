@@ -9,8 +9,8 @@
                 <div class="square-content">
                     <div class="square-text">
                         <h2>{{ item.book.title }}</h2>
-                        <p>By: {{ item.book.author }}</p>
-                        <p>ISBN: {{ item.book.ISBN }}</p>
+                        <p>By: {{ item.book.authors }}</p>
+                        <p>ISBN: {{ item.book.id }}</p>
                     </div>
                     <button class="view-button" role="button" [routerLink]="['/main/library/book', item.book.id]" routerLinkActive="router-link-active"> View</button>
                 </div>

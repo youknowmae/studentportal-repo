@@ -55,19 +55,28 @@
     height: 100%;
     object-fit: cover;
 }
-.container h2 {
-    display: flex;
-    float: right;
-    margin-right: 15%;
-    margin-top: 5%;
-}
 .info {
-    position: absolute;
-    right: 280px;
-    top: 20%;
-}
-.info p {
-    padding: 2px 0 2px 0;
-    font-weight: bold;
-    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    float: right;
+    margin: 20px;
+
+    .title {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+
+        h2 {
+            display: flex;
+            float: right;
+            margin-top: 5%;
+        }
+    }
+
+    .info p {
+        padding: 2px 0 2px 0;
+        font-weight: bold;
+        font-size: 12px;
+    }
 }

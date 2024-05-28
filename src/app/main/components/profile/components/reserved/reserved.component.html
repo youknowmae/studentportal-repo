@@ -1,4 +1,4 @@
-<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+<!-- <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 
 <div class="content">
     <div class="row">
@@ -17,4 +17,27 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
+
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+
+<div class="content">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let reservation of reservations">
+        <div class="square">
+          <img src="assets/images/logo.png" alt="Image" class="square-image">
+          <div class="square-content">
+            <div class="square-text">
+              <p>{{ reservation.book.title }}</p>
+              <h2>{{ reservation.status == 1 ? 'Pending' : 'Approved' }}</h2>
+              <h3>{{ reservation.book.authors }}</h3>
+              <p>Queue Position: {{ queuePositions[reservation.book.id] }}</p>
+            </div>
+            <button class="view-button" role="button" [routerLink]="['../book/', reservation.book.id]" routerLinkActive="router-link-active">View</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+

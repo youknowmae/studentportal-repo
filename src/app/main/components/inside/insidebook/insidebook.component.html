@@ -7,8 +7,9 @@
       <button class="btn" (click)="openModal()">Reserve</button>
       <div class="image">
         <img [src]="book.image_url == null ? 'assets/images/lib.png' : book.image_url" alt="Image" class="square-image">
+        <h2>{{ book['title'] }}</h2>
       </div>
-      <h2>{{ book['title'] }}</h2>
+      <!-- <h2>{{ book['title'] }}</h2> -->
       <div class="info">
           <p>Status: {{ book['available'] ? 'Available' : 'Not Available' }}</p>
           <p>Accesion: {{ book['id'] }}</p>
