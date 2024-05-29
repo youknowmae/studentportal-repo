@@ -8,7 +8,6 @@
     overflow-y: scroll;
     overflow-x: hidden;
 
-    /* Scrollbar styles */
     &::-webkit-scrollbar {
         width: 3px;
     }
@@ -149,10 +148,10 @@ span {
 
 .pagination {
     display: flex;
-    justify-content: left;
+    justify-content: right;
     align-items: center;
     margin-top: 20px;
-    margin-left: 17px;
+    margin-right: 22px;
 
     button {
         padding: 8px 16px;

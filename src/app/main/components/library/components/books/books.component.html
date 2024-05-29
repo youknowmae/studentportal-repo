@@ -1,46 +1,45 @@
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-  
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 
-  <div class="content">
-    <div class="col-md-4">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchQuery" (input)="onSearchChange($event)">
+
+<div class="content">
+  <div class="col-md-4">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchQuery"
+        (input)="onSearchChange($event)">
+    </div>
+  </div>
+
+  <div *ngIf="loading; else bookList">
+    <!-- Loading indicator -->
+    <div class="loading-spinner">
+      <div class="spinner-border text-green" role="status" style="width: 5rem; height: 5rem;">
+        <span class="sr-only">Loading...</span>
       </div>
     </div>
+  </div>
 
-    <div *ngIf="loading; else bookList">
-      <!-- Loading indicator -->
-      <div class="loading-spinner">
-        <div class="spinner-border text-green" role="status" style="width: 5rem; height: 5rem;">
-          <span class="sr-only">Loading...</span>
-        </div>
-      </div>
-    </div>
-    
-    <ng-template #bookList>
-      <div class="row">
-        <div class="col-md-4" *ngFor="let book of paginatedBooks">
-          <div class="square">
-            <img [src]="book.image_url ? book.image_url : 'assets/images/lib.png'" alt="Image" class="square-image">
-            <div class="square-content">
-              <div class="square-text">
-                <h5>{{ book.title }}</h5>
-                <div class="authors">
-                  <p>Author: {{ book.authors }}</p>
-                </div>
-              </div>
-              <button class="view-button" role="button" [routerLink]="['../book/', book.id]" routerLinkActive="router-link-active">View</button>
+  <ng-template #bookList>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let book of paginatedBooks">
+        <div class="square">
+          <img [src]="book.image_url ? book.image_url : 'assets/images/lib.png'" alt="Image" class="square-image">
+          <div class="square-content">
+            <div class="square-text">
+              <h5>{{ book.title }}</h5>
+              <p>Author: {{ book.authors }}</p>
             </div>
+            <button class="view-button" role="button" [routerLink]="['../book/', book.id]" routerLinkActive="router-link-active">View</button>
           </div>
         </div>
       </div>
-    </ng-template>
+    </div>
+  </ng-template>
 
-      <div class="pagination">
-        <button (click)="previousPage()" [disabled]="currentPage === 1">Back</button>
-        <button *ngFor="let page of pages" (click)="goToPage(page)" [class.active]="page === currentPage">{{ page }}</button>
-        <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
-      </div>
+  <div class="pagination">
+    <button (click)="previousPage()" [disabled]="currentPage === 1">Back</button>
+    <button *ngFor="let page of pages" (click)="goToPage(page)" [class.active]="page === currentPage">{{ page
+      }}</button>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
   </div>
-
+</div>

@@ -8,11 +8,13 @@
   border: solid 2px var(--border-color);
   padding: 20px;
   text-align: center;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   margin-bottom: 20px;
   transform: scale(1);
   transition: all .2s ease-in;
+  height: 230px;
+  overflow: hidden;
 }
 .square:hover{
 transform: scale(1.05);
@@ -64,6 +66,25 @@ transition: all .2s ease-in;
   justify-content: space-between;
   align-items: center;
   margin-top: 10px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.square-content::-webkit-scrollbar {
+  width: 0;
+}
+
+.square-content::-webkit-scrollbar-track {
+  background: #fff 
+}
+
+.square-content::-webkit-scrollbar-thumb {
+  background: #fff; 
+  border-radius: 10px;
+}
+
+.square-content::-webkit-scrollbar-thumb:hover {
+  background: #fff; 
 }
 .square-text {
   text-align: left;

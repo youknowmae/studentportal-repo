@@ -9,7 +9,6 @@
                 <p class="profile">My Profile</p>
                 <div class="name-phone" *ngIf="user">
                     <p class="name">{{ user.first_name }} {{ user.last_name }}</p>
-                    <p class="num">{{ user?.id }}</p>
                 </div>
                 <p class="email">{{ user?.domain_account }}</p>
                 <button class="profile-btn" type="button" (click)="openmodal()">Borrower's Card</button>

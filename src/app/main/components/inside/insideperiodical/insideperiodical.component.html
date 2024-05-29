@@ -1,18 +1,15 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 
-<div class="content">
-  <div class="container">
-    <span class="back-icon" [routerLink]="['/main/library/periodicals']" routerLinkActive="router-link-active"><i class="fa-solid fa-angle-left"></i></span>
+<div class="container">
+  <span class="back-icon" [routerLink]="['/main/library/periodicals']" routerLinkActive="router-link-active"><i class="fa-solid fa-angle-left"></i></span>
+  <h2>{{ periodicals.title }}</h2>
+
+  <div class="content">
     <div class="image">
       <img src="{{ periodicals.image }}" alt="Image" class="square-image">
     </div>
-    <!-- <h2>{{ periodicals.title }}</h2> -->
     <div class="info">
-      <div class="title">
-        <h2>{{ periodicals.title }}</h2>
-      </div>
-      
       <p>Issue: {{ periodicals.issue }}</p>
       <p>Date Issued: {{ periodicals.date_issued }}</p>
       <p>Language: {{ periodicals.language }}</p>
