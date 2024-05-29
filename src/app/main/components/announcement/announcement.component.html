@@ -10,6 +10,7 @@
         <h5>{{ announcements[0]?.title }}</h5>
         <p>{{ announcements[0]?.created_at | date }}</p>
         <p>{{ announcements[0]?.author_id }}</p>
+        <p>{{ announcements[0]?.category }}</p>
         <p>{{ announcements[0]?.text }}</p>
         <p *ngIf="announcements[0]?.expandedText">{{ announcements[0]?.expandedText }}</p>
       </div>
@@ -27,6 +28,7 @@
               <div class="square-text">
                 <h2>{{ announcement.title }}</h2>
                 <p>{{ announcement.text }}</p>
+                <p>{{announcement.category}}</p>
                 <p *ngIf="announcement.expandedText">{{ announcement.expandedText }}</p>
               </div>
             </div>

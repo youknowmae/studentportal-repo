@@ -8,7 +8,7 @@ import { AuthenticationService } from './authentication-service.service';
   providedIn: 'root'
 })
 export class ApiService {
-  apiUrl = 'http://192.168.18.185:8000/api';
+  apiUrl = 'http://26.68.32.39:8000/api';
   // apiUrl = 'http://localhost:8000/api';
 
 
@@ -23,7 +23,7 @@ export class ApiService {
   }
 
   getAnnouncements(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/announcement`, { headers: this.getHeaders() });
+    return this.http.get<any[]>(`${this.apiUrl}/student/announcements`, { headers: this.getHeaders() });
   }
 
   getArticles(): Observable<any[]> {
