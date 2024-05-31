@@ -149,44 +149,73 @@
 span {
     cursor: pointer;
 }
-@media (max-width: 768px) {
-    .bg .student,
+/* Media Queries for responsiveness */
+@media screen and (max-width: 768px ){
     .bg .gc,
-    .left-logo {
+    .bg .clipart,
+    .bg .student,
+    .left-logo .first-logo,
+    .left-logo .second-logo {
+        display: none;
+    }
+    
+    .bg{
         display: none;
     }
 
     .right-container {
-        right: 50%;
-        transform: translateX(50%);
+        position: static;
+        margin: 30px;
+        height: 50vh;
+        justify-content: center;
     }
 
     .login-container {
-        width: 450px;
-    }
-}
-
-@media (max-width: 576px) {
-    .bg .gc {
-        display: none; /* Hide background greenery on even smaller screens */
+        width: 100%;
     }
 
-    .login-container {
-        width: 450px;
+    .login-form {
+        padding: 1rem;
+        box-shadow: none;
+        background-color: #31A463;
+        border-radius: 10px;
+    }
+
+    .form-group {
+        margin: 20px 0;
     }
 
     .form-group input {
-        font-size: 14px; /* Adjust input font size for smaller screens */
+        padding: 10px;
+    }
+
+    .btn {
+        padding: 10px;
+        color: #31A463;
+        background-color: #fff;
+    }
+
+    .version {
+        padding: 10px;
+        color: #fff;
     }
 
     .form-group label {
-        font-size: 12px; /* Adjust label font size for smaller screens */
+        position: absolute;
+        bottom: 28px;
+        left: 10px;
+        padding: 5px;
+        background-color: #31A463;
+        color: #fff;
+        font-size: 12px;
+        pointer-events: none;
+        height: 25px;
     }
 
     .form-group span i {
-        font-size: 12px; /* Adjust icon font size for smaller screens */
+        position: absolute;
+        right: 5px;
+        top: 5px;
     }
 }
-
-
 
