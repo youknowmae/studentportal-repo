@@ -8,7 +8,7 @@
             <h4>Borrower's Card</h4>
         </div>
         <!-- Make this profile of student -->
-        <img src="assets/images/lib.png" alt="Image">
+        <img class="picture" src="assets/images/lib.png" alt="Image">
     </div>
 
     <div class="col2">
@@ -49,8 +49,8 @@
     </table>
 
     <div class="pagination">
-        <button (click)="previousPage()" [disabled]="currentPage === 1">Back</button>
+        <button (click)="previousPage()" [disabled]="currentPage === 1"><i class="fas fa-chevron-left"></i></button>
         <span>{{ currentPage }}</span>
-        <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+        <button (click)="nextPage()" [disabled]="currentPage === totalPages"><i class="fas fa-chevron-right"></i></button>
     </div>
 </div>

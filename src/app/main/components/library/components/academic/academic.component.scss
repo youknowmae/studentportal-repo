@@ -9,7 +9,7 @@
   color: #31A463;
   text-decoration: none;
   transition: background-color 0.3s ease;
-  border: 2px solid #31A463;
+  border: 2px solid #415b44;
   margin-right: 10px;
 }
 .btn-icon:hover,
@@ -80,7 +80,7 @@
   margin-top: -10px;
 }
 .view-button {
-  background-color: #31a463;
+  background-color: #415b44;
   border: 2px solid;
   border-radius: 5px;
   color: #ffffff;
@@ -93,7 +93,7 @@
   box-shadow: 0px 8px 15px -10px rgb(61, 61, 61);
   transform: translate(0px, -2px);
   background: white;
-  color: #31a463;
+  color: #415b44;
   cursor: pointer;
   text-decoration: none;
   height: 12%;
@@ -107,7 +107,7 @@
   padding: 10px 40px;
 }
 .dropdown-container select{
-  background-color: #31A463;
+  background-color: #415b44;
   color: #fff;
   width: 200px;
   margin-top: 20px;
@@ -115,49 +115,32 @@
   height: 40px;
 }
 .dropdown-container select:hover{
-  background-color: #31a463;
+  background-color: #415b44;
   color: #16181b;
 
-}.pagination {
+}
+.pagination {
   display: flex;
-  justify-content: right;
   align-items: center;
-  margin-right: -16px;
-  margin-top: 10px;
+  justify-content: right;
+  font-weight: bolder;
+  color: #415b44;
+  margin-top: 20px;
 }
-
-.pagination span {
-  font-size: 14px;
-  background-color: #285a43;
-  padding: 10px 15px;
-  border-radius: 3px;
-  color: #fff;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.pagination button {
-  background-color: #31a463;
-  border: none;
-  color: white;
-  padding: 10px 15px;
+.pagination i {
   cursor: pointer;
-  border-radius: 3px;
 }
-
-.pagination button.active {
-  background-color: #285a43;
+.pagination p {
+  margin: 0 30px;
 }
-
-.pagination button[disabled] {
-  background-color: #d3d3d3;
-  cursor: not-allowed;
+.pagination .kaliwa{
+  margin-right: 40px;
 }
 .loading-spinner {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #31A463;
+  color: #415b44;
   height: 300px;
   padding: 258px 500px;
 }
@@ -167,7 +150,7 @@
 }
 .input-group{
   margin-top: 20px;
-  border: 2px solid #31A463;
+  border: 2px solid #415b44;
   border-radius: 5px;
   width: 350px;
 }

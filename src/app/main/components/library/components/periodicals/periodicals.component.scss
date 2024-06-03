@@ -13,6 +13,7 @@
   width: 350px;
   height: 140px;
   margin-bottom: 20px;
+  background-color: #fff;
 }
 .square:hover{
   transform: scale(1.05);
@@ -70,7 +71,7 @@
   padding: 0;
 }
 .view-button {
-  background-color: #31A463;
+  background-color: #415b44;
   border: 2px solid;
   border-radius: 5px;
   color: #ffffff;
@@ -82,9 +83,9 @@
 }
 .view-button:hover {
   box-shadow: 0px 8px 15px -10px rgb(61, 61, 61);
-  transform: translate(0px, -3px);
-  background: white;
-  color: #31A463;
+  transform: translate(0px, -5px);
+ background: white;
+  color: #415b44;
   cursor: pointer;
   text-decoration: none;
   height: 16%;
@@ -97,37 +98,26 @@
 }
 .pagination {
   display: flex;
+  align-items: center;
   justify-content: right;
-  margin-top: 30px;
+  font-weight: bolder;
+  color: #415b44;
+  margin-top: 20px;
 }
-
-.pagination button {
-  background-color: #31a463;
-  border: none;
-  color: white;
-  padding: 10px 15px;
+.pagination i {
   cursor: pointer;
-  border-radius: 3px;
 }
-
-.pagination button[disabled] {
-  background-color: #d3d3d3;
-  cursor: not-allowed;
+.pagination p {
+  margin: 0 30px;
 }
-
-.pagination span {
-  margin: 0 10px;
-  font-size: 14px;
-  background-color: #285a43;
-  padding: 10px 15px;
-  border-radius: 3px;
-  color: #fff;
+.pagination .kaliwa{
+  margin-right: 40px;
 }
 .loading-spinner {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #31A463;
+  color: #415b44;
   height: 300px;
   padding: 220px 500px 260px 500px; 
 }
@@ -141,7 +131,7 @@
 .btn {
   font-size: 12px;
   padding: 10px 20px;
-  background-color: #31A463;
+  background-color: #415b44;
 }
 
 .fixed-width {
@@ -166,7 +156,7 @@
   list-style: none;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid #31A463;  
+  border: 1px solid #415b44;  
   border-radius: 0.25rem;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);
 }
@@ -187,7 +177,7 @@
 .dropdown-item:focus {
   color: #16181b;
   text-decoration: none;
-  background-color: #31a463;
+  background-color: #415b44;
 }
 .dropdown-item:hover{
   color: #fff;
@@ -205,18 +195,18 @@
 }
 .input-group{
   margin-top: 20px;
-  border: 2px solid #31A463;
+  border: 2px solid #415b44;
   border-radius: 5px;
 }
 
 .input-group-append .btn {
   color: black;
-  border-color: 1px solid #31A463;
+  border-color: 1px solid #415b44;
 }
 .input-group-append .btn:hover {
   color: white;
-  border-color: 1px solid #31A463;
+  border-color: 1px solid #415b44;
 }
 .form-control:focus {
-  border-color: 1px solid #31A463;
+  border-color: 1px solid #415b44;
 }

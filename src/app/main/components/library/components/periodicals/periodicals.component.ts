@@ -10,10 +10,10 @@ export class PeriodicalsComponent implements OnInit {
   periodicals: any[] = [];
   paginatedPeriodicals: any[] = [];
   currentPage: number = 1;
-  periodicalsPerPage: number = 9; // Display 9 periodicals per page
-  loading: boolean = true; // Add loading flag and initialize as true
-  selectedMaterialTypeLabel: string = 'Select Material Type'; // Label for the dropdown button
-  searchQuery: string = ''; // Add this property
+  periodicalsPerPage: number = 9;
+  loading: boolean = true;
+  selectedMaterialTypeLabel: string = 'Select Material Type';
+  searchQuery: string = '';
 
   constructor(private apiService: ApiService) { }
 
@@ -22,18 +22,18 @@ export class PeriodicalsComponent implements OnInit {
   }
 
   fetchPeriodicals(type: string = ''): void {
-    this.loading = true; // Set loading to true when fetching data
+    this.loading = true;
 
     if (this.searchQuery) {
       this.apiService.searchPeriodicals(this.searchQuery).subscribe(
         (data: any[]) => {
           this.periodicals = data;
           this.updatePaginatedPeriodicals();
-          this.loading = false; // Set loading to false when data is fetched
+          this.loading = false;
         },
         (error) => {
           console.error('Error fetching periodicals by search query:', error);
-          this.loading = false; // Set loading to false in case of error
+          this.loading = false;
         }
       );
     } else if (type) {
@@ -41,11 +41,11 @@ export class PeriodicalsComponent implements OnInit {
         (data: any[]) => {
           this.periodicals = data;
           this.updatePaginatedPeriodicals();
-          this.loading = false; // Set loading to false when data is fetched
+          this.loading = false;
         },
         (error) => {
           console.error('Error fetching periodicals:', error);
-          this.loading = false; // Set loading to false in case of error
+          this.loading = false;
         }
       );
     } else {
@@ -53,11 +53,11 @@ export class PeriodicalsComponent implements OnInit {
         (data: any[]) => {
           this.periodicals = data;
           this.updatePaginatedPeriodicals();
-          this.loading = false; // Set loading to false when data is fetched
+          this.loading = false;
         },
         (error) => {
           console.error('Error fetching periodicals:', error);
-          this.loading = false; // Set loading to false in case of error
+          this.loading = false;
         }
       );
     }
@@ -70,10 +70,10 @@ export class PeriodicalsComponent implements OnInit {
   }
 
   onMaterialTypeChange(event: Event, type: string): void {
-    event.preventDefault(); // Prevent the default anchor behavior
-    this.currentPage = 1; // Reset to first page on filter change
+    event.preventDefault();
+    this.currentPage = 1;
     this.fetchPeriodicals(type);
-    this.updateMaterialTypeLabel(type); // Update the button label
+    this.updateMaterialTypeLabel(type);
   }
 
   updateMaterialTypeLabel(type: string): void {
@@ -94,8 +94,18 @@ export class PeriodicalsComponent implements OnInit {
   }
 
   onSearchChange(event: Event): void {
-    this.currentPage = 1; // Reset to first page
+    this.currentPage = 1;
     this.fetchPeriodicals();
+  }
+
+  get totalPages(): number {
+    return Math.ceil(this.periodicals.length / this.periodicalsPerPage);
+  }
+
+  getPaginationSummary(): string {
+    const totalPages = this.totalPages;
+    const currentPage = this.currentPage;
+    return `${currentPage} of ${totalPages}`;
   }
 
   nextPage(): void {
@@ -110,9 +120,5 @@ export class PeriodicalsComponent implements OnInit {
       this.currentPage--;
       this.updatePaginatedPeriodicals();
     }
-  }
-
-  get totalPages(): number {
-    return Math.ceil(this.periodicals.length / this.periodicalsPerPage);
   }
 }

@@ -1,64 +1,58 @@
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 
-<div class="flex-container">
-    <div class="container">
-        <div class="row container1">
-            <div class="col1 col-md-4">
-                <img [src]="user?.profile_picture || 'assets/images/lib.png'" alt="Profile" class="img-fluid">
-                <p class="profile">My Profile</p>
-                <div class="name-phone" *ngIf="user">
-                    <p class="name">{{ user.first_name }} {{ user.last_name }}</p>
-                </div>
-                <p class="email">{{ user?.domain_account }}</p>
-                <button class="profile-btn" type="button" (click)="openmodal()">Borrower's Card</button>
-                <button class="profile-btn" type="button" (click)="openqrmodal()">View QRcode</button>
-            </div>
-            <div class="col2 col-md-7">
-                <div class="title">
-                    <p>Student Information</p>
-                </div>
-                <div class="info-container">
-                    <div class="cont1">
-                        <p>Student number:</p>
-                        <p>Domain Email Address:</p>
-                        <p>Main Address:</p>
-                        <p>Course / Department:</p>
-                    </div>
-                    <div class="cont2">
-                        <p>{{ user?.id }}</p>
-                        <p>{{ user.domain_account }}</p>
-                        <p>{{ user.main_address }}</p>
-                        <p>{{ user.department.department }}</p>
-                    </div>
-                </div>
-                <div class="title2">
-                    <p>Total Fine</p>
-                </div>
-                <div class="info-container">
-                    <div class="cont1">
-                        <p>Amount:</p>
-                    </div>
-                    <div class="cont2">
-                        <p>{{ user.total_fine }}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="container">
-        <div class="row buttons d-flex justify-content-center">
-            <div class="col-md-2">
-                <button class="btn btn-block btn-icon" [routerLink]="['borrowed']" routerLinkActive="router-link-active"> Borrowed</button>
-            </div>
-            <div class="col-md-2">
-                <button class="btn btn-block btn-icon" [routerLink]="['reserved']" routerLinkActive="router-link-active"> Reserved</button>
-            </div>
-        </div>
-</div>
+  <img [src]="user?.profile_picture || 'assets/images/lib.png'" alt="Profile" class="img-fluid">
+  <div class="column col-md-12">
 
-<div class="connection">
-    <router-outlet></router-outlet>
+    <!-- Left side -->
+    <div class="left-side">
+      <div class="title">
+        <p>Student Information</p>
+      </div>
+      <div class="info-container" *ngIf="user">
+        <div class="cont1">
+          <p>Name:</p>
+          <p>Domain Account:</p>
+          <p>Student number:</p>
+          <p>Domain Email Address:</p>
+          <p>Main Address:</p> <br>
+          <p>Course / Department:</p>
+        </div>
+        <div class="cont2">
+          <p>{{ user.first_name }} {{ user.last_name }}</p>
+          <p>{{ user?.domain_account }}</p>
+          <p>{{ user?.id }}</p>
+          <p>{{ user.domain_account }}</p>
+          <p>{{ user.main_address }}</p>
+          <p>{{ user.department.department }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right side -->
+    <div class="right-side">
+      <div class="title">
+        <p>Borrowed History / Student QR code</p>
+      </div>
+      <div class="btn-container">
+        <button class="btn" type="button" (click)="openmodal()"> 
+          <i class="fas fa-history"></i><br>Borrower's Card
+        </button>
+        <button class="btn" type="button" (click)="openqrmodal()"> 
+          <i class="fas fa-qrcode"></i><br>View QRcode
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="container2">
+    <div class="one">
+      <button class="btn btn-block btn-icon" [class.active]="selectedSection === 'borrowed'" (click)="setActiveSection('borrowed')" [routerLink]="['borrowed']">Borrowed</button>
+    </div>
+    <div class="two">
+      <button class="btn btn-block btn-icon" [class.active]="selectedSection === 'returned'" (click)="setActiveSection('returned')" [routerLink]="['returned']">Returned</button>
+    </div>
+  </div> 
 </div>
+<router-outlet></router-outlet>
+

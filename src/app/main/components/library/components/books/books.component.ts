@@ -77,6 +77,9 @@ export class BooksComponent implements OnInit {
     if (this.currentPage > 1) {
       this.currentPage--;
       this.updatePaginatedBooks();
+    } else {
+      // Optional: Display a message or handle the case where the button is disabled but clicked
+      console.warn('Previous button is disabled on the first page.');
     }
   }
 
@@ -87,4 +90,11 @@ export class BooksComponent implements OnInit {
   get pages(): number[] {
     return [this.currentPage];
   }
+
+  getPaginationSummary(): string {
+    const totalPages = this.totalPages;
+    const currentPage = this.currentPage;
+    return `${currentPage} of ${totalPages}`;
+  }
+  
 }

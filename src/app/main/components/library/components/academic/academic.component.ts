@@ -133,27 +133,25 @@ export class AcademicComponent implements OnInit {
         project.authors.toLowerCase().includes(this.searchQuery.toLowerCase())
       );
     }
+    this.currentPage = 1; // Reset to first page after filtering
   }
 
   // Pagination methods
   goToPage(page: number): void {
     if (page >= 1 && page <= this.totalPages) {
       this.currentPage = page;
-      this.filterProjects(); // Reapply filtering for the new page
     }
   }
 
   nextPage(): void {
     if (this.currentPage < this.totalPages) {
       this.currentPage++;
-      this.filterProjects(); // Reapply filtering for the new page
     }
   }
 
   previousPage(): void {
     if (this.currentPage > 1) {
       this.currentPage--;
-      this.filterProjects(); // Reapply filtering for the new page
     }
   }
 
@@ -182,6 +180,12 @@ export class AcademicComponent implements OnInit {
   setProjectsPerPage(count: number): void {
     this.projectsPerPage = count;
     this.currentPage = 1; // Reset to first page
-    this.filterProjects(); // Reapply filtering based on new page size
+  }
+
+  getPaginationSummary(): string {
+    const startItem = (this.currentPage - 1) * this.projectsPerPage + 1;
+    const endItem = Math.min(this.currentPage * this.projectsPerPage, this.filteredProjects.length);
+    const totalItems = this.filteredProjects.length;
+    return ` ${startItem} of ${totalItems}`;
   }
 }
