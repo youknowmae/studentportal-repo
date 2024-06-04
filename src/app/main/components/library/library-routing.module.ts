@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { BooksComponent } from './components/books/books.component';
 import { ArticlesComponent } from './components/articles/articles.component';
 import { PeriodicalsComponent } from './components/periodicals/periodicals.component';
-import { InsidebookComponent } from '../inside/insidebook/insidebook.component';
 import { AcademicComponent } from './components/academic/academic.component';
 import { InsideborrowedComponent } from '../inside/insideborrowed/insideborrowed.component';
 

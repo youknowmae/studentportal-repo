@@ -5,7 +5,11 @@
         <div class="col-md-4" *ngFor="let item of borrowedItems">
             <div class="square">
                 <p class="important">Return by: {{ item.borrow_expiration }}</p>
+<<<<<<< Updated upstream
                 <img [src]="item.book.image_url == null ? 'assets/logo.png' : item.book.image_url" alt="Image" class="square-image">
+=======
+                <img [src]="item.book.image_url == null ? 'assets/images/lib.png' : item.book.image_url" alt="Image" class="square-image">
+>>>>>>> Stashed changes
                 <div class="square-content">
                     <div class="square-text">
                         <h2>{{ item.book.title }}</h2>

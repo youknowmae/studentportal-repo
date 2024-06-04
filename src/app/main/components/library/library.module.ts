@@ -11,6 +11,8 @@ import { ArticlesModule } from './components/articles/articles.module';
 import { BooksModule } from './components/books/books.module';
 import { AcademicComponent } from './components/academic/academic.component';
 import { AcademicModule } from './components/academic/academic.module';
+import { InsideborrowedComponent } from '../inside/insideborrowed/insideborrowed.component';
+
 
 
 @NgModule({
@@ -19,7 +21,11 @@ import { AcademicModule } from './components/academic/academic.module';
     ArticlesComponent,
     PeriodicalsComponent,
     AcademicComponent,
+<<<<<<< Updated upstream
 
+=======
+    InsideborrowedComponent
+>>>>>>> Stashed changes
   ],
   imports: [
     

@@ -14,7 +14,11 @@ const routes: Routes = [
   { path: 'modal', component: ProfilemodalComponent },
   { path: 'book/:id', component: InsidebookComponent },
   { path: 'reservation/:id', component: InsidereservedComponent },
+<<<<<<< Updated upstream
   { path: 'insideborrowed/:id', component: InsideborrowedComponent}
+=======
+  { path: 'insideborrow/:id', component: InsideborrowedComponent }
+>>>>>>> Stashed changes
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],
