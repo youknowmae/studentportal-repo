@@ -11,6 +11,7 @@ import { MainModule } from './main/main.module';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     // MainModule,
     MatDialogModule,
     BrowserAnimationsModule,
+    MatPaginatorModule
   ],
   providers: [
     provideClientHydration(),

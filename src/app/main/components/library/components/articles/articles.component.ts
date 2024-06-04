@@ -72,6 +72,7 @@ export class ArticlesComponent implements OnInit {
   onMaterialTypeChange(event: Event, type: string): void {
     event.preventDefault(); // Prevent default anchor behavior
     this.selectedMaterialType = type;
+    this.currentPage = 1; // Reset to first page on filter change
     this.fetchArticles();
     this.updateMaterialTypeLabel(type); // Update the button label
   }
@@ -121,5 +122,9 @@ export class ArticlesComponent implements OnInit {
 
   get totalPages(): number {
     return Math.ceil(this.articles.length / this.articlesPerPage);
+  }
+
+  getPaginationSummary(): string {
+    return `${this.currentPage} of ${this.totalPages}`;
   }
 }

@@ -55,37 +55,31 @@
 .details::-webkit-scrollbar-thumb:hover {
   background: #fff; 
 }
-.pagination span {
-  font-size: 14px;
-  background-color: #285a43;
-  padding: 10px 15px;
-  border-radius: 3px;
-  color: #fff;
-  margin-left: 10px;
-  margin-right: 10px;
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  font-weight: bolder;
+  color: #415b44;
+  margin-top: 20px;
 }
-.pagination button {
-  background-color: #31a463;
-  border: none;
-  color: white;
-  padding: 10px 15px;
+.pagination i {
   cursor: pointer;
-  border-radius: 3px;
 }
-.pagination button.active {
-  background-color: #285a43;
+.pagination p {
+  margin: 0 30px;
 }
-.pagination button[disabled] {
-  background-color: #d3d3d3;
-  cursor: not-allowed;
+.pagination .kaliwa{
+  margin-right: 40px;
 }
 .loading-spinner {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 300px;
-  color: #31A463;
-  border-radius: 3px solid #31A463;
+  color: #415b44;
+  border-radius: 3px solid #415b44;
   padding: 220px 500px 270px 500px; 
 }
 .dropdown {
@@ -96,7 +90,7 @@
 .btn {
   font-size: 12px;
   padding: 10px 20px;
-  background-color: #31A463;
+  background-color: #415b44;
 }
 .fixed-width {
   width: 200px;
@@ -119,7 +113,7 @@
   list-style: none;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid #31A463;
+  border: 1px solid #415b44;
   border-radius: 0.25rem;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);
 }
@@ -137,7 +131,7 @@
 .dropdown-item:focus {
   color: #16181b;
   text-decoration: none;
-  background-color: #31a463;
+  background-color: #415b44;
 }
 .dropdown-item:hover{
   color: #fff;
@@ -153,17 +147,17 @@
 }
 .input-group{
   margin-top: 20px;
-  border: 2px solid #31A463;
+  border: 2px solid #415b44;
   border-radius: 5px;
 }
 .input-group-append .btn {
   color: black;
-  border-color: 1px solid #31A463;
+  border-color: 1px solid #415b44;
 }
 .input-group-append .btn:hover {
   color: white;
-  border-color: 1px solid #31A463;
+  border-color: 1px solid #415b44;
 }
 .form-control:focus {
-  border-color: 1px solid #31A463;
+  border-color: 1px solid #415b44;
 }

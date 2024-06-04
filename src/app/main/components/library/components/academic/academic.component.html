@@ -48,9 +48,12 @@
       <div *ngIf="paginatedProjects.length === 0">No projects available for this category.</div>
     </div>
   </div>
+
+  <!-- pagination -->
   <div class="pagination">
-    <button (click)="previousPage()" [disabled]="currentPage === 1">Back</button>
-    <span>{{ currentPage }}</span>
-    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+    <p>Items per page: {{ projectsPerPage }}</p>
+    <p>{{ getPaginationSummary() }}</p>
+    <i class="fas fa-chevron-left kaliwa" (click)="currentPage > 1 ? previousPage() : null"></i>
+    <i class="fas fa-chevron-right" (click)="nextPage()" [hidden]="currentPage === totalPages"></i>
   </div>
 </div>

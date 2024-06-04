@@ -2,28 +2,32 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
 <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 
-<!-- Sidebar-->
-<div class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+<!-- Header -->
+<nav class="navbar navbar-custom">
+</nav>
+
+<!-- Sidebar -->
+<div class="col-md-3 col-lg-2 d-md-block bg-light sidebar" [ngClass]="{'sidebar-hidden': isSidebarHidden}">
     <div class="sidebar-sticky">
-        <div class="text-center" >
-            <img [src]="user?.profile_picture || 'assets/images/lib.png'" alt="Image" style="margin-bottom: 15px;" height="140px" width="140px">
-            <p class="name">{{ user.first_name }} {{ user.last_name }}</p>
-            <p style="margin-bottom: 20px;">{{ user.department.department }}</p>
+        <div class="text-center">
+            <img [src]="user?.profile_picture || 'assets/images/lib.png'" alt="Image" class="profile-img" [ngClass]="{'profile-img-small': isSidebarHidden}">
+            <p class="name" [ngClass]="{'info': isSidebarHidden}">{{ user.first_name }} {{ user.last_name }}</p>
+            <p style="margin-bottom: 20px;" [ngClass]="{'info': isSidebarHidden}">{{ user.department.department }}</p>
         </div>
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="['profile']" routerLinkActive="router-link-active" > 
-                    <i class="fas fa-user"></i> PROFILE
+                <a class="nav-link" [routerLink]="['profile']" routerLinkActive="router-link-active" [ngClass]="{'active': isSidebarHidden}">
+                    <i class="fas fa-user" [ngClass]="{'icon': isSidebarHidden}"></i> <span class="link-text">PROFILE</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="['library']" routerLinkActive="router-link-active"> 
-                    <i class="fas fa-book"></i> LIBRARY
+                <a class="nav-link" [routerLink]="['library']" routerLinkActive="router-link-active" [ngClass]="{'active': isSidebarHidden}">
+                    <i class="fas fa-book" [ngClass]="{'icon': isSidebarHidden}"></i> <span class="link-text">LIBRARY</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="['announcement']" routerLinkActive="router-link-active" >
-                    <i class="fas fa-bullhorn"></i>ANNOUNCEMENTS
+                <a class="nav-link nav-link2" [routerLink]="['announcement']" routerLinkActive="router-link-active" [ngClass]="{'active': isSidebarHidden}">
+                    <i class="fas fa-bullhorn" [ngClass]="{'icon': isSidebarHidden}"></i> <span class="link-text">ANNOUNCEMENTS</span>
                 </a>
             </li>
             <li class="nav-item1">
@@ -32,9 +36,11 @@
                 </a>
             </li>
         </ul>
+        <i class="fas fa-bars toggle-icon" (click)="toggleSidebar()" [ngClass]="{'icon-move-left': isSidebarHidden}"></i>
     </div>
 </div>
 
-<div class="connectside">
+<!-- Main content -->
+<div class="connectside" [ngClass]="{'connectside-sidebar-hidden': isSidebarHidden}">
     <router-outlet></router-outlet>
 </div>

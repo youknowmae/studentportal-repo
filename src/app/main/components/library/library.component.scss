@@ -1,27 +1,43 @@
-*{
+* {
     font-family: 'Montserrat';
 }
-.row{
+.container {
+    margin-top: 50px;
     justify-content: center;
 }
 .btn-icon {
     padding: 7px 8px 8px 5px;
     font-size: 14px;
     font-weight: bold;
-    background-color: transparent;
-    color: #31A463;
+    background-color: #fff;
+    color: #415b44;
     text-decoration: none;
     transition: background-color 0.3s ease;
-    border: 2px solid #31A463;
+    border: 2px solid #415b44;
     border-radius: 3px;
 }
 .btn-icon:hover,
 .btn-icon:active,
 .btn-icon:focus {
-    background-color: #31A463;
+    background-color: #415b44;
     color: #fff;
 }
-
+.btn-icon.active {
+    background-color: #415b44;
+    color: #fff;
+}
 .connectside {
     padding: 2% 0 0 15%;
+}
+@media screen and (max-width: 768px) {
+    .row {
+        margin-top: 70px;
+        justify-content: center;
+        display: flex;
+    }
+    .btn-icon {
+        padding: 10px;
+        font-size: 12px;
+        margin-top: 10px;
+    }
 }

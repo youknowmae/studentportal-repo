@@ -42,4 +42,9 @@ export class LibraryComponent {
         break;
     }
   }
+
+  // Method to set active button
+  setActive(category: string) {
+    this.selectedCategory = category;
+  }
 }

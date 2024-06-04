@@ -13,7 +13,7 @@ import { QrmodalComponent } from './components/modal/qrmodal/qrmodal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InsidearticleComponent } from './components/inside/insidearticle/insidearticle.component';
 import { InsidereservedComponent } from './components/inside/insidereserved/insidereserved.component';
-
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 @NgModule({
@@ -33,7 +33,8 @@ import { InsidereservedComponent } from './components/inside/insidereserved/insi
     ProfileModule,
     BooksModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatPaginatorModule
   ]
 })
 export class MainModule { }

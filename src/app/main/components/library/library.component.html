@@ -4,19 +4,17 @@
 <div class="container">
     <div class="row">
         <div class="col-md-3">
-            <button class="btn btn-block btn-icon" [routerLink]="['books']" routerLinkActive="router-link-active">Books</button>
+            <button class="btn btn-block btn-icon" [class.active]="selectedCategory === 'books'" (click)="setActive('books')" [routerLink]="['books']">Books</button>
         </div>
         <div class="col-md-3">
-            <button class="btn btn-block btn-icon" [routerLink]="['articles']" routerLinkActive="router-link-active">Articles</button>
+            <button class="btn btn-block btn-icon" [class.active]="selectedCategory === 'articles'" (click)="setActive('articles')" [routerLink]="['articles']">Articles</button>
         </div>
         <div class="col-md-3">
-            <button class="btn btn-block btn-icon" [routerLink]="['periodicals']" routerLinkActive="router-link-active">Periodicals</button>
+            <button class="btn btn-block btn-icon" [class.active]="selectedCategory === 'periodicals'" (click)="setActive('periodicals')" [routerLink]="['periodicals']">Periodicals</button>
         </div>
-        
         <div class="col-md-3">
-            <button class="btn btn-block btn-icon" [routerLink]="['academic']" routerLinkActive="router-link-active">Academic</button>
+            <button class="btn btn-block btn-icon" [class.active]="selectedCategory === 'academic'" (click)="setActive('academic')" [routerLink]="['academic']">Academic</button>
         </div>
-
     </div>
 
     <div class="connection">

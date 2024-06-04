@@ -13,6 +13,7 @@ import { response } from 'express';
 })
 export class ProfileComponent implements OnInit {
   user: any;
+  selectedSection: string = 'borrowed';
 
   constructor(
     private dialogRef: MatDialog, 
@@ -50,5 +51,9 @@ export class ProfileComponent implements OnInit {
         this.books = data;
         console.log(this.books)
       });
+  }
+
+  setActiveSection(section: string): void {
+    this.selectedSection = section;
   }
 }

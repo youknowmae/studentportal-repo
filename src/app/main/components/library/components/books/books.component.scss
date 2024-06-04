@@ -15,18 +15,113 @@
   transition: all .2s ease-in;
   height: 230px;
   overflow: hidden;
+  position: relative;
+  background-color: #fff;
 }
 .square:hover {
   transform: scale(1.05);
   transition: all .2s ease-in;
 }
+.square .dot1 {
+  position: absolute;
+  height: 40px;
+  width: 430px;
+  background-color: #415b44;
+  display: inline-block;
+  z-index: 50;
+  margin-left: -20px;
+  margin-top: -20px;
+}
+.square .dot2 {
+  position: absolute;
+  height: 40px;
+  width: 430px;
+  background-color: #49664d;
+  display: inline-block;
+  z-index: 45;
+  margin-left: -20px;
+  margin-top: -20px;
+}
+.square .dot3 {
+  position: absolute;
+  height: 50px;
+  width: 430px;
+  background-color: #517255;
+  display: inline-block;
+  z-index: 40;
+  margin-left: -20px;
+  margin-top: -20px;
+}
+.square .dot4 {
+  position: absolute;
+  height: 60px;
+  width: 430px;
+  background-color: #5a7d5e;
+  display: inline-block;
+  z-index: 35;
+  margin-left: -20px;
+  margin-top: -20px;
+}
+.square .dot5 {
+  position: absolute;
+  height: 70px;
+  width: 430px;
+  background-color: #628966;
+  display: inline-block;
+  z-index: 30;
+  margin-left: -20px;
+  margin-top: -20px;
+}
+.square .dot6 {
+  position: absolute;
+  height: 80px;
+  width: 430px;
+  background-color: #6a946f;
+  display: inline-block;
+  z-index: 25;
+  margin-left: -20px;
+  margin-top: -20px;
+}
+.square .dot7 {
+  position: absolute;
+  height: 90px;
+  width: 430px;
+  background-color: #759d7a;
+  display: inline-block;
+  z-index: 20;
+  margin-left: -20px;
+  margin-top: -20px;
+}
+.square .dot8 {
+  position: absolute;
+  height: 100px;
+  width: 430px;
+  background-color: #81a585;
+  display: inline-block;
+  z-index: 15;
+  margin-left: -20px;
+  margin-top: -20px;
+}
+.square .dot9 {
+  position: absolute;
+  height: 110px;
+  width: 430px;
+  background-color: #8cad90;
+  display: inline-block;
+  z-index: 10;
+  margin-left: -20px;
+  margin-top: -20px;
+}
 .square-image {
   width: 100%;
   height: 110px;
   background-color: #f3f3f3;
+  border: 2px solid #fff;
   border-radius: 3px;
   margin-bottom: 10px;
   object-fit: contain;
+  z-index: 999;
+  position: relative;
 }
 .square-content {
   display: flex;
@@ -61,7 +156,7 @@
   margin-top: -10px;
 }
 .view-button {
-  background-color: #31A463;
+  background-color: #415b44;
   border: 2px solid;
   border-radius: 5px;
   color: #ffffff;
@@ -74,46 +169,69 @@
   box-shadow: 0px 8px 15px -10px rgb(61, 61, 61);
   transform: translate(0px, -2px);
   background: white;
-  color: #31A463;
+  color: #415b44;
   cursor: pointer;
   text-decoration: none;
   height: 12%;
-}
-.pagination {
-  display: flex;
-  justify-content: right;
-  margin-top: 5px;
-  margin-right: -5px;
-}
-.pagination button {
-  background-color: #31a463;
-  border: none;
-  color: white;
-  padding: 10px 15px;
-  margin: 0 5px;
-  cursor: pointer;
-  border-radius: 3px;
-}
-.pagination button.active {
-  background-color: #285a43;
-}
-.pagination button[disabled] {
-  background-color: #d3d3d3;
-  cursor: not-allowed;
 }
 .loading-spinner {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #31A463;
+  color: #415b44;
   height: 300px;
   padding: 215px 500px 285px 500px;
 }
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  font-weight: bolder;
+  color: #415b44;
+}
+.pagination i {
+  cursor: pointer;
+}
+.pagination p {
+  margin: 0 30px;
+}
+.pagination .kaliwa{
+  margin-right: 40px;
+}
+
 .input-group{
   margin-top: 20px;
-  border: 2px solid #31A463;
+  border: 2px solid #415b44;
   border-radius: 5px;
   margin-bottom: 20px;
   margin-left: 745px;
   width: 350px;
 }
+.disabled {
+  pointer-events: none;
+  opacity: 0.5; /* Adjust the opacity to visually indicate the button is disabled */
+}
+@media screen and (max-width: 768px ){
+  .input-group{
+    display: none;
+  }
+  .loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #31A463;
+    height: 300px;
+    padding: 20px;
+  }
+  .pagination {
+    justify-content: center;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+  .pagination button {
+    padding: 4px 8px;
+    font-size: 10px;
+    margin-bottom: 20px;
+  }
+}
+
