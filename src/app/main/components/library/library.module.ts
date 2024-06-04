@@ -21,11 +21,7 @@ import { InsideborrowedComponent } from '../inside/insideborrowed/insideborrowed
     ArticlesComponent,
     PeriodicalsComponent,
     AcademicComponent,
-<<<<<<< Updated upstream
-
-=======
     InsideborrowedComponent
->>>>>>> Stashed changes
   ],
   imports: [
     
