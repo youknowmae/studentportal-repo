@@ -27,7 +27,7 @@
 }
 
 .text-center img {
-    margin-top: 20px;
+    margin-top: 70px;
     margin-bottom: 20px;
     border-radius: 50%;
     border: 1px solid #333;
@@ -63,10 +63,10 @@ p {
     position: fixed;
     z-index: 100;
     padding: 0;
-    width: 200px;
+    width: 220px;
     height: 100%;
     overflow: hidden;
-    background-color: #425d46;
+    background-color: #4f6f52;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
     transition: transform 0.3s ease, width 0.3s ease;
 }
@@ -82,7 +82,7 @@ p {
     padding-top: 0.5rem;
     overflow-x: hidden;
     overflow-y: auto;
-    background-color: #415b44;
+    background-color: #4f6f52;
 }
 
 .nav-link {
@@ -101,7 +101,7 @@ p {
     color: #fff;
     background-color: rgba(0, 0, 0, 0.33);
     border-right: 4px solid #415b44;
-    font-weight: bolder;
+    font-weight: 700;
 }
 
 .nav-link {
@@ -145,7 +145,7 @@ p {
 
 .navbar-custom {
     height: 60px;
-    background-color: #1e3528;
+    background-color: #376448;
     position: fixed;
     top: 0;
     width: 100%;
