@@ -9,8 +9,8 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class AuthenticationService {
 
-  apiUrl = 'http://localhost:8000/api';
-  // apiUrl = 'http://26.68.32.39:8000/api';
+  // apiUrl = 'http://localhost:8000/api';
+  apiUrl = 'http://26.68.32.39:8000/api';
 
   authToken: string | null = null;
   loggedInUserId: string | null = null;
@@ -23,7 +23,7 @@ export class AuthenticationService {
   ) {}
 
   login(credentials: { username: string, password: string }) {
-    return this.http.post<any>(`${this.apiUrl}/login/student`, credentials)
+    return this.http.post<any>(`${this.apiUrl}/login`, credentials)
       .pipe(
         tap(response => {
           console.log('API Response:', response);

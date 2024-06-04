@@ -34,7 +34,7 @@
   <div class="row" *ngIf="!loading">
     <div class="col-md-4" *ngFor="let periodical of paginatedPeriodicals">
       <div class="square">
-        <img src="assets/images/logo.png" alt="Image" class="square-image">
+        <img [src]="periodical.image_url" alt="Image" class="square-image">
         <div class="square-content">
           <div class="square-text">
             <p>{{ periodical.id }}</p>

@@ -22,7 +22,7 @@
             </div>
             <div class="cont2">
                 <p><span>Student ID: </span>{{student.id}}</p>
-                <p><span>Course: </span>{{student.department}}</p>
+                <p><span>Course: </span>{{student.department.department}}</p>
             </div>
         </div>
     </div>
@@ -39,9 +39,9 @@
         </thead>
         <tbody>
             <tr *ngFor="let book of displayedBooks">
-                <td>{{ book.borrowedDate }}</td>
+                <td>{{ book.authors }}</td>
                 <td>{{ book.time }}</td>
-                <td>{{ book.bookTitle }}</td>
+                <td>{{ book.title }}</td>
                 <td>{{ book.returnedTo }}</td>
                 <td>{{ book.returnedDate }}</td>
             </tr>

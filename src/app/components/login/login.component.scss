@@ -10,16 +10,16 @@
 
 .bg .gc {
     position: absolute;
-    top: 125px;
+    height: 100%;
     width: 100%;
 }
 
 .bg .clipart {
+    height: 100%;
     position: absolute;
     bottom: 90px;
     left: 0;
     width: 925px;
-    height: 650px;
 }
 
 .bg .student {
@@ -34,7 +34,7 @@
 
 .right-container {
     position: absolute;
-    top: 20px;
+    top: 100px;
     right: 130px;
     text-align: center;
 }

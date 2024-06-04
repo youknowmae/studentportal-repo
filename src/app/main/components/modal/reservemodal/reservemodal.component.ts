@@ -35,7 +35,7 @@ export class ReservemodalComponent implements OnInit {
       authors: ['', Validators.required],
       // location: ['', Validators.required],
       numberOfBooks: ['', [Validators.required, Validators.min(1)]],
-      fine: ['', [Validators.required, Validators.min(0)]],
+      price: ['', [Validators.required, Validators.min(0)]],
       start_date: ['', Validators.required],
       end_date: ['', Validators.required],
       status:[1,[Validators.required]],
@@ -81,7 +81,7 @@ export class ReservemodalComponent implements OnInit {
           title: data.title,
           authors: data.authors,
           // location: data.location
-          fine: data.fine,
+          price: data.price,
         };
         this.fillBookInfo(selectedBook);
       } else {
@@ -110,7 +110,7 @@ export class ReservemodalComponent implements OnInit {
       title: selectedBook.title,
       authors: selectedBook.authors,
       // location: selectedBook.location
-      fine: selectedBook.fine,
+      price: selectedBook.price,
 
     });
   }
@@ -123,7 +123,7 @@ export class ReservemodalComponent implements OnInit {
         book_id: this.selectedBookId,
         start_date: reservationData.start_date,
         end_date: reservationData.end_date,
-        fine: reservationData.fine,
+        price: reservationData.price,
         status: reservationData.status,
         type: reservationData.type
       };

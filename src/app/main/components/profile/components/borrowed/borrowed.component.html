@@ -5,18 +5,19 @@
         <div class="col-md-4" *ngFor="let item of borrowedItems">
             <div class="square">
                 <p class="important">Return by: {{ item.borrow_expiration }}</p>
-                <img src="assets/images/default-book-image.jpg" alt="Book Cover" class="square-image">
+                <img [src]="item.book.image_url == null ? 'assets/logo.png' : item.book.image_url" alt="Image" class="square-image">
                 <div class="square-content">
                     <div class="square-text">
                         <h2>{{ item.book.title }}</h2>
                         <p>By: {{ item.book.authors }}</p>
                         <p>ISBN: {{ item.book.id }}</p>
                     </div>
-                    <button class="view-button" role="button" [routerLink]="['/main/library/insideborrowed', item.book.id]" routerLinkActive="router-link-active"> View</button>
+                    <button class="view-button" role="button" [routerLink]="['../insideborrowed', item.book.id]" routerLinkActive="router-link-active">View</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
+<br>
+<br>
     

@@ -13,12 +13,12 @@
   margin-bottom: 20px;
   transform: scale(1);
   transition: all .2s ease-in;
-  height: 230px;
+  height: 260px;
   overflow: hidden;
 }
 .square:hover{
-transform: scale(1.05);
-transition: all .2s ease-in;
+  transform: scale(1.05);
+  transition: all .2s ease-in;
 }
 .square p{
   font-size: 12px;
@@ -55,9 +55,9 @@ transition: all .2s ease-in;
 }
 .square-image {
   width: 100%;
-  height: 150px;
+  height: 90px;
   background-color: #f3f3f3;
-  border-radius: 5px;
+  border-radius: 3px;
   margin-bottom: 10px; 
   object-fit: contain;
 }
@@ -69,20 +69,16 @@ transition: all .2s ease-in;
   overflow-x: hidden;
   overflow-y: scroll;
 }
-
 .square-content::-webkit-scrollbar {
   width: 0;
 }
-
 .square-content::-webkit-scrollbar-track {
   background: #fff 
 }
-
 .square-content::-webkit-scrollbar-thumb {
   background: #fff; 
   border-radius: 10px;
 }
-
 .square-content::-webkit-scrollbar-thumb:hover {
   background: #fff; 
 }
@@ -90,14 +86,12 @@ transition: all .2s ease-in;
   text-align: left;
 }
 .square-text h2{
-  font-size: medium;
+  font-size: small;
+  font-weight: bold;
 }
 .square-text p{
-  font-size: 12px;
-}
-.square-text h2, .square-text p {
-  margin: 0;
-  padding: 0;
+  font-size: 10px;
+  margin-top: -15px;
 }
 .view-button {
   background-color: #31A463;
@@ -109,7 +103,6 @@ transition: all .2s ease-in;
   font-size: small;
   font-family: "Poppins";
   cursor: pointer;
-
 }
 .view-button:hover {
   box-shadow: 0px 8px 15px -10px rgb(61, 61, 61);

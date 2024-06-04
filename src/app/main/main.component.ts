@@ -72,7 +72,7 @@ export class MainComponent implements OnInit {
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#d33',
-        cancelButtonColor: '#31A463',
+        cancelButtonColor: 'gray',
         confirmButtonText: 'Yes'
       }).then((result) => {
         if (result.isConfirmed) {
