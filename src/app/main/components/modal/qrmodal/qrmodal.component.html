@@ -7,12 +7,12 @@
         </div>
         <div class="info-container">
             <div class="cont1">
-                <p><span>Full Name: </span>Bueno, Ryan Joshua E.</p>
-                <p><span>Address: </span>Murphy 16 Olongapo City</p>
+                <p><span>Full Name: </span>{{ user.first_name }} {{ user.last_name }}</p>
+                <p><span>Address: </span>{{ user.main_address }}</p>
             </div>
             <div class="cont2">
-                <p><span>Student ID: </span>20211004</p>
-                <p><span>Course: </span>CCS</p>
+                <p><span>Student ID: </span>{{ user?.id }}</p>
+                <p><span>Course: </span>{{ user.department.department }}</p>
             </div>
         </div>
     </div>

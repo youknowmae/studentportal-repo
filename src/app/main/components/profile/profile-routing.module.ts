@@ -5,6 +5,7 @@ import { ReservedComponent } from './components/reserved/reserved.component';
 import { ProfilemodalComponent } from '../modal/profilemodal/profilemodal.component';
 import { InsidebookComponent } from '../inside/insidebook/insidebook.component';
 import { InsidereservedComponent } from '../inside/insidereserved/insidereserved.component';
+import { InsideborrowedComponent } from '../inside/insideborrowed/insideborrowed.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'borrowed', pathMatch: 'full' },
@@ -12,7 +13,12 @@ const routes: Routes = [
   { path: 'reserved', component: ReservedComponent },
   { path: 'modal', component: ProfilemodalComponent },
   { path: 'book/:id', component: InsidebookComponent },
-  { path: 'reservation/:id', component: InsidereservedComponent }
+  { path: 'reservation/:id', component: InsidereservedComponent },
+<<<<<<< Updated upstream
+  { path: 'insideborrowed/:id', component: InsideborrowedComponent}
+=======
+  { path: 'insideborrow/:id', component: InsideborrowedComponent }
+>>>>>>> Stashed changes
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],

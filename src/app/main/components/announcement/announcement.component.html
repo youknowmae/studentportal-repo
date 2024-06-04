@@ -1,16 +1,17 @@
-<div class="container" *ngIf="!loading; else loadingTemplate">
+  <div class="container" *ngIf="!loading; else loadingTemplate">
     <div class="title">
       <h2>News and Events</h2>
       <h5>Get the latest News and Updates</h5>
       <p>Latest News</p>
     </div>
     <div class="rectangle">
-      <img src="assets/images/lib.png" alt="Image">
+      <img [src]="announcements[0]?.image" alt="Image" class="square-image">
       <div class="details">
         <h5>{{ announcements[0]?.title }}</h5>
-        <p>{{ announcements[0]?.created_at | date }}</p>
-        <p>{{ announcements[0]?.author_id }}</p>
-        <p>{{ announcements[0]?.category }}</p>
+        <p><span>Author Id: </span>{{ announcements[0]?.author_id }}</p>
+        <p><span>Category: </span>{{ announcements[0]?.category }}</p>
+        <p><span>Date Published: </span>{{ announcements[0]?.created_at | date }}</p>
+        <br>
         <p>{{ announcements[0]?.text }}</p>
         <p *ngIf="announcements[0]?.expandedText">{{ announcements[0]?.expandedText }}</p>
       </div>
@@ -23,7 +24,7 @@
       <div class="row">
         <div class="col-md-6" *ngFor="let announcement of announcements.slice(1); let i = index">
           <div class="square">
-            <img src="assets/images/lib.png" alt="Image" class="square-image-big">
+            <img [src]="announcement.image == null ? 'assets/images/lib.png' : announcement.image" alt="Image" class="square-image">
             <div class="square-content">
               <div class="square-text">
                 <h2>{{ announcement.title }}</h2>

@@ -31,7 +31,8 @@
         <div class="col-md-4" *ngFor="let project of paginatedProjects">
           <!-- Project card -->
           <div class="square">
-            <img [src]="project.image_location" alt="Image" class="square-image">
+            <!-- <img [src]="project.image_url" alt="Image" class="square-image"> -->
+            <img [src]="project.image_url == null ? 'assets/images/lib.png' : project.image_url" alt="Image" class="square-image">
             <div class="square-content">
               <div class="square-text">
                 <p>{{ project.id }}</p>

@@ -31,7 +31,7 @@
               <p>{{ reservation.book.title }}</p>
               <h2>{{ reservation.status == 1 ? 'Pending' : 'Approved' }}</h2>
               <h3>{{ reservation.book.authors }}</h3>
-              <p>Queue Position: {{ queuePositions[reservation.book.id] }}</p>
+              <!-- <p>Queue Position: {{ queuePositions[reservation.book.id] }}</p> -->
             </div>
             <button class="view-button" role="button" [routerLink]="['../reservation', reservation.book.id]" routerLinkActive="router-link-active">View</button>
           </div>
