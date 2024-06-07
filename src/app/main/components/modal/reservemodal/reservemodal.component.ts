@@ -16,7 +16,7 @@ export class ReservemodalComponent implements OnInit {
   reservationForm: FormGroup;
   successMessage: string | null = null;
   errorMessage: string | null = null;
-  selectedBookId: number | null = null;
+  selectedBookId: string | null = null;
 
   constructor(
     private fb: FormBuilder,
@@ -68,14 +68,14 @@ export class ReservemodalComponent implements OnInit {
     });
   }
 
-  fetchBookData(bookId: number): void {
+  fetchBookData(accession: string): void {
     const authToken = this.authService.getToken();
     if (!authToken) {
       console.error('Authentication token is missing. Please log in again.');
       return;
     }
   
-    this.apiService.getBookById(bookId, { 'Authorization': `Bearer ${authToken}` }).subscribe(data => {
+    this.apiService.getBookById(accession, { 'Authorization': `Bearer ${authToken}` }).subscribe(data => {
       if (data) {
         const selectedBook = {
           title: data.title,

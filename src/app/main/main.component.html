@@ -12,7 +12,7 @@
         <div class="text-center">
             <img [src]="user?.profile_picture || 'assets/images/lib.png'" alt="Image" class="profile-img" [ngClass]="{'profile-img-small': isSidebarHidden}">
             <p class="name" [ngClass]="{'info': isSidebarHidden}">{{ user.first_name }} {{ user.last_name }}</p>
-            <p style="margin-bottom: 20px;" [ngClass]="{'info': isSidebarHidden}">{{ user.department.department }}</p>
+            <p style="margin-bottom: 20px;" [ngClass]="{'info': isSidebarHidden}">{{ user.department }}</p>
         </div>
         <ul class="nav flex-column">
             <li class="nav-item">

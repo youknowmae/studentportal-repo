@@ -23,7 +23,7 @@ export class AuthenticationService {
   ) {}
 
   login(credentials: { username: string, password: string }) {
-    return this.http.post<any>(`${this.apiUrl}/login/student`, credentials)
+    return this.http.post<any>(`${this.apiUrl}/login`, credentials)
       .pipe(
         tap(response => {
           console.log('API Response:', response);
@@ -31,7 +31,6 @@ export class AuthenticationService {
           if (response && response.token) {
             this.authToken = response.token;
             this.loggedInUserId = response.id.toString();
-            const department = response.department.department;
   
             if (this.authToken) {
               localStorage.setItem('authToken', this.authToken);
@@ -39,9 +38,7 @@ export class AuthenticationService {
             if (this.loggedInUserId) {
               localStorage.setItem('loggedInUserId', this.loggedInUserId);
             }
-            if (department) {
-              localStorage.setItem('department', department);
-            }
+          
 
             this.userSubject.next(response); // Update userSubject with user details
           }
@@ -54,7 +51,6 @@ export class AuthenticationService {
     this.loggedInUserId = null;
     localStorage.removeItem('authToken');
     localStorage.removeItem('loggedInUserId');
-    localStorage.removeItem('department');
     this.userSubject.next(null); // Reset userSubject
     this.router.navigate(['/login']);
   }
