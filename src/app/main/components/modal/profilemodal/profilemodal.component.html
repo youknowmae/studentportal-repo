@@ -49,8 +49,9 @@
     </table>
 
     <div class="pagination">
-        <button (click)="previousPage()" [disabled]="currentPage === 1"><i class="fas fa-chevron-left"></i></button>
-        <span>{{ currentPage }}</span>
-        <button (click)="nextPage()" [disabled]="currentPage === totalPages"><i class="fas fa-chevron-right"></i></button>
+        <p>Item per page: {{ displayedBooks.length }}</p>
+        <p>{{ getPaginationSummary() }}</p>
+        <i class="fas fa-chevron-left kaliwa" (click)="currentPage > 1 ? previousPage() : null"></i>
+        <i class="fas fa-chevron-right" (click)="nextPage()" [hidden]="currentPage === totalPages"></i>
     </div>
 </div>

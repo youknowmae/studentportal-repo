@@ -1,4 +1,119 @@
-  <div class="container" *ngIf="!loading; else loadingTemplate">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+<div class="container">
+<!-- Top -->
+<div class="top container">
+  <!-- left -->
+  <div class="col-md-4">
+    <div class="left">
+      <div class="long">
+        <div class="small">
+          <div class="content">
+            <img src="assets/images/lib.png" alt="logo" class="long-pic">
+            <div class="text-overlay">
+              <h5>title</h5>
+              <p><span>Author ID:</span> 123</p>
+              <p><span>Category:</span> 123</p>
+              <p><span>Date Published</span>123</p>
+              <p>Description:</p>
+            </div>
+          </div>
+        </div>
+        <div class="small">
+          <div class="content">
+            <img src="assets/images/lib.png" alt="logo" class="long-pic">
+            <div class="text-overlay">
+              <h5>title</h5>
+              <p><span>Author ID:</span> 123</p>
+              <p><span>Category:</span> 123</p>
+              <p><span>Date Published</span> 123</p>
+              <p>Description:</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- mid -->
+  <div class="col-md-5">
+    <div class="mid">
+      <img src="assets/images/lib.png" alt="logo" class="mid-pic">
+      <div class="text-overlay-mid">
+        <h5>title</h5>
+        <p><span>Author ID:</span> 123</p>
+        <p><span>Category:</span> 123</p>
+        <p><span>Date Published</span> 123</p>
+        <p>Description:</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- right-->
+  <div class="col-md-3">
+    <div class="right">
+      <div class="box">
+        <div class="short">
+          <div class="content2">
+            <img src="assets/images/lib.png" alt="logo" class="box-pic">
+            <div class="text-overlay">
+              <h5>title</h5>
+              <p><span>Author ID:</span> 123</p>
+              <p><span>Category:</span> 123</p>
+              <p><span>Date Published</span>123</p>
+              <p>Description:</p>
+            </div>
+          </div>
+        </div>
+        <div class="short">
+          <div class="content2">
+            <img src="assets/images/lib.png" alt="logo" class="box-pic">
+            <div class="text-overlay">
+              <h5>title</h5>
+              <p><span>Author ID:</span> 123</p>
+              <p><span>Category:</span> 123</p>
+              <p><span>Date Published</span> 123</p>
+              <p>Description:</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- bottom -->
+  <div class="bottom">
+    <div class="title">
+      <h5>OTHER ANNOUNCEMENT</h5>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4" *ngFor="let announcement of announcements.slice(1); let i = index">
+        <div class="square">
+          <img [src]="announcement.image == null ? 'assets/images/lib.png' : announcement.image" alt="Image" class="square-image">
+          <div class="square-content">
+            <div class="square-text">
+              <h2>{{ announcement.title }}</h2>
+              <p>{{ announcement.text }}</p>
+              <p>{{announcement.category}}</p>
+              <p *ngIf="announcement.expandedText">{{ announcement.expandedText }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- <div class="container" *ngIf="!loading; else loadingTemplate">
     <div class="title">
       <h2>News and Events</h2>
       <h5>Get the latest News and Updates</h5>
@@ -17,6 +132,10 @@
       </div>
     </div>
   
+
+
+
+
     <div class="content">
       <div class="title">
         <p>Other News</p>
@@ -37,15 +156,14 @@
         </div>
       </div>
     </div>
-  </div>
-  
-  <ng-template #loadingTemplate>
-    <!-- Loading indicator -->
-    <div class="loading-spinner">
-      <!-- You can replace this with your preferred loading animation or spinner -->
-      <div class="spinner-border text-green" role="status" style="width: 5rem; height: 5rem;">
-        <span class="sr-only">Loading...</span>
-      </div>
+  </div> -->
+
+<ng-template #loadingTemplate>
+  <!-- Loading indicator -->
+  <div class="loading-spinner">
+    <!-- You can replace this with your preferred loading animation or spinner -->
+    <div class="spinner-border text-green" role="status" style="width: 5rem; height: 5rem;">
+      <span class="sr-only">Loading...</span>
     </div>
-  </ng-template>
-  
+  </div>
+</ng-template>

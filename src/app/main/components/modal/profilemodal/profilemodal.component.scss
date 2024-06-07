@@ -129,37 +129,21 @@
 
 .pagination {
     display: flex;
-    justify-content: right;
     align-items: center;
-    margin-top: 20px;
-    margin-right: 22px;
-
-    button {
-        padding: 8px 16px;
-        border: none;
-        background-color: none;
-        color: #333;
-        cursor: pointer;
-        transition: none;
-        margin: 0 5px;
-        border-radius: 4px;
-        outline: none;
-
-        &:disabled {
-            background-color: none;
-            cursor: not-allowed;
-            opacity: 0.5;
-        }
-    }
-
-    span {
-        padding: 8px 16px;
-        background-color: #285a43;
-        color: #fff;
-        margin: 0 5px;
-        border-radius: 4px;
-    }
-}
+    justify-content: right;
+    font-weight: bolder;
+    color: #415b44;
+    margin-right: 30px;
+  }
+  .pagination i {
+    cursor: pointer;
+  }
+  .pagination p {
+    margin: 0 30px;
+  }
+  .pagination .kaliwa{
+    margin-right: 40px;
+  }
 
 @media screen and (max-width: 768px ){
     .container {

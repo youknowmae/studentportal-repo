@@ -68,4 +68,8 @@ export class ProfilemodalComponent implements OnInit {
       this.currentPage++;
     }
   }
+
+  getPaginationSummary(): string {
+    return `Page ${this.currentPage} of ${this.totalPages}`;
+  }
 }
