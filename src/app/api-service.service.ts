@@ -34,20 +34,19 @@ export class ApiService {
     return this.http.get<any[]>(`${this.apiUrl}/student/articles/type/${type}`, { headers: this.getHeaders() });
   }
 
-  getArticleById(id: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/student/article/id/${id}`, { headers: this.getHeaders() });
+  getArticleById(accession: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/student/article/${accession}`, { headers: this.getHeaders() });
   }
-
   getBooks(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/student/books`, { headers: this.getHeaders() });
   }
 
-  getBookById(id: number, headers?: { [key: string]: string }): Observable<any> {
+  getBookById(accession: string, headers?: { [key: string]: string }): Observable<any> {
     let options = {};
     if (headers) {
       options = { headers };
     }
-    return this.http.get<any>(`${this.apiUrl}/student/book/id/${id}`, options);
+    return this.http.get<any>(`${this.apiUrl}/student/book/id/${accession}`, options);
   }
 
   getProjects(): Observable<any[]> {

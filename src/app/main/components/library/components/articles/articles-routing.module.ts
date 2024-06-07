@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'journals', component: JournalsComponent },
   { path: 'newspapers', component: NewspapersComponent },
   { path: 'magazines', component: MagazinesComponent },
-  { path: 'insidearticle/:id', component: InsidearticleComponent}];
+  { path: 'insidearticle/:accession', component: InsidearticleComponent}];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

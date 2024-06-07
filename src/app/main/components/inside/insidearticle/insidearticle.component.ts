@@ -14,13 +14,15 @@ export class InsidearticleComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      const articleId = +params['id'];
-      this.fetchArticle(articleId);
+      console.log('Route Params:', params);
+      const accession = params['accession'];
+      console.log('Accession:', accession);
+      this.fetchArticle(accession);
     });
   }
 
-  fetchArticle(id: number): void {
-    this.apiService.getArticleById(id).subscribe(
+  fetchArticle(accession: string): void {
+    this.apiService.getArticleById(accession).subscribe(
       (data: any) => {
         this.article = data;
       },

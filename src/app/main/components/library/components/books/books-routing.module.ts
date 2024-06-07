@@ -4,7 +4,7 @@ import { InsidebookComponent } from '../../../inside/insidebook/insidebook.compo
 
 const routes: Routes = [
   { path: '', redirectTo: 'books', pathMatch: 'full' },
-  { path: 'book/:id', component: InsidebookComponent },
+  { path: 'book/:accession', component: InsidebookComponent },
 ];
 
 @NgModule({

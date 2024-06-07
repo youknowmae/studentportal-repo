@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../../../api-service.service';
-import { AuthenticationService } from '../../../../authentication-service.service'; // Update path
+import { AuthenticationService } from '../../../../authentication-service.service';
 
 @Component({
   selector: 'app-insidereserved',
   templateUrl: './insidereserved.component.html',
-  styleUrl: './insidereserved.component.scss'
+  styleUrls: ['./insidereserved.component.scss']
 })
-export class InsidereservedComponent {
+export class InsidereservedComponent implements OnInit {
   book: any = {};
-  bookId: number | null = null;
+  accession: string | null = null;
 
   constructor(
     private apiService: ApiService,
@@ -19,18 +19,17 @@ export class InsidereservedComponent {
   ) {}
 
   ngOnInit(): void {
-    this.bookId = +this.route.snapshot.paramMap.get('id')!; // Use optional chaining or null check
-  
-    if (this.bookId !== null) { // Check if bookId is not null
-      this.fetchBookDetails(this.bookId);
+    this.accession = this.route.snapshot.paramMap.get('accession');
+    if (this.accession) {
+      this.fetchBookDetails(this.accession);
     }
   }
 
-  fetchBookDetails(bookId: number): void {
+  fetchBookDetails(accession: string): void {
     const authToken = this.authService.getToken(); 
     if (authToken) {
       const headers = { Authorization: `Bearer ${authToken}` }; 
-      this.apiService.getBookById(bookId, headers) // Pass headers correctly
+      this.apiService.getBookById(accession, headers)
         .subscribe(
           (data) => {
             this.book = data;
@@ -43,5 +42,4 @@ export class InsidereservedComponent {
       console.error('Authentication token not found.');
     }
   }
-
 }

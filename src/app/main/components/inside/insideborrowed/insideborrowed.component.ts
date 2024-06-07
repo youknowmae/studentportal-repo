@@ -8,11 +8,11 @@ import { AuthenticationService } from '../../../../authentication-service.servic
 @Component({
   selector: 'app-insideborrowed',
   templateUrl: './insideborrowed.component.html',
-  styleUrls: ['./insideborrowed.component.scss'] // Use styleUrls instead of styleUrl
+  styleUrls: ['./insideborrowed.component.scss']
 })
 export class InsideborrowedComponent implements OnInit {
   book: any = {};
-  bookId: number | null = null;
+  accession: string | null = null;
 
   constructor(
     private apiService: ApiService,
@@ -22,18 +22,17 @@ export class InsideborrowedComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.bookId = +this.route.snapshot.paramMap.get('id')!;
-
-    if (this.bookId !== null) {
-      this.fetchBookDetails(this.bookId);
+    this.accession = this.route.snapshot.paramMap.get('accession');
+    if (this.accession) {
+      this.fetchBookDetails(this.accession);
     }
   }
 
-  fetchBookDetails(bookId: number): void {
+  fetchBookDetails(accession: string): void {
     const authToken = this.authService.getToken();
     if (authToken) {
       const headers = { Authorization: `Bearer ${authToken}` };
-      this.apiService.getBookById(bookId, headers)
+      this.apiService.getBookById(accession, headers)
         .subscribe(
           (data) => {
             this.book = data;
@@ -49,7 +48,7 @@ export class InsideborrowedComponent implements OnInit {
 
   openModal(): void {
     const dialogRef = this.dialog.open(ReservemodalComponent, {
-      data: { bookId: this.bookId }
+      data: { accession: this.accession } // Pass accession instead of bookId
     });
 
     dialogRef.afterClosed().subscribe(result => {

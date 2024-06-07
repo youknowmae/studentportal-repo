@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../../../api-service.service';
-import { AuthenticationService } from '../../../../authentication-service.service'; // Update path
+import { AuthenticationService } from '../../../../authentication-service.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ReservemodalComponent } from '../../modal/reservemodal/reservemodal.component';
 
@@ -12,7 +12,7 @@ import { ReservemodalComponent } from '../../modal/reservemodal/reservemodal.com
 })
 export class InsidebookComponent implements OnInit {
   book: any = {};
-  bookId: number | null = null;
+  accession: string | null = null;
 
   constructor(
     private apiService: ApiService,
@@ -22,18 +22,21 @@ export class InsidebookComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.bookId = +this.route.snapshot.paramMap.get('id')!; // Use optional chaining or null check
-  
-    if (this.bookId !== null) { // Check if bookId is not null
-      this.fetchBookDetails(this.bookId);
-    }
+    // Get the accession from the route parameters
+    this.route.params.subscribe(params => {
+      this.accession = params['accession'];
+      if (this.accession) {
+        this.fetchBookDetails(this.accession);
+      }
+    });
   }
 
-  fetchBookDetails(bookId: number): void {
-    const authToken = this.authService.getToken(); 
+  fetchBookDetails(accession: string): void {
+    // Fetch book details from the API
+    const authToken = this.authService.getToken();
     if (authToken) {
-      const headers = { Authorization: `Bearer ${authToken}` }; 
-      this.apiService.getBookById(bookId, headers) // Pass headers correctly
+      const headers = { Authorization: `Bearer ${authToken}` };
+      this.apiService.getBookById(accession, headers)
         .subscribe(
           (data) => {
             this.book = data;
@@ -48,8 +51,9 @@ export class InsidebookComponent implements OnInit {
   }
 
   openModal(): void {
+    // Open reservation modal and pass accession to it
     const dialogRef = this.dialog.open(ReservemodalComponent, {
-      data: { bookId: this.bookId } // Pass bookId to the modal component
+      data: { accession: this.accession }
     });
 
     dialogRef.afterClosed().subscribe(result => {
