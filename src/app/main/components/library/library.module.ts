@@ -20,7 +20,6 @@ import { AcademicModule } from './components/academic/academic.module';
     ArticlesComponent,
     PeriodicalsComponent,
     AcademicComponent,
-    
   ],
   imports: [
     
