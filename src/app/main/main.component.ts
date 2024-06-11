@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ApiService } from '../api-service.service'; // Assuming ApiService is the correct service name
@@ -14,7 +13,6 @@ import Swal from 'sweetalert2';
 })
 export class MainComponent implements OnInit {
   apiUrl: string = "http://localhost:8000/api";
-
 
   articles: any[] = [];
   books: any[] = [];
@@ -43,22 +41,15 @@ export class MainComponent implements OnInit {
 
   fetchData(): void {
     this.apiService.getArticles().subscribe(data => {
-
       this.articles = data;
     });
     this.apiService.getBooks().subscribe(data => {
-
-
       this.books = data;
     });
     this.apiService.getPeriodicals().subscribe(data => {
-
-
       this.periodicals = data;
     });
     this.apiService.getProjects().subscribe(data => {
-
-
       this.projects = data;
     });
   }
@@ -91,5 +82,4 @@ export class MainComponent implements OnInit {
       }
     });
   }
-
 }

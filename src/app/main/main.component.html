@@ -40,6 +40,9 @@
     </div>
 </div>
 
+<!-- Overlay -->
+<div class="sidebar-overlay" [ngClass]="{'visible': !isSidebarHidden}" (click)="toggleSidebar()"></div>
+
 <!-- Main content -->
 <div class="connectside" [ngClass]="{'connectside-sidebar-hidden': isSidebarHidden}">
     <router-outlet></router-outlet>
