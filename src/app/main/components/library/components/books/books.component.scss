@@ -216,22 +216,20 @@
     display: none;
   }
   .loading-spinner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #31A463;
-    height: 300px;
-    padding: 20px;
-  }
+    display: none; 
+  } 
   .pagination {
-    justify-content: center;
-    margin-right: 0;
-    margin-bottom: 20px;
+    padding-bottom: 20px;
   }
-  .pagination button {
-    padding: 4px 8px;
-    font-size: 10px;
-    margin-bottom: 20px;
-  }
+.pagination i {
+  font-size: 10px;
+}
+.pagination p {
+  margin: 0 10px;
+  font-size: 10px;
+}
+.pagination .kaliwa{
+  margin-right: 20px;
+}
 }
 

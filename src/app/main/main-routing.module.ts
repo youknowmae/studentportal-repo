@@ -4,6 +4,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { AnnouncementComponent } from './components/announcement/announcement.component';
 import { LibraryComponent } from './components/library/library.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { ReservedComponent } from './components/profile/components/reserved/reserved.component';
+import { InsidebookComponent } from './components/inside/insidebook/insidebook.component';
+import { ReservemodalComponent } from './components/modal/reservemodal/reservemodal.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'profile', pathMatch: 'full' },
@@ -23,7 +26,9 @@ const routes: Routes = [
       path: '',
       loadChildren: ()=>import('./components/library/library.module').then((m)=>m.LibraryModule)
     }]
-  }];
+  },
+  { path: 'InsidebookComponent', component: ReservemodalComponent}
+];
   
 
 @NgModule({

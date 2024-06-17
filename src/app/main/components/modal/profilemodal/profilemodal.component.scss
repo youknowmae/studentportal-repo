@@ -203,18 +203,14 @@
             font-size: 10px;
         }
     }
-    .pagination {
-        justify-content: center;
-        margin-right: 0;
-    
-        button {
-            padding: 4px 8px;
-            font-size: 10px;
-        }
-    
-        span {
-            padding: 4px 8px;
-            font-size: 10px;
-        }
+    .pagination i {
+      font-size: 10px;
+    }
+    .pagination p {
+      margin: 0 10px;
+      font-size: 10px;
+    }
+    .pagination .kaliwa{
+      margin-right: 20px;
     }
 }

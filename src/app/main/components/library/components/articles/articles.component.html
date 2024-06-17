@@ -34,6 +34,15 @@
   <!-- Articles -->
   <div class="row" *ngIf="!loading">
     <div class="rectangle" *ngFor="let article of paginatedArticles" [routerLink]="['../insidearticle', article.accession]">
+      <span class="dot1"></span>
+      <span class="dot2"></span>
+      <span class="dot3"></span>
+      <span class="dot4"></span>
+      <span class="dot5"></span>
+      <span class="dot6"></span>
+      <span class="dot7"></span>
+      <span class="dot8"></span>
+      <span class="dot9"></span>
       <div class="details">
         <div class="left">
           <p><span>Type: </span>{{ article.material_type }}</p>

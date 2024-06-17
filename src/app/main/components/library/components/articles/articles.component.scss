@@ -5,7 +5,7 @@
 .rectangle{
   padding: 20px;
   border: solid 2px var(--border-color);
-  background-color: #f7f7f7;
+  background-color: #fff;
   border-radius: 3px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   transition: all .2s ease-in;
@@ -14,13 +14,16 @@
   margin-bottom: 22px;
   margin-left: 16px;
   height: 100px;
+  position: relative;
 }
 .rectangle:hover {
   transform: scale(1.02);
   transition: all .2s ease-in;
 }
+
 .details {
-  margin-top: 10px;
+  z-index: 999;
+  padding: 10px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 7px;
@@ -28,6 +31,8 @@
   overflow-x: hidden;
   overflow-y: scroll;
   height: 50px;
+  position: relative;
+  background-color: #fff;
 }
 .details p {
   font-size: 14px;
@@ -160,4 +165,32 @@
 }
 .form-control:focus {
   border-color: 1px solid #415b44;
+}
+@media screen and (max-width: 768px ){
+  .input-group{
+    display: none;
+  }
+  .rectangle{
+    width: 90%;
+  }
+  
+.loading-spinner {
+  display: none; 
+}
+.details p {
+  font-size: 10px
+}
+  .pagination {
+    padding-bottom: 20px;
+  }
+.pagination i {
+  font-size: 10px;
+}
+.pagination p {
+  margin: 0 10px;
+  font-size: 10px;
+}
+.pagination .kaliwa{
+  margin-right: 20px;
+}
 }

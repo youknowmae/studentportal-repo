@@ -209,3 +209,27 @@
 .form-control:focus {
   border-color: 1px solid #415b44;
 }
+@media screen and (max-width: 768px ){
+  .input-group{
+    display: none;
+  }
+.square {
+  width: 285px;
+}
+  .loading-spinner {
+    display: none; 
+  }
+  .pagination {
+    padding-bottom: 20px;
+  }
+.pagination i {
+  font-size: 10px;
+}
+.pagination p {
+  margin: 0 10px;
+  font-size: 10px;
+}
+.pagination .kaliwa{
+  margin-right: 20px;
+}
+}
