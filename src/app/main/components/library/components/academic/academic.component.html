@@ -51,7 +51,7 @@
 
   <!-- pagination -->
   <div class="pagination">
-    <p>Items per page: {{ projectsPerPage }}</p>
+    <p>Item per page: {{ projectsPerPage }}</p>
     <p>{{ getPaginationSummary() }}</p>
     <i class="fas fa-chevron-left kaliwa" (click)="currentPage > 1 ? previousPage() : null"></i>
     <i class="fas fa-chevron-right" (click)="nextPage()" [hidden]="currentPage === totalPages"></i>

@@ -2,7 +2,7 @@
   font-family: 'Montserrat';
 }
 .content{
-  padding: 20px 40px 0 60px;
+  margin-top: 20px;
 }
 .square {
   border: solid 2px var(--border-color);
@@ -15,6 +15,8 @@
   transition: all .2s ease-in;
   height: 260px;
   overflow: hidden;
+  position: relative;
+  background-color: #fff;
 }
 .square:hover{
   transform: scale(1.05);
@@ -31,17 +33,22 @@
   border: 2px solid #31A463;
   width: 140px;
   font-size: 10px;
+  position: relative;
   font-weight: bolder;
+  margin-top: -10px;
 }
 .square .important{
   background-color: rgba(255, 0, 0, 0.4);
   padding: 5px;
-  color: red;
+  color: #fff;
   border-radius: 5px;
   border: 2px solid red;
   width: 140px;
   font-size: 10px;
+  position: relative;
   font-weight: bolder;
+  z-index: 999;
+  margin-top: -10px;
 }
 .square .mid{
   background-color: rgba(255, 215, 0, 0.4);
@@ -51,7 +58,99 @@
   border: 2px solid rgb(109, 109, 1);
   width: 140px;
   font-size: 10px;
+  position: relative;
   font-weight: bolder;
+  margin-top: -10px;
+}
+.square .dot1 {
+  position: absolute;
+  height: 40px;
+  width: 530px;
+  background-color: #415b44;
+  display: inline-block;
+  z-index: 50;
+  margin-left: -170px;
+  margin-top: -20px;
+}
+.square .dot2 {
+  position: absolute;
+  height: 40px;
+  width: 430px;
+  background-color: #49664d;
+  display: inline-block;
+  z-index: 45;
+  margin-left: -170px;
+  margin-top: -20px;
+}
+.square .dot3 {
+  position: absolute;
+  height: 50px;
+  width: 430px;
+  background-color: #517255;
+  display: inline-block;
+  z-index: 40;
+  margin-left: -170px;
+  margin-top: -20px;
+}
+.square .dot4 {
+  position: absolute;
+  height: 60px;
+  width: 430px;
+  background-color: #5a7d5e;
+  display: inline-block;
+  z-index: 35;
+  margin-left: -170px;
+  margin-top: -20px;
+}
+.square .dot5 {
+  position: absolute;
+  height: 70px;
+  width: 430px;
+  background-color: #628966;
+  display: inline-block;
+  z-index: 30;
+  margin-left: -170px;
+  margin-top: -20px;
+}
+.square .dot6 {
+  position: absolute;
+  height: 80px;
+  width: 430px;
+  background-color: #6a946f;
+  display: inline-block;
+  z-index: 25;
+  margin-left: -170px;
+  margin-top: -20px;
+}
+.square .dot7 {
+  position: absolute;
+  height: 90px;
+  width: 430px;
+  background-color: #759d7a;
+  display: inline-block;
+  z-index: 20;
+  margin-left: -170px;
+  margin-top: -20px;
+}
+.square .dot8 {
+  position: absolute;
+  height: 100px;
+  width: 430px;
+  background-color: #81a585;
+  display: inline-block;
+  z-index: 15;
+  margin-left: -170px;
+  margin-top: -20px;
+}
+.square .dot9 {
+  position: absolute;
+  height: 110px;
+  width: 430px;
+  background-color: #8cad90;
+  display: inline-block;
+  z-index: 10;
+  margin-left: -170px;
+  margin-top: -20px;
 }
 .square-image {
   width: 100%;
@@ -59,7 +158,9 @@
   background-color: #f3f3f3;
   border-radius: 3px;
   margin-bottom: 10px; 
-  object-fit: contain;
+  object-fit: cover;
+  z-index: 999;
+  position: relative;
 }
 .square-content {
   display: flex;
@@ -68,6 +169,7 @@
   margin-top: 10px;
   overflow-x: hidden;
   overflow-y: scroll;
+  position: relative;
 }
 .square-content::-webkit-scrollbar {
   width: 0;
@@ -94,7 +196,7 @@
   margin-top: -15px;
 }
 .view-button {
-  background-color: #31A463;
+  background-color: #415b44;
   border: 2px solid;
   border-radius: 5px;
   color: #ffffff;
@@ -112,4 +214,17 @@
   cursor: pointer;
   text-decoration: none;
   height: 12%;
+}
+@media screen and (max-width: 768px) {
+  .square{
+    width: 280px;
+  }
+  .col-md-4{
+    padding: 0;
+    margin: 0;
+  }
+  .square .important{
+    width: 140px;
+    font-size: 8px;
+  }
 }

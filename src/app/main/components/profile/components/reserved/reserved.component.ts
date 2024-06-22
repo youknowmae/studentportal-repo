@@ -153,8 +153,6 @@ export class ReservedComponent implements OnInit {
     );
   }
 
- 
-
   viewReservationDetails(reservation: any): void {
     console.log('Viewing reservation:', reservation);
   }

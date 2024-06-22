@@ -1,15 +1,21 @@
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 
-<div class="content">
+<div class="content col-md-12">
     <div class="row">
         <div class="col-md-4" *ngFor="let item of borrowedItems">
             <div class="square">
+                <span class="dot1"></span>
+                <span class="dot2"></span>
+                <span class="dot3"></span>
+                <span class="dot4"></span>
+                <span class="dot5"></span>
+                <span class="dot6"></span>
+                <span class="dot7"></span>
+                <span class="dot8"></span>
+                <span class="dot9"></span>
                 <p class="important">Return by: {{ item.borrow_expiration }}</p>
-<<<<<<< Updated upstream
                 <img [src]="item.book.image_url == null ? 'assets/logo.png' : item.book.image_url" alt="Image" class="square-image">
-=======
-                <img [src]="item.book.image_url == null ? 'assets/images/lib.png' : item.book.image_url" alt="Image" class="square-image">
->>>>>>> Stashed changes
                 <div class="square-content">
                     <div class="square-text">
                         <h2>{{ item.book.title }}</h2>
@@ -22,6 +28,5 @@
         </div>
     </div>
 </div>
-<br>
 <br>
     

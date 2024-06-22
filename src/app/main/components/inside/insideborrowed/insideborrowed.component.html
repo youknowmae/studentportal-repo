@@ -1,31 +1,26 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 
-<div class="content">
-  <div class="container">
-<<<<<<< Updated upstream
-      <span class="back-icon" [routerLink]="['/main/profile']" routerLinkActive="router-link-active"><i class="fa-solid fa-angle-left"></i></span>
-=======
-    <span class="back-icon" [routerLink]="['/main/library']" routerLinkActive="router-link-active" ><i class="fa-solid fa-angle-left"></i></span>
-    <button class="btn" (click)="openModal()">Reserve</button>
->>>>>>> Stashed changes
-      <div class="image">
-        <img [src]="book.image_url == null ? 'assets/images/lib.png' : book.image_url" alt="Image" class="square-image">
-      </div>
+<div class="container">
+  <span class="back-icon" [routerLink]="['/main/profile']" routerLinkActive="router-link-active"><i class="fa-solid fa-angle-left"></i></span>
+
+  <div class="content">
+    <div class="image">
+      <img [src]="book.image_url == null ? 'assets/images/lib.png' : book.image_url" alt="Image" class="square-image">
       <h2>{{ book['title'] }}</h2>
-      <div class="info">
-          <p>Status: {{ book['available'] ? 'Available' : 'Not Available' }}</p>
-          <p>Accesion: {{ book['id'] }}</p>
-          <p>Call Number: {{ book['call_number'] }}</p>
-          <p>Copyright: {{ book['copyright'] }}</p> 
-          <p>Author: {{ book['authors'] }}</p>
-          <p>Volume: {{ book['volume'] }}</p>
-          <p>Pages: {{ book['pages'] }}</p>
-          <p>Edition: {{ book['edition'] }}</p>
-          <p>Remark: {{ book['remarks'] != null ? book['remarks'] : 'N/A' }}</p>
-      </div>
+    </div>
+    <div class="info">
+      <p>Status: {{ book['available'] ? 'Available' : 'Not Available' }}</p>
+      <p>Accession: {{ book['accession'] }}</p>
+      <p>Call Number: {{ book['call_number'] }}</p>
+      <p>Copyright: {{ book['copyright'] }}</p>
+      <p>Author: {{ book['authors'] }}</p>
+      <p>Volume: {{ book['volume'] }}</p>
+      <p>Pages: {{ book['pages'] }}</p>
+      <p>Edition: {{ book['edition'] }}</p>
+      <p>Remark: {{ book['remarks'] != null ? book['remarks'] : 'N/A' }}</p>
+    </div>
   </div>
+  <button class="btn">Reserve</button>
 </div>
-<br>
-<br>
 

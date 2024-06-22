@@ -54,6 +54,9 @@
       <button class="btn btn-block btn-icon" [class.active]="selectedSection === 'returned'" (click)="setActiveSection('returned')" [routerLink]="['returned']">Reserved</button>
     </div>
   </div> 
+
+  <div class="connection">
+    <router-outlet></router-outlet>
 </div>
-<router-outlet></router-outlet>
+</div>
 

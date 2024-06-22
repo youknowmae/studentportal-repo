@@ -32,33 +32,23 @@
   </div>
   <br>
   <div class="txt_field4">
-    <input class="inputtxt4" type="text" formControlName="numberOfBooks">
+    <input class="inputtxt4" type="text" formControlName="numberOfBooks" readonly>
     <span></span>
     <div class="labelline4">Number of Books</div>
   </div>
-  <div class="txt_field4">
-    <input class="inputtxt4" type="text" formControlName="price" readonly>
-    <span></span>
-    <div class="labelline4">Fines</div>
-  </div>
-  <br>
   <div class="txt_field1">
     <div class="labelline1">Date Request</div>
     <span></span>
     <input type="date" class="date" formControlName="start_date">
   </div>
-  <div class="txt_field1">
-    <div class="labelline1">Date of Expiration</div>
-    <span></span>
-    <input type="date" class="date" formControlName="end_date">
+  <div class="checkbox-wrapper-21">
+    <label class="control control--checkbox">
+      I accept the <a (click)="openterm()">Terms and Conditions</a>
+      <input type="checkbox" (change)="onTermsChange($event)" />
+      <div class="control__indicator"></div>
+    </label>
   </div>
   <div class="button-container">
-    <button type="submit" class="cancel-btn2">Reserve</button>
-  </div>
-  <div *ngIf="successMessage" class="success-message">
-    {{ successMessage }}
-  </div>
-  <div *ngIf="errorMessage" class="error-message">
-    {{ errorMessage }}
+    <button type="submit" class="reserve" [disabled]="!termsAccepted" [class.disabled]="!termsAccepted">Reserve</button>
   </div>
 </form>

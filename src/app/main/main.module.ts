@@ -14,6 +14,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InsidearticleComponent } from './components/inside/insidearticle/insidearticle.component';
 import { InsidereservedComponent } from './components/inside/insidereserved/insidereserved.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { TermsmodalComponent } from './components/modal/termsmodal/termsmodal.component';
+import { InsideannouncementComponent } from './components/inside/insideannouncement/insideannouncement.component';
 
 
 @NgModule({
@@ -25,6 +27,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     ReservemodalComponent,
     QrmodalComponent,
     InsidereservedComponent,
+    TermsmodalComponent,
+    InsideannouncementComponent,
   ],
   imports: [
     CommonModule,

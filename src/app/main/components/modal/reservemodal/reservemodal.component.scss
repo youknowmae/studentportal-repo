@@ -1,23 +1,29 @@
 * {
   font-family: 'Montserrat';
 }
-.header{
+
+.header {
   background-color: #31A463;
   padding: 20px 0 10px 20px;
 }
-.header h5{
+
+.header h5 {
   font-size: 16px;
   color: #ffffff;
   font-weight: bolder;
 }
+
 .button-container {
   display: flex;
   justify-content: right;
   margin-right: 0;
 }
+
 button {
+  background-color: #31A463;
+  color: white;
+  float: right;
   padding: 10px 20px;
-  margin: 0 10px;
   cursor: pointer;
   border: none;
   border-radius: 5px;
@@ -26,79 +32,29 @@ button {
   letter-spacing: 1.5px;
   margin: 10px;
 }
-.cancel-btn2 {
-  background-color: #31A463;
-  color: white;
-  float: right;
-  margin-top: 20px;
-}
-.cancel-btn2:hover {
+
+button:hover {
   background-color: #0ca64f;
 }
-.txt_field1 .inputtxt2 {
-  width: 100%;
-  padding: 15px 5px 40px 0;
-  font-size: 15px;
-  border: none;
-  background-color: #F6F6F6;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  outline: none;
-  border-bottom: 2px solid #777777;
-}
-.txt_field1 .labelline2 {
-  margin-left: 10px;
-  left: 10px;
-  color: #777777;
-  font-size: 12px;
-}
-form .txt_field1 {
-  padding-top: 10px;
-  border-bottom: 2px solid #777777;
-  padding-bottom: 10px;
-  background-color: #F6F6F6;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  height: 60px;
-  width: 240px;
-  display: inline-grid;
-  margin: 10px 10px 30px 10px;
-}
-.txt_field1 .labelline1 {
-  margin-left: 10px;
-  left: 14px;
-  color: #777777;
-  font-size: 12px;
-}
-.txt_field1 .inputtxt1 {
-  width: 100%;
-  padding-top: 50px;
-  padding-left: 14px;
-  padding-right: 10px;
-  height: 60px;
-  font-size: 15px;
-  border: none;
-  background-color: #F6F6F6;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  outline: none;
-}
+
 .date {
   border: none;
   width: 97%;
   font-size: 15px;
-  margin-left: 1px;
+  padding-right: 10px;
+  padding-left: 10px;
   background-color: #F6F6F6;
   border-radius: 5px;
   outline: none;
   color: #31A463;
 }
-input[type=file] {
 
+input[type=file] {
   background-color: #F6F6F6;
   border: none;
   width: 100%;
 }
+
 input[type="file"]::file-selector-button {
   letter-spacing: 0.5px;
   font-size: 14px;
@@ -114,14 +70,17 @@ input[type="file"]::file-selector-button {
   transition: background-color 200ms;
   left: 10px;
 }
+
 .txt_field {
   display: inline-block;
   width: calc(50% - 20px);
   margin-right: 20px;
 }
+
 .txt_field:nth-child(even) {
   margin-right: 0;
 }
+
 .txt_field .uploadlabel {
   position: absolute;
   top: 0;
@@ -137,15 +96,18 @@ input[type="file"]::file-selector-button {
 .details-content::-webkit-scrollbar {
   width: 7px;
 }
+
 .details-content::-webkit-scrollbar-thumb {
   background-color: var(--table-border);
   border-radius: 5px;
 }
+
 .details-content::-webkit-scrollbar-track {
   background-color: var(--primary-color);
   margin-top: 90px;
   margin-bottom: 10px;
 }
+
 .details-content::-webkit-scrollbar-thumb:hover {
   background-color: var(--table-border2);
 }
@@ -153,37 +115,31 @@ input[type="file"]::file-selector-button {
 .labelline {
   margin-bottom: 10px;
 }
+
 form .txt_field1 {
-  padding-top: 10px;
   border-bottom: 2px solid #777777;
   padding-bottom: 10px;
   background-color: #F6F6F6;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  height: 60px;
+  height: 62px;
   width: 240px;
   display: inline-grid;
-  margin: 10px 10px 30px 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  position: relative;
+  top: -27px;
+
 }
+
 .txt_field1 .labelline1 {
   margin-left: 10px;
   left: 14px;
   color: #777777;
   font-size: 12px;
 }
-.txt_field1 .inputtxt1 {
-  width: 100%;
-  padding-top: 50px;
-  padding-left: 14px;
-  padding-right: 10px;
-  height: 60px;
-  font-size: 15px;
-  border: none;
-  background-color: #F6F6F6;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  outline: none;
-}
+
 form .txt_field4 {
   position: relative;
   border-bottom: 2px solid #777777;
@@ -191,6 +147,7 @@ form .txt_field4 {
   width: 240px;
   display: inline-block;
 }
+
 .txt_field4 .inputtxt4 {
   width: 100%;
   display: block;
@@ -205,6 +162,7 @@ form .txt_field4 {
   border-top-right-radius: 5px;
   outline: none;
 }
+
 .txt_field4 .labelline4 {
   position: absolute;
   top: 50%;
@@ -215,6 +173,7 @@ form .txt_field4 {
   pointer-events: none;
   transition: .3s;
 }
+
 .txt_field4 .labelline4 {
   position: absolute;
   left: 10px;
@@ -223,6 +182,7 @@ form .txt_field4 {
   color: #31A463;
   letter-spacing: 0.5px;
 }
+
 .txt_field4 span::before {
   content: '';
   position: absolute;
@@ -233,28 +193,34 @@ form .txt_field4 {
   background: #31A463;
   transition: .3s;
 }
+
 .inputtxt4:not(:focus)+span::before {
   background: #777777;
 }
+
 .txt_field4 .inputtxt4:hover {
   background-color: #ececec;
 }
+
 .txt_field4 .inputtxt4:valid~.labelline4 {
   top: 17px;
   font-size: 12px;
   letter-spacing: 0.5px;
   color: #777777;
 }
+
 .txt_field4 .inputtxt4:focus~.labelline4 {
   top: 17px;
   font-size: 12px;
   color: #31A463;
   letter-spacing: 0.5px;
 }
+
 .txt_field4 .inputtxt4:focus~span::before,
 .txt_field4 .inputtxt4:valid~span::before {
   width: 100%;
 }
+
 form .txt_field5 {
   position: relative;
   border-bottom: 2px solid #777777;
@@ -262,6 +228,7 @@ form .txt_field5 {
   width: 500px;
   display: inline-block;
 }
+
 .txt_field5 .inputtxt5 {
   width: 100%;
   display: block;
@@ -276,6 +243,7 @@ form .txt_field5 {
   border-top-right-radius: 5px;
   outline: none;
 }
+
 .txt_field5 .labelline5 {
   position: absolute;
   top: 50%;
@@ -286,6 +254,7 @@ form .txt_field5 {
   pointer-events: none;
   transition: .3s;
 }
+
 .txt_field5 .labelline5 {
   position: absolute;
   left: 10px;
@@ -294,6 +263,7 @@ form .txt_field5 {
   color: #31A463;
   letter-spacing: 0.5px;
 }
+
 .txt_field5 span::before {
   content: '';
   position: absolute;
@@ -304,25 +274,188 @@ form .txt_field5 {
   background: #31A463;
   transition: .3s;
 }
+
 .inputtxt5:not(:focus)+span::before {
   background: #777777;
 }
+
 .txt_field5 .inputtxt5:hover {
   background-color: #ececec;
 }
+
 .txt_field5 .inputtxt5:valid~.labelline4 {
   top: 17px;
   font-size: 12px;
   letter-spacing: 0.5px;
   color: #777777;
 }
-.txt_field5 .inputtxt5focus~.labelline5 {
+
+.txt_field5 .inputtxt5:focus~.labelline5 {
   top: 17px;
   font-size: 12px;
   color: #31A463;
   letter-spacing: 0.5px;
 }
+
 .txt_field5 .inputtxt5:focus~span::before,
 .txt_field5 .inputtxt5:valid~span::before {
   width: 100%;
+}
+
+// Check box
+.control a{
+  color: #376448;
+  font-weight: 400;
+}
+.control a:hover{
+  font-weight: bolder;
+}
+.checkbox-wrapper-21 .control {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  font-size: 13px;
+  margin-top: -15px;
+}
+
+.checkbox-wrapper-21 .control input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.checkbox-wrapper-21 .control__indicator {
+  position: absolute;
+  top: 2px;
+  left: 10px;
+  height: 15px;
+  width: 15px;
+  background: #e6e6e6;
+}
+
+.checkbox-wrapper-21 .control:hover input ~ .control__indicator,
+.checkbox-wrapper-21 .control input:focus ~ .control__indicator {
+  background: #ccc;
+}
+
+.checkbox-wrapper-21 .control input:checked ~ .control__indicator {
+  background: #2aa1c0;
+}
+
+.checkbox-wrapper-21 .control:hover input:not([disabled]):checked ~ .control__indicator,
+.checkbox-wrapper-21 .control input:checked:focus ~ .control__indicator {
+  background: #0e647d;
+}
+
+.checkbox-wrapper-21 .control input:disabled ~ .control__indicator {
+  background: #e6e6e6;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.checkbox-wrapper-21 .control__indicator:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+.checkbox-wrapper-21 .control input:checked ~ .control__indicator:after {
+  display: block;
+}
+
+.checkbox-wrapper-21 .control--checkbox .control__indicator:after {
+  left: 6px;
+  top: 2.5px;
+  width: 3px;
+  height: 8px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.checkbox-wrapper-21 .control--checkbox input:disabled ~ .control__indicator:after {
+  border-color: #7b7b7b;
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 10px 0 0 20px;
+    width: 300px;
+  }
+
+  .header h5 {
+    font-size: 12px;
+  }
+
+  form {
+    height: 500px;
+  }
+
+  form .txt_field5 {
+    margin: 10px 10px 10px 10px;
+    width: 280px;
+  }
+
+  .txt_field5 .inputtxt5 {
+    height: 50px;
+    font-size: 12px;
+  }
+
+  .txt_field5 .labelline5 {
+    font-size: 12px;
+  }
+
+  .txt_field5 .labelline5 {
+    font-size: 12px;
+  }
+
+  .txt_field5 span::before {
+    top: 50px;
+  }
+
+  form .txt_field4 {
+    margin: 10px 10px 10px 10px;
+    width: 280px;
+  }
+
+  .txt_field4 .inputtxt4 {
+    height: 50px;
+    font-size: 12px;
+  }
+
+  .txt_field4 .labelline4 {
+    font-size: 12px;
+  }
+
+  .txt_field4 .labelline4 {
+    font-size: 12px;
+  }
+
+  .txt_field4 span::before {
+    top: 50px;
+  }
+
+  form .txt_field1 {
+    margin: 35px 10px 10px 10px;
+    width: 280px;
+    height: 50px;
+  }
+
+  .txt_field1 .labelline1 {
+    font-size: 12px;
+  }
+
+  .date {
+    font-size: 12px;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  button {
+    padding: 10px 10px;
+    border-radius: 3px;
+    margin: 0 10px 10px;
+    font-size: 12px;
+  }
 }

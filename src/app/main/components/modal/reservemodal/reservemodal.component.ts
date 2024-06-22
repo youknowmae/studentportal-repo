@@ -5,7 +5,8 @@ import { AuthenticationService } from '../../../../authentication-service.servic
 import Swal from 'sweetalert2';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HttpClient } from '@angular/common/http';
-
+import { MatDialog } from '@angular/material/dialog';
+import { TermsmodalComponent } from '../termsmodal/termsmodal.component';
 
 @Component({
   selector: 'app-reservemodal',
@@ -17,12 +18,15 @@ export class ReservemodalComponent implements OnInit {
   successMessage: string | null = null;
   errorMessage: string | null = null;
   selectedBookId: string | null = null;
+  termsAccepted: boolean = false; // Added to track checkbox status
 
   constructor(
+    private dialogRef: MatDialog, 
     private fb: FormBuilder,
     private apiService: ApiService,
     private authService: AuthenticationService,
     private http: HttpClient,
+    private dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.selectedBookId = data.bookId;
@@ -30,19 +34,15 @@ export class ReservemodalComponent implements OnInit {
       fullName: ['', Validators.required],
       id: ['', Validators.required],
       department: ['', Validators.required],
-      // patronType: ['', Validators.required],
       title: ['', Validators.required],
       authors: ['', Validators.required],
-      // location: ['', Validators.required],
       numberOfBooks: ['', [Validators.required, Validators.min(1)]],
       price: ['', [Validators.required, Validators.min(0)]],
       start_date: ['', Validators.required],
       end_date: ['', Validators.required],
-      status:[1,[Validators.required]],
-      type: ['online',[Validators.required]],
-    
+      status: [1, Validators.required],
+      type: ['online', Validators.required],
     });
-    
   }
 
   ngOnInit(): void {
@@ -59,7 +59,6 @@ export class ReservemodalComponent implements OnInit {
           fullName: `${user.first_name} ${user.middle_name} ${user.last_name} `,
           id: user.id,
           department: this.authService.getDepartment(),
-          // patronType: user.role
         };
         this.fillUserInfo(userInfo);
       } else {
@@ -74,13 +73,12 @@ export class ReservemodalComponent implements OnInit {
       console.error('Authentication token is missing. Please log in again.');
       return;
     }
-  
+
     this.apiService.getBookById(accession, { 'Authorization': `Bearer ${authToken}` }).subscribe(data => {
       if (data) {
         const selectedBook = {
           title: data.title,
           authors: data.authors,
-          // location: data.location
           price: data.price,
         };
         this.fillBookInfo(selectedBook);
@@ -95,13 +93,12 @@ export class ReservemodalComponent implements OnInit {
       }
     });
   }
-  
+
   fillUserInfo(userInfo: any): void {
     this.reservationForm.patchValue({
       fullName: userInfo.fullName,
       id: userInfo.id,
       department: userInfo.department,
-      // patronType: userInfo.patronType
     });
   }
 
@@ -109,9 +106,7 @@ export class ReservemodalComponent implements OnInit {
     this.reservationForm.patchValue({
       title: selectedBook.title,
       authors: selectedBook.authors,
-      // location: selectedBook.location
       price: selectedBook.price,
-
     });
   }
 
@@ -127,10 +122,8 @@ export class ReservemodalComponent implements OnInit {
         status: reservationData.status,
         type: reservationData.type
       };
-            
-  
+
       this.apiService.createReservation(requestData).subscribe(
-        
         response => {
           Swal.fire({
             icon: 'success',
@@ -138,7 +131,6 @@ export class ReservemodalComponent implements OnInit {
             text: 'Reservation created successfully',
           });
           this.reservationForm.reset();
-          
         },
         error => {
           Swal.fire({
@@ -152,43 +144,11 @@ export class ReservemodalComponent implements OnInit {
       console.error('Form is invalid or no book selected');
     }
   }
-  
 
-// onSubmit(): void {
-//   console.log('Form Valid:', this.reservationForm.valid);
-//   console.log('Selected Book ID:', this.selectedBookId);
-//   console.log('Form Values:', this.reservationForm.value);
-
-//   if (this.reservationForm.valid && this.selectedBookId !== null) {
-//     const reservationData = this.reservationForm.value;
-//     const requestData = {
-//       user_id: reservationData.id,
-//       book_id: this.selectedBookId,
-//       start_date: reservationData.dateRequest,
-//       end_date: reservationData.dateOfExpiration,
-//       fine: reservationData.fines,
-//       status: true // Assuming always true for new reservations
-//     };
-
-//     this.http.post<any>('http://localhost:8000/api/reservations', requestData)
-//       .subscribe(response => {
-//         Swal.fire({
-//           icon: 'success',
-//           title: 'Success',
-//           text: 'Reservation created successfully',
-//         });
-//         this.reservationForm.reset();
-//       }, error => {
-//         Swal.fire({
-//           icon: 'error',
-//           title: 'Error',
-//           text: 'Failed to create reservation',
-//         });
-//       });
-//   } else {
-//     console.error('Form is invalid or no book selected');
-//   }
-// }
+  // Added method to toggle termsAccepted
+  onTermsChange(event: any): void {
+    this.termsAccepted = event.target.checked;
+  }
 
   logFormState(): void {
     Object.keys(this.reservationForm.controls).forEach(key => {
@@ -197,5 +157,9 @@ export class ReservemodalComponent implements OnInit {
         console.log('Key control: ' + key + ', errors: ' + JSON.stringify(controlErrors));
       }
     });
+  }
+
+  openterm () {
+    this.dialogRef.open(TermsmodalComponent, {})
   }
 }
