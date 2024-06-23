@@ -39,7 +39,7 @@ import { AnnouncementModule } from './components/announcement/announcement.modul
     FormsModule,
     ReactiveFormsModule,
     MatPaginatorModule,
-    // AnnouncementModule
+    AnnouncementModule
   ]
 })
 export class MainModule { }
