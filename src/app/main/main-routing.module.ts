@@ -11,22 +11,8 @@ import { ReservemodalComponent } from './components/modal/reservemodal/reservemo
 const routes: Routes = [
   { path: '', redirectTo: 'profile', pathMatch: 'full' },
   { path: 'announcement', component: AnnouncementComponent },
-  { 
-    path: 'profile', 
-    component: ProfileComponent,
-    children: [{
-      path: '',
-      loadChildren: ()=>import('./components/profile/profile.module').then((m)=>m.ProfileModule)
-    }]
-  },
-  { 
-    path: 'library', 
-    component: LibraryComponent,
-    children: [{
-      path: '',
-      loadChildren: ()=>import('./components/library/library.module').then((m)=>m.LibraryModule)
-    }]
-  },
+  { path: 'profile', component: ProfileComponent, children: [{ path: '', loadChildren: ()=>import('./components/profile/profile.module').then((m)=>m.ProfileModule) }]},
+  { path: 'library', component: LibraryComponent, children: [{ path: '', loadChildren: ()=>import('./components/library/library.module').then((m)=>m.LibraryModule) }]},
   { path: 'InsidebookComponent', component: ReservemodalComponent}
 ];
   
