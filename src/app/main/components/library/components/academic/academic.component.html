@@ -25,19 +25,26 @@
     </div>
   </div>
 
-  <div *ngIf="selectedCategory && !loading" class="row mt-3">
+  <div class="row mt-3" *ngIf="selectedCategory && !loading">
     <div class="project">
-      <div *ngIf="paginatedProjects.length > 0" class="row">
+      <div class="row" *ngIf="paginatedProjects.length > 0">
         <div class="col-md-4" *ngFor="let project of paginatedProjects">
-          <!-- Project card -->
           <div class="square">
-            <!-- <img [src]="project.image_url" alt="Image" class="square-image"> -->
+            <span class="dot1"></span>
+            <span class="dot2"></span>
+            <span class="dot3"></span>
+            <span class="dot4"></span>
+            <span class="dot5"></span>
+            <span class="dot6"></span>
+            <span class="dot7"></span>
+            <span class="dot8"></span>
+            <span class="dot9"></span>
             <img [src]="project.image_url == null ? 'assets/images/lib.png' : project.image_url" alt="Image" class="square-image">
             <div class="square-content">
               <div class="square-text">
-                <p>{{ project.id }}</p>
-                <h5>Category: {{ selectedCategory }}</h5>
-                <h5>Title: {{ project.title }}</h5>
+                <h5>{{ project.title }}</h5>
+                <p>Category: {{ selectedCategory }}</p>
+                <p>Project ID: {{ project.id }}</p>
                 <p>Author/s: {{ project.authors }}</p>
               </div>
               <button class="view-button" [routerLink]="['../insideacademic', project.id]" routerLinkActive="router-link-active">View</button>
@@ -48,6 +55,7 @@
       <div *ngIf="paginatedProjects.length === 0">No projects available for this category.</div>
     </div>
   </div>
+  
 
   <!-- pagination -->
   <div class="pagination">

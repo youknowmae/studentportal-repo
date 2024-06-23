@@ -255,5 +255,36 @@
     line-height: 15px;
 }
 @media screen and (max-width: 768px) {
-
+    .container {
+        margin-top: 80px;
+    }
+    .header h1 {
+        font-size: 1rem;
+    }
+    .header p {
+        font-size: 0.7rem;
+    }
+    .square1 {
+        display: block;
+        height: 300px;
+    }
+    .square1 img {
+        width: 250px;
+        margin-right: 0;
+        height: 110px;
+    }
+    .square-text1 {
+        margin-top: 10px;
+    }
+    .square-text1 h2 {
+        font-weight: 600;
+        font-size: 14px;
+    }
+    .square-text1 p {
+        margin: 1px
+    }
+    .button {
+        height: 30px;
+        margin-top: 10px;
+    }
 }

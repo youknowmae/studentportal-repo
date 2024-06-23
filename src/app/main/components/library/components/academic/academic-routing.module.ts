@@ -5,7 +5,7 @@ import { InsideacademicComponent } from '../../../inside/insideacademic/insideac
 
 const routes: Routes = [
   { path: '', component: AcademicComponent },
-  { path: 'insideacademic/:id', component: InsideacademicComponent }
+  { path: 'insideacademic', component: InsideacademicComponent }
 ];
 
 @NgModule({

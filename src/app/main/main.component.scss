@@ -4,28 +4,6 @@
     font-family: 'Montserrat';
 }
 
-.logoutbtn .logout {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 25px;
-    padding: 10px;
-    color: white;
-}
-
-.logoutbtn .logout:hover {
-    color: var(--main-green);
-}
-
-.logoutbtn {
-    position: fixed;
-    bottom: 25px;
-    left: 0;
-    width: 220px;
-    cursor: pointer;
-    transition: all 0.5s ease;
-}
-
 .text-center img {
     margin-top: 70px;
     margin-bottom: 20px;
@@ -61,11 +39,9 @@ p {
 
 .sidebar {
     position: fixed;
-    z-index: 100;
+    z-index: 999;
     padding: 0;
     width: 220px;
-    height: 100%;
-    overflow: hidden;
     background-color: #4f6f52;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
     transition: transform 0.3s ease, width 0.3s ease;
@@ -81,7 +57,7 @@ p {
     height: calc(100vh);
     padding-top: 0.5rem;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: hidden;
     background-color: #4f6f52;
 }
 
@@ -251,8 +227,6 @@ p {
     .icon-move-left {
         transform: translateX(-10px);
     }
-    
-
 .sidebar-overlay {
     position: fixed;
     top: 0;
@@ -264,8 +238,13 @@ p {
     display: none;
     transition: opacity 0.3s ease;
 }
-
 .sidebar-overlay.visible {
     display: block;
+}
+.connectside {
+    margin-left: 60px;
+}
+.connectside-sidebar-hidden {
+    margin-left: 60px;
 }
 }
