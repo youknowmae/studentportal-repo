@@ -16,6 +16,7 @@ import { InsidereservedComponent } from './components/inside/insidereserved/insi
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { TermsmodalComponent } from './components/modal/termsmodal/termsmodal.component';
 import { InsideannouncementComponent } from './components/inside/insideannouncement/insideannouncement.component';
+import { AnnouncementModule } from './components/announcement/announcement.module';
 
 
 @NgModule({
@@ -28,7 +29,6 @@ import { InsideannouncementComponent } from './components/inside/insideannouncem
     QrmodalComponent,
     InsidereservedComponent,
     TermsmodalComponent,
-    InsideannouncementComponent,
   ],
   imports: [
     CommonModule,
@@ -38,7 +38,8 @@ import { InsideannouncementComponent } from './components/inside/insideannouncem
     BooksModule,
     FormsModule,
     ReactiveFormsModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    // AnnouncementModule
   ]
 })
 export class MainModule { }

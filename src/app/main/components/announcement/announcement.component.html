@@ -18,7 +18,7 @@
               <p>Author's ID: {{ announcements[0]?.author_id }}</p>
               <p>Category: {{ announcements[0]?.category }}</p>
               <p>Date Published: {{ announcements[0]?.created_at | date }}</p>
-              <button class="button">
+              <button class="button" [routerLink]="['../insideannouncement']" routerLinkActive="router-link-active">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"></path>
                 </svg>
@@ -61,6 +61,11 @@
     </div>
 </div>
 </div>
+
+<div class="connection">
+  <router-outlet></router-outlet>
+</div>
+
 
 
 <!-- TOP -->
