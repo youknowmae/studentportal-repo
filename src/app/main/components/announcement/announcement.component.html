@@ -44,7 +44,7 @@
   <div class="bottom">
     <div class="row">
       <div class="col-md-4" *ngFor="let announcement of announcements.slice(1); let i = index">
-        <div class="square">
+        <div class="square" [routerLink]="['../insideannouncement']">
           <span class="dot1"></span>
           <span class="dot2"></span>
           <span class="dot3"></span>
@@ -68,7 +68,7 @@
 
 
 
-<!-- TOP -->
+<!-- Bottom -->
 <!--
 <div class="content">
   <div class="row">
@@ -89,7 +89,7 @@
 </div>
 </div> -->
 
-<!-- Bottom -->
+<!-- Top -->
 <!-- <div class="container" *ngIf="!loading; else loadingTemplate">
     <div class="rectangle">
       <img [src]="announcements[0]?.image" alt="Image" class="square-image">
