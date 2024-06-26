@@ -4,6 +4,7 @@ import { ApiService } from '../api-service.service'; // Assuming ApiService is t
 import { AuthenticationService } from '../authentication-service.service'; // Assuming AuthenticationService is the correct service name
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -29,7 +30,8 @@ export class MainComponent implements OnInit {
     private apiService: ApiService,
     private authService: AuthenticationService,
     private router: Router,
-    private dialogRef: MatDialog 
+    private dialogRef: MatDialog,
+    private snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -74,10 +76,15 @@ export class MainComponent implements OnInit {
       confirmButtonText: 'Yes'
     }).then((result) => {
       if (result.isConfirmed) {
-        // Redirect to login page if logout is confirmed
+        this.authService.logout();
+        this.snackBar.open('Log out successful','Close', {
+          duration: 1500,
+          verticalPosition: 'bottom',
+          horizontalPosition: 'center'
+        });
+        // Redirect to login page after showing the snackbar
         this.router.navigate(['/login']);
       } else {
-        // Stay on the dashboard if logout is not confirmed
         console.log('User canceled logout');
       }
     });

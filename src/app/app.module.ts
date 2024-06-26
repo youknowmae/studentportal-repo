@@ -7,11 +7,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './main/main.component';
-import { MainModule } from './main/main.module';
-import { provideClientHydration } from '@angular/platform-browser';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSnackBarModule } from '@angular/material/snack-bar'; // Import MatSnackBarModule
 
 @NgModule({
   declarations: [
@@ -24,15 +22,12 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    // MainModule,
     MatDialogModule,
     BrowserAnimationsModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSnackBarModule, // Add MatSnackBarModule here
   ],
-  providers: [
-    provideClientHydration(),
-    provideAnimationsAsync(),
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
