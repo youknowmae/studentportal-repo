@@ -131,6 +131,11 @@ p {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
+.navbar span {
+    color: #fff; /* Set the color to white */
+    font-weight: bolder;
+  }
+
 .connectside {
     padding: 2% 0 0 0;
     margin-left: 250px;
@@ -205,6 +210,12 @@ p {
 
     .navbar i {
         margin-left: 150px;
+    }
+    .navbar span {
+        font-size: 9px;
+      }
+    .navbar i{
+        margin-right: 5px;
     }
 
     .icon-move-left {

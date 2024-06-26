@@ -4,7 +4,12 @@
 
 <!-- Header -->
 <nav class="navbar navbar-custom">
-</nav>
+    <span class="navbar-text ml-auto">
+      <i class="far fa-calendar-alt"></i> <!-- Font Awesome calendar icon -->
+      {{ currentDate | date: 'EEEE, MMM d, y, h:mm a' }}
+    </span>
+  </nav>
+  
 
 <!-- Sidebar -->
 <div class="col-md-3 col-lg-2 d-md-block bg-light sidebar" [ngClass]="{'sidebar-hidden': isSidebarHidden}">

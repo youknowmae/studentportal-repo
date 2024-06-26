@@ -4,7 +4,6 @@ import { ApiService } from '../api-service.service'; // Assuming ApiService is t
 import { AuthenticationService } from '../authentication-service.service'; // Assuming AuthenticationService is the correct service name
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -14,7 +13,7 @@ import Swal from 'sweetalert2';
 })
 export class MainComponent implements OnInit {
   apiUrl: string = "http://localhost:8000/api";
-
+  currentDate: Date = new Date(); // Initial current date and time
   articles: any[] = [];
   books: any[] = [];
   periodicals: any[] = [];
@@ -30,8 +29,7 @@ export class MainComponent implements OnInit {
     private apiService: ApiService,
     private authService: AuthenticationService,
     private router: Router,
-    private dialogRef: MatDialog,
-    private snackBar: MatSnackBar
+    private dialogRef: MatDialog 
   ) { }
 
   ngOnInit(): void {
@@ -39,6 +37,11 @@ export class MainComponent implements OnInit {
     this.authService.user$.subscribe((user: any) => {
       this.user = user;
     });
+
+    // Update current date and time every minute
+    setInterval(() => {
+      this.currentDate = new Date();
+    }, 60000); // 60000 milliseconds = 1 minute
   }
 
   fetchData(): void {
@@ -76,15 +79,10 @@ export class MainComponent implements OnInit {
       confirmButtonText: 'Yes'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.authService.logout();
-        this.snackBar.open('Log out successful','Close', {
-          duration: 1500,
-          verticalPosition: 'bottom',
-          horizontalPosition: 'center'
-        });
-        // Redirect to login page after showing the snackbar
+        // Redirect to login page if logout is confirmed
         this.router.navigate(['/login']);
       } else {
+        // Stay on the dashboard if logout is not confirmed
         console.log('User canceled logout');
       }
     });
