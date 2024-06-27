@@ -26,6 +26,19 @@
     font-weight: bolder;
 }
 
+.announcement-icon {
+    display: inline-block;
+    margin-right: 10px; /* Adjust as needed */
+    border-radius: 50%;
+    background-color: #376448; /* Background color for the circular icon */
+    padding: 8px; /* Adjust padding to control icon size */
+  }
+  
+  .announcement-icon i {
+    color: white; /* Icon color */
+    font-size: 20px; /* Adjust icon size */
+  }
+
 // Latest News
 .top {
     margin-top: 20px;

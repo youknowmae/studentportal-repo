@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../../../api-service.service';
 import { AuthenticationService } from '../../../../authentication-service.service';
 import Swal from 'sweetalert2';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { TermsmodalComponent } from '../termsmodal/termsmodal.component';
@@ -21,7 +21,7 @@ export class ReservemodalComponent implements OnInit {
   termsAccepted: boolean = false; // Added to track checkbox status
 
   constructor(
-    private dialogRef: MatDialog, 
+    private dialogRef: MatDialogRef<ReservemodalComponent>, // Inject MatDialogRef
     private fb: FormBuilder,
     private apiService: ApiService,
     private authService: AuthenticationService,
@@ -129,6 +129,8 @@ export class ReservemodalComponent implements OnInit {
             icon: 'success',
             title: 'Success',
             text: 'Reservation created successfully',
+          }).then(() => {
+            this.dialogRef.close(); // Close the modal after success message
           });
           this.reservationForm.reset();
         },
@@ -160,6 +162,6 @@ export class ReservemodalComponent implements OnInit {
   }
 
   openterm () {
-    this.dialogRef.open(TermsmodalComponent, {})
+    this.dialog.open(TermsmodalComponent, {});
   }
 }

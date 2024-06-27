@@ -69,6 +69,10 @@
     background-color: #013718;
     color: #fff;
 }
+.container button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
 @media screen and (max-width: 768px ){
     .container {
         border-radius: 5px;

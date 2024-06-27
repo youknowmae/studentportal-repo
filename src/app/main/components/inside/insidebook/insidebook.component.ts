@@ -13,6 +13,7 @@ import { ReservemodalComponent } from '../../modal/reservemodal/reservemodal.com
 export class InsidebookComponent implements OnInit {
   book: any = {};
   accession: string | null = null;
+  isReserved: boolean = false;
 
   constructor(
     private apiService: ApiService,
@@ -27,6 +28,7 @@ export class InsidebookComponent implements OnInit {
       this.accession = params['accession'];
       if (this.accession) {
         this.fetchBookDetails(this.accession);
+        this.checkReservationStatus(this.accession);
       }
     });
   }
@@ -43,6 +45,25 @@ export class InsidebookComponent implements OnInit {
           },
           (error) => {
             console.error('Error fetching book details:', error);
+          }
+        );
+    } else {
+      console.error('Authentication token not found.');
+    }
+  }
+
+  checkReservationStatus(accession: string): void {
+    // Check if the book is already reserved by the user
+    const authToken = this.authService.getToken();
+    if (authToken) {
+      const headers = { Authorization: `Bearer ${authToken}` };
+      this.apiService.checkReservationStatus(accession, headers)
+        .subscribe(
+          (data: any) => {
+            this.isReserved = data.isReserved;
+          },
+          (error: any) => {
+            console.error('Error checking reservation status:', error);
           }
         );
     } else {
