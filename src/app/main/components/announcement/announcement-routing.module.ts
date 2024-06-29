@@ -4,7 +4,7 @@ import { InsideannouncementComponent } from '../inside/insideannouncement/inside
 
 const routes: Routes = [
   { path: '', redirectTo: 'announcement', pathMatch: 'full' },
-  { path: 'insideannouncement', component: InsideannouncementComponent },
+  { path: 'insideannouncement/:id', component: InsideannouncementComponent },
 ];
 
 @NgModule({
