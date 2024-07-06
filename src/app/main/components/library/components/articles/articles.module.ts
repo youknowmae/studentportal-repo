@@ -6,6 +6,7 @@ import { JournalsComponent } from './components/journals/journals.component';
 import { NewspapersComponent } from './components/newspapers/newspapers.component';
 import { MagazinesComponent } from './components/magazines/magazines.component';
 import { InsidearticleComponent } from '../../../inside/insidearticle/insidearticle.component';
+import { AudiovisualComponent } from './components/audiovisual/audiovisual.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { InsidearticleComponent } from '../../../inside/insidearticle/insidearti
     JournalsComponent,
     NewspapersComponent,
     MagazinesComponent,
-    InsidearticleComponent
+    InsidearticleComponent,
+    AudiovisualComponent
   ],
   imports: [
     CommonModule,
