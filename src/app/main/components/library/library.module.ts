@@ -11,6 +11,7 @@ import { ArticlesModule } from './components/articles/articles.module';
 import { BooksModule } from './components/books/books.module';
 import { AcademicComponent } from './components/academic/academic.component';
 import { AcademicModule } from './components/academic/academic.module';
+import { AudiovisualComponent } from './components/audiovisual/audiovisual.component';
 
 
 
@@ -20,9 +21,9 @@ import { AcademicModule } from './components/academic/academic.module';
     ArticlesComponent,
     PeriodicalsComponent,
     AcademicComponent,
+    AudiovisualComponent,
   ],
-  imports: [
-    
+  imports: [ 
     CommonModule,
     LibraryRoutingModule,
     PeriodicalsModule,

@@ -4,6 +4,11 @@
 .container {
     margin-top: 50px;
     justify-content: center;
+
+    .row {
+        display: flex;
+        justify-content: center;
+    }
 }
 .btn-icon {
     padding: 7px 8px 8px 5px;

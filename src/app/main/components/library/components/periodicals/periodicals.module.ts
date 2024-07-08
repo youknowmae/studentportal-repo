@@ -6,16 +6,13 @@ import { JournalsComponent } from './components/journals/journals.component';
 import { NewspapersComponent } from './components/newspapers/newspapers.component';
 import { MagazinesComponent } from './components/magazines/magazines.component';
 import { InsideperiodicalComponent } from '../../../inside/insideperiodical/insideperiodical.component';
-import { AudiovisualComponent } from './components/audiovisual/audiovisual.component';
-
 
 @NgModule({
   declarations: [
     JournalsComponent,
     NewspapersComponent,
     MagazinesComponent,
-    InsideperiodicalComponent,
-    AudiovisualComponent
+    InsideperiodicalComponent
   ],
   imports: [
     CommonModule,
