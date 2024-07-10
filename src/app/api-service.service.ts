@@ -36,7 +36,7 @@ export class ApiService {
   }
 
   getArticleById(accession: string): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/student/article/${accession}`, { headers: this.getHeaders() });
+    return this.http.get<any>(`${this.apiUrl}/student/article/id/${accession}`, { headers: this.getHeaders() });
   }
   getBooks(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/student/books`, { headers: this.getHeaders() });
@@ -62,8 +62,8 @@ export class ApiService {
     return this.http.get<any[]>(`${this.apiUrl}/student/periodicals`, { headers: this.getHeaders() });
   }
 
-  getPeriodicalById(id: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/student/periodicals/id/${id}`, { headers: this.getHeaders() });
+  getPeriodicalById(accession: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/student/periodicals/id/${accession}`, { headers: this.getHeaders() });
   }
 
   getPeriodicalsByMaterialType(materialType: string): Observable<any[]> {

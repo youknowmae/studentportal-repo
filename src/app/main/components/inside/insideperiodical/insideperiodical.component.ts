@@ -8,21 +8,21 @@ import { ApiService } from '../../../../api-service.service';
   styleUrls: ['./insideperiodical.component.scss']
 })
 export class InsideperiodicalComponent implements OnInit {
-  periodicals: any;
+  materials: any;
 
   constructor(private route: ActivatedRoute, private apiService: ApiService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      const periodicalId = +params['id'];
-      this.fetchPeriodical(periodicalId);
+      const accession = params['id'];
+      this.fetchPeriodical(accession);
     });
   }
 
-  fetchPeriodical(id: number): void {
-    this.apiService.getPeriodicalById(id).subscribe(
+  fetchPeriodical(accession: string): void {
+    this.apiService.getPeriodicalById(accession).subscribe(
       (data: any) => {
-        this.periodicals = data;
+        this.materials = data;
       },
       (error) => {
         console.error('Error fetching periodical:', error);

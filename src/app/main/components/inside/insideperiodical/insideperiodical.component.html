@@ -3,20 +3,21 @@
 
 <div class="container">
   <span class="back-icon" [routerLink]="['/main/library/periodicals']" routerLinkActive="router-link-active"><i class="fa-solid fa-angle-left"></i></span>
-  <h2>{{ periodicals.title }}</h2>
+  <h2>{{ materials.title }}</h2>
 
   <div class="content">
     <div class="image">
-      <img [src]="periodicals.image_url" alt="Image" class="square-image">
+      <img [src]="materials.image_url" alt="Image" class="square-image">
     </div>
     <div class="info">
-      <p>Issue: {{ periodicals.issue }}</p>
-      <p>Date Issued: {{ periodicals.date_issued }}</p>
-      <p>Language: {{ periodicals.language }}</p>
-      <p>Publication Date: {{ periodicals.publication_date }}</p>
-      <p>Volume: {{ periodicals.volume }}</p>
-      <p>Pages: {{ periodicals.pages }}</p>
-      <p>Remark: {{ periodicals.remarks }}</p>
+      <p>Issue: {{ materials.issue }}</p>
+      <p>Authors: {{ materials.authors }}</p>
+      <p>Date Issued: {{ materials.date_issued }}</p>
+      <p>Language: {{ materials.language }}</p>
+      <p>Publication Date: {{ materials.publication_date }}</p>
+      <p>Volume: {{ materials.volume }}</p>
+      <p>Pages: {{ materials.pages }}</p>
+      <p>Remark: {{ materials.remarks }}</p>
     </div>
   </div>
 </div>
