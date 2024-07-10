@@ -6,16 +6,21 @@ import { JournalsComponent } from './components/journals/journals.component';
 import { NewspapersComponent } from './components/newspapers/newspapers.component';
 import { MagazinesComponent } from './components/magazines/magazines.component';
 import { InsideperiodicalComponent } from '../../../inside/insideperiodical/insideperiodical.component';
-import { AudiovisualComponent } from './components/audiovisual/audiovisual.component';
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8de00df0ce5d1afafaec4b948f9d912c7b2d2b25
 
 @NgModule({
   declarations: [
     JournalsComponent,
     NewspapersComponent,
     MagazinesComponent,
+<<<<<<< HEAD
     InsideperiodicalComponent,
-    AudiovisualComponent
+=======
+    InsideperiodicalComponent
+>>>>>>> 8de00df0ce5d1afafaec4b948f9d912c7b2d2b25
   ],
   imports: [
     CommonModule,

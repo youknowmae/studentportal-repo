@@ -17,6 +17,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { TermsmodalComponent } from './components/modal/termsmodal/termsmodal.component';
 import { InsideannouncementComponent } from './components/inside/insideannouncement/insideannouncement.component';
 import { AnnouncementModule } from './components/announcement/announcement.module';
+import { InsideaudiovisualComponent } from './components/inside/insideaudiovisual/insideaudiovisual.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { AnnouncementModule } from './components/announcement/announcement.modul
     QrmodalComponent,
     InsidereservedComponent,
     TermsmodalComponent,
+    InsideaudiovisualComponent,
   ],
   imports: [
     CommonModule,

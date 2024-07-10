@@ -5,6 +5,7 @@ import { ArticlesComponent } from './components/articles/articles.component';
 import { PeriodicalsComponent } from './components/periodicals/periodicals.component';
 import { AcademicComponent } from './components/academic/academic.component';
 import { InsideborrowedComponent } from '../inside/insideborrowed/insideborrowed.component';
+import { AudiovisualComponent } from './components/audiovisual/audiovisual.component';
 
 
 
@@ -18,6 +19,7 @@ const routes: Routes = [
       loadChildren: ()=>import('./components/academic/academic.module').then((m)=>m.AcademicModule)
     }]
   },
+  { path: 'audiovisual', component: AudiovisualComponent },
   { 
     path: 'books', 
     component: BooksComponent,

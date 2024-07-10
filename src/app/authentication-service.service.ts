@@ -23,7 +23,7 @@ export class AuthenticationService {
   ) {}
 
   login(credentials: { username: string, password: string }) {
-    return this.http.post<any>(`${this.apiUrl}/login`, credentials)
+    return this.http.post<any>(`${this.apiUrl}/login/student`, credentials)
       .pipe(
         tap(response => {
           console.log('API Response:', response);

@@ -3,17 +3,27 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
             <button class="btn btn-block btn-icon" [class.active]="selectedCategory === 'books'" (click)="setActive('books')" [routerLink]="['books']">Books</button>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             <button class="btn btn-block btn-icon" [class.active]="selectedCategory === 'articles'" (click)="setActive('articles')" [routerLink]="['articles']">Articles</button>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             <button class="btn btn-block btn-icon" [class.active]="selectedCategory === 'periodicals'" (click)="setActive('periodicals')" [routerLink]="['periodicals']">Periodicals</button>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
+<<<<<<< HEAD
+            <button class="btn btn-block btn-icon" [class.active]="selectedCategory === 'academic'" (click)="setActive('academic')" [routerLink]="['academic']">Academics</button>
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-block btn-icon" >Audio Visuals</button>
+=======
+            <button class="btn btn-block btn-icon" [routerLink]="['audiovisual']">Audio Visual</button>
+        </div>
+        <div class="col-md-2">
             <button class="btn btn-block btn-icon" [class.active]="selectedCategory === 'academic'" (click)="setActive('academic')" [routerLink]="['academic']">Academic</button>
+>>>>>>> 8de00df0ce5d1afafaec4b948f9d912c7b2d2b25
         </div>
     </div>
 
