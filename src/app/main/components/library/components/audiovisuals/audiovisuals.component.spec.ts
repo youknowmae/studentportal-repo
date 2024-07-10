@@ -21,3 +21,4 @@ describe('AudiovisualsComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
