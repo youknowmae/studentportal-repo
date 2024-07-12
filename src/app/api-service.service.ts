@@ -58,6 +58,10 @@ export class ApiService {
     return this.http.get<any[]>(`${this.apiUrl}/student/projects/department/${department}`, { headers: this.getHeaders() });
   }
 
+  getProjectsByCategory(category: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/student/projects/type/${category}`, { headers: this.getHeaders() });
+  }
+
   getPeriodicals(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/student/periodicals`, { headers: this.getHeaders() });
   }
