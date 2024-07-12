@@ -1,23 +1,16 @@
-<!-- Import Bootstrap and Google Fonts -->
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 
 <div class="container">
-  <!-- Row for dropdown and search -->
   <div class="row">
-    <!-- Dropdown container -->
-    <div class="col-md-4">
-      <div class="dropdown-container" (mouseover)="toggleDropdown(true)" (mouseleave)="toggleDropdown(false)">
-        <select class="form-control" (change)="handleDropdownChange($event)">
-          <option value="" selected disabled>Select Category</option>
-          <ng-container *ngFor="let category of projectCategories">
-            <option *ngIf="visibleButtons[category]" [value]="category" [selected]="selectedCategory === category">{{ category }}</option>
-          </ng-container>
-        </select>
-      </div>
+    <div class="dropdown-container" (mouseover)="toggleDropdown(true)" (mouseleave)="toggleDropdown(false)">
+      <select class="form-control" (change)="handleDropdownChange($event)">
+        <option class="option" value="" selected disabled></option>
+        <ng-container *ngFor="let category of projectCategories">
+          <option *ngIf="visibleButtons[category]" [value]="category" [selected]="selectedCategory === category">{{ category }}</option>
+        </ng-container>
+      </select>
     </div>
-
-    <!-- Search input -->
     <div class="col-md-4">
       <div class="input-group">
         <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchQuery" (input)="filterProjects()">
@@ -26,58 +19,49 @@
   </div>
   
   <!-- Loading spinner -->
-  <div *ngIf="loading" class="row mt-3">
-    <div class="col-md-12 text-center">
-      <div class="spinner-border text-green" role="status" style="width: 5rem; height: 5rem;">
-        <span class="sr-only">Loading...</span>
-      </div>
+  <div *ngIf="loading" class="loading-spinner">
+    <div class="spinner-border text-green" role="status" style="width: 5rem; height: 5rem;">
+      <span class="sr-only">Loading...</span>
     </div>
   </div>
 
-  <!-- Projects section -->
   <div class="row mt-3" *ngIf="selectedCategory && !loading">
-    <div class="col-md-12">
-      <div *ngIf="paginatedProjects.length > 0">
-        <div class="row">
-          <div class="col-md-4" *ngFor="let project of paginatedProjects">
-            <div class="square">
-              <!-- Placeholder dots -->
-              <span *ngFor="let dot of [1, 2, 3, 4, 5, 6, 7, 8, 9]" class="dot{{ dot }}"></span>
-
-              <!-- Project image -->
-              <img [src]="project.image_url ? project.image_url : 'assets/images/lib.png'" alt="Project Image" class="square-image">
-
-              <!-- Project details -->
-              <div class="square-content">
-                <div class="square-text">
-                  <h5>{{ project.title }}</h5>
-                  <p>Category: {{ selectedCategory }}</p>
-                  <p>Project ID: {{ project.id }}</p>
-                  <p>Authors: {{ project.authors.join(', ') }}</p>
-                </div>
-                <!-- View button -->
-                <button class="view-button btn btn-primary" [routerLink]="['../insideacademic', project.id]" routerLinkActive="router-link-active">View</button>
+    <div class="project">
+      <div class="row" *ngIf="paginatedProjects.length > 0">
+        <div class="col-md-4" *ngFor="let project of paginatedProjects">
+          <div class="square">
+            <span class="dot1"></span>
+            <span class="dot2"></span>
+            <span class="dot3"></span>
+            <span class="dot4"></span>
+            <span class="dot5"></span>
+            <span class="dot6"></span>
+            <span class="dot7"></span>
+            <span class="dot8"></span>
+            <span class="dot9"></span>
+            <img [src]="project.image_url == null ? 'assets/images/lib.png' : project.image_url" alt="Image" class="square-image">
+            <div class="square-content">
+              <div class="square-text">
+                <h5>{{ project.title }}</h5>
+                <p>Category: {{ selectedCategory }}</p>
+                <p>Project ID: {{ project.id }}</p>
+                <p>Author/s: {{ project.authors }}</p>
               </div>
+              <button class="view-button" [routerLink]="['../insideacademic', project.accession]" routerLinkActive="router-link-active">View</button>
             </div>
           </div>
         </div>
       </div>
-      <!-- Message for no projects found -->
-      <div *ngIf="paginatedProjects.length === 0" class="alert alert-info">No projects available for this category.</div>
+      <div *ngIf="paginatedProjects.length === 0">No projects available for this category.</div>
     </div>
   </div>
+  
 
-  <!-- Pagination controls -->
-  <div class="row mt-3" *ngIf="paginatedProjects.length > 0">
-    <div class="col-md-12">
-      <div class="pagination justify-content-center">
-        <p class="mr-3">Items per page: {{ projectsPerPage }}</p>
-        <p>{{ getPaginationSummary() }}</p>
-        <!-- Previous page button -->
-        <i class="fas fa-chevron-left kaliwa mr-3" (click)="currentPage > 1 ? previousPage() : null"></i>
-        <!-- Next page button -->
-        <i class="fas fa-chevron-right" (click)="nextPage()" [hidden]="currentPage === totalPages"></i>
-      </div>
-    </div>
+  <!-- pagination -->
+  <div class="pagination">
+    <p>Item per page: {{ projectsPerPage }}</p>
+    <p>{{ getPaginationSummary() }}</p>
+    <i class="fas fa-chevron-left kaliwa" (click)="currentPage > 1 ? previousPage() : null"></i>
+    <i class="fas fa-chevron-right" (click)="nextPage()" [hidden]="currentPage === totalPages"></i>
   </div>
 </div>

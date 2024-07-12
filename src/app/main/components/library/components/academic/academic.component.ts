@@ -11,7 +11,7 @@ export class AcademicComponent implements OnInit {
   isVisible: boolean = false;
   selectedProject: any;
   departmentProjects: any[] = [];
-  projectCategories: string[] = ['CBAR', 'THESIS', 'CAPSTONE', 'RESEARCH', 'FEASIBILITY STUDY', 'DISSERTATION'];
+  projectCategories: string[] = ['Classroom Based Action Research', 'THESIS', 'CAPSTONE', 'RESEARCH', 'FEASIBILITY STUDY', 'DISSERTATION'];
   visibleButtons: { [key: string]: boolean } = {};
   selectedCategory: string | null = null;
   projects: any[] = [];
@@ -41,7 +41,7 @@ export class AcademicComponent implements OnInit {
     this.apiService.getProjectsByDepartment(department).subscribe(
       (data) => {
         this.departmentProjects = data;
-        this.updateVisibleButtons();
+        this.updateVisibleButtons(department);
         this.setDefaultCategory();
         this.loading = false;
       },
@@ -52,48 +52,57 @@ export class AcademicComponent implements OnInit {
     );
   }
 
-  updateVisibleButtons(): void {
+  fetchProjectsByCategory(category: string): void {
+    this.loading = true;
+    const department = this.authService.getDepartment();
+
+    if (department) {
+      this.apiService.getProjectsByCategoryAndDepartment(category, department).subscribe(
+        (data) => {
+          this.projects = data;
+          this.filterProjects();
+          this.loading = false;
+        },
+        (error) => {
+          console.error('Error fetching projects by category:', error);
+          this.loading = false;
+        }
+      );
+    } else {
+      console.error('Department is null. Cannot fetch projects.');
+      this.loading = false;
+    }
+  }
+
+  updateVisibleButtons(department: string): void {
     this.visibleButtons = {
-      CBAR: false,
-      THESIS: false,
-      CAPSTONE: false,
-      RESEARCH: false,
-      DISSERTATION: false,
-      'FEASIBILITY STUDY': false
+      'Classroom Based Action Research': true,
+      THESIS: true,
+      CAPSTONE: true,
+      RESEARCH: true,
+      DISSERTATION: true,
+      'FEASIBILITY STUDY': true
     };
-    this.departmentProjects.forEach(project => {
+
+    const filteredProjects = this.departmentProjects.filter(project => project.department_short === department);
+
+    filteredProjects.forEach(project => {
       const category = project.category.toUpperCase();
       if (this.visibleButtons.hasOwnProperty(category)) {
         this.visibleButtons[category] = true;
       }
     });
-    console.log('Visible Buttons:', this.visibleButtons);
   }
 
   setDefaultCategory(): void {
     const defaultCategory = this.projectCategories.find(category => this.visibleButtons[category]);
+
     if (defaultCategory) {
       this.selectedCategory = defaultCategory;
       this.fetchProjectsByCategory(defaultCategory);
     } else {
       console.warn('No projects available for the department.');
     }
-  }
-
-  fetchProjectsByCategory(category: string): void {
-    this.loading = true;
-    this.apiService.getProjectsByCategory(category).subscribe(
-      (data) => {
-        this.projects = data;
-        this.filterProjects();
-        console.log('Selected Projects:', this.projects);
-        this.loading = false;
-      },
-      (error) => {
-        console.error('Error fetching projects by category:', error);
-        this.loading = false;
-      }
-    );
   }
 
   handleDropdownChange(event: Event): void {
@@ -124,8 +133,7 @@ export class AcademicComponent implements OnInit {
       this.filteredProjects = this.projects;
     } else {
       this.filteredProjects = this.projects.filter(project =>
-        project.title.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-        (project.authors && project.authors.some((author: string) => author.toLowerCase().includes(this.searchQuery.toLowerCase())))
+        project.title.toLowerCase().includes(this.searchQuery.toLowerCase())
       );
     }
     this.currentPage = 1;

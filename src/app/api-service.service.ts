@@ -58,8 +58,14 @@ export class ApiService {
     return this.http.get<any[]>(`${this.apiUrl}/student/projects/department/${department}`, { headers: this.getHeaders() });
   }
 
-  getProjectsByCategory(category: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/student/projects/type/${category}`, { headers: this.getHeaders() });
+  getProjectsByCategoryAndDepartment(category: string, department: string): Observable<any[]> {
+    const url = `${this.apiUrl}/student/project/${category}/${department}`;
+    return this.http.get<any[]>(url, { headers: this.getHeaders() }).pipe(
+      catchError((error: HttpErrorResponse) => {
+        console.error('Error fetching projects:', error);
+        return throwError('An error occurred while fetching projects.');
+      })
+    );
   }
 
   getPeriodicals(): Observable<any[]> {
@@ -135,7 +141,7 @@ export class ApiService {
   }
 
   searchProjects(query: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/search/project?query=${query}`, { headers: this.getHeaders() });
+    return this.http.get<any[]>(`${this.apiUrl}/student/search/project?query=${query}`, { headers: this.getHeaders() });
   }
 
   getQueuePosition(): Observable<any> {
