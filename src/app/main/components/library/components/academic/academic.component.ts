@@ -11,7 +11,7 @@ export class AcademicComponent implements OnInit {
   isVisible: boolean = false;
   selectedProject: any;
   departmentProjects: any[] = [];
-  projectCategories: string[] = ['CBAR', 'THESIS', 'CAPSTONE', 'RESEARCH', 'FEASIBILITY STUDY', 'DISSERTATION'];
+  projectCategories: string[] = ['Classroom Based Action Research', 'THESIS', 'CAPSTONE', 'RESEARCH', 'FEASIBILITY STUDY', 'DISSERTATION'];
   visibleButtons: { [key: string]: boolean } = {};
   selectedCategory: string | null = null;
   projects: any[] = [];
@@ -34,17 +34,14 @@ export class AcademicComponent implements OnInit {
     } else {
       console.error('Department not found in localStorage');
     }
-    console.log('Initialized with projects:', this.projects);
   }
 
-  // Fetch projects by department
-  fetchProjects(type: string): void {
-    this.loading = true; // Set loading to true before making API call
-    
-    this.apiService.getProjectsByDepartment(type).subscribe(
+  fetchProjects(department: string): void {
+    this.loading = true;
+    this.apiService.getProjectsByDepartment(department).subscribe(
       (data) => {
         this.departmentProjects = data;
-        this.updateVisibleButtons();
+        this.updateVisibleButtons(department);
         this.setDefaultCategory();
         this.loading = false;
       },
@@ -55,27 +52,51 @@ export class AcademicComponent implements OnInit {
     );
   }
 
-  updateVisibleButtons(): void {
+  fetchProjectsByCategory(category: string): void {
+    this.loading = true;
+    const department = this.authService.getDepartment();
+
+    if (department) {
+      this.apiService.getProjectsByCategoryAndDepartment(category, department).subscribe(
+        (data) => {
+          this.projects = data;
+          this.filterProjects();
+          this.loading = false;
+        },
+        (error) => {
+          console.error('Error fetching projects by category:', error);
+          this.loading = false;
+        }
+      );
+    } else {
+      console.error('Department is null. Cannot fetch projects.');
+      this.loading = false;
+    }
+  }
+
+  updateVisibleButtons(department: string): void {
     this.visibleButtons = {
-      CBAR: false,
-      THESIS: false,
-      CAPSTONE: false,
-      RESEARCH: false,
-      DISSERTATION: false,
-      'FEASIBILITY STUDY': false
+      'Classroom Based Action Research': true,
+      THESIS: true,
+      CAPSTONE: true,
+      RESEARCH: true,
+      DISSERTATION: true,
+      'FEASIBILITY STUDY': true
     };
-    this.departmentProjects.forEach(project => {
+
+    const filteredProjects = this.departmentProjects.filter(project => project.department_short === department);
+
+    filteredProjects.forEach(project => {
       const category = project.category.toUpperCase();
       if (this.visibleButtons.hasOwnProperty(category)) {
         this.visibleButtons[category] = true;
       }
     });
-    console.log('Visible Buttons:', this.visibleButtons);
   }
 
-  // Set default category based on available projects
   setDefaultCategory(): void {
     const defaultCategory = this.projectCategories.find(category => this.visibleButtons[category]);
+
     if (defaultCategory) {
       this.selectedCategory = defaultCategory;
       this.fetchProjectsByCategory(defaultCategory);
@@ -84,19 +105,6 @@ export class AcademicComponent implements OnInit {
     }
   }
 
-  // Fetch projects by selected category
-  fetchProjectsByCategory(category: string): void {
-    const selectedCategoryData = this.departmentProjects.find(projectData => projectData.category.trim().toUpperCase() === category);
-    if (selectedCategoryData) {
-      this.projects = selectedCategoryData.projects;
-      this.filterProjects();
-      console.log('Selected Projects:', this.projects);
-    } else {
-      console.error('No projects found for category:', category);
-    }
-  }
-
-  // Handle dropdown change event
   handleDropdownChange(event: Event): void {
     const selectElement = event.target as HTMLSelectElement;
     const category = selectElement.value;
@@ -107,36 +115,30 @@ export class AcademicComponent implements OnInit {
     }
   }
 
-  // Toggle dropdown open/close state
   toggleDropdown(open: boolean): void {
     this.isDropdownOpen = open;
   }
 
-  // Open project modal
   openProjectModal(project: any): void {
     this.selectedProject = project;
     this.isVisible = true;
   }
 
-  // Close modal
   closeModal(): void {
     this.isVisible = false;
   }
 
-  // Filter projects based on search query
   filterProjects(): void {
     if (!this.searchQuery) {
       this.filteredProjects = this.projects;
     } else {
       this.filteredProjects = this.projects.filter(project =>
-        project.title.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-        project.authors.toLowerCase().includes(this.searchQuery.toLowerCase())
+        project.title.toLowerCase().includes(this.searchQuery.toLowerCase())
       );
     }
-    this.currentPage = 1; // Reset to first page after filtering
+    this.currentPage = 1;
   }
 
-  // Pagination methods
   goToPage(page: number): void {
     if (page >= 1 && page <= this.totalPages) {
       this.currentPage = page;
@@ -155,37 +157,38 @@ export class AcademicComponent implements OnInit {
     }
   }
 
-  // Calculate total pages for pagination
   get totalPages(): number {
-    return Math.ceil(this.filteredProjects.length / this.projectsPerPage);
+    return Math.ceil((this.filteredProjects ? this.filteredProjects.length : 0) / this.projectsPerPage);
   }
 
-  // Get paginated projects based on current page
   get paginatedProjects(): any[] {
     const startIndex = (this.currentPage - 1) * this.projectsPerPage;
     const endIndex = startIndex + this.projectsPerPage;
-    return this.filteredProjects.slice(startIndex, endIndex);
+
+    if (this.filteredProjects && this.filteredProjects.length > 0) {
+      return this.filteredProjects.slice(startIndex, endIndex);
+    } else {
+      return [];
+    }
   }
 
-  // Get visible page numbers for pagination
   get visiblePages(): number[] {
-    const totalVisiblePages = 5; // Number of visible pages around the current page
+    const totalVisiblePages = 5;
     const start = Math.max(1, this.currentPage - Math.floor(totalVisiblePages / 2));
     const end = Math.min(this.totalPages, start + totalVisiblePages - 1);
 
     return Array.from({ length: end - start + 1 }, (_, i) => start + i);
   }
 
-  // Set number of projects per page
   setProjectsPerPage(count: number): void {
     this.projectsPerPage = count;
-    this.currentPage = 1; // Reset to first page
+    this.currentPage = 1;
   }
 
   getPaginationSummary(): string {
     const startItem = (this.currentPage - 1) * this.projectsPerPage + 1;
-    const endItem = Math.min(this.currentPage * this.projectsPerPage, this.filteredProjects.length);
-    const totalItems = this.filteredProjects.length;
-    return ` ${startItem} of ${totalItems}`;
+    const endItem = Math.min(this.currentPage * this.projectsPerPage, (this.filteredProjects ? this.filteredProjects.length : 0));
+    const totalItems = this.filteredProjects ? this.filteredProjects.length : 0;
+    return `${startItem} of ${totalItems}`;
   }
 }
