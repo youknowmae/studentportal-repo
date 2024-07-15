@@ -81,7 +81,7 @@ export class ApiService {
   }
 
   getReservationsByUserId(id: number): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/students/queue-pos/${id}`, { headers: this.getHeaders() });
+    return this.http.get<any[]>(`${this.apiUrl}/student/reservations/${id}`, { headers: this.getHeaders() });
   }
 
   getReservationsByLoggedInUser(): Observable<any[]> {
@@ -90,7 +90,7 @@ export class ApiService {
   }
 
   createReservation(reservationData: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/reservations`, reservationData, { headers: this.getHeaders() });
+    return this.http.post<any>(`${this.apiUrl}/student/newreservations`, reservationData, { headers: this.getHeaders() });
   }
 
   getBorrowedByUserId(userId: number): Observable<any[]> {
