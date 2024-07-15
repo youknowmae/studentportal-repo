@@ -22,7 +22,6 @@ import { AudiovisualsComponent } from './components/audiovisuals/audiovisuals.co
     PeriodicalsComponent,
     AcademicComponent,
     AudiovisualsComponent
-  
   ],
   imports: [ 
     CommonModule,
@@ -31,8 +30,7 @@ import { AudiovisualsComponent } from './components/audiovisuals/audiovisuals.co
     ArticlesModule,
     BooksModule,
     FormsModule,
-    AcademicModule,
-     
+    AcademicModule
   ]
 })
 export class LibraryModule { }

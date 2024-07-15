@@ -6,13 +6,11 @@ import { InsideacademicComponent } from '../../../inside/insideacademic/insideac
 
 @NgModule({
   declarations: [
-    InsideacademicComponent,
-
+    InsideacademicComponent
   ],
   imports: [
     CommonModule,
     AcademicRoutingModule,
-    
   ]
 })
 export class AcademicModule { }
