@@ -18,7 +18,7 @@ export class LibraryComponent {
 
   // Method to handle search
   handleSearch() {
-    if (this.searchQuery.trim()) {
+    if (!this.searchQuery.trim()) {
       // If search query is empty, reset search results
       this.searchResults = null;
       return;

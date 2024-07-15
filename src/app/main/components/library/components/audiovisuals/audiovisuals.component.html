@@ -1,6 +1,14 @@
 <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 
 <div class="content">
+  <!-- Filter -->
+  <div class="row mb-3">
+    <div class="col-md-4">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search">
+      </div>
+    </div>    
+  </div>
 
   <!-- Loading spinner -->
   <!-- <div *ngIf="loading" class="loading-spinner">
@@ -9,27 +17,106 @@
     </div>
   </div> -->
 
-  <!-- Articles -->
-  <!-- <div class="row" *ngIf="!loading"> -->
-    <div class="row">
-    <div class="rectangle">
-      <div class="details">
-        <div class="left">
-          <p><span>Accession No.: </span>2024568</p>
-          <p><span>Title: </span>RyanvsMae</p>
-          <p><span>Author: </span>Rryan Joshua Bueno</p>
+  <!-- Periodicals -->
+  <div class="row">
+    <div class="col-md-4">
+      <div class="square">
+        <span class="dot1"></span>
+        <span class="dot2"></span>
+        <span class="dot3"></span>
+        <div class="square-content">
+          <div class="square-text">
+            <p>Title: </p>
+            <p>Accession: </p>
+            <p>Call Number: </p>
+            <p>Copyright: </p>
+            <p>Author: </p>
+          </div>
         </div>
-        <div class="right">
-          <p><span>Call Number: </span>0923131313</p>
-          <p><span>Copyright: </span>2024</p>
-        </div>   
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="square">
+        <span class="dot1"></span>
+        <span class="dot2"></span>
+        <span class="dot3"></span>
+        <div class="square-content">
+          <div class="square-text">
+            <p>Title: </p>
+            <p>Accession: </p>
+            <p>Call Number: </p>
+            <p>Copyright: </p>
+            <p>Author: </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="square">
+        <span class="dot1"></span>
+        <span class="dot2"></span>
+        <span class="dot3"></span>
+        <div class="square-content">
+          <div class="square-text">
+            <p>Title: </p>
+            <p>Accession: </p>
+            <p>Call Number: </p>
+            <p>Copyright: </p>
+            <p>Author: </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="square">
+        <span class="dot1"></span>
+        <span class="dot2"></span>
+        <div class="square-content">
+          <div class="square-text">
+            <p>Title: </p>
+            <p>Accession: </p>
+            <p>Call Number: </p>
+            <p>Copyright: </p>
+            <p>Author: </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="square">
+        <span class="dot1"></span>
+        <span class="dot2"></span>
+        <div class="square-content">
+          <div class="square-text">
+            <p>Title: </p>
+            <p>Accession: </p>
+            <p>Call Number: </p>
+            <p>Copyright: </p>
+            <p>Author: </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="square">
+        <span class="dot1"></span>
+        <span class="dot2"></span>
+        <div class="square-content">
+          <div class="square-text">
+            <p>Title: </p>
+            <p>Accession: </p>
+            <p>Call Number: </p>
+            <p>Copyright: </p>
+            <p>Author: </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
   <!-- Pagination -->
   <!-- <div class="pagination">
-    <p>Item per page: {{ paginatedArticles.length }}</p>
+    <p>Item per page: {{ paginatedaudiovisual.length }}</p>
     <p>{{ getPaginationSummary() }}</p>
     <i class="fas fa-chevron-left kaliwa" (click)="currentPage > 1 ? previousPage() : null"></i>
     <i class="fas fa-chevron-right" (click)="nextPage()" [hidden]="currentPage === totalPages"></i>
