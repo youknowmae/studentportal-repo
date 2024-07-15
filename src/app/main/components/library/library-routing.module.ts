@@ -6,6 +6,7 @@ import { PeriodicalsComponent } from './components/periodicals/periodicals.compo
 import { AcademicComponent } from './components/academic/academic.component';
 import { InsideborrowedComponent } from '../inside/insideborrowed/insideborrowed.component';
 import { AudiovisualsComponent } from './components/audiovisuals/audiovisuals.component';
+import { InsideacademicComponent } from '../inside/insideacademic/insideacademic.component';
 
 
 

@@ -24,7 +24,7 @@ export class ReservedComponent implements OnInit {
     this.loadReservations();
   }
 
-  fetchBookDetails(accession: string): void {
+  fetchBookDetails(accession: string, callback: (data: any) => void): void {
     // Fetch book details from the API using accession
     const authToken = this.authService.getToken();
     if (authToken) {
@@ -32,47 +32,47 @@ export class ReservedComponent implements OnInit {
       this.apiService.getBookById(accession, headers)
         .subscribe(
           (data) => {
-            this.book = data;
+            callback(data);
           },
           (error) => {
             console.error('Error fetching book details:', error);
+            callback({ title: 'Unknown', authors: 'Unknown' });
           }
         );
     } else {
       console.error('Authentication token not found.');
+      callback({ title: 'Unknown', authors: 'Unknown' });
     }
   }
 
   loadReservations(): void {
     // Get user ID and fetch reservations
-    const userId = parseInt(this.authService.getLoggedInUserId() || '0');
+    const userId = parseInt(this.authService.getLoggedInUserId() || '0', 10);
     this.apiService.getReservationsByUserId(userId).subscribe(
       (response: any) => {
         // Check if response has reservations array
         if (response && response.reservations && Array.isArray(response.reservations)) {
-          this.reservations = response.reservations.map((reservation: any) => { // Explicitly type 'reservation' as 'any'
-            // Ensure reservation.book exists and has title and authors
-            if (reservation.book && reservation.book.title) {
+          this.reservations = response.reservations;
+          this.reservations.forEach(reservation => {
+            this.fetchBookDetails(reservation.book_id, (bookData) => {
+              reservation.book = bookData;
               if (reservation.book.authors) {
-                reservation.book.authors = JSON.parse(reservation.book.authors).join(', ');
+                try {
+                  reservation.book.authors = JSON.parse(reservation.book.authors).join(', ');
+                } catch (e) {
+                  reservation.book.authors = reservation.book.authors; // Assume it's already a string
+                }
               } else {
                 reservation.book.authors = 'Unknown';
               }
-            } else {
-              // Handle case where book details are incomplete
-              reservation.book = { title: 'Unknown', authors: 'Unknown' };
-            }
-            return reservation;
+            });
           });
         } else {
           console.error('Reservations array not found in response:', response);
-          // Handle the case where reservations array is not present in response
-          // You can clear or initialize this.reservations here based on your application logic
         }
       },
       (error) => {
         console.error('Error fetching reservations:', error);
-        // Handle the error case (e.g., show an error message to the user)
       }
     );
   }
