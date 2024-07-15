@@ -179,7 +179,7 @@ span {
 }
 
 // /* Media Queries for responsiveness */
-@media screen and (max-width: 768px ){
+@media screen and (max-width: 667px ){
     .bg .gc,
     .bg .student,
     .first-logo,
@@ -226,3 +226,16 @@ span {
         padding: 20px;
     }
 }
+
+// @media screen and (max-width: 390px) and (max-height: 844px) and (min-width: 380px) and (min-height: 820px) {
+
+//     .right-container {
+//         position: absolute;
+//         top: 90px; 
+//         left: 28px; 
+//         right: auto; 
+//         text-align: center;
+//         z-index: 100;
+//         animation: none; 
+//     }
+// }

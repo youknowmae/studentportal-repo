@@ -30,6 +30,7 @@ export class ReservemodalComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.selectedAccession = data.accession;
+    this.selectedAccession = data.accession;
     this.reservationForm = this.fb.group({
       fullName: ['', Validators.required],
       user_id: ['', Validators.required],
@@ -58,6 +59,8 @@ export class ReservemodalComponent implements OnInit {
         const userInfo = {
           fullName: `${user.first_name} ${user.last_name}`,
           user_id: user.id, // Ensure it matches the form control name
+          fullName: `${user.first_name} ${user.last_name}`,
+          userId: user.id,
           department: this.authService.getDepartment(),
         };
         this.fillUserInfo(userInfo);
