@@ -10,7 +10,8 @@
       <h2>{{ book['title'] }}</h2>
     </div>
     <div class="info">
-      <p>Status: {{ book['available'] ? 'Available' : 'Not Available' }}</p>
+     <!-- // 0 -> available, 1 -> borrowed, 2 -> reserved, 3 -> unavailable -->
+<p>Status: {{ book.status === 0 ? 'Available' : book.status === 1 ? 'Borrowed' : book.status === 2 ? 'Reserved' : 'Unavailable' }}</p>
       <p>Accession: {{ book['accession'] }}</p>
       <p>Call Number: {{ book['call_number'] }}</p>
       <p>Copyright: {{ book['copyright'] }}</p>
@@ -23,3 +24,4 @@
   </div>
   <button class="btn" (click)="openModal()" [disabled]="isReserved">Reserve</button>
 </div>
+<!-- // 0 -> available, 1 -> borrowed, 2 -> reserved, 3 -> unavailable -->

@@ -27,6 +27,18 @@ export class ApiService {
     return this.http.get<any[]>(`${this.apiUrl}/student/announcements`, { headers: this.getHeaders() });
   }
 
+  //new API 
+  getAnnouncementById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/student/announcements/${id}`, { headers: this.getHeaders() })
+      .pipe(
+        catchError((error: HttpErrorResponse) => {
+          console.error('Error fetching announcement:', error);
+          return throwError('An error occurred while fetching the announcement.');
+        })
+      );
+  }
+
+
   getArticles(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/student/articles`, { headers: this.getHeaders() });
   }
@@ -93,8 +105,20 @@ export class ApiService {
     return this.http.post<any>(`${this.apiUrl}/student/newreservations`, reservationData, { headers: this.getHeaders() });
   }
 
+getBorrowedById(id: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/student/borrowed/${id}`, { headers: this.getHeaders() })
+      .pipe(
+        catchError((error: HttpErrorResponse) => {
+          if (error.status === 404) {
+            return throwError('No borrow record found with the given ID');
+          } else {
+            return throwError('An error occurred while fetching the borrow record');
+          }
+        })
+      );
+  }
   getBorrowedByUserId(userId: number): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/borrow/user/${userId}`, { headers: this.getHeaders() })
+    return this.http.get<any[]>(`${this.apiUrl}/student/borrowed/user/${userId}`, { headers: this.getHeaders() })
       .pipe(
         catchError((error: HttpErrorResponse) => {
           if (error.status === 404) {
@@ -105,6 +129,7 @@ export class ApiService {
         })
       );
   }
+  
   getUserById(userId: number): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/reservations/${userId}`, { headers: this.getHeaders() });
   }
@@ -114,8 +139,8 @@ export class ApiService {
     return this.getBorrowedByUserId(userId);
   }
 
-  getProjectById(id: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/student/project/id/${id}`, { headers: this.getHeaders() })
+  getProjectById(accession: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/student/project/id/${accession}`, { headers: this.getHeaders() })
       .pipe(
         catchError((error: HttpErrorResponse) => {
           console.error('Error fetching project:', error);
@@ -154,5 +179,14 @@ export class ApiService {
   private handleError(error: HttpErrorResponse): Observable<never> {
     console.error('An error occurred:', error.error.message);
     return throwError('Something bad happened; please try again later.');
+  }
+  getReservationById(id: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/student/reservations/user/${id}`, { headers: this.getHeaders() })
+      .pipe(
+        catchError((error: HttpErrorResponse) => {
+          console.error('Error fetching reservation:', error);
+          return throwError(error);
+        })
+      );
   }
 }

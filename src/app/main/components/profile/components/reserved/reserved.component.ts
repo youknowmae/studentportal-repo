@@ -9,9 +9,7 @@ import { AuthenticationService } from '../../../../../authentication-service.ser
   styleUrls: ['./reserved.component.scss']
 })
 export class ReservedComponent implements OnInit {
-  book: any = {};
   reservations: any[] = [];
-  queuePositions: any = {};
 
   constructor(
     private apiService: ApiService,
@@ -20,25 +18,23 @@ export class ReservedComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // Load reservations and queue positions
     this.loadReservations();
   }
 
   fetchBookDetails(accession: string, callback: (data: any) => void): void {
-    // Fetch book details from the API using accession
     const authToken = this.authService.getToken();
     if (authToken) {
       const headers = { Authorization: `Bearer ${authToken}` };
-      this.apiService.getBookById(accession, headers)
-        .subscribe(
-          (data) => {
-            callback(data);
-          },
-          (error) => {
-            console.error('Error fetching book details:', error);
-            callback({ title: 'Unknown', authors: 'Unknown' });
-          }
-        );
+      this.apiService.getBookById(accession, headers).subscribe(
+        (data) => {
+          console.log('Fetched book details:', data); // Log the book data
+          callback(data);
+        },
+        (error) => {
+          console.error('Error fetching book details:', error);
+          callback({ title: 'Unknown', authors: 'Unknown' });
+        }
+      );
     } else {
       console.error('Authentication token not found.');
       callback({ title: 'Unknown', authors: 'Unknown' });
@@ -46,11 +42,10 @@ export class ReservedComponent implements OnInit {
   }
 
   loadReservations(): void {
-    // Get user ID and fetch reservations
     const userId = parseInt(this.authService.getLoggedInUserId() || '0', 10);
     this.apiService.getReservationsByUserId(userId).subscribe(
       (response: any) => {
-        // Check if response has reservations array
+        console.log('Fetched reservations:', response); // Log the reservations data
         if (response && response.reservations && Array.isArray(response.reservations)) {
           this.reservations = response.reservations;
           this.reservations.forEach(reservation => {
@@ -65,6 +60,7 @@ export class ReservedComponent implements OnInit {
               } else {
                 reservation.book.authors = 'Unknown';
               }
+              console.log('Reservation with book details:', reservation); // Log the reservation with book details
             });
           });
         } else {
@@ -78,6 +74,7 @@ export class ReservedComponent implements OnInit {
   }
 
   viewReservationDetails(reservation: any): void {
-    console.log('Viewing reservation:', reservation);
+    console.log('Viewing reservation:', reservation); // Log the reservation being viewed
+    // Implement navigation or modal display for detailed view
   }
 }

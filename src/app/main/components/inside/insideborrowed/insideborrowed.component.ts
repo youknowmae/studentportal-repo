@@ -11,8 +11,8 @@ import { AuthenticationService } from '../../../../authentication-service.servic
   styleUrls: ['./insideborrowed.component.scss']
 })
 export class InsideborrowedComponent implements OnInit {
-  book: any = {};
-  accession: string | null = null;
+  borrowedMaterial: any = {}; // Initialize borrowedMaterial object
+  book: any = {}; // Initialize book object
 
   constructor(
     private apiService: ApiService,
@@ -22,23 +22,30 @@ export class InsideborrowedComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.accession = this.route.snapshot.paramMap.get('accession');
-    if (this.accession) {
-      this.fetchBookDetails(this.accession);
-    }
+    // Subscribe to route parameter changes
+    this.route.paramMap.subscribe(params => {
+      const id = params.get('id'); // Retrieve the 'id' parameter
+      if (id && id !== 'null') { // Check if 'id' is not null or 'null' string
+        this.fetchBorrowedMaterial(id); // Fetch borrowed material details
+      } else {
+        console.error('Invalid ID parameter:', id);
+        // Optionally handle the case where 'id' is 'null' or invalid
+      }
+    });
   }
 
-  fetchBookDetails(accession: string): void {
+  fetchBorrowedMaterial(id: string): void {
     const authToken = this.authService.getToken();
     if (authToken) {
       const headers = { Authorization: `Bearer ${authToken}` };
-      this.apiService.getBookById(accession, headers)
+      this.apiService.getBorrowedById(id)
         .subscribe(
-          (data) => {
-            this.book = data;
+          (data: any) => {
+            this.borrowedMaterial = data.borrowedMaterial; // Assign fetched borrowed material data
+            this.book = data.borrowedMaterial.material; // Assign associated book data
           },
           (error) => {
-            console.error('Error fetching book details:', error);
+            console.error('Error fetching borrowed material details:', error);
           }
         );
     } else {
@@ -48,7 +55,7 @@ export class InsideborrowedComponent implements OnInit {
 
   openModal(): void {
     const dialogRef = this.dialog.open(ReservemodalComponent, {
-      data: { accession: this.accession } // Pass accession instead of bookId
+      data: { accession: this.borrowedMaterial.book_id } // Pass accession instead of bookId
     });
 
     dialogRef.afterClosed().subscribe(result => {

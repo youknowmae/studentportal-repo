@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
 import { ApiService } from '../../../../api-service.service';
 
 @Component({
@@ -9,22 +8,22 @@ import { ApiService } from '../../../../api-service.service';
   styleUrls: ['./insideacademic.component.scss']
 })
 export class InsideacademicComponent implements OnInit {
-  project: any; // Change 'projects' to 'project'
+  project: any; // Define 'project' to hold the fetched project data
 
   constructor(private apiService: ApiService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      const id = +params['id'];
-      this.fetchProject(id);
+      const accession = params['accession']; // Accession should be string type
+      this.fetchProject(accession);
     });
   }
 
-  fetchProject(id: number): void {
-    this.apiService.getProjectById(id).subscribe(
+  fetchProject(accession: string): void {
+    this.apiService.getProjectById(accession).subscribe(
       (data: any) => {
         console.log('Fetched project data:', data);
-        this.project = data; // Change 'projects' to 'project'
+        this.project = data; // Assign fetched project data to 'project'
       },
       (error) => {
         console.error('Error fetching project:', error);

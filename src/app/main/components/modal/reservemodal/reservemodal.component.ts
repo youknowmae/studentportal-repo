@@ -39,7 +39,6 @@ export class ReservemodalComponent implements OnInit {
       authors: ['', Validators.required],
       price: ['', [Validators.required, Validators.min(0)]],
       reserve_date: ['', Validators.required],
-      reserve_expiration: ['', Validators.required],
       status: [1, Validators.required],
       type: [0, Validators.required],
       termsAccepted: [false, Validators.requiredTrue] // Ensure terms are accepted
@@ -59,8 +58,6 @@ export class ReservemodalComponent implements OnInit {
         const userInfo = {
           fullName: `${user.first_name} ${user.last_name}`,
           user_id: user.id, // Ensure it matches the form control name
-          fullName: `${user.first_name} ${user.last_name}`,
-          userId: user.id,
           department: this.authService.getDepartment(),
         };
         this.fillUserInfo(userInfo);
@@ -120,7 +117,6 @@ export class ReservemodalComponent implements OnInit {
         user_id: reservationData.user_id,
         book_id: this.selectedAccession,
         reserve_date: reservationData.reserve_date,
-        reserve_expiration: reservationData.reserve_expiration,
         price: reservationData.price,
         status: reservationData.status,
         type: reservationData.type

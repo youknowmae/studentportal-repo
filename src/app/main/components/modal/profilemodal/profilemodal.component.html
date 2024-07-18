@@ -31,17 +31,17 @@
         <thead>
             <tr>
                 <th>Borrowed Date</th>
-                <th>Time</th>
+                <th>Borrowed Expiration</th>
                 <th>Book Title</th>
                 <th>Returned Date</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let book of displayedBooks">
-                <td>{{ book.authors }}</td>
-                <td>{{ book.time }}</td>
-                <td>{{ book.title }}</td>
-                <td>{{ book.returnedDate }}</td>
+                <td>{{ book.borrow_date | date  }}</td>
+                <td>{{ book.borrow_expiration | date}}</td>
+                <td>{{ book.material.title }}</td>
+                <td>{{ book.date_returned  | date}}</td>
             </tr>
         </tbody>
     </table>

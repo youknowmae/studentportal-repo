@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { InsideacademicComponent } from '../../../inside/insideacademic/insideacademic.component';
 
 const routes: Routes = [
-  { path: 'insideacademic', component: InsideacademicComponent }
+  { path: 'insideacademic/:accession', component: InsideacademicComponent }
 ];
 
 @NgModule({

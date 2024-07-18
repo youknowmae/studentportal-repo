@@ -2,24 +2,29 @@
 <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 
 <div class="container">
-  <span class="back-icon" [routerLink]="['/main/profile']" routerLinkActive="router-link-active"><i class="fa-solid fa-angle-left"></i></span>
+  <span class="back-icon" [routerLink]="['/main/profile/reserved']" routerLinkActive="router-link-active">
+    <i class="fa-solid fa-angle-left"></i>
+  </span>
 
   <div class="content">
     <div class="image">
-      <img [src]="book.image_url == null ? 'assets/images/lib.png' : book.image_url" alt="Image" class="square-image">
-      <h2>{{ book['title'] }}</h2>
+      <img [src]="book.image_url ? book.image_url : 'assets/images/lib.png'" alt="Image" class="square-image">
+      <h2>{{ book.title }}</h2>
     </div>
+
     <div class="info">
-      <p>Status: {{ book['available'] ? 'Available' : 'Not Available' }}</p>
-      <p>Accession: {{ book['accession'] }}</p>
-      <p>Call Number: {{ book['call_number'] }}</p>
-      <p>Copyright: {{ book['copyright'] }}</p>
-      <p>Author: {{ book['authors'] }}</p>
-      <p>Volume: {{ book['volume'] }}</p>
-      <p>Pages: {{ book['pages'] }}</p>
-      <p>Edition: {{ book['edition'] }}</p>
-      <p>Remark: {{ book['remarks'] != null ? book['remarks'] : 'N/A' }}</p>
+      <p>Status: {{ reservation.status === 1 ? 'Pending' : 'Approved' }}</p>
+      <p>Accession: {{ book.accession }}</p>
+      <p>Call Number: {{ book.call_number }}</p>
+      <p>Authors: {{ book.authors }}</p>
+      <p>Volume: {{ book.volume }}</p>
+      <p>Pages: {{ book.pages }}</p>
+      <p>Edition: {{ book.edition }}</p>
+      <p>Reservation Type: {{ reservation.reservation_type === 1 ? 'Online' : 'Walk In' }}</p>
+
+      <p>Remark: {{ book.remarks ? book.remarks : 'N/A' }}</p>
     </div>
   </div>
+
   <button class="btn">Cancel</button>
 </div>

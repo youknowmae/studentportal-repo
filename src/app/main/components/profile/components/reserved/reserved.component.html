@@ -11,7 +11,7 @@
         <span class="dot7"></span>
         <span class="dot8"></span>
         <span class="dot9"></span>
-        <p [ngClass]="{'pending': reservation.status == 1, 'approved': reservation.status != 1}">
+        <p [ngClass]="{'pending': reservation.status == 1, 'approved': reservation.status != 0}">
           {{ reservation.status == 1 ? 'Pending' : 'Approved' }}
         </p>
         <img src="assets/images/lib.png" alt="Image" class="square-image">
@@ -20,8 +20,7 @@
             <h2>{{ reservation.book?.title || 'Title Not Available' }}</h2>
             <p>Authors: {{ reservation.book?.authors || 'Not available' }}</p>
           </div>
-          <button class="view-button" role="button" [routerLink]="['../reservation', reservation.book?.id]" routerLinkActive="router-link-active">View</button>
-        </div>
+          <button class="view-button" role="button" [routerLink]="['../reservation', reservation.id]" routerLinkActive="router-link-active">View</button>        </div>
       </div>
     </div>
   </div>  

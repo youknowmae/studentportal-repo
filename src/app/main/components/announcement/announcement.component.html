@@ -19,10 +19,10 @@
           <div class="square-content1">
             <div class="square-text1">
               <h2>{{ announcements[0]?.title }}</h2>
-              <p>Author's ID: {{ announcements[0]?.author_id }}</p>
+              <p>Author: {{ announcements[0]?.author_name }}</p>
               <p>Category: {{ announcements[0]?.category }}</p>
               <p>Date Published: {{ announcements[0]?.created_at | date }}</p>
-              <button class="button" [routerLink]="['../insideannouncement/:id']" routerLinkActive="router-link-active">
+              <button class="button" [routerLink]="['../insideannouncement', announcements[0]?.id]" routerLinkActive="router-link-active">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"></path>
                 </svg>
@@ -37,14 +37,14 @@
     </div>
   </div>
 
-<!-- BOTTOM -->
+  <!-- BOTTOM -->
   <div class="header">
     <strong>Past Highlights Recap</strong>
   </div>
   <div class="bottom">
     <div class="row">
       <div class="col-md-4" *ngFor="let announcement of announcements.slice(1); let i = index">
-        <div class="square" [routerLink]="['../insideannouncement/:id']">
+        <div class="square" [routerLink]="['../insideannouncement', announcement.id]">
           <span class="dot1"></span>
           <span class="dot2"></span>
           <span class="dot3"></span>
@@ -63,8 +63,9 @@
         </div>
       </div>
     </div>
+  </div>
 </div>
-</div>
+
 
 
 <!-- Top -->
