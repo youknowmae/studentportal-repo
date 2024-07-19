@@ -180,6 +180,7 @@ getBorrowedById(id: string): Observable<any[]> {
     console.error('An error occurred:', error.error.message);
     return throwError('Something bad happened; please try again later.');
   }
+
   getReservationById(id: string): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/student/reservations/user/${id}`, { headers: this.getHeaders() })
       .pipe(
@@ -188,5 +189,26 @@ getBorrowedById(id: string): Observable<any[]> {
           return throwError(error);
         })
       );
+  }
+  
+  cancelReservation(id: string): Observable<any> {
+    const userId = this.authService.getLoggedInUserId(); // Get user ID from authentication service
+    return this.http.patch<any>(`${this.apiUrl}/student/reservations/cancel/${id}`, { user_id: userId }, { headers: this.getHeaders() });
+  }
+
+  //audio shits
+  getAudioVisuals(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/student/audio-visuals`, { headers: this.getHeaders() });
+  }
+
+  getAudioVisualByAccession(accession: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/student/audio-visuals/${accession}`, { headers: this.getHeaders() });
+  }
+
+  searchAudioVisuals(query: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/student/audiovisuals/searchs`, {
+      headers: this.getHeaders(),
+      params: { query }
+    });
   }
 }

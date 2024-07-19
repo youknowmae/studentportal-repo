@@ -32,7 +32,17 @@ export class BorrowedComponent implements OnInit {
       (response: any) => {
         // Check if the response has the expected structure
         if (response && response.borrowedMaterials && Array.isArray(response.borrowedMaterials)) {
-          this.borrowedItems = response.borrowedMaterials;
+          this.borrowedItems = response.borrowedMaterials.map((item: any) => {
+            if (item.material && item.material.authors) {
+              try {
+                item.material.authors = JSON.parse(item.material.authors);
+              } catch (e) {
+                console.error('Failed to parse authors:', e);
+                item.material.authors = [item.material.authors]; // Assume it's already a string
+              }
+            }
+            return item;
+          });
         } else {
           console.error('Invalid API response structure:', response);
         }

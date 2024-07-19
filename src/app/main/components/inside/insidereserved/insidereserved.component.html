@@ -13,7 +13,7 @@
     </div>
 
     <div class="info">
-      <p>Status: {{ reservation.status === 1 ? 'Pending' : 'Approved' }}</p>
+      <p>Status: {{ reservation.status === 2 ? 'Pending' : 'Approved' }}</p>
       <p>Accession: {{ book.accession }}</p>
       <p>Call Number: {{ book.call_number }}</p>
       <p>Authors: {{ book.authors }}</p>
@@ -26,5 +26,5 @@
     </div>
   </div>
 
-  <button class="btn">Cancel</button>
+  <button class="btn" (click)="cancelReservation()">Cancel</button>
 </div>

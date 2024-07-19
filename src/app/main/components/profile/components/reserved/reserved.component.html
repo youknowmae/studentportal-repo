@@ -14,18 +14,17 @@
         <span class="dot7"></span>
         <span class="dot8"></span>
         <span class="dot9"></span>
-        <p class="approved"> Approved </p>
+        <p class="pending"> {{getStatusText(reservation.status)}} </p>
         <img src="assets/images/lib.png" alt="Image" class="square-image">
         <div class="square-content">
           <div class="square-text">
             <h2>{{ reservation.book?.title || 'Title Not Available' }}</h2>
             <p>Authors: {{ reservation.book?.authors || 'Not available' }}</p>
-            <p class="queue">Queue position: Number 12</p>
+            <p class="queue">Queue position: {{ reservation.queue_position }}</p>
           </div>
-          <button class="view-button" role="button" routerLinkActive="router-link-active">View</button>
+          <button class="view-button" role="button" [routerLink]="['../reservation', reservation.id]" routerLinkActive="router-link-active">View</button>
         </div>
       </div>
     </div>
   </div>  
 </div>
-

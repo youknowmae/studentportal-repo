@@ -1,78 +1,47 @@
+<!-- Link to Google Fonts -->
 <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 
 <div class="content">
-  <!-- Filter -->
+  <!-- Search Filter -->
   <div class="row mb-3">
     <div class="col-md-4">
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search">
+        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchQuery" (input)="searchAudioVisuals()">
       </div>
     </div>    
   </div>
 
-  <!-- Loading spinner -->
-  <!-- <div *ngIf="loading" class="loading-spinner">
+  <!-- Loading Spinner -->
+  <div *ngIf="loading" class="loading-spinner">
     <div class="spinner-border text-green" role="status" style="width: 5rem; height: 5rem;">
       <span class="sr-only">Loading...</span>
     </div>
-  </div> -->
+  </div>
 
-  <!-- Periodicals -->
+  <!-- Audio-Visual Materials -->
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4" *ngFor="let item of audioVisuals">
       <div class="square">
         <span class="dot1"></span>
         <span class="dot2"></span>
         <span class="dot3"></span>
         <div class="square-content">
           <div class="square-text">
-            <p>Title: </p>
-            <p>Accession: </p>
-            <p>Call Number: </p>
-            <p>Copyright: </p>
-            <p>Author: </p>
+            <p>Title: {{ item.title }}</p>
+            <p>Accession: {{ item.accession }}</p>
+            <p>Authors: {{ item.authors }}</p>
+            <p>Copyright: {{ item.copyright }}</p>
+            <p>Call Number: {{ item.call_number }}</p>
+            <!-- Add more fields if necessary -->
           </div>
         </div>
       </div>
     </div>
-    <div class="col-md-4">
-      <div class="square">
-        <span class="dot1"></span>
-        <span class="dot2"></span>
-        <span class="dot3"></span>
-        <div class="square-content">
-          <div class="square-text">
-            <p>Title: </p>
-            <p>Accession: </p>
-            <p>Call Number: </p>
-            <p>Copyright: </p>
-            <p>Author: </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="square">
-        <span class="dot1"></span>
-        <span class="dot2"></span>
-        <span class="dot3"></span>
-        <div class="square-content">
-          <div class="square-text">
-            <p>Title: </p>
-            <p>Accession: </p>
-            <p>Call Number: </p>
-            <p>Copyright: </p>
-            <p>Author: </p>
-          </div>
-        </div>
-      </div>
-    </div>
+  </div>
 
   <!-- Pagination -->
-  <!-- <div class="pagination">
-    <p>Item per page: {{ paginatedaudiovisual.length }}</p>
-    <p>{{ getPaginationSummary() }}</p>
-    <i class="fas fa-chevron-left kaliwa" (click)="currentPage > 1 ? previousPage() : null"></i>
-    <i class="fas fa-chevron-right" (click)="nextPage()" [hidden]="currentPage === totalPages"></i>
-  </div> -->
+  <div class="pagination" *ngIf="!loading">
+    <p>Items per page: {{ audioVisuals.length }}</p>
+    <!-- Add pagination controls if needed -->
+  </div>
 </div>

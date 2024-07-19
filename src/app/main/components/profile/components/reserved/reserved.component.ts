@@ -10,6 +10,8 @@ import { AuthenticationService } from '../../../../../authentication-service.ser
 })
 export class ReservedComponent implements OnInit {
   reservations: any[] = [];
+  queuePositions: { [key: string]: number } = {};
+  bookDetails: { [key: string]: any } = {};
 
   constructor(
     private apiService: ApiService,
@@ -48,20 +50,24 @@ export class ReservedComponent implements OnInit {
         console.log('Fetched reservations:', response); // Log the reservations data
         if (response && response.reservations && Array.isArray(response.reservations)) {
           this.reservations = response.reservations;
+          this.queuePositions = response.queue_positions;
+          this.bookDetails = response.book_details;
+
           this.reservations.forEach(reservation => {
-            this.fetchBookDetails(reservation.book_id, (bookData) => {
-              reservation.book = bookData;
-              if (reservation.book.authors) {
-                try {
-                  reservation.book.authors = JSON.parse(reservation.book.authors).join(', ');
-                } catch (e) {
-                  reservation.book.authors = reservation.book.authors; // Assume it's already a string
-                }
-              } else {
-                reservation.book.authors = 'Unknown';
+            reservation.queue_position = this.queuePositions[reservation.book_id];
+            reservation.book = this.bookDetails[reservation.book_id];
+
+            if (reservation.book.authors) {
+              try {
+                reservation.book.authors = JSON.parse(reservation.book.authors).join(', ');
+              } catch (e) {
+                reservation.book.authors = reservation.book.authors; // Assume it's already a string
               }
-              console.log('Reservation with book details:', reservation); // Log the reservation with book details
-            });
+            } else {
+              reservation.book.authors = 'Unknown';
+            }
+
+            console.log('Reservation with book details:', reservation); // Log the reservation with book details
           });
         } else {
           console.error('Reservations array not found in response:', response);
@@ -71,6 +77,15 @@ export class ReservedComponent implements OnInit {
         console.error('Error fetching reservations:', error);
       }
     );
+  }
+
+  getStatusText(status: number): string {
+    switch (status) {
+      case 2:
+        return 'Pending';
+      default:
+        return 'Unknown';
+    }
   }
 
   viewReservationDetails(reservation: any): void {

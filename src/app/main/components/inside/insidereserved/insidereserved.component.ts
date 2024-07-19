@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../../../api-service.service';
 import { AuthenticationService } from '../../../../authentication-service.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-insidereserved',
@@ -52,4 +53,61 @@ export class InsidereservedComponent implements OnInit {
       }
     );
   }
+
+  cancelReservation(): void {
+    const reservationId = this.reservation.id; // Assuming you have reservation ID from fetched data
+    if (!reservationId) {
+      console.error('Reservation ID not available');
+      return;
+    }
+  
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "Do you want to cancel this reservation?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, cancel it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.apiService.cancelReservation(reservationId).subscribe(
+          (response) => {
+            if (response && response.message === 'Reservation canceled successfully') {
+              Swal.fire(
+                'Canceled!',
+                'Your reservation has been canceled.',
+                'success'
+              );
+              console.log('Reservation canceled:', response);
+              // Handle success, e.g., redirect or refresh data
+            } else {
+              Swal.fire(
+                'Unexpected Response!',
+                'The cancellation was successful, but the response was unexpected.',
+                'warning'
+              );
+              console.error('Unexpected response:', response);
+            }
+          },
+          (error) => {
+            let errorMessage = 'Error canceling reservation';
+            if (error.error && error.error.error) {
+              errorMessage = error.error.error; // Use backend error message
+            } else if (error.message) {
+              errorMessage = error.message; // Fallback to HttpErrorResponse message
+            }
+  
+            Swal.fire(
+              'Error!',
+              errorMessage,
+              'error'
+            );
+            console.error('Error canceling reservation:', error);
+          }
+        );
+      }
+    });
+  }
+  
 }

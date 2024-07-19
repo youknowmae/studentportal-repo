@@ -39,7 +39,7 @@ export class ReservemodalComponent implements OnInit {
       authors: ['', Validators.required],
       price: ['', [Validators.required, Validators.min(0)]],
       reserve_date: ['', Validators.required],
-      status: [1, Validators.required],
+      status: [2, Validators.required],
       type: [0, Validators.required],
       termsAccepted: [false, Validators.requiredTrue] // Ensure terms are accepted
     });
@@ -134,11 +134,20 @@ export class ReservemodalComponent implements OnInit {
           this.reservationForm.reset();
         },
         error => {
+          let errorMessage = 'Failed to create reservation';
+          
+          if (error.error && error.error.error) {
+            errorMessage = error.error.error; // Use the error message from the backend
+          } else if (error.message) {
+            errorMessage = error.message; // Fallback to the error message from HttpErrorResponse
+          }
+          
           Swal.fire({
             icon: 'error',
             title: 'Error',
-            text: 'Failed to create reservation',
+            text: errorMessage,
           });
+          console.error('Error creating reservation:', error);
         }
       );
     } else {
