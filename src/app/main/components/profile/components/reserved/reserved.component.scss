@@ -3,7 +3,6 @@
 }
 .content{
   margin-top: 20px;
-  margin-bottom: 20px;
 }
 .square {
   border: solid 2px var(--border-color);
@@ -18,7 +17,6 @@
   overflow: hidden;
   position: relative;
   background-color: #fff;
-  margin: 0 -165px;
 }
 .square:hover{
   transform: scale(1.05);
@@ -34,7 +32,7 @@
   color: #fff;
   border-radius: 5px;
   border: 2px solid rgb(0, 255, 85);
-  width: 140px;
+  width: 160px;
   font-size: 10px;
   position: relative;
   font-weight: bolder;
@@ -47,7 +45,7 @@
   color: #fff;
   border-radius: 5px;
   border: 2px solid rgb(227, 227, 62);
-  width: 140px;
+  width: 160px;
   font-size: 10px;
   position: relative;
   font-weight: bolder;
@@ -61,7 +59,7 @@
   background-color: #415b44;
   display: inline-block;
   z-index: 50;
-  margin-left: -170px;
+  margin-left: -180px;
   margin-top: -20px;
 }
 .square .dot2 {
@@ -71,7 +69,7 @@
   background-color: #49664d;
   display: inline-block;
   z-index: 45;
-  margin-left: -170px;
+  margin-left: -180px;
   margin-top: -20px;
 }
 .square .dot3 {
@@ -81,7 +79,7 @@
   background-color: #517255;
   display: inline-block;
   z-index: 40;
-  margin-left: -170px;
+  margin-left: -180px;
   margin-top: -20px;
 }
 .square .dot4 {
@@ -91,7 +89,7 @@
   background-color: #5a7d5e;
   display: inline-block;
   z-index: 35;
-  margin-left: -170px;
+  margin-left: -180px;
   margin-top: -20px;
 }
 .square .dot5 {
@@ -101,7 +99,7 @@
   background-color: #628966;
   display: inline-block;
   z-index: 30;
-  margin-left: -170px;
+  margin-left: -180px;
   margin-top: -20px;
 }
 .square .dot6 {
@@ -111,7 +109,7 @@
   background-color: #6a946f;
   display: inline-block;
   z-index: 25;
-  margin-left: -170px;
+  margin-left: -180px;
   margin-top: -20px;
 }
 .square .dot7 {
@@ -121,7 +119,7 @@
   background-color: #759d7a;
   display: inline-block;
   z-index: 20;
-  margin-left: -170px;
+  margin-left: -180px;
   margin-top: -20px;
 }
 .square .dot8 {
@@ -131,7 +129,7 @@
   background-color: #81a585;
   display: inline-block;
   z-index: 15;
-  margin-left: -170px;
+  margin-left: -180px;
   margin-top: -20px;
 }
 .square .dot9 {
@@ -141,7 +139,7 @@
   background-color: #8cad90;
   display: inline-block;
   z-index: 10;
-  margin-left: -170px;
+  margin-left: -180px;
   margin-top: -20px;
 }
 .square-image {

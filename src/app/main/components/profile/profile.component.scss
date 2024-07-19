@@ -7,6 +7,11 @@
   position: relative;
   display: flex;  
   flex-direction: column;
+}
+.container .container1{
+  position: relative;
+  display: flex;  
+  flex-direction: column;
   align-items: center;
 }
 .column {
@@ -147,7 +152,7 @@
 }
 @media screen and (max-width: 768px) {
   .container {
-    margin-top: 50px;
+    margin-top: 80px;
   }
   .container img {
     width: 150px;

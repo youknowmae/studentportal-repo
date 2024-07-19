@@ -94,7 +94,6 @@ export class ProfileComponent implements OnInit {
 
   openProfileModal() {
     this.dialog.open(ProfilemodalComponent, {
-      width: '400px' // Adjust width as needed
     });
   }
 
@@ -104,7 +103,6 @@ export class ProfileComponent implements OnInit {
 
   openqrmodal() {
     this.dialog.open(QrmodalComponent, {
-      width: '400px' // Adjust width as needed
     });
   }
 

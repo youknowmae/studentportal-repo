@@ -36,7 +36,8 @@
     <div class="rectangle" *ngFor="let article of paginatedArticles" [routerLink]="['../insidearticle', article.accession]">
       <div class="details">
         <div class="left">
-                  <p><span>Title: </span>{{ article.title }}</p>
+          <p><span>Title: </span>{{ article.title }}</p>
+          <p><span>Type: </span></p>
         </div>
         <div class="right">
           <p><span>Date Published: </span> {{ article.date_published }}</p>

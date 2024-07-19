@@ -2,6 +2,7 @@
 <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 
 <div class="container">
+  <div class="container1">
   <img [src]="user?.profile_picture || 'assets/images/lib.png'" alt="Profile" class="img-fluid">
   <div class="column col-md-12">
     <!-- <img [src]="user?.profile_picture || 'assets/images/lib.png'" alt="Profile" class="img-fluid"> -->
@@ -45,6 +46,7 @@
       </div>
     </div>
   </div>
+</div>
   
   <div class="container2">
     <div class="one">
@@ -53,8 +55,7 @@
     <div class="two">
       <button class="btn btn-block btn-icon" [class.active]="selectedSection === 'reserved'" (click)="setActiveSection('reserved')" [routerLink]="['reserved']">Reserved</button>
     </div>
-  </div> 
-
+  </div>
   <div class="connection">
     <router-outlet></router-outlet>
 </div>
