@@ -37,7 +37,7 @@ export class ReservemodalComponent implements OnInit {
       department: ['', Validators.required],
       title: ['', Validators.required],
       authors: ['', Validators.required],
-      price: ['', [Validators.required, Validators.min(0)]],
+      fine: ['500', [Validators.required, Validators.min(0)]],
       reserve_date: ['', Validators.required],
       status: [2, Validators.required],
       type: [0, Validators.required],
@@ -106,7 +106,6 @@ export class ReservemodalComponent implements OnInit {
     this.reservationForm.patchValue({
       title: selectedBook.title,
       authors: selectedBook.authors,
-      price: selectedBook.price,
     });
   }
 
@@ -117,7 +116,7 @@ export class ReservemodalComponent implements OnInit {
         user_id: reservationData.user_id,
         book_id: this.selectedAccession,
         reserve_date: reservationData.reserve_date,
-        price: reservationData.price,
+        fine: reservationData.fine,
         status: reservationData.status,
         type: reservationData.type
       };

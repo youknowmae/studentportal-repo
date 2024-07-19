@@ -9,7 +9,9 @@ import { AuthenticationService } from './authentication-service.service';
 })
 export class ApiService {
   // apiUrl = 'http://26.68.32.39:8000/api';
-  apiUrl = 'http://localhost:8000/api';
+  // apiUrl = 'http://localhost:8000/api';
+  
+  apiUrl = 'http://192.168.18.185:8000/api';
   checkReservationStatus: any;
 
 
