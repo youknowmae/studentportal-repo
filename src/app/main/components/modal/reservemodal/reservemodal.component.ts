@@ -4,7 +4,6 @@ import { ApiService } from '../../../../api-service.service';
 import { AuthenticationService } from '../../../../authentication-service.service';
 import Swal from 'sweetalert2';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { TermsmodalComponent } from '../termsmodal/termsmodal.component';
 
@@ -18,18 +17,17 @@ export class ReservemodalComponent implements OnInit {
   successMessage: string | null = null;
   errorMessage: string | null = null;
   selectedAccession: string | null = null;
-  termsAccepted: boolean = false; // Added to track checkbox status
+  termsAccepted: boolean = false; // Track checkbox status
+  fineAmount: number = 0; // To hold the fine amount
 
   constructor(
     private dialogRef: MatDialogRef<ReservemodalComponent>, // Inject MatDialogRef
     private fb: FormBuilder,
     private apiService: ApiService,
     private authService: AuthenticationService,
-    private http: HttpClient,
     private dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
-    this.selectedAccession = data.accession;
     this.selectedAccession = data.accession;
     this.reservationForm = this.fb.group({
       fullName: ['', Validators.required],
@@ -37,7 +35,7 @@ export class ReservemodalComponent implements OnInit {
       department: ['', Validators.required],
       title: ['', Validators.required],
       authors: ['', Validators.required],
-      fine: ['500', [Validators.required, Validators.min(0)]],
+      fine: [{ value: '', disabled: true }, [Validators.required, Validators.min(0)]], // Disable initial input
       reserve_date: ['', Validators.required],
       status: [2, Validators.required],
       type: [0, Validators.required],
@@ -50,6 +48,7 @@ export class ReservemodalComponent implements OnInit {
     if (this.selectedAccession !== null) {
       this.fetchBookData(this.selectedAccession);
     }
+    this.fetchFineAmount(); // Fetch fine amount for patron_id 1
   }
 
   fetchUserData(): void {
@@ -94,6 +93,20 @@ export class ReservemodalComponent implements OnInit {
     });
   }
 
+  fetchFineAmount(): void {
+    // Fetch fine amount for patron_id 1 (online)
+    this.apiService.getPatronById(1).subscribe(patron => {
+      if (patron) {
+        this.fineAmount = patron.fine || 0; // Use the fine amount from the patron data
+        this.reservationForm.patchValue({ fine: this.fineAmount });
+      } else {
+        console.error('Patron data not found');
+      }
+    }, error => {
+      console.error('Error fetching patron data', error);
+    });
+  }
+
   fillUserInfo(userInfo: any): void {
     this.reservationForm.patchValue({
       fullName: userInfo.fullName,
@@ -116,7 +129,7 @@ export class ReservemodalComponent implements OnInit {
         user_id: reservationData.user_id,
         book_id: this.selectedAccession,
         reserve_date: reservationData.reserve_date,
-        fine: reservationData.fine,
+        fine: this.fineAmount, // Use the dynamically fetched fine amount
         status: reservationData.status,
         type: reservationData.type
       };

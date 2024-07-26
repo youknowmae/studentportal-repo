@@ -213,4 +213,8 @@ getBorrowedById(id: string): Observable<any[]> {
       params: { query }
     });
   }
+
+  getPatronById(patronId: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/patrons/${patronId}`);
+  }
 }
