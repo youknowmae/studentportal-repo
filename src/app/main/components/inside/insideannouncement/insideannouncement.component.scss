@@ -39,11 +39,11 @@
     text-align: center;
   }
   .info {
-    overflow-x: hidden;
-    overflow-y: scroll;
+    overflow: scroll;
     height: 120px;
     width: 100%;
     text-align: center;
+    word-wrap: break-word;
   }
   .info p {
     font-size: 12px;

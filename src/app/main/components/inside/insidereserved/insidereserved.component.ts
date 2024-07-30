@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../../../../api-service.service';
 import { AuthenticationService } from '../../../../authentication-service.service';
 import Swal from 'sweetalert2';
@@ -17,6 +17,7 @@ export class InsidereservedComponent implements OnInit {
     private apiService: ApiService,
     private route: ActivatedRoute,
     private authService: AuthenticationService,
+    private router: Router // Inject Router here
   ) {}
 
   ngOnInit(): void {
@@ -80,7 +81,8 @@ export class InsidereservedComponent implements OnInit {
                 'success'
               );
               console.log('Reservation canceled:', response);
-              // Handle success, e.g., redirect or refresh data
+              // Navigate away after successful cancellation
+              this.router.navigate(['/main/profile/reserved']);
             } else {
               Swal.fire(
                 'Unexpected Response!',
@@ -109,5 +111,4 @@ export class InsidereservedComponent implements OnInit {
       }
     });
   }
-  
 }

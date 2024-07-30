@@ -39,7 +39,8 @@ p {
 .sidebar {
     position: fixed;
     z-index: 999;
-    padding: 0;
+    padding: 0;top: 0;
+    left: 0;
     width: 220px;
     background-color: #4f6f52;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
