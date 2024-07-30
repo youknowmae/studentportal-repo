@@ -1,8 +1,10 @@
 * {
     font-family: 'Montserrat';
+    z-index: 1050;
 } 
 
 .container {
+    z-index: 1050;
     height: 650px;
     max-height: 800px;
     overflow-y: scroll;

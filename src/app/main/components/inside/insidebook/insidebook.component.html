@@ -7,12 +7,11 @@
   <div class="content">
     <div class="image">
       <img [src]="book.image_url == null ? 'assets/images/lib.png' : book.image_url" alt="Image" class="square-image">
-      <h2>{{ book['title'] }}</h2>
     </div>
+
     <div class="info">
-     <!-- // 0 -> available, 1 -> borrowed, 2 -> reserved, 3 -> unavailable -->
-<p>Status: {{ book.status === 0 ? 'Available' : book.status === 1 ? 'Borrowed' : book.status === 2 ? 'Reserved' : 'Unavailable' }}</p>
-      <p>Accession: {{ book['accession'] }}</p>
+      <h2>{{ book['title'] }}</h2>
+      <p>Status: {{ book.status === 0 ? 'Available' : book.status === 1 ? 'Borrowed' : book.status === 2 ? 'Reserved' : 'Unavailable' }}</p>
       <p>Call Number: {{ book['call_number'] }}</p>
       <p>Copyright: {{ book['copyright'] }}</p>
       <p>Author: {{ book['authors'] }}</p>
@@ -24,4 +23,4 @@
   </div>
   <button class="btn" (click)="openModal()" [disabled]="isReserved">Reserve</button>
 </div>
-<!-- // 0 -> available, 1 -> borrowed, 2 -> reserved, 3 -> unavailable -->
+<br>

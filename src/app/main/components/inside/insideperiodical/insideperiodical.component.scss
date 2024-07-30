@@ -40,9 +40,9 @@
 .info{
     margin-top: 65px;
     padding-left: 20px;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    height: 300px;
+    height: 400px;
+    overflow-y: auto;
+    word-wrap: break-word;
 }
 .info p{
     font-size: 12px;

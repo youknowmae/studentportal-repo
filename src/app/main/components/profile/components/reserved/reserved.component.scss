@@ -17,6 +17,7 @@
   position: relative;
   background-color: #fff;
   height: auto;
+  max-height: 250px;
 }
 .square:hover{
   transform: scale(1.05);
@@ -24,7 +25,6 @@
 }
 .square p{
   font-size: 12px;
-  
 }
 .square .approved{
   background-color: rgba(0, 255, 106, 0.4);
@@ -52,95 +52,30 @@
   z-index: 999;
   margin-top: -10px;
 }
-.square .dot1 {
+.square .dot1, .dot2, .dot3, .dot4, .dot5, .dot6, .dot7, .dot8, .dot9 {
   position: absolute;
-  height: 40px;
-  width: 530px;
-  background-color: #415b44;
   display: inline-block;
-  z-index: 50;
   margin-left: -180px;
   margin-top: -20px;
 }
-.square .dot2 {
-  position: absolute;
-  height: 40px;
-  width: 430px;
-  background-color: #49664d;
-  display: inline-block;
-  z-index: 45;
-  margin-left: -180px;
-  margin-top: -20px;
-}
-.square .dot3 {
-  position: absolute;
-  height: 50px;
-  width: 430px;
-  background-color: #517255;
-  display: inline-block;
-  z-index: 40;
-  margin-left: -180px;
-  margin-top: -20px;
-}
-.square .dot4 {
-  position: absolute;
-  height: 60px;
-  width: 430px;
-  background-color: #5a7d5e;
-  display: inline-block;
-  z-index: 35;
-  margin-left: -180px;
-  margin-top: -20px;
-}
-.square .dot5 {
-  position: absolute;
-  height: 70px;
-  width: 430px;
-  background-color: #628966;
-  display: inline-block;
-  z-index: 30;
-  margin-left: -180px;
-  margin-top: -20px;
-}
-.square .dot6 {
-  position: absolute;
-  height: 80px;
-  width: 430px;
-  background-color: #6a946f;
-  display: inline-block;
-  z-index: 25;
-  margin-left: -180px;
-  margin-top: -20px;
-}
-.square .dot7 {
-  position: absolute;
+.square .dot1 { height: 40px; width: 530px; background-color: #415b44; z-index: 50; }
+.square .dot2 { height: 40px; width: 430px; background-color: #49664d; z-index: 45; }
+.square .dot3 { height: 50px; width: 430px; background-color: #517255; z-index: 40; }
+.square .dot4 { height: 60px; width: 430px; background-color: #5a7d5e; z-index: 35; }
+.square .dot5 { height: 70px; width: 430px; background-color: #628966; z-index: 30; }
+.square .dot6 { height: 80px; width: 430px; background-color: #6a946f; z-index: 25; }
+.square .dot7 { height: 90px; width: 430px; background-color: #759d7a; z-index: 20; }
+.square .dot8 { height: 100px; width: 430px; background-color: #81a585; z-index: 15; }
+.square .dot9 { height: 110px; width: 430px; background-color: #8cad90; z-index: 10; }
+.square-image {
+  width: 100%;
   height: 90px;
-  width: 430px;
-  background-color: #759d7a;
-  display: inline-block;
-  z-index: 20;
-  margin-left: -180px;
-  margin-top: -20px;
-}
-.square .dot8 {
-  position: absolute;
-  height: 100px;
-  width: 430px;
-  background-color: #81a585;
-  display: inline-block;
-  z-index: 15;
-  margin-left: -180px;
-  margin-top: -20px;
-}
-.square .dot9 {
-  position: absolute;
-  height: 110px;
-  width: 430px;
-  background-color: #8cad90;
-  display: inline-block;
-  z-index: 10;
-  margin-left: -180px;
-  margin-top: -20px;
+  background-color: #f3f3f3;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  object-fit: cover;
+  z-index: 999;
+  position: relative;
 }
 .square-image {
   width: 100%;
@@ -177,9 +112,12 @@
 .square-text {
   text-align: left;
 }
-.square-text h2{
+.square-text h2 {
   font-size: small;
-  font-weight: bold;
+  font-weight: bolder;
+  margin: 0;
+  line-height: 1.2;
+  margin-bottom: 15px;
 }
 .square-text p{
   font-size: 10px;
