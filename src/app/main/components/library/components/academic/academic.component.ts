@@ -133,7 +133,9 @@ export class AcademicComponent implements OnInit {
       this.filteredProjects = this.projects;
     } else {
       this.filteredProjects = this.projects.filter(project =>
-        project.title.toLowerCase().includes(this.searchQuery.toLowerCase())
+        project.title.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+        project.keywords.toLowerCase().includes(this.searchQuery.toLowerCase())
+
       );
     }
     this.currentPage = 1;

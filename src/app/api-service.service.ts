@@ -131,6 +131,19 @@ getBorrowedById(id: string): Observable<any[]> {
         })
       );
   }
+
+  getBorrowedsyUserId(userId: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/student/borrow/user/${userId}`, { headers: this.getHeaders() })
+      .pipe(
+        catchError((error: HttpErrorResponse) => {
+          if (error.status === 404) {
+            return throwError('No borrow records found for the user');
+          } else {
+            return throwError('An error occurred while fetching borrow records');
+          }
+        })
+      );
+  }
   
   getUserById(userId: number): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/reservations/${userId}`, { headers: this.getHeaders() });

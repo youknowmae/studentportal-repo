@@ -27,7 +27,7 @@ export class ProfilemodalComponent implements OnInit {
   fetchBorrowedBooks(): void {
     console.log('Fetching borrowed books...');
     const userId = parseInt(this.authService.getLoggedInUserId() || '0');
-    this.apiService.getBorrowedByUserId(userId).subscribe(
+    this.apiService.getBorrowedsyUserId(userId).subscribe(
       (data: any) => {
         console.log('Borrowed books data:', data);
         this.borrowedMaterials = data.borrowedMaterials || [];
