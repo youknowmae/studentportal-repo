@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { ApiService } from '../api-service.service'; // Assuming ApiService is the correct service name
 import { AuthenticationService } from '../authentication-service.service'; // Assuming AuthenticationService is the correct service name
 import { Router } from '@angular/router';
-import { MatDialog } from '@angular/material/dialog';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -29,7 +28,6 @@ export class MainComponent implements OnInit {
     private apiService: ApiService,
     private authService: AuthenticationService,
     private router: Router,
-    private dialogRef: MatDialog 
   ) { }
 
   ngOnInit(): void {
@@ -80,6 +78,7 @@ export class MainComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         // Redirect to login page if logout is confirmed
+        this.authService.logout();
         this.router.navigate(['/login']);
       } else {
         // Stay on the dashboard if logout is not confirmed

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AppRoutingModule } from './app-routing.module';
@@ -10,6 +9,9 @@ import { MainComponent } from './main/main.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSnackBarModule } from '@angular/material/snack-bar'; // Import MatSnackBarModule
+import { AuthInterceptor } from './auth.interceptor';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +29,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'; // Import MatSn
     MatPaginatorModule,
     MatSnackBarModule, // Add MatSnackBarModule here
   ],
-  providers: [],
+  providers: [ { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

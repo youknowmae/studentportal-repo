@@ -13,10 +13,10 @@
   margin-bottom: 20px;
   transform: scale(1);
   transition: all .2s ease-in;
-  height: 260px;
   overflow: hidden;
   position: relative;
   background-color: #fff;
+  height: auto;
 }
 .square:hover{
   transform: scale(1.05);
@@ -208,9 +208,19 @@
   text-decoration: none;
   height: 12%;
 }
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 @media screen and (max-width: 768px) {
+  .row {
+    display: flex;
+    flex-direction: column;
+  }
   .square{
-    width: 280px;
+    width: auto;
   }
   .col-md-4{
     padding: 0;

@@ -9,9 +9,9 @@ import { AuthenticationService } from './authentication-service.service';
 })
 export class ApiService {
   // apiUrl = 'http://26.68.32.39:8000/api';
-  apiUrl = 'http://localhost:8000/api';
+  // apiUrl = 'http://localhost:8000/api';
   
-  // apiUrl = 'http://192.168.18.185:8000/api';
+  apiUrl = 'http://192.168.18.185:8000/api';
   checkReservationStatus: any;
 
 
@@ -200,7 +200,7 @@ getBorrowedById(id: string): Observable<any[]> {
 
   //audio shits
   getAudioVisuals(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/student/audio-visuals`, { headers: this.getHeaders() });
+    return this.http.get<any[]>(`${this.apiUrl}/student/audio-visual`, { headers: this.getHeaders() });
   }
 
   getAudioVisualByAccession(accession: string): Observable<any> {

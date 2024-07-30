@@ -9,9 +9,8 @@ import { BehaviorSubject, Observable, throwError } from 'rxjs';
 })
 export class AuthenticationService {
 
-  // apiUrl = 'http://26.68.32.39:8000/api';
-  apiUrl = 'http://localhost:8000/api';
-  
+  apiUrl = 'http://26.68.32.39:8000/api';
+  // apiUrl = 'http://localhost:8000/api';
   // apiUrl = 'http://192.168.18.185:8000/api';
 
   authToken: string | null = null;
@@ -23,7 +22,22 @@ export class AuthenticationService {
   constructor(
     private http: HttpClient,
     private router: Router,
-  ) {}
+  ) {
+    this.loadStoredUser(); // Initialize authentication state
+  }
+
+  private loadStoredUser(): void {
+    const user = localStorage.getItem('user');
+  
+    if (user) {
+      const parsedUser = JSON.parse(user);
+      this.authToken = parsedUser.token;
+      this.loggedInUserId = parsedUser.id;
+      this.department = parsedUser.department;
+  
+      this.userSubject.next(parsedUser); // Update userSubject with full user details
+    }
+  }
 
   login(credentials: { username: string, password: string }): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/login/student`, credentials)
@@ -35,7 +49,10 @@ export class AuthenticationService {
             this.authToken = response.token;
             this.loggedInUserId = response.id.toString();
             this.department = response.department; // Update department
-
+  
+            // Store the full user data in localStorage
+            localStorage.setItem('user', JSON.stringify(response));
+  
             if (this.authToken) {
               localStorage.setItem('authToken', this.authToken);
             }
@@ -45,7 +62,7 @@ export class AuthenticationService {
             if (this.department) {
               localStorage.setItem('department', this.department); // Save department in localStorage
             }
-          
+  
             this.userSubject.next(response); // Update userSubject with user details
           }
         }),
