@@ -21,7 +21,7 @@ cursor: pointer;
 font-size: 25px;
 }
 .container span:hover{
-color: #31A463;
+color: #013718;
 }
 .content{
   display: flex;
@@ -32,7 +32,7 @@ color: #31A463;
   margin-right: 30px;
   border: 1px solid #ccc;
   background-color: #f3f3f3;
-  object-fit: contain;
+  object-fit: cover;
 }
 .image img {
   background-color: #f3f3f3;

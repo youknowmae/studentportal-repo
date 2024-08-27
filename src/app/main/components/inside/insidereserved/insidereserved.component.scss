@@ -40,11 +40,16 @@
     overflow-y: auto;
     word-wrap: break-word;
     margin-bottom: 60px;
+    text-align: justify;
 }
 .info p{
     font-size: 12px;
     font-weight: bold;
     margin-bottom: 10px;
+}
+.info span{
+    color: rgb(227, 227, 62);
+    font-size: 12px;
 }
 .info::-webkit-scrollbar {
   width: 0;

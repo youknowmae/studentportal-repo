@@ -13,7 +13,7 @@
 
     <div class="info">
       <h2>{{ book.title }}</h2>
-      <p>Status: {{ reservation.status === 2 ? 'Pending' : 'Approved' }}</p>
+      <p>Status: <span class="pend">{{ reservation.status === 2 ? 'Pending' : 'Approved' }}</span></p>
       <p>Call Number: {{ book.call_number }}</p>
       <p>Authors: {{ book.authors }}</p>
       <p>Volume: {{ book.volume }}</p>

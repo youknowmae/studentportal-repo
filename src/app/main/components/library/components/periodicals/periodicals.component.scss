@@ -26,6 +26,7 @@
   border-bottom-left-radius: 5px;
   margin-right: 15px;
   background-color: #f3f3f3;
+  object-fit: cover;
 }
 .square-content {
   display: flex;
@@ -33,6 +34,7 @@
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
+  padding-right: 10px;
 }
 .square-text {
   margin-top: 20px;
@@ -61,6 +63,9 @@
 .square-text h2{
   font-size: small;
   font-weight: bold;
+  margin: 0;
+  line-height: 1.2;
+  margin-bottom: 10px; 
 }
 .square-text p{
   font-size: 10px;
