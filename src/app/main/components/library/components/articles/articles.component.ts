@@ -10,7 +10,7 @@ export class ArticlesComponent implements OnInit {
   articles: any[] = [];
   paginatedArticles: any[] = [];
   currentPage: number = 1;
-  articlesPerPage: number = 4;
+  articlesPerPage: number = 9;
   selectedMaterialType: string = '';
   selectedMaterialTypeLabel: string = 'Select Material Type'; // Default label
   loading: boolean = false;

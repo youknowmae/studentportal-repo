@@ -2,6 +2,127 @@
 * {
   font-family: 'Montserrat';
 }
+.square {
+  display: flex;
+  border: 1px solid #ccc;
+  text-align: center;
+  border: solid 2px var(--border-color);
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  transform: scale(1);
+  transition: all .2s ease-in;
+  width: 350px;
+  height: 145px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  padding: 20px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+.square:hover{
+  transform: scale(1.05);
+  transition: all .2s ease-in;
+}
+.square .dot1, .dot2, .dot3, .dot4, .dot5, .dot6, .dot7, .dot8, .dot9 {
+  position: absolute;
+  display: inline-block;
+  margin-left: -180px;
+  margin-top: -20px;
+}
+.square .dot1 { height: 40px; width: 530px; background-color: #415b44; z-index: 50; }
+.square .dot2 { height: 40px; width: 530px; background-color: #49664d; z-index: 45; }
+.square .dot3 { height: 50px; width: 530px; background-color: #517255; z-index: 40; }
+.square .dot4 { height: 60px; width: 530px; background-color: #5a7d5e; z-index: 35; }
+.square .dot5 { height: 70px; width: 530px; background-color: #628966; z-index: 30; }
+.square .dot6 { height: 80px; width: 530px; background-color: #6a946f; z-index: 25; }
+.square .dot7 { height: 90px; width: 530px; background-color: #759d7a; z-index: 20; }
+.square .dot8 { height: 100px; width: 530px; background-color: #81a585; z-index: 15; }
+.square .dot9 { height: 110px; width: 530px; background-color: #8cad90; z-index: 10; }
+.square-image {
+  width: 100%;
+  height: 90px;
+  background-color: #f3f3f3;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  object-fit: cover;
+  z-index: 999;
+  position: relative;
+}
+.square-content {
+  z-index: 100;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 3px;
+  border: solid 2px var(--border-color);
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.square-text {
+  text-align: left;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.square-text::-webkit-scrollbar {
+  width: 0;
+}
+
+.square-text::-webkit-scrollbar-track {
+  background: #fff 
+}
+
+.square-text::-webkit-scrollbar-thumb {
+  background: #fff; 
+  border-radius: 10px;
+}
+
+.square-text::-webkit-scrollbar-thumb:hover {
+  background: #fff; 
+}
+
+.square-text h2{
+  font-size: small;
+  font-weight: bold;
+}
+.square-text p{
+  font-size: 10px;
+}
+.square-text h2, .square-text p {
+  margin: 0;
+  padding: 0;
+}
+.view-button {
+  background-color: #415b44;
+  border: 2px solid;
+  border-radius: 5px;
+  color: #ffffff;
+  padding: 3px 15px;
+  text-transform:none;
+  font-size: small;
+  cursor: pointer;
+  margin: 10px 0 10px 0;
+}
+.view-button:hover {
+  box-shadow: 0px 8px 15px -10px rgb(61, 61, 61);
+  transform: translate(0px, -5px);
+ background: white;
+  color: #415b44;
+  cursor: pointer;
+  text-decoration: none;
+  height: 16%;
+  width: 30%;
+  margin: 0;
+  margin-bottom: 5px;
+  text-align: center;
+  line-height: 100%;
+  padding-right: 45px;
+}
 .rectangle{
   padding: 20px;
   border: solid 2px var(--border-color);

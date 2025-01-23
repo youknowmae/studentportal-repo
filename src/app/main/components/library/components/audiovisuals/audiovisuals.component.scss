@@ -11,7 +11,7 @@
   transform: scale(1);
   transition: all .2s ease-in;
   width: 350px;
-  height: 140px;
+  height: 145px;
   margin-bottom: 20px;
   background-color: #fff;
   padding: 20px;
@@ -23,38 +23,30 @@
   transform: scale(1.05);
   transition: all .2s ease-in;
 }
-.square .dot1 {
+.square .dot1, .dot2, .dot3, .dot4, .dot5, .dot6, .dot7, .dot8, .dot9 {
   position: absolute;
-  height: 150px;
-  width: 150px;
-  background-color: #4f6f52;
   display: inline-block;
-  z-index: 50;
-  margin-left: -80px;
-  margin-top: -80px;
-  border-radius: 50%;
+  margin-left: -180px;
+  margin-top: -20px;
 }
-.square .dot2 {
-  position: absolute;
-  height: 150px;
-  width: 180px;
-  background-color: #376448;
-  display: inline-block;
-  z-index: 45;
-  margin-left: -80px;
-  margin-top: -75px;
-  border-radius: 50%;
-}
-.square .dot3 {
-  position: absolute;
-  height: 150px;
-  width: 210px;
-  background-color: #f5f402;
-  display: inline-block;
-  z-index: 40;
-  margin-left: -80px;
-  margin-top: -70px;
-  border-radius: 50%;
+.square .dot1 { height: 40px; width: 530px; background-color: #415b44; z-index: 50; }
+.square .dot2 { height: 40px; width: 530px; background-color: #49664d; z-index: 45; }
+.square .dot3 { height: 50px; width: 530px; background-color: #517255; z-index: 40; }
+.square .dot4 { height: 60px; width: 530px; background-color: #5a7d5e; z-index: 35; }
+.square .dot5 { height: 70px; width: 530px; background-color: #628966; z-index: 30; }
+.square .dot6 { height: 80px; width: 530px; background-color: #6a946f; z-index: 25; }
+.square .dot7 { height: 90px; width: 530px; background-color: #759d7a; z-index: 20; }
+.square .dot8 { height: 100px; width: 530px; background-color: #81a585; z-index: 15; }
+.square .dot9 { height: 110px; width: 530px; background-color: #8cad90; z-index: 10; }
+.square-image {
+  width: 100%;
+  height: 90px;
+  background-color: #f3f3f3;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  object-fit: cover;
+  z-index: 999;
+  position: relative;
 }
 .square-content {
   z-index: 100;

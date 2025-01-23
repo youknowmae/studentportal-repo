@@ -31,20 +31,29 @@
     </div>
   </div>
 
-  <!-- Articles -->
-  <div class="row" *ngIf="!loading">
-    <div class="rectangle" *ngFor="let article of paginatedArticles" [routerLink]="['../insidearticle', article.accession]">
-      <div class="details">
-        <div class="left">
-          <p><span>Title: </span>{{ article.title }}</p>
+      <!-- Articles -->
+    <div class="row" *ngIf="!loading">
+      <div class="col-md-4" *ngFor="let article of paginatedArticles" [routerLink]="['../insidearticle', article.accession]">
+        <div class="square">
+          <span class="dot1"></span>
+          <span class="dot2"></span>
+          <span class="dot3"></span>
+          <span class="dot4"></span>
+          <span class="dot5"></span>
+          <span class="dot6"></span>
+          <span class="dot7"></span>
+          <span class="dot8"></span>
+          <span class="dot9"></span>
+          <div class="square-content">
+            <div class="square-text">
+              <p>Title: {{ article.title }}</p>
+              <p>Date Published: {{ article.date_published }}</p>
+              <p>Authors: {{ article.authors }}</p>
+            </div>
+          </div>
         </div>
-        <div class="right">
-          <p><span>Date Published: </span> {{ article.date_published }}</p>
-          <p><span>Author: </span>{{ article.authors }}</p>
-        </div>   
       </div>
     </div>
-  </div>
 
   <!-- Pagination -->
   <div class="pagination">

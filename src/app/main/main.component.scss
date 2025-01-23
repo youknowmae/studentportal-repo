@@ -60,7 +60,6 @@ p {
     overflow-y: hidden;
     background-color: #4f6f52;
 }
-
 .nav-link {
     color: #333;
     font-weight: 500;
@@ -85,10 +84,11 @@ p {
     padding-bottom: 15px;
     padding-top: 15px;
     color: #fff;
-    font-size: 12px;
+    font-size: 14px;
     display: flex;
     align-items: center;
     transition: 0.3s ease;
+    font-weight: 700;
 }
 
 .nav-link i {
@@ -177,15 +177,18 @@ p {
 
 .toggle-icon {
     position: absolute;
-    top: 25px;
+    top: 15px;
     right: 10px;
     cursor: pointer;
     color: #fff;
-    font-size: 18px;
+    font-size: 14px;
+    background-color: rgba(0, 0, 0, 0.33);
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .icon-move-left {
-    transform: translateX(-17px);
+    transform: translateX(-8px);
 }
 
 .nav-link2 {

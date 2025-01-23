@@ -21,17 +21,17 @@
         <ul class="nav flex-column">
             <li class="nav-item">
                 <a class="nav-link" [routerLink]="['profile']" routerLinkActive="router-link-active" [ngClass]="{'active': isSidebarHidden}">
-                    <i class="fas fa-user" [ngClass]="{'icon': isSidebarHidden}"></i> <span class="link-text">PROFILE</span>
+                    <i class="fas fa-user" [ngClass]="{'icon': isSidebarHidden}"></i> <span class="link-text">Profile</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" [routerLink]="['library']" routerLinkActive="router-link-active" [ngClass]="{'active': isSidebarHidden}">
-                    <i class="fas fa-book" [ngClass]="{'icon': isSidebarHidden}"></i> <span class="link-text">LIBRARY</span>
+                    <i class="fas fa-book" [ngClass]="{'icon': isSidebarHidden}"></i> <span class="link-text">Library</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link nav-link2" [routerLink]="['announcement']" routerLinkActive="router-link-active" [ngClass]="{'active': isSidebarHidden}">
-                    <i class="fas fa-bullhorn" [ngClass]="{'icon': isSidebarHidden}"></i> <span class="link-text">ANNOUNCEMENTS</span>
+                    <i class="fas fa-bullhorn" [ngClass]="{'icon': isSidebarHidden}"></i> <span class="link-text">Announcements</span>
                 </a>
             </li>
             <li class="nav-item1">
@@ -40,7 +40,9 @@
                 </a>
             </li>
         </ul>
-        <i class="fas fa-bars toggle-icon" (click)="toggleSidebar()" [ngClass]="{'icon-move-left': isSidebarHidden}"></i>
+        <div class="menu-icon">
+            <i class="fas fa-bars toggle-icon" (click)="toggleSidebar()" [ngClass]="{'icon-move-left': isSidebarHidden}"></i>
+        </div>
     </div>
 </div>
 
