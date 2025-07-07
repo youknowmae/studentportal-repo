@@ -11,14 +11,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSnackBarModule } from '@angular/material/snack-bar'; // Import MatSnackBarModule
 import { AuthInterceptor } from './auth.interceptor';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
+import { ResponseInterceptor } from './response.interceptor';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    MainComponent,
-  ],
+  declarations: [AppComponent, LoginComponent, MainComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -29,7 +25,10 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     MatPaginatorModule,
     MatSnackBarModule, // Add MatSnackBarModule here
   ],
-  providers: [ { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },],
-  bootstrap: [AppComponent]
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ResponseInterceptor, multi: true },
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

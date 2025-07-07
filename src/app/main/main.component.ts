@@ -8,10 +8,10 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss']
+  styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit {
-  apiUrl: string = "http://localhost:8000/api";
+  apiUrl: string = 'http://localhost:8000/api';
   currentDate: Date = new Date(); // Initial current date and time
   articles: any[] = [];
   books: any[] = [];
@@ -27,13 +27,14 @@ export class MainComponent implements OnInit {
   constructor(
     private apiService: ApiService,
     private authService: AuthenticationService,
-    private router: Router,
-  ) { }
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.fetchData();
     this.authService.user$.subscribe((user: any) => {
       this.user = user;
+      console.log(this.user);
     });
 
     // Update current date and time every minute
@@ -43,16 +44,16 @@ export class MainComponent implements OnInit {
   }
 
   fetchData(): void {
-    this.apiService.getArticles().subscribe(data => {
+    this.apiService.getArticles().subscribe((data) => {
       this.articles = data;
     });
-    this.apiService.getBooks().subscribe(data => {
+    this.apiService.getBooks().subscribe((data) => {
       this.books = data;
     });
-    this.apiService.getPeriodicals().subscribe(data => {
+    this.apiService.getPeriodicals().subscribe((data) => {
       this.periodicals = data;
     });
-    this.apiService.getProjects().subscribe(data => {
+    this.apiService.getProjects().subscribe((data) => {
       this.projects = data;
     });
   }
@@ -74,7 +75,7 @@ export class MainComponent implements OnInit {
       showCancelButton: true,
       confirmButtonColor: '#d33',
       cancelButtonColor: '#31A463',
-      confirmButtonText: 'Yes'
+      confirmButtonText: 'Yes',
     }).then((result) => {
       if (result.isConfirmed) {
         // Redirect to login page if logout is confirmed

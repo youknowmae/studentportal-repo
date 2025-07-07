@@ -5,13 +5,12 @@ import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthenticationService {
-
   apiUrl = 'http://26.68.32.39:8000/api';
   // apiUrl = 'http://localhost:8000/api';
-  
+
   // apiUrl = 'http://192.168.161.174:8000/api';
 
   authToken: string | null = null;
@@ -20,40 +19,37 @@ export class AuthenticationService {
   private userSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null); // Add this line
   public user$ = this.userSubject.asObservable(); // Add this line
 
-  constructor(
-    private http: HttpClient,
-    private router: Router,
-  ) {
+  constructor(private http: HttpClient, private router: Router) {
     this.loadStoredUser(); // Initialize authentication state
   }
 
   private loadStoredUser(): void {
     const user = localStorage.getItem('user');
-  
+    console.log(user);
+
     if (user) {
       const parsedUser = JSON.parse(user);
       this.authToken = parsedUser.token;
       this.loggedInUserId = parsedUser.id;
       this.department = parsedUser.department;
-  
+
       this.userSubject.next(parsedUser); // Update userSubject with full user details
     }
   }
 
-  login(credentials: { username: string, password: string }): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/login/student`, credentials)
+  login(credentials: { username: string; password: string }): Observable<any> {
+    return this.http
+      .post<any>(`${this.apiUrl}/login/student`, credentials)
       .pipe(
-        tap(response => {
-          console.log('API Response:', response);
-  
+        tap((response) => {
           if (response && response.token) {
             this.authToken = response.token;
             this.loggedInUserId = response.id.toString();
             this.department = response.department; // Update department
-  
+
             // Store the full user data in localStorage
             localStorage.setItem('user', JSON.stringify(response));
-  
+
             if (this.authToken) {
               localStorage.setItem('authToken', this.authToken);
             }
@@ -63,11 +59,11 @@ export class AuthenticationService {
             if (this.department) {
               localStorage.setItem('department', this.department); // Save department in localStorage
             }
-  
+
             this.userSubject.next(response); // Update userSubject with user details
           }
         }),
-        catchError(error => {
+        catchError((error) => {
           // Handle errors here (e.g., display error messages)
           console.error('Login error:', error);
           return throwError(error); // Rethrow the error for the component to handle

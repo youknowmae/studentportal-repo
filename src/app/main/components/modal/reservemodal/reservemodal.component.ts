@@ -6,11 +6,12 @@ import Swal from 'sweetalert2';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatDialog } from '@angular/material/dialog';
 import { TermsmodalComponent } from '../termsmodal/termsmodal.component';
+import { UserService } from '../../../../user.service';
 
 @Component({
   selector: 'app-reservemodal',
   templateUrl: './reservemodal.component.html',
-  styleUrls: ['./reservemodal.component.scss']
+  styleUrls: ['./reservemodal.component.scss'],
 })
 export class ReservemodalComponent implements OnInit {
   reservationForm: FormGroup;
@@ -26,6 +27,7 @@ export class ReservemodalComponent implements OnInit {
     private apiService: ApiService,
     private authService: AuthenticationService,
     private dialog: MatDialog,
+    private us: UserService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.selectedAccession = data.accession;
@@ -35,11 +37,14 @@ export class ReservemodalComponent implements OnInit {
       department: ['', Validators.required],
       title: ['', Validators.required],
       authors: ['', Validators.required],
-      fine: [{ value: '', disabled: true }, [Validators.required, Validators.min(0)]], // Disable initial input
+      fine: [
+        { value: '', disabled: true },
+        [Validators.required, Validators.min(0)],
+      ], // Disable initial input
       reserve_date: ['', Validators.required],
       status: [2, Validators.required],
       type: [0, Validators.required],
-      termsAccepted: [false, Validators.requiredTrue] // Ensure terms are accepted
+      termsAccepted: [false, Validators.requiredTrue], // Ensure terms are accepted
     });
   }
 
@@ -52,7 +57,7 @@ export class ReservemodalComponent implements OnInit {
   }
 
   fetchUserData(): void {
-    this.authService.user$.subscribe(user => {
+    this.authService.user$.subscribe((user) => {
       if (user) {
         const userInfo = {
           fullName: `${user.first_name} ${user.last_name}`,
@@ -73,38 +78,46 @@ export class ReservemodalComponent implements OnInit {
       return;
     }
 
-    this.apiService.getBookById(accession, { 'Authorization': `Bearer ${authToken}` }).subscribe(data => {
-      if (data) {
-        const selectedBook = {
-          title: data.title,
-          authors: data.authors,
-          price: data.price,
-        };
-        this.fillBookInfo(selectedBook);
-      } else {
-        console.error('No book data found');
-      }
-    }, error => {
-      if (error.status === 401) {
-        console.error('Unauthorized error. Please log in again.');
-      } else {
-        console.error('Error fetching book data', error);
-      }
-    });
+    this.apiService
+      .getBookById(accession, { Authorization: `Bearer ${authToken}` })
+      .subscribe(
+        (data) => {
+          if (data) {
+            const selectedBook = {
+              title: data.title,
+              authors: data.authors,
+              price: data.price,
+            };
+            this.fillBookInfo(selectedBook);
+          } else {
+            console.error('No book data found');
+          }
+        },
+        (error) => {
+          if (error.status === 401) {
+            console.error('Unauthorized error. Please log in again.');
+          } else {
+            console.error('Error fetching book data', error);
+          }
+        }
+      );
   }
 
   fetchFineAmount(): void {
     // Fetch fine amount for patron_id 1 (online)
-    this.apiService.getPatronById(1).subscribe(patron => {
-      if (patron) {
-        this.fineAmount = patron.fine || 0; // Use the fine amount from the patron data
-        this.reservationForm.patchValue({ fine: this.fineAmount });
-      } else {
-        console.error('Patron data not found');
+    this.apiService.getPatronById(1).subscribe(
+      (patron) => {
+        if (patron) {
+          this.fineAmount = patron.fine || 0; // Use the fine amount from the patron data
+          this.reservationForm.patchValue({ fine: this.fineAmount });
+        } else {
+          console.error('Patron data not found');
+        }
+      },
+      (error) => {
+        console.error('Error fetching patron data', error);
       }
-    }, error => {
-      console.error('Error fetching patron data', error);
-    });
+    );
   }
 
   fillUserInfo(userInfo: any): void {
@@ -131,37 +144,39 @@ export class ReservemodalComponent implements OnInit {
         reserve_date: reservationData.reserve_date,
         fine: this.fineAmount, // Use the dynamically fetched fine amount
         status: reservationData.status,
-        type: reservationData.type
+        type: reservationData.type,
       };
 
-      this.apiService.createReservation(requestData).subscribe(
-        response => {
-          Swal.fire({
-            icon: 'success',
-            title: 'Success',
-            text: 'Reservation created successfully',
-          }).then(() => {
-            this.dialogRef.close(); // Close the modal after success message
-          });
-          this.reservationForm.reset();
-        },
-        error => {
-          let errorMessage = 'Failed to create reservation';
-          
-          if (error.error && error.error.error) {
-            errorMessage = error.error.error; // Use the error message from the backend
-          } else if (error.message) {
-            errorMessage = error.message; // Fallback to the error message from HttpErrorResponse
+      this.apiService
+        .createReservation({ ml: this.us.encryptPayload(requestData) })
+        .subscribe(
+          (response) => {
+            Swal.fire({
+              icon: 'success',
+              title: 'Success',
+              text: 'Reservation created successfully',
+            }).then(() => {
+              this.dialogRef.close(); // Close the modal after success message
+            });
+            this.reservationForm.reset();
+          },
+          (error) => {
+            let errorMessage = 'Failed to create reservation';
+
+            if (error.error && error.error.error) {
+              errorMessage = error.error.error; // Use the error message from the backend
+            } else if (error.message) {
+              errorMessage = error.message; // Fallback to the error message from HttpErrorResponse
+            }
+
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: errorMessage,
+            });
+            console.error('Error creating reservation:', error);
           }
-          
-          Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: errorMessage,
-          });
-          console.error('Error creating reservation:', error);
-        }
-      );
+        );
     } else {
       this.logFormState();
       console.error('Form is invalid or no book selected');
@@ -175,10 +190,12 @@ export class ReservemodalComponent implements OnInit {
   }
 
   logFormState(): void {
-    Object.keys(this.reservationForm.controls).forEach(key => {
+    Object.keys(this.reservationForm.controls).forEach((key) => {
       const controlErrors = this.reservationForm.get(key)?.errors;
       if (controlErrors != null) {
-        console.log('Key control: ' + key + ', errors: ' + JSON.stringify(controlErrors));
+        console.log(
+          'Key control: ' + key + ', errors: ' + JSON.stringify(controlErrors)
+        );
       }
     });
   }
