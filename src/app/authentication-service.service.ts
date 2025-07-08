@@ -55,17 +55,6 @@ export class AuthenticationService {
 
             // Store the full user data in localStorage
             sessionStorage.setItem('xs', this.us.encryptPayload(response));
-            console.log(response);
-
-            if (this.authToken) {
-              localStorage.setItem('authToken', this.authToken);
-            }
-            if (this.loggedInUserId) {
-              localStorage.setItem('loggedInUserId', this.loggedInUserId);
-            }
-            if (this.department) {
-              localStorage.setItem('department', this.department); // Save department in localStorage
-            }
 
             this.userSubject.next(response); // Update userSubject with user details
           }
