@@ -8,6 +8,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { AuthenticationService } from './authentication-service.service';
 import { appSettings } from './app.settings';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +19,8 @@ export class ApiService {
 
   constructor(
     private http: HttpClient,
-    private authService: AuthenticationService
+    private authService: AuthenticationService,
+    private us: UserService
   ) {}
 
   private getHeaders(): HttpHeaders {
@@ -233,7 +235,7 @@ export class ApiService {
   }
 
   getDepartment(): string | null {
-    return localStorage.getItem('department');
+    return this.us.savedAuth.department; // Retrieve department from savedAuth
   }
 
   searchBooks(query: string): Observable<any[]> {
