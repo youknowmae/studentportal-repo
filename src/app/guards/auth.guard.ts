@@ -1,29 +1,45 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, CanActivateChildFn, CanActivateFn, Router, RouterStateSnapshot } from '@angular/router';
+import {
+  ActivatedRouteSnapshot,
+  CanActivate,
+  CanActivateChild,
+  CanActivateChildFn,
+  CanActivateFn,
+  Router,
+  RouterStateSnapshot,
+} from '@angular/router';
+import { AuthenticationService } from '../authentication-service.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate, CanActivateChild {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private as: AuthenticationService) {}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean {
-    return true  //la pang gamit to
-  }
+    const hasToken: boolean = !!this.as.getToken();
 
-  canActivateChild(
-    childRoute: ActivatedRouteSnapshot, 
-    state: RouterStateSnapshot
-  ): boolean {
-    var userLogState = sessionStorage.getItem('userLogState')
-
-    if (userLogState === 'true') {
-      return true
+    if (hasToken) {
+      return true;
     }
 
     this.router.navigate(['/login']);
-    return false
+    return false;
+  }
+
+  canActivateChild(
+    childRoute: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): boolean {
+    const hasToken: boolean = !!this.as.getToken();
+
+    if (hasToken) {
+      return true;
+    }
+
+    this.router.navigate(['/login']);
+    return false;
   }
 }

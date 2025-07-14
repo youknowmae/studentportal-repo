@@ -31,6 +31,16 @@ export class ApiService {
     });
   }
 
+  logout(): Observable<any> {
+    return this.http.post<any[]>(
+      `${this.apiUrl}/logout`,
+      {},
+      {
+        headers: this.getHeaders(),
+      }
+    );
+  }
+
   getAnnouncements(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/student/announcements`, {
       headers: this.getHeaders(),
@@ -294,7 +304,7 @@ export class ApiService {
 
   cancelReservation(id: string): Observable<any> {
     const userId = this.authService.getLoggedInUserId(); // Get user ID from authentication service
-    return this.http.patch<any>(
+    return this.http.post<any>(
       `${this.apiUrl}/student/reservations/cancel/${id}`,
       { user_id: userId },
       { headers: this.getHeaders() }

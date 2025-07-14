@@ -78,9 +78,11 @@ export class MainComponent implements OnInit {
       confirmButtonText: 'Yes',
     }).then((result) => {
       if (result.isConfirmed) {
-        // Redirect to login page if logout is confirmed
-        this.authService.logout();
-        this.router.navigate(['/login']);
+        this.apiService.logout().subscribe({
+          next: (res: any) => {
+            this.authService.logout();
+          },
+        });
       } else {
         // Stay on the dashboard if logout is not confirmed
         console.log('User canceled logout');
