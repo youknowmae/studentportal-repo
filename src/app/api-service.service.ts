@@ -7,7 +7,7 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { AuthenticationService } from './authentication-service.service';
-import { appSettings } from './app.settings';
+import { appSettings } from '../environments/environment';
 import { UserService } from './user.service';
 
 @Injectable({

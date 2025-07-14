@@ -12,6 +12,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'; // Import MatSn
 import { AuthInterceptor } from './auth.interceptor';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ResponseInterceptor } from './response.interceptor';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, MainComponent],
@@ -28,6 +29,7 @@ import { ResponseInterceptor } from './response.interceptor';
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ResponseInterceptor, multi: true },
+    { provide: LocationStrategy, useClass: HashLocationStrategy, },
   ],
   bootstrap: [AppComponent],
 })

@@ -4,12 +4,13 @@ import { tap, catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { UserService } from './user.service';
+import { appSettings } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthenticationService {
-  apiUrl = 'http://26.68.32.39:8000/api';
+  apiUrl = appSettings.apiUrlBase
   // apiUrl = 'http://localhost:8000/api';
 
   // apiUrl = 'http://192.168.161.174:8000/api';
