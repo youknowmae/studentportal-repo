@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-insidereserved',
   templateUrl: './insidereserved.component.html',
-  styleUrls: ['./insidereserved.component.scss']
+  styleUrls: ['./insidereserved.component.scss'],
 })
 export class InsidereservedComponent implements OnInit {
   reservation: any = {};
@@ -21,7 +21,8 @@ export class InsidereservedComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
+    console.log('hello');
+    this.route.paramMap.subscribe((params) => {
       const id = params.get('id');
       console.log('Fetched id from route:', id); // Log the id from the route
       if (id) {
@@ -61,20 +62,23 @@ export class InsidereservedComponent implements OnInit {
       console.error('Reservation ID not available');
       return;
     }
-  
+
     Swal.fire({
       title: 'Are you sure?',
-      text: "Do you want to cancel this reservation?",
+      text: 'Do you want to cancel this reservation?',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, cancel it!'
+      confirmButtonText: 'Yes, cancel it!',
     }).then((result) => {
       if (result.isConfirmed) {
         this.apiService.cancelReservation(reservationId).subscribe(
           (response) => {
-            if (response && response.message === 'Reservation canceled successfully') {
+            if (
+              response &&
+              response.message === 'Reservation canceled successfully'
+            ) {
               Swal.fire(
                 'Canceled!',
                 'Your reservation has been canceled.',
@@ -99,12 +103,8 @@ export class InsidereservedComponent implements OnInit {
             } else if (error.message) {
               errorMessage = error.message; // Fallback to HttpErrorResponse message
             }
-  
-            Swal.fire(
-              'Error!',
-              errorMessage,
-              'error'
-            );
+
+            Swal.fire('Error!', errorMessage, 'error');
             console.error('Error canceling reservation:', error);
           }
         );

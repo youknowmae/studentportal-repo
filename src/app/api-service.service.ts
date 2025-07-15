@@ -333,6 +333,8 @@ export class ApiService {
   }
 
   getPatronById(patronId: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/patrons/${patronId}`);
+    return this.http.get<any>(`${this.apiUrl}/student/patrons/${patronId}`, {
+      headers: this.getHeaders(),
+    });
   }
 }
