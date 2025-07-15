@@ -4,6 +4,7 @@ import { ApiService } from '../api-service.service'; // Assuming ApiService is t
 import { AuthenticationService } from '../authentication-service.service'; // Assuming AuthenticationService is the correct service name
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-main',
@@ -27,7 +28,8 @@ export class MainComponent implements OnInit {
   constructor(
     private apiService: ApiService,
     private authService: AuthenticationService,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -81,6 +83,11 @@ export class MainComponent implements OnInit {
         this.apiService.logout().subscribe({
           next: (res: any) => {
             this.authService.logout();
+            this.snackBar.open('Successfully logged out', 'Close', {
+              duration: 1500,
+              verticalPosition: 'bottom',
+              horizontalPosition: 'center',
+            });
           },
         });
       } else {

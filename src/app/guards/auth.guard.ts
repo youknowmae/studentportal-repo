@@ -19,9 +19,9 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean {
-    const hasToken: boolean = !!this.as.getToken();
+    const token = this.as.getToken();
 
-    if (hasToken) {
+    if (token) {
       return true;
     }
 

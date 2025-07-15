@@ -10,7 +10,7 @@ import { appSettings } from '../environments/environment';
   providedIn: 'root',
 })
 export class AuthenticationService {
-  apiUrl = appSettings.apiUrlBase
+  apiUrl = appSettings.apiUrlBase;
   // apiUrl = 'http://localhost:8000/api';
 
   // apiUrl = 'http://192.168.161.174:8000/api';
@@ -78,7 +78,9 @@ export class AuthenticationService {
   }
 
   getToken(): string | null {
-    return this.us.savedAuth.token;
+    if (this.us.savedAuth) {
+      return this.us.savedAuth.token; // Retrieve token from savedAuth
+    } else return null;
   }
 
   getLoggedInUserId(): string | null {
